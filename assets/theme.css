@@ -1,0 +1,633 @@
+@custom-variant dark (&:is(.dark *));
+
+/* ═══════════════════════════════════════════════════════════════════
+   DESIGN SYSTEM — Dark-first, creative tool  Cinema Sunset palette.
+   85% neutros (negros #080808–#2D2D2D y blanco roto #F2F0EC)
+   10% brand (sunset #E8814A + sepia #8A7A6B)
+    5% acentos (amber #E8B547, semantic, secciones)
+   Phase 1: token foundation only. Components migrate incrementally.
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ─── Surfaces (elevation scale, luminance-based) ────────────────── */
+  --surface-0: #080808;   /* app canvas / root bg */
+  --surface-1: #0F0F0F;   /* panels, sidebar */
+  --surface-2: #141414;   /* cards, default elevated */
+  --surface-3: #1A1A1A;   /* popover, modal, hover-raised */
+  --surface-4: #232323;   /* hover state on elevated surfaces */
+  --surface-5: #2D2D2D;   /* pressed / selected states */
+
+  /* ─── Borders (separation via luminance, never color) ────────────── */
+  --border-subtle:  rgba(255, 255, 255, 0.04);
+  --border-default: rgba(255, 255, 255, 0.08);
+  --border-strong:  rgba(255, 255, 255, 0.14);
+  --border-focus:   rgba(232, 129, 74, 0.55);
+
+  /* ─── Text ───────────────────────────────────────────────────────── */
+  /* Luminance bumped (mayo 2026, pass 2) para que metadata/hints de modales
+     (planos, equipo, shot composer) sean cómodos de leer. Tinte cálido sepia
+     intacto. Contraste sobre #141414: tertiary ~9.5:1, disabled ~4.2:1 (AA). */
+  --text-primary:   #F5F3EF;
+  --text-secondary: #E8E4DC;
+  --text-tertiary:  #C5BFB2;
+  --text-disabled:  #847D71;
+  --text-inverse:   #080808;  /* on light/brand surfaces */
+
+  /* ─── Texto sobre superficies CLARAS (modo ficha del editor) ──────
+     Paleta paralela: en modo ficha el MusicEditor pinta sobre #f7f7f5/#fff
+     y los grises claros (#bbb, #ccc) eran casi invisibles. Estos grises
+     están alineados con Tailwind neutral 700/600/500/400 y todos pasan AA
+     (contraste ≥ 4.5:1) sobre #ffffff salvo `-disabled` (visible, 2.9:1). */
+  --text-on-light-primary:   #1a1a1a;
+  --text-on-light-secondary: #525252;
+  --text-on-light-tertiary:  #737373;
+  --text-on-light-disabled:  #a3a3a3;
+
+  /* ─── Brand ──────────────────────────────────────────────────────── */
+  --brand-sunset:         #E8814A;   /* acento principal */
+  --brand-sunset-hover:   #F0945F;
+  --brand-sunset-pressed: #D06E38;
+  --brand-sunset-subtle:  rgba(232, 129, 74, 0.14);
+  --brand-sunset-muted:   rgba(232, 129, 74, 0.06);
+
+  --brand-sepia:          #8A7A6B;   /* secundario, metadata cálida */
+  --brand-sepia-hover:    #9D8C7B;
+  --brand-sepia-subtle:   rgba(138, 122, 107, 0.14);
+  --brand-sepia-muted:    rgba(138, 122, 107, 0.06);
+
+  --brand-amber:         #E8B547;   /* recalibrado, pareja con sunset */
+  --brand-amber-hover:   #F0C25C;
+  --brand-amber-subtle:  rgba(232, 181, 71, 0.14);
+  --brand-amber-muted:   rgba(232, 181, 71, 0.06);
+
+  /* ─── Aliases legacy — compatibilidad mientras los componentes migran */
+  --brand-blue:           var(--brand-sunset);
+  --brand-blue-hover:     var(--brand-sunset-hover);
+  --brand-blue-pressed:   var(--brand-sunset-pressed);
+  --brand-blue-subtle:    var(--brand-sunset-subtle);
+  --brand-blue-muted:     var(--brand-sunset-muted);
+
+  --brand-purple:         var(--brand-sepia);
+  --brand-purple-hover:   var(--brand-sepia-hover);
+  --brand-purple-pressed: #6B5C4D;
+  --brand-purple-subtle:  var(--brand-sepia-subtle);
+  --brand-purple-muted:   var(--brand-sepia-muted);
+
+  /* ─── Semantic ──────────────────────────────────────────────────── */
+  --success:        #6BB87F;
+  --success-subtle: rgba(107, 184, 127, 0.14);
+  --danger:         #D95D4F;
+  --danger-subtle:  rgba(217, 93, 79, 0.14);
+  --warning:        var(--brand-amber);
+  --info:           var(--brand-sunset);
+
+  /* ─── Solar light palette (05b · F2 — luz del día por franja) ───────
+     Solo para la feature de hora solar: gradiente del día, chips y punto
+     de franja. No usar como acentos generales. El template del PDF lleva
+     un mirror literal de estos valores (documento autocontenido). */
+  --solar-noche:  #101426;   /* noche cerrada */
+  --solar-blue:   #3A5AA8;   /* blue hour */
+  --solar-golden: #E2703A;   /* golden hour — gama Cinema Sunset */
+  --solar-dia:    #F2C14E;   /* pleno día */
+
+  /* ─── Curva emocional: temperatura de la intensidad (05c · F3) ──────
+     Decisión de Alberto (2026-08-06): la gráfica lee "caliente = clímax"
+     arriba y "frío = tranquilo" abajo. Azul elegido en el mismo registro
+     desaturado que --solar-blue para no meter un primario ajeno a Cinema
+     Sunset; el paso intermedio es tierra para evitar el morado sucio que
+     saldría al interpolar naranja→azul directamente.
+
+     Cinco tonos (ampliado 2026-08-06): con solo tres, el degradado no
+     marcaba suficientes cambios. Ahora hay dos naranjas y dos azules más
+     un paso tierra, y cada uno ocupa una banda plana de altura — se leen
+     como escalones de intensidad, no como una mezcla continua. */
+  --curve-climax: #E0603A;   /* naranja rojizo — pico */
+  --curve-warm:   #E8964E;   /* naranja cálido */
+  --curve-mid:    #A8845C;   /* tierra, bisagra */
+  --curve-cool:   #5D7FA8;   /* azul medio */
+  --curve-calm:   #3E5C8C;   /* azul profundo — valle */
+
+  /* ─── Section palette (6 matices cálidos análogos, granate→tabaco) ── */
+  --section-1: #9B3D2E;   /* granate — Hook */
+  --section-2: #B85843;   /* terracota — Intro */
+  --section-3: #C97A4A;   /* ocre cálido — Desarrollo */
+  --section-4: #A88547;   /* mostaza apagada — Clímax */
+  --section-5: #7A6033;   /* oliva oscura — Cierre */
+  --section-6: #6B4A3D;   /* tabaco — CTA */
+
+  /* ─── Typography ─────────────────────────────────────────────────── */
+  --font-display: 'Satoshi', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-ui:      'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', 'SF Mono', 'Menlo', monospace;
+
+  /* Canvas (Mood Bar) typography pair — display estilosa + clásica.
+     Fraunces sustituye a "The Seasons" mientras no haya licencia comercial:
+     mismo carácter cinematográfico, axes variable, gratis vía Google Fonts. */
+  --font-focus-display: 'Fraunces', 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-focus-classic: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+  --font-weight-black:    900;
+
+  /* Type scale — 8pt vertical rhythm, no fonts below 13px */
+  --text-xs:    13px;   --text-xs-lh:    18px;   /* metadata, small timecodes */
+  --text-sm:    15px;   --text-sm-lh:    22px;   /* labels, body secondary */
+  --text-base:  16px;   --text-base-lh:  24px;   /* body default, button */
+  --text-md:    18px;   --text-md-lh:    26px;   /* card titles */
+  --text-lg:    22px;   --text-lg-lh:    30px;   /* H3 */
+  --text-xl:    30px;   --text-xl-lh:    38px;   /* H2, display numerics */
+  --text-2xl:   42px;   --text-2xl-lh:   50px;   /* H1 hero */
+  --text-3xl:   58px;   --text-3xl-lh:   66px;   /* display hero */
+
+  /* Tracking presets */
+  --tracking-tight:  -0.02em;   /* display ≥ 20px */
+  --tracking-normal: 0;
+  --tracking-wide:   0.02em;    /* caps labels */
+
+  /* ─── Spacing (8pt grid) ─────────────────────────────────────────── */
+  --space-0:  0;
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-7:  32px;
+  --space-8:  40px;
+  --space-9:  48px;
+  --space-10: 64px;
+  --space-11: 80px;
+  --space-12: 96px;
+
+  /* ─── Radii ──────────────────────────────────────────────────────── */
+  --radius-xs:   4px;    /* pills, badges, small chips */
+  --radius-sm:   6px;    /* inputs, small buttons */
+  --radius-md:   10px;   /* cards, primary buttons */
+  --radius-lg:   14px;   /* panels, section cards */
+  --radius-xl:   20px;   /* modals, dialogs */
+  --radius-full: 9999px; /* circular */
+
+  /* Legacy alias (Tailwind --radius base) */
+  --radius: var(--radius-md);
+
+  /* ─── Elevation (subtle, depth via inset highlight + drop shadow) ── */
+  --elev-0: none;
+  --elev-1:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 1px 2px rgba(0, 0, 0, 0.3);
+  --elev-2:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 4px 12px rgba(0, 0, 0, 0.4);
+  --elev-3:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 12px 32px rgba(0, 0, 0, 0.55);
+  --elev-4:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 24px 64px rgba(0, 0, 0, 0.65);
+
+  /* Focus ring — always brand-sunset, always the same */
+  --focus-ring:
+    0 0 0 2px rgba(232, 129, 74, 0.45),
+    0 0 0 4px rgba(232, 129, 74, 0.12);
+
+  /* Glow — playback / musical feedback, sunset */
+  --glow-playing-sm: 0 0 8px  rgba(232, 129, 74, 0.35);
+  --glow-playing-md: 0 0 16px rgba(232, 129, 74, 0.45);
+  --glow-playing-lg: 0 0 32px rgba(232, 129, 74, 0.55);
+
+  /* Glow — selection / CTA, amber */
+  --glow-action-sm: 0 0 6px  rgba(232, 181, 71, 0.30);
+  --glow-action-md: 0 0 12px rgba(232, 181, 71, 0.40);
+
+  /* ─── Motion ─────────────────────────────────────────────────────── */
+  --ease-out:     cubic-bezier(0.22, 1, 0.36, 1);      /* entries, reveals */
+  --ease-in:      cubic-bezier(0.64, 0, 0.78, 0);      /* exits */
+  --ease-in-out:  cubic-bezier(0.65, 0, 0.35, 1);      /* transitions */
+  --ease-spring:  cubic-bezier(0.34, 1.56, 0.64, 1);   /* tactile feedback */
+  --ease-linear:  cubic-bezier(0, 0, 1, 1);
+
+  --dur-instant: 80ms;    /* hover color change */
+  --dur-fast:    160ms;   /* state transitions, button press */
+  --dur-base:    240ms;   /* panel transitions, modal entry */
+  --dur-slow:    400ms;   /* dramatic entries, focus-mode switches */
+  --dur-slower:  600ms;   /* hero transitions */
+
+  /* ─── Layout ─────────────────────────────────────────────────────── */
+  --layout-topbar-height:   52px;
+  --layout-sidebar-width:   56px;
+  --layout-sidebar-expanded: 240px;
+  --layout-transport-height: 60px;
+  --layout-content-max:      1440px;
+
+  /* ─── Mood Bar (Roadmap §2.3, Fase 2) ────────────────────────────── */
+  /* Panel lateral derecho persistente con el canvas global del proyecto.
+     Dos estados de tamaño: colapsado (strip de miniaturas) y expandido
+     (canvas libre). Sin estado a 100% en MVP.
+     `width-collapsed`: 180px → 270px → 405px → 304px (ajuste fino tras
+     ver el panel a 405 — daba demasiado peso vs el editor central). */
+  --moodbar-width-collapsed: 350px;
+  --moodbar-width-expanded:  50%;
+  --moodbar-bg:              var(--surface-1);
+  --moodbar-border:          var(--border-default);
+  --moodbar-shadow:
+    inset 1px 0 0 rgba(255, 255, 255, 0.04),
+    -8px 0 24px rgba(0, 0, 0, 0.3);
+
+  /* ─── Base root size ─────────────────────────────────────────────── */
+  --font-size: 14px;
+
+  /* ═══════════════════════════════════════════════════════════════════
+     COMPATIBILITY LAYER — shadcn / existing components
+     Mapea los tokens nuevos a los nombres que ya consumen los
+     componentes heredados. Permite adoptar el sistema sin migrar todo.
+     ═══════════════════════════════════════════════════════════════════ */
+  --background:          var(--surface-0);
+  --foreground:          var(--text-primary);
+  --card:                var(--surface-2);
+  --card-foreground:     var(--text-primary);
+  --popover:             var(--surface-3);
+  --popover-foreground:  var(--text-primary);
+  --primary:             var(--brand-blue);
+  --primary-foreground:  var(--text-inverse);
+  --secondary:           var(--surface-2);
+  --secondary-foreground: var(--text-primary);
+  --muted:               var(--surface-2);
+  --muted-foreground:    var(--text-tertiary);
+  --accent:              var(--surface-3);
+  --accent-foreground:   var(--text-primary);
+  --destructive:         var(--danger);
+  --destructive-foreground: var(--text-primary);
+  --border:              var(--border-default);
+  --input:               transparent;
+  --input-background:    var(--surface-2);
+  --switch-background:   var(--surface-4);
+  --ring:                var(--border-focus);
+
+  --chart-1: var(--brand-sunset);
+  --chart-2: var(--brand-sepia);
+  --chart-3: var(--brand-amber);
+  --chart-4: #C97A4A;   /* ocre */
+  --chart-5: var(--success);
+
+  --sidebar:                     var(--surface-1);
+  --sidebar-foreground:          var(--text-primary);
+  --sidebar-primary:             var(--brand-blue);
+  --sidebar-primary-foreground:  var(--text-inverse);
+  --sidebar-accent:              var(--surface-3);
+  --sidebar-accent-foreground:   var(--text-primary);
+  --sidebar-border:              var(--border-subtle);
+  --sidebar-ring:                var(--border-focus);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TAILWIND THEME MAPPING — expose tokens as utility classes
+   ═══════════════════════════════════════════════════════════════════ */
+@theme inline {
+  /* Colors — new system */
+  --color-surface-0: var(--surface-0);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-surface-4: var(--surface-4);
+  --color-surface-5: var(--surface-5);
+
+  --color-border-subtle:  var(--border-subtle);
+  --color-border-default: var(--border-default);
+  --color-border-strong:  var(--border-strong);
+
+  --color-text-primary:   var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary:  var(--text-tertiary);
+  --color-text-disabled:  var(--text-disabled);
+  --color-text-inverse:   var(--text-inverse);
+
+  --color-brand-sunset:        var(--brand-sunset);
+  --color-brand-sunset-hover:  var(--brand-sunset-hover);
+  --color-brand-sunset-subtle: var(--brand-sunset-subtle);
+  --color-brand-sepia:         var(--brand-sepia);
+  --color-brand-sepia-hover:   var(--brand-sepia-hover);
+  --color-brand-sepia-subtle:  var(--brand-sepia-subtle);
+  --color-brand-amber:         var(--brand-amber);
+  --color-brand-amber-subtle:  var(--brand-amber-subtle);
+  /* aliases legacy */
+  --color-brand-blue:         var(--brand-blue);
+  --color-brand-blue-hover:   var(--brand-blue-hover);
+  --color-brand-blue-subtle:  var(--brand-blue-subtle);
+  --color-brand-purple:       var(--brand-purple);
+  --color-brand-purple-hover: var(--brand-purple-hover);
+  --color-brand-purple-subtle: var(--brand-purple-subtle);
+
+  --color-success: var(--success);
+  --color-danger:  var(--danger);
+  --color-warning: var(--warning);
+  --color-info:    var(--info);
+
+  --color-section-1: var(--section-1);
+  --color-section-2: var(--section-2);
+  --color-section-3: var(--section-3);
+  --color-section-4: var(--section-4);
+  --color-section-5: var(--section-5);
+  --color-section-6: var(--section-6);
+
+  /* Compatibility color names (shadcn) */
+  --color-background:         var(--background);
+  --color-foreground:         var(--foreground);
+  --color-card:               var(--card);
+  --color-card-foreground:    var(--card-foreground);
+  --color-popover:            var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary:            var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary:          var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted:              var(--muted);
+  --color-muted-foreground:   var(--muted-foreground);
+  --color-accent:             var(--accent);
+  --color-accent-foreground:  var(--accent-foreground);
+  --color-destructive:        var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border:             var(--border);
+  --color-input:              var(--input);
+  --color-input-background:   var(--input-background);
+  --color-switch-background:  var(--switch-background);
+  --color-ring:               var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar:                    var(--sidebar);
+  --color-sidebar-foreground:         var(--sidebar-foreground);
+  --color-sidebar-primary:            var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent:             var(--sidebar-accent);
+  --color-sidebar-accent-foreground:  var(--sidebar-accent-foreground);
+  --color-sidebar-border:             var(--sidebar-border);
+  --color-sidebar-ring:               var(--sidebar-ring);
+
+  /* Radii */
+  --radius-xs:   var(--radius-xs);
+  --radius-sm:   var(--radius-sm);
+  --radius-md:   var(--radius-md);
+  --radius-lg:   var(--radius-lg);
+  --radius-xl:   var(--radius-xl);
+  --radius-full: var(--radius-full);
+
+  /* Fonts — exposed as font-family utilities */
+  --font-display:        var(--font-display);
+  --font-ui:             var(--font-ui);
+  --font-mono:           var(--font-mono);
+  --font-sans:           var(--font-ui);
+  --font-focus-display: var(--font-focus-display);
+  --font-focus-classic: var(--font-focus-classic);
+
+  /* Shadows */
+  --shadow-elev-1: var(--elev-1);
+  --shadow-elev-2: var(--elev-2);
+  --shadow-elev-3: var(--elev-3);
+  --shadow-elev-4: var(--elev-4);
+  --shadow-focus-ring:   var(--focus-ring);
+  --shadow-glow-playing: var(--glow-playing-md);
+  --shadow-glow-action:  var(--glow-action-md);
+
+  /* Motion — expose easings as transition-timing-function utilities */
+  --ease-out:     var(--ease-out);
+  --ease-in:      var(--ease-in);
+  --ease-in-out:  var(--ease-in-out);
+  --ease-spring:  var(--ease-spring);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   BASE LAYER — document defaults, dark by default
+   ═══════════════════════════════════════════════════════════════════ */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    font-size: var(--font-size);
+    color-scheme: dark;
+    background-color: var(--surface-0);
+  }
+
+  body {
+    font-family: var(--font-ui);
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11', 'ss01';
+    color: var(--text-primary);
+    background-color: var(--surface-0);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
+    line-height: var(--text-2xl-lh);
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+    line-height: var(--text-xl-lh);
+  }
+
+  h3 {
+    font-size: var(--text-lg);
+    line-height: var(--text-lg-lh);
+    letter-spacing: var(--tracking-normal);
+  }
+
+  h4 {
+    font-size: var(--text-md);
+    line-height: var(--text-md-lh);
+    letter-spacing: var(--tracking-normal);
+  }
+
+  label {
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm-lh);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+  }
+
+  button {
+    font-family: var(--font-ui);
+    font-size: var(--text-base);
+    line-height: var(--text-base-lh);
+    font-weight: var(--font-weight-medium);
+  }
+
+  input, textarea, select {
+    font-family: var(--font-ui);
+    font-size: var(--text-base);
+    line-height: var(--text-base-lh);
+    font-weight: var(--font-weight-regular);
+    color: var(--text-primary);
+  }
+
+  /* Monospaced data — reservado para timecodes activos del waveform y nombre
+     de fichero del MP3 en topbar. El resto de números tabulares heredan Inter. */
+  .font-mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+  [class*='tabular-nums'] {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Selection — sunset tint */
+  ::selection {
+    background: rgba(232, 129, 74, 0.30);
+    color: var(--text-primary);
+  }
+
+  /* Scrollbar — thin, subtle, premium */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-full);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.12);
+    background-clip: padding-box;
+    border: 2px solid transparent;
+  }
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  /* Focus — keyboard only, always brand-sunset */
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+    border-radius: var(--radius-sm);
+  }
+
+  /* Remove default focus outline when not keyboard */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   UTILITIES — small helpers consumers can opt into
+   ═══════════════════════════════════════════════════════════════════ */
+@layer utilities {
+  .text-display  { font-family: var(--font-display); letter-spacing: var(--tracking-tight); }
+  .text-ui       { font-family: var(--font-ui); }
+  .text-mono     { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+  /* Canvas (Mood Bar) — estilosa vs clásica. Sólo para texto dentro del canvas. */
+  .text-focus-display { font-family: var(--font-focus-display); }
+  .text-focus-classic { font-family: var(--font-focus-classic); }
+
+  .bg-surface-0 { background-color: var(--surface-0); }
+  .bg-surface-1 { background-color: var(--surface-1); }
+  .bg-surface-2 { background-color: var(--surface-2); }
+  .bg-surface-3 { background-color: var(--surface-3); }
+  .bg-surface-4 { background-color: var(--surface-4); }
+
+  .glow-playing { box-shadow: var(--glow-playing-md); }
+  .glow-action  { box-shadow: var(--glow-action-md); }
+
+  /* Reduced motion respect */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   CANVAS MODE — shell chrome recedes, restores on hover
+   Triggered via `document.documentElement.dataset.focusMode = 'true'`
+   from MusicEditor when Canvas mode is active.
+   ═══════════════════════════════════════════════════════════════════ */
+/* El Mood Bar (aside con `data-moodbar`) queda EXENTO del atenuado: es el
+   panel de trabajo, su cabecera/título deben leerse siempre a plena opacidad.
+   El resto del chrome (header del editor) sí se atenúa y brilla en hover. */
+[data-focus-mode="true"] header:not([data-moodbar-header]),
+[data-focus-mode="true"] aside:not([data-moodbar-main="true"]):not([data-moodbar]) {
+  opacity: 0.4;
+  transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-focus-mode="true"] header:not([data-moodbar-header]):hover,
+[data-focus-mode="true"] header:not([data-moodbar-header]):focus-within,
+[data-focus-mode="true"] aside:not([data-moodbar-main="true"]):not([data-moodbar]):hover,
+[data-focus-mode="true"] aside:not([data-moodbar-main="true"]):not([data-moodbar]):focus-within {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   INPUT — Enter flash confirmation (brand-blue border 200ms)
+   Wired via `data-flash="true"` toggled from the Input primitive.
+   ═══════════════════════════════════════════════════════════════════ */
+input[data-flash="true"],
+textarea[data-flash="true"] {
+  border-color: var(--brand-blue) !important;
+  box-shadow: var(--focus-ring) !important;
+  transition: border-color 200ms var(--ease-out), box-shadow 200ms var(--ease-out) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   SHOT CARD — hover lift sutil. Aplicado vía `data-hover-lift="true"`
+   desde la `CinematicShotCard` cuando NO está en estado activo
+   (en activo, el scale + glow ya marcan el estado y no queremos competir).
+   ═══════════════════════════════════════════════════════════════════ */
+.shotcard[data-hover-lift="true"]:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+}
+/* Modo Ficha (claro): `--border-strong` es blanco-opacidad y no se ve sobre
+   fondo claro. Override puntual con un negro-opacidad. Deuda conocida — al
+   centralizar el tema, este override desaparece. */
+.shotcard[data-hover-lift="true"][data-theme="light"]:hover {
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   EDITOR THEME TRANSITION — stagger reveal de bloques principales
+   durante el "amanecer" Focus → Ficha.
+
+   El contenedor raíz del editor (ver `useEditorThemeTransition`):
+   - Escribe `--mode-p` en [0..1] (0 = Focus, 1 = Ficha) cada frame.
+   - Toggle `data-revealing="true"` solo durante Focus → Ficha.
+
+   Cada bloque marcado con `.editor-reveal-block` declara su ventana de
+   stagger con `--reveal-start` y `--reveal-end`. La regla solo aplica
+   cuando el ancestro tiene `data-revealing="true"`. En el resto del
+   tiempo los bloques quedan en su estado nativo (opacity 1, transform 0).
+   ═══════════════════════════════════════════════════════════════════ */
+[data-revealing="true"] .editor-reveal-block {
+  --reveal: clamp(
+    0,
+    calc(
+      (var(--mode-p, 1) - var(--reveal-start, 0.45)) /
+        (var(--reveal-end, 0.70) - var(--reveal-start, 0.45))
+    ),
+    1
+  );
+  opacity: calc(0.35 + var(--reveal) * 0.65);
+  transform: translateY(calc((1 - var(--reveal)) * 5px));
+}

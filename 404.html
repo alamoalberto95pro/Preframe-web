@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found — Preframe</title>
+  <meta name="description" content="This page doesn't exist.">
+  <!-- Una 404 nunca debe indexarse: si Google la guarda, la enseña como si
+       fuera contenido. GitHub Pages ya devuelve el 404 correcto; esto es el
+       cinturón además de los tirantes. -->
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#080808">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/theme.css">
+  <link rel="stylesheet" href="/assets/soon.css">
+</head>
+<body>
+
+<div class="glow" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<main class="stage">
+  <a href="/" style="text-decoration:none;color:inherit">
+    <span class="mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#F5F3EF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18"/><path d="M3 7.5h4"/><path d="M3 12h18"/><path d="M3 16.5h4"/><path d="M17 3v18"/><path d="M21 7.5h-4"/><path d="M21 16.5h-4"/></svg>
+    </span>
+  </a>
+
+  <h1 class="name" style="font-size:clamp(38px,6vw,72px)">Nothing here</h1>
+  <p class="claim">This page doesn't exist — or it doesn't exist <em>yet</em>.</p>
+  <p class="status"><a href="/" style="color:inherit;text-decoration:none">← Back to Preframe</a></p>
+
+  <div class="field" data-field aria-hidden="true"></div>
+</main>
+
+<footer class="foot">
+  <span>© <span data-year>2026</span> Preframe</span>
+  <a href="/legal/terms/">Terms</a>
+  <a href="/legal/privacy/">Privacy</a>
+</footer>
+
+<script src="/assets/soon.js" defer></script>
+<script>
+  document.querySelectorAll('[data-year]').forEach(function (el) {
+    el.textContent = String(new Date().getFullYear());
+  });
+</script>
+</body>
+</html>

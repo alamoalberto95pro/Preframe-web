@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Retorno de Stripe Checkout: no tiene sentido para nadie que no venga de una
+# compra, y además lleva `noindex` en la propia página.
+Disallow: /buy/
+
+Sitemap: https://www.preframe-app.com/sitemap.xml

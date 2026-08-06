@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Solo la portada. Las legales y las páginas de compra llevan `noindex`, así
+     que anunciarlas aquí sería mandar señales contradictorias.
+     `lastmod` se actualiza a mano cuando cambia el contenido de verdad. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.preframe-app.com/</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

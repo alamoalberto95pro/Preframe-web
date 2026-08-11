@@ -9,6 +9,9 @@
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/fonts.css">
   <link rel="stylesheet" href="/assets/preframe.css">
+  <!-- Cloudflare Web Analytics -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7370d962d8c64e75826a3a96ad82feb5"}'></script>
+  <!-- End Cloudflare Web Analytics -->
 </head>
 <!-- IDIOMA: traducido al inglés por decisión de Alberto. Misma nota que en los
      Términos: [VERIFICAR] con la gestoría si hace falta además una versión en
@@ -68,19 +71,34 @@
     <p>
       This site <strong>uses no cookies</strong> and no browser storage, which
       is why you are never asked to accept anything. Every font is served from
-      this same domain: no requests are made to Google Fonts, to third-party
-      CDNs, or to advertising networks.
+      this same domain: no requests are made to Google Fonts or to advertising
+      networks. The only request to a third party is the cookieless analytics
+      script described in section 7.
     </p>
 
+    <!-- Conectado el 2026-08-07: Cloudflare Web Analytics. Si algún día se
+         añade un proveedor con eventos (Umami/Plausible) para medir el clic de
+         descarga, hay que ampliar esta sección: hoy dice expresamente que los
+         clics no se miden. -->
     <h2>7. Website analytics</h2>
-    <div class="placeholder">
-      [PENDING — when cookieless analytics are connected (Cloudflare Web
-      Analytics, Umami or Plausible), describe here: which provider it is, that
-      measurement is aggregated and uses neither cookies nor persistent
-      identifiers, what is measured (page views and clicks on the download
-      button), and the legitimate-interest basis. Today the site carries no
-      analytics script at all.]
-    </div>
+    <p>
+      This site uses <strong>Cloudflare Web Analytics</strong>, a service of
+      Cloudflare, Inc., to measure its audience in aggregate. It records page
+      views together with the referring site, the country, the browser and
+      device type, and page performance metrics. It does not record clicks on
+      individual buttons or links.
+    </p>
+    <p>
+      The measurement is <strong>cookieless</strong>: it stores nothing in your
+      browser, uses no persistent identifier, does not fingerprint your device
+      and does not follow you across other websites. Visitors are never
+      identified individually and no profile is built about you. That is why
+      this site still asks you to accept nothing.
+    </p>
+    <p>
+      The legal basis is our legitimate interest in knowing whether the site
+      works and reaches the people it is meant for (Art. 6(1)(f) GDPR).
+    </p>
 
     <h2>8. Retention and deletion</h2>
     <p>[PENDING]</p>

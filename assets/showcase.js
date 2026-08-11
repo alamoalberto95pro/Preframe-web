@@ -1,146 +1,100 @@
 /* ─────────────────────────────────────────────────────────────────────
-   Preframe Web — capacidades: pestañas que avanzan con el scroll.
+   Preframe Web — la franja del día del bento.
 
-   Estructura tomada de la página de Final Cut Pro (una idea a la vez, con su
-   objeto grande al lado) y recorrido tomado del patrón que usan Linear y
-   Apple para sus secciones largas: el bloque se queda pegado en pantalla y
-   el contenido avanza mientras bajas.
+   La sección de capacidades es ahora un bento grid estático (las pestañas
+   con scroll pegado se retiraron); lo único que se mueve aquí es la marca
+   del sol recorriendo el día en la tarjeta de hora dorada. La ventana
+   dorada se queda fija: es una ventana que se abre y se cierra, y verla
+   pasar lo explica sin una palabra.
 
-   Importante: esto NO secuestra el scroll. La página se mueve a su velocidad
-   normal; lo único que se hace es mapear la posición a una pestaña. Bajar
-   sigue bajando y subir sigue subiendo.
-
-   Fuera del recorrido queda todo lo demás:
-     · en móvil y tablet, o con `prefers-reduced-motion`, no hay pegado ni
-       avance automático: es una lista normal con pestañas pulsables,
-     · sin JavaScript se ve el primer panel y las descripciones de todas las
-       pestañas siguen leyéndose, porque el texto vive en la propia pestaña.
+   18 segundos por día completo. Solo corre con la tarjeta en pantalla y
+   nunca con `prefers-reduced-motion`.
    ───────────────────────────────────────────────────────────────────── */
 
 (function () {
   'use strict';
 
-  var root = document.querySelector('[data-showcase]');
-  if (!root) return;
+  /* ─── La tarjeta que late ───────────────────────────────────────────
+     Réplica del "cinematic breathing" del editor: la envolvente sale de la
+     silueta de la onda (timeline-data) recorrida en bucle, y los picos por
+     encima de un umbral hacen de transitorio — el destello del golpe. La
+     misma fórmula de sombra que usa la app: crece con la energía. */
+  var beatCard = document.querySelector('[data-beat-card]');
+  var DATA = window.PREFRAME_TIMELINE;
+  var reducedQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  var tabs = Array.prototype.slice.call(root.querySelectorAll('[data-tab]'));
-  var panels = Array.prototype.slice.call(root.querySelectorAll('[data-panel]'));
-  if (!tabs.length) return;
+  if (beatCard && DATA && !reducedQuery.matches && window.IntersectionObserver) {
+    var beatHost = beatCard.closest('.bento-card') || beatCard.parentElement;
+    var LOOP = 5200;
+    var beatRaf = 0;
+    var beatStart = 0;
 
-  var scroller = document.querySelector('[data-showcase-scroll]');
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var wide = window.matchMedia('(min-width: 1025px)');
+    var beatFrame = function (now) {
+      beatRaf = window.requestAnimationFrame(beatFrame);
+      if (!beatStart) beatStart = now;
+      var t = ((now - beatStart) % LOOP) / LOOP;
 
-  var current = -1;
+      var raw = DATA.amplitudeAt(Math.round(t * 128), 128);   /* 0..~1 */
+      var e = Math.max(0, Math.min(1, raw));
+      var transient = raw > 0.82;                             /* el golpe */
 
-  function select(index, focus) {
-    if (index === current) {
-      if (focus) tabs[index].focus();
-      return;
-    }
-    current = index;
+      var spread = Math.round(4 + e * 16);
+      var blur = Math.round(12 + e * 48);
+      var alpha = (0.15 + e * 0.40).toFixed(2);
+      var shadow = '0 2px ' + blur + 'px ' + spread + 'px rgba(232,129,74,' + alpha + ')';
+      if (transient) shadow += ', 0 0 ' + (blur + 30) + 'px ' + (spread + 10) + 'px rgba(232,129,74,0.5)';
 
-    tabs.forEach(function (tab, i) {
-      var active = i === index;
-      tab.setAttribute('aria-selected', String(active));
-      tab.tabIndex = active ? 0 : -1;
-      if (active && focus) tab.focus();
-    });
-    panels.forEach(function (panel, i) {
-      var active = i === index;
-      panel.hidden = !active;
-      panel.classList.toggle('is-active', active);
-    });
-  }
-
-  /* ─── Pulsar y teclado ──────────────────────────────────────────────
-     Con el recorrido activo, elegir una pestaña lleva al punto del scroll
-     que le corresponde: si no, el scroll la sobrescribiría al instante. */
-  function scrollToStep(index) {
-    if (!driving()) return;
-    var total = scroller.offsetHeight - window.innerHeight;
-    var top = scroller.offsetTop + (index / tabs.length) * total + 8;
-    window.scrollTo({ top: top, behavior: reduced.matches ? 'auto' : 'smooth' });
-  }
-
-  tabs.forEach(function (tab, index) {
-    tab.tabIndex = tab.getAttribute('aria-selected') === 'true' ? 0 : -1;
-
-    tab.addEventListener('click', function () {
-      select(index, false);
-      scrollToStep(index);
-    });
-
-    tab.addEventListener('keydown', function (event) {
-      var step = event.key === 'ArrowDown' || event.key === 'ArrowRight' ? 1
-        : event.key === 'ArrowUp' || event.key === 'ArrowLeft' ? -1 : 0;
-      if (!step) return;
-      event.preventDefault();
-      var next = (index + step + tabs.length) % tabs.length;
-      select(next, true);
-      scrollToStep(next);
-    });
-  });
-
-  /* ─── El recorrido ──────────────────────────────────────────────────── */
-
-  function driving() {
-    return !!scroller && wide.matches && !reduced.matches;
-  }
-
-  if (scroller) {
-    var ticking = false;
-
-    var sync = function () {
-      ticking = false;
-      if (!driving()) return;
-
-      var total = scroller.offsetHeight - window.innerHeight;
-      if (total <= 0) return;
-
-      var progress = Math.max(0, Math.min(1, -scroller.getBoundingClientRect().top / total));
-      select(Math.min(tabs.length - 1, Math.floor(progress * tabs.length)), false);
-
-      /* Barra de avance del bloque: dice cuánto queda de esta sección. */
-      root.style.setProperty('--showcase-progress', progress);
-    };
-
-    window.addEventListener('scroll', function () {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(sync);
-    }, { passive: true });
-
-    window.addEventListener('resize', sync, { passive: true });
-    sync();
-  }
-
-  select(0, false);
-
-  /* ─── La franja del día, corriendo ──────────────────────────────────
-     18 segundos por día completo. La hora dorada es una ventana que se abre
-     y se cierra: verla moverse lo explica sin una palabra. */
-  var marker = root.querySelector('[data-sun-now]');
-
-  if (marker && !reduced.matches && window.IntersectionObserver) {
-    var rafId = 0;
-    var startedAt = 0;
-    var DAY = 18000;
-
-    var frame = function (now) {
-      rafId = window.requestAnimationFrame(frame);
-      if (!startedAt) startedAt = now;
-      marker.style.left = ((((now - startedAt) % DAY) / DAY) * 100) + '%';
+      beatCard.style.boxShadow = shadow;
+      beatCard.style.transform = 'scale(' + (1 + e * 0.02) + ')';
     };
 
     new window.IntersectionObserver(function (entries) {
       if (entries[0].isIntersecting) {
-        if (!rafId) rafId = window.requestAnimationFrame(frame);
-      } else if (rafId) {
-        window.cancelAnimationFrame(rafId);
-        rafId = 0;
-        startedAt = 0;
+        if (!beatRaf) beatRaf = window.requestAnimationFrame(beatFrame);
+      } else if (beatRaf) {
+        window.cancelAnimationFrame(beatRaf);
+        beatRaf = 0;
+        beatStart = 0;
       }
-    }, { threshold: 0 }).observe(root);
+    }, { threshold: 0 }).observe(beatHost);
+  }
+
+  var marker = document.querySelector('[data-sun-now]');
+  if (!marker) return;
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (reduced.matches || !window.IntersectionObserver) {
+    marker.style.left = '38%';   /* pose quieta: media tarde */
+    return;
+  }
+
+  var host = marker.closest('.bento-card') || marker.parentElement;
+  var DAY = 18000;
+  var rafId = 0;
+  var startedAt = 0;
+
+  function frame(now) {
+    rafId = window.requestAnimationFrame(frame);
+    if (!startedAt) startedAt = now;
+    marker.style.left = ((((now - startedAt) % DAY) / DAY) * 100) + '%';
+  }
+
+  new window.IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting) {
+      if (!rafId) rafId = window.requestAnimationFrame(frame);
+    } else if (rafId) {
+      window.cancelAnimationFrame(rafId);
+      rafId = 0;
+      startedAt = 0;
+    }
+  }, { threshold: 0 }).observe(host);
+
+  if (reduced.addEventListener) {
+    reduced.addEventListener('change', function () {
+      if (!reduced.matches) return;
+      window.cancelAnimationFrame(rafId);
+      rafId = 0;
+      marker.style.left = '38%';
+    });
   }
 })();

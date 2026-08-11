@@ -28,8 +28,8 @@
     '.band .eyebrow', '.band-tight .eyebrow',
     '.band h2', '.band-tight h2',
     '.band > .wrap > p', '.band-tight > .wrap > p',
-    '.step', '.flow li', '.pillar', '.card', '.price', '.cf-step',
-    '.faq details', '.paper-sheet', '.founder', '.frame',
+    '.step', '.flow li', '.pillar', '.card', '.bento-card', '.price', '.cf-step',
+    '.faq details', '.paper-sheet', '.founder-quote', '.cinema', '.frame',
     '.split > div', '.notice', '.placeholder', '.release',
   ].join(',');
 

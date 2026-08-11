@@ -1,44 +1,42 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
-  <title>Compra completada — Preframe</title>
+  <title>Purchase complete — Preframe</title>
   <meta name="theme-color" content="#080808">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/fonts.css">
   <link rel="stylesheet" href="/assets/theme.css">
   <link rel="stylesheet" href="/assets/site.css">
+  <!-- Cloudflare Web Analytics -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7370d962d8c64e75826a3a96ad82feb5"}'></script>
+  <!-- End Cloudflare Web Analytics -->
 </head>
-<!-- IDIOMA: en español, igual que la app desde la que se llega aquí. Estas
-     páginas son el retorno de Stripe Checkout, no parte de la landing. -->
-<body class="canvas-dark">
+<body>
   <main class="card-page">
-    <a class="logo" href="/">
+    <div class="logo">
       <span class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#F5F3EF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18"/><path d="M3 7.5h4"/><path d="M3 12h18"/><path d="M3 16.5h4"/><path d="M17 3v18"/><path d="M21 7.5h-4"/><path d="M21 16.5h-4"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F5F3EF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18"/><path d="M3 7.5h4"/><path d="M3 12h18"/><path d="M3 16.5h4"/><path d="M17 3v18"/><path d="M21 7.5h-4"/><path d="M21 16.5h-4"/></svg>
       </span>
-      <span data-brand="name">Preframe</span>
-    </a>
+      <span>Preframe</span>
+    </div>
 
-    <div class="status success" aria-hidden="true">
+    <div class="status success">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6BB87F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
     </div>
 
-    <h1>Compra completada</h1>
+    <h1>Purchase complete</h1>
     <p class="lead">
-      Vuelve a Preframe: tus créditos aparecerán en unos segundos.
-      Esta pestaña ya puede cerrarse.
+      Head back to Preframe — your credits will show up in a few seconds.
+      You can close this tab.
     </p>
 
     <p class="foot">
-      <a href="/legal/terms/">Términos</a> ·
-      <a href="/support/">Soporte</a>
+      <a href="/legal/terms/" style="color: var(--text-disabled);">Terms</a> ·
+      <a href="/legal/privacy/" style="color: var(--text-disabled);">Privacy</a>
     </p>
   </main>
-
-  <script src="/assets/brand.js"></script>
-  <script src="/assets/site.js" defer></script>
 </body>
 </html>

@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacy Policy — Preframe</title>
+  <title>Privacy Policy — PreFrame</title>
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#080808">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/fonts.css">
@@ -16,53 +17,111 @@
   <!-- End Cloudflare Web Analytics -->
 </head>
 <!-- IDIOMA: en inglés por decisión de Alberto. Misma nota que en los Términos:
-     [VERIFICAR] con la gestoría si hace falta además una versión en español. -->
+     [VERIFICAR] con la gestoría si hace falta además una versión en español.
+
+     Redactado el 2026-08-25 (ver Documentacion/negocio/legal-terminos-privacidad.md).
+     Quedan [PENDING] en: responsable (gestoría), retención de eventos y email. -->
 <body class="canvas-dark">
   <main class="doc-page">
     <a class="logo" href="/">
-      <span class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#F5F3EF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18"/><path d="M3 7.5h4"/><path d="M3 12h18"/><path d="M3 16.5h4"/><path d="M17 3v18"/><path d="M21 7.5h-4"/><path d="M21 16.5h-4"/></svg>
-      </span>
-      <span data-brand="name">Preframe</span>
+      <img class="logo-mark" src="/assets/mark.svg" alt="" aria-hidden="true" width="28" height="28">
+      <span data-brand="name">PreFrame</span>
     </a>
 
     <h1>Privacy Policy</h1>
-    <p class="doc-meta">Last updated: [PENDING — publication date]</p>
+    <p class="doc-meta">Last updated: 25 August 2026</p>
 
     <div class="placeholder">
-      ⚠️ WORKING DRAFT — This document is not in force yet. The final text is
-      being written and will replace every block marked [PENDING] before launch.
+      ⚠️ WORKING DRAFT — This document is not in force yet. The blocks marked
+      [PENDING] will be completed before launch.
     </div>
 
     <h2>1. Who is responsible</h2>
-    <p>[PENDING — identity and contact details. Confirm with the tax adviser which identifying details must be published: name, tax ID and address.]</p>
+    <p>
+      The controller of your data is [PENDING — legal name, tax ID and address
+      of the operator, as advised by the tax adviser], who operates PreFrame
+      ("we"). You can reach us at the address in section 10.
+    </p>
 
     <h2>2. What data is processed</h2>
-    <p>[PENDING — account data (through Google: email, name, avatar), usage data (product events), and payment data (processed by Stripe as merchant of record; Preframe never sees your card number).]</p>
+    <ul>
+      <li><strong>Account data.</strong> When you sign in with Google or Apple
+        we receive your email address, your name and, with Google, your avatar.
+        We never receive or store a password.</li>
+      <li><strong>Your projects.</strong> The shots, sections, notes and
+        equipment you create are stored in your account so you can open them on
+        your computer. The audio and image files you work with stay on your
+        machine and are never uploaded (section 5).</li>
+      <li><strong>Usage data.</strong> Product events such as "project created"
+        or "export completed", tied to your account id, used to understand how
+        the application is used. They never include the content of your
+        projects.</li>
+      <li><strong>Error reports.</strong> See section 4.</li>
+      <li><strong>Payment data.</strong> Payments are processed by Stripe as
+        merchant of record. PreFrame never sees your card number; we only
+        receive confirmation that a purchase was completed and which credits to
+        deliver, and keep a record of your purchases so you can see them in the
+        application.</li>
+    </ul>
 
     <h2>3. Why, and on what legal basis</h2>
-    <p>[PENDING — providing the service (performance of a contract), product analytics and error reports (legitimate interest, Art. 6(1)(f) GDPR).]</p>
+    <ul>
+      <li><strong>Providing the service</strong> — account, projects, credits
+        and purchases: necessary to perform the contract with you
+        (Art. 6(1)(b) GDPR).</li>
+      <li><strong>Understanding how the application is used and fixing what
+        breaks</strong> — usage events and error reports: our legitimate
+        interest in improving PreFrame (Art. 6(1)(f) GDPR). You can object at
+        any time (section 9).</li>
+      <li><strong>Legal obligations</strong> — tax and accounting records of
+        purchases, kept by Stripe and by us as the law requires
+        (Art. 6(1)(c) GDPR).</li>
+    </ul>
+    <p>We do not sell your data and do not use it for advertising.</p>
 
+    <!-- Sistema de error reports aún no en producción: el compromiso se
+         publica desde el día uno. El interruptor en Ajustes sí existe. -->
     <h2>4. Error reports</h2>
-    <div class="placeholder">
-      [PENDING — paste the "Error reports" paragraph already written: what is
-      sent (message, sanitised stack trace, version, OS, account id), what is
-      NOT sent (the content and the names of your projects and files), the
-      legitimate-interest basis under Art. 6(1)(f), automatic deletion after 90
-      days, and the setting that turns it off. The system is not live yet; the
-      commitment is published from day one.]
-    </div>
+    <p>
+      When something breaks inside the application, PreFrame can send us a
+      technical report so we can find out and fix it. The report contains
+      the error message, a sanitised stack trace, the PreFrame version, your
+      operating system and your account id. It <strong>never</strong> contains
+      the content of your projects, nor the names or paths of your files.
+    </p>
+    <p>
+      We process these reports on the basis of our legitimate interest in
+      keeping the application working (Art. 6(1)(f) GDPR). They are deleted
+      automatically after <strong>90 days</strong>. Sending them is on by
+      default and you can turn it off at any time in
+      <strong>Settings → Error reports</strong>; from that moment nothing is
+      sent.
+    </p>
 
     <!-- "The files you work with", y no la lista de qué tipos de archivo son:
          para el compromiso de privacidad basta con decir DÓNDE están, y el
          detalle describía el funcionamiento de la app (misma decisión que en
          el apartado 4 de los Términos). -->
     <h2>5. Where your data lives</h2>
-    <p>[PENDING — Supabase (EU, eu-west-1), Stripe, and your own device: your projects and the files you work with stay on your machine.]</p>
+    <ul>
+      <li><strong>Your computer.</strong> Your projects are cached locally, and
+        the files you work with (audio and reference images) exist only on your
+        machine. PreFrame never uploads them.</li>
+      <li><strong>Supabase</strong> (Supabase, Inc.), which hosts our database
+        and authentication in the European Union (AWS, <strong>eu-west-1</strong>,
+        Ireland). Account data, projects, usage events and error reports are
+        stored there.</li>
+      <li><strong>Stripe</strong> (Stripe Payments Europe, Ltd.), which
+        processes payments as merchant of record under its own
+        <a href="https://stripe.com/privacy" rel="noopener">privacy policy</a>.</li>
+      <li><strong>Google</strong> and <strong>Apple</strong>, only as sign-in
+        providers: when you sign in they tell us who you are; we do not share
+        anything with them.</li>
+    </ul>
 
     <h2>6. This website</h2>
     <p>
-      The Preframe website (<span data-brand="domain">preframe-app.com</span>) is hosted on
+      The PreFrame website (<span data-brand="domain">preframe-app.com</span>) is hosted on
       <strong>GitHub Pages</strong>, a service of GitHub, Inc. (United States).
       Like any web server, GitHub keeps technical logs of the requests it
       receives, including the visitor's IP address, in order to deliver and
@@ -101,17 +160,46 @@
       works and reaches the people it is meant for (Art. 6(1)(f) GDPR).
     </p>
 
+    <!-- Retención de eventos de uso: Alberto está decidiendo el borrado de
+         logs (2026-08-25). Rellenar el [PENDING] y quitar el banner. -->
     <h2>8. Retention and deletion</h2>
-    <p>[PENDING]</p>
+    <ul>
+      <li><strong>Account and projects</strong>: kept for as long as your
+        account exists. When you ask us to delete your account, the account,
+        your projects and your purchase records are deleted from our
+        systems, except the data Stripe must keep under its own legal
+        obligations as merchant of record.</li>
+      <li><strong>Error reports</strong>: deleted automatically after 90 days
+        (section 4).</li>
+      <li><strong>Usage events</strong>: [PENDING — retention period for the
+        usage-events log].</li>
+      <li><strong>Local data on your computer</strong>: the "Delete all local
+        data on this computer" button in Settings removes everything PreFrame
+        stores on that machine. It does not delete your account or the projects
+        stored in your account.</li>
+    </ul>
 
     <h2>9. Your rights</h2>
-    <p>[PENDING — access, rectification, erasure and objection; and how to exercise them.]</p>
+    <p>
+      Under the GDPR you can ask us to <strong>access</strong> the data we hold
+      about you, to <strong>correct</strong> it, to <strong>delete</strong> it,
+      to <strong>restrict</strong> or <strong>object</strong> to its processing,
+      and to receive a copy of it in a portable format. You can object to the
+      processing of error reports at any time simply by turning them off in
+      Settings; you can object to usage analytics by writing to us.
+    </p>
+    <p>
+      To exercise any of these rights, including deleting your account, write
+      to the address in section 10. We answer within one month. If you think
+      we have not handled your data correctly, you can also complain to the
+      Spanish Data Protection Agency (<a href="https://www.aepd.es" rel="noopener">aepd.es</a>).
+    </p>
 
     <h2>10. Contact</h2>
-    <p>[PENDING — final email address on the Preframe domain.]</p>
+    <p>[PENDING — final email address on the PreFrame domain.]</p>
 
     <div class="doc-foot">
-      <span>Preframe · <a href="/">preframe-app.com</a></span>
+      <span>PreFrame · <a href="/">preframe-app.com</a></span>
       <span><a href="/legal/terms/">Terms of Service</a></span>
     </div>
   </main>

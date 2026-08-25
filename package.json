@@ -1,0 +1,13 @@
+{
+  "name": "preframe-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web comercial de Preframe. Eleventy genera las 5 paginas con nav en EN y ES; el resto del repo sigue siendo estatico puro.",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6"
+  }
+}

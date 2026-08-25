@@ -1,0 +1,39 @@
+{#- ─────────────────────────────────────────────────────────────────────
+    Layout de las cinco páginas con navegación, en los dos idiomas.
+
+    Lo que varía por página entra por `key` (front matter del stub) y lo que
+    varía por idioma por `lang` (directory data de src/en y src/es). Todo lo
+    derivado —canonical, hreflang, langBase, altUrl, S, C— lo calcula
+    src/_data/eleventyComputed.js, que sí llega a las plantillas de
+    contenido. El HTML del contenido NO se duplica: cada stub incluye la
+    plantilla compartida de su página.
+    ───────────────────────────────────────────────────────────────────── -#}
+<!doctype html>
+<html lang="{{ lang }}">
+{% include "partials/head.njk" -%}
+<body>
+
+<a class="skip-link" href="#main">{{ S.skipLink | safe }}</a>
+
+{% include "partials/nav.njk" %}
+<main id="main">
+
+{{ content | safe }}
+</main>
+
+{% include "partials/footer.njk" %}
+<script src="/assets/brand.js"></script>
+{%- if isHome %}
+<script src="/assets/timeline-data.js"></script>
+<script src="/assets/curve.js"></script>
+{%- endif %}
+<script src="/assets/site.js" defer></script>
+<script src="/assets/motion.js" defer></script>
+{%- if isHome %}
+<script src="/assets/hero.js" defer></script>
+<script src="/assets/ghost.js" defer></script>
+<script src="/assets/decor.js" defer></script>
+<script src="/assets/showcase.js" defer></script>
+{%- endif %}
+</body>
+</html>

@@ -1,0 +1,235 @@
+{
+  "meta": {
+    "title": "PreFrame — Software de preproducción para filmmakers",
+    "description": "Preproducción para filmmakers que sienten primero la música. Ve la pieza mientras suena el tema — o planifícala antes de que la música exista, con una curva emocional dibujada a mano. Exporta un PDF de rodaje y marcadores de corte para Premiere o DaVinci Resolve.",
+    "ogTitle": "PreFrame — Tu escaleta no es una lista. Es un timeline.",
+    "ogDescription": "Planifica cada plano sobre la forma de la pieza: la onda del tema, o la curva emocional que dibujas cuando todavía no hay tema.",
+    "ogImageAlt": "PreFrame — Piensa en ritmo. Piensa en emoción. Y luego rueda."
+  },
+  "jsonld": {
+    "websiteDescription": "Software de preproducción para filmmakers que sienten primero la música.",
+    "appDescription": "Preproducción para filmmakers que sienten primero la música. Planifica cada plano sobre la forma de la pieza —la onda del tema o una curva emocional dibujada a mano— y exporta un PDF de rodaje y marcadores de corte para Premiere o DaVinci Resolve.",
+    "offerDescription": "Un crédito de proyecto. El primer proyecto, gratis."
+  },
+  "rails": {
+    "hero": "El timeline",
+    "statement": "La historia",
+    "mood": "Mood board",
+    "features": "Qué hace",
+    "zoom": "Focus &amp; Ficha",
+    "instrument": "Tócalo",
+    "library": "Tu biblioteca",
+    "everything": "Todo lo demás",
+    "onset": "En rodaje",
+    "founder": "Quién lo hace",
+    "pricing": "Precios",
+    "closer": "Descargar"
+  },
+  "hero": {
+    "claim": "Tu escaleta no es una lista.<br>Es un <em>timeline</em>.",
+    "who": "Para filmmakers que sienten primero la <em>música</em> y la <em>historia</em>",
+    "figureAria": "El editor de PreFrame: una onda cortada en secciones, una curva emocional dibujada a mano encima y el mood board con una paleta.",
+    "shotAlt": "El editor de PreFrame con el proyecto de demostración Neon Pulse: secciones narrativas de color sobre la onda, una curva emocional dibujada encima, la escaleta debajo y el lienzo del Mood Bar a la derecha."
+  },
+  "statement": {
+    "kicker": "Qué es PreFrame",
+    "big": "PreFrame te ayuda a planificar la próxima historia que quieres contar, tanto si ya <em>conoces la canción</em> como si <em>todavía no</em>.",
+    "p1": "Si tienes el tema, suéltalo dentro y siéntelo: un modo concentrado aparta todo lo demás para que escuches, intuyas dónde vive cada plano y marques los cortes por el camino. Si todavía no lo tienes, dibuja la forma de la pieza tal como la imaginas y construye la historia sobre eso.",
+    "p2": "En los dos casos, pasa al modo estructurado para convertir lo que sentiste —o imaginaste— en un plan de verdad: sección a sección, plano a plano. Un mood board te acompaña todo el rato, así que el look de la pieza no se pierde por el camino. Y cuando por fin llega el tema definitivo, tu plan tampoco."
+  },
+  "mood": {
+    "eyebrow": "El Mood Bar",
+    "title": "Mitad timeline, mitad mood board.<br>Un solo proyecto.",
+    "lede": "Referencias, vídeo, notas, paletas —incluso la propia curva— en un lienzo que vive al lado de tu timeline y filtra por sección.",
+    "canvasAria": "El lienzo del Mood Bar con dos fotogramas de referencia, un vídeo de referencia de YouTube, una nota escrita a mano, una paleta de color y la tarjeta de la curva emocional, con la barra de herramientas del lienzo debajo.",
+    "chips": [
+      "All",
+      "Opening",
+      "Build",
+      "Peak",
+      "Turn",
+      "Release"
+    ],
+    "refDusk": "canyon_dusk_ref.jpg",
+    "ytDuration": "8:24",
+    "ytTitle": "How I shot cinematic b-roll at golden hour",
+    "ytCaption": "YouTube · reference",
+    "note": "“Shoot the chorus handheld — let it breathe with the crowd.”",
+    "refNight": "city_night_02.jpg",
+    "shotDuration": "18s",
+    "shotName": "Chorus, in the crowd",
+    "shotType": "Medium shot · 24mm",
+    "shotGear": "Sony a6700",
+    "curveLabel": "Emotional curve",
+    "toolbar": [
+      "Image",
+      "Text",
+      "Video",
+      "Palette"
+    ],
+    "toolbarAdd": "+ Add shot",
+    "zoom": "100%",
+    "capsAria": "Lo que cabe en el lienzo",
+    "caps": [
+      "Imágenes de referencia",
+      "Vídeo y YouTube",
+      "Notas escritas",
+      "Paletas con su hex",
+      "La curva emocional",
+      "Filtro por sección",
+      "El tema, siempre a mano"
+    ]
+  },
+  "substrates": {
+    "eyebrow": "Dos sustratos, un timeline",
+    "title": "Dibuja lo que sientes.<br>Justo encima del tema.",
+    "body": "Cuando sientes primero la música, la canción es tu lienzo. Cuando el tema todavía no ha llegado, dibujas la curva emocional a mano — y cuando llegue, pones una encima de la otra. El conmutador lo dice todo: <em class=\"feature-em\">Music · Curve · Both</em>.",
+    "shotAlt": "El timeline de PreFrame con el conmutador de sustrato: una curva emocional dibujada a mano, coloreada de azul a naranja según la intensidad, trazada directamente sobre la onda y sus secciones narrativas."
+  },
+  "export": {
+    "eyebrow": "Exportación",
+    "title": "Sal con el corte ya trazado.",
+    "body": "Un diálogo, dos entregables: un plan de rodaje imprimible con tus planos, sus timecodes y el tiempo sin cubrir — y tus secciones como marcadores de timeline para Premiere o DaVinci Resolve, a 24, 25 o 30 fps.",
+    "shotAlt": "El diálogo de exportación de PreFrame: un plan de rodaje imprimible y los marcadores de sección para Premiere o DaVinci Resolve, con los fps seleccionables."
+  },
+  "zoom": {
+    "shotAlt": "PreFrame en modo Ficha: una vista clara del mismo proyecto en forma de ficha técnica, con la curva emocional sobre la onda, las tarjetas de sección numeradas y el panel de mood con la paleta y las imágenes de referencia.",
+    "eyebrow": "Focus &amp; Ficha",
+    "title": "Un proyecto.<br>Dos maneras de mirarlo.",
+    "body": "<strong>Focus</strong> es la sala a oscuras: tú, el tema y el timeline. <strong>Ficha</strong> convierte el mismo proyecto en una ficha técnica luminosa — secciones numeradas, notas a la vista y todos los planos desplegados para repasarlos antes del rodaje."
+  },
+  "instrument": {
+    "eyebrow": "La idea, en directo",
+    "title": "Mira cómo el puntero maneja el timeline. Y luego quítaselo.",
+    "lede": "Esto no es un vídeo grabado: es el instrumento de verdad. En cuanto lo tocas, es tuyo.",
+    "fileTrack": "midnight_run_master_v3.mp3",
+    "fileNoTrack": "no track yet · 3:41",
+    "readout": "0:00  OPENING  18%",
+    "laneAria": "Planos colocados en el tiempo. Entre 1:02 y 1:26 hay un hueco sin cubrir.",
+    "lane": [
+      {
+        "title": "0:00 → 0:14 · Ridge, wide",
+        "tc": "0:00",
+        "name": "Ridge, wide"
+      },
+      {
+        "title": "0:14 → 0:38 · Approach",
+        "tc": "0:14",
+        "name": "Approach"
+      },
+      {
+        "title": "0:38 → 1:02 · Tracking, headlights · 24mm gimbal",
+        "tc": "0:38",
+        "name": "Tracking, headlights"
+      },
+      {
+        "title": "1:26 → 2:20 · Chorus, close",
+        "tc": "1:26",
+        "name": "Chorus, close"
+      },
+      {
+        "title": "2:20 → 3:10 · Turn, wet road",
+        "tc": "2:20",
+        "name": "Turn, wet road"
+      },
+      {
+        "title": "3:10 → 3:41 · Last look",
+        "tc": "3:10",
+        "name": "Last look"
+      }
+    ],
+    "gapTitle": "1:02 → 1:26 · uncovered",
+    "gapLabel": "uncovered",
+    "timelineLabel": "Timeline",
+    "switchAria": "Sustrato del timeline",
+    "modeWave": "Track",
+    "modeCurve": "No track",
+    "modeBoth": "Both",
+    "trackAria": "Timeline. Barra espaciadora para reproducir, flechas para desplazarte, 1 2 3 para cambiar de sustrato.",
+    "trackValueText": "0:00",
+    "sections": [
+      "Opening",
+      "Build",
+      "Peak",
+      "Turn",
+      "Release"
+    ],
+    "hintDrag": "<kbd>Arrastra</kbd> un keyframe",
+    "hintPlay": "<kbd>Space</kbd> reproducir",
+    "hintScrub": "<kbd>←</kbd><kbd>→</kbd> recorrer",
+    "hintSubstrate": "<kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> sustrato"
+  },
+  "library": {
+    "shotAlt": "La galería de planos de PreFrame: una rejilla de tarjetas de plano con duraciones y chips de óptica — Drone ciudad, Fade in luces, Wide neon street, Close-up rostros — filtrable por sección narrativa y con buscador.",
+    "eyebrow": "Planos y equipo",
+    "title": "Describe un plano una vez.<br>Rueda con él para siempre.",
+    "body": "Cada plano lleva el vocabulario del cine — general, medio, primer plano, cenital — más tu cámara, tu óptica, una miniatura y sus notas. Guárdalo en tu biblioteca y suéltalo en el siguiente proyecto con el equipo ya enganchado."
+  },
+  "everything": {
+    "eyebrow": "Todo lo demás que hace",
+    "title": "Las partes de un rodaje que nadie más modela.",
+    "sun": {
+      "title": "Golden hour, plano a plano",
+      "body": "La luz de ese sitio, ese día — pegada al propio plano. Sabrás si es posible antes de ir a localizar.",
+      "locationKey": "Location",
+      "locationVal": "Cabo de Gata, ES",
+      "windowLabel": "Golden hour",
+      "rowKey": "Golden hour",
+      "rowVal": "18:41 → 19:12"
+    },
+    "offline": {
+      "title": "Nada sale de tu ordenador",
+      "body": "Tu tema y tus referencias no se suben a ningún sitio. Abre la app en lo alto de una montaña sin cobertura y sigue trabajando.",
+      "localTrack": "neon_pulse_master.mp3",
+      "localImage": "ridge_dusk.jpg",
+      "localWhere": "en tu disco",
+      "syncedWhat": "el plan en sí",
+      "syncedWhere": "sincronizado con tu cuenta"
+    }
+  },
+  "onset": {
+    "eyebrow": "En rodaje",
+    "title": "Imprímelo. Llévatelo. Ve tachando.",
+    "p1": "Un plan de rodaje con todos los planos, su timecode, una casilla que marcar entre tomas y líneas en blanco para escribir. El tiempo sin cubrir se calcula y se imprime: nadie descubre el hueco a las seis de la tarde.",
+    "p2": "Este es el documento que genera la app, tal cual, a partir del proyecto de demostración que has visto arriba.",
+    "shotAlt": "Una página del PDF real del plan de rodaje: planos con miniatura, timecodes y casillas para marcar, líneas en blanco para notas y una fila resaltada de TIEMPO SIN CUBRIR entre 0:08 y 0:16."
+  },
+  "founder": {
+    "eyebrow": "Quién está detrás",
+    "quote": "Me cansé de planificar piezas en una <em>hoja de cálculo</em>. Todas las herramientas me obligaban a describir la pieza en filas y a calcular los tiempos después. PreFrame es la que yo quería tener en mis propios rodajes.",
+    "attribution": "Alberto — filmmaker, haciendo PreFrame"
+  },
+  "pricing": {
+    "eyebrow": "Precios",
+    "title": "Un crédito es un proyecto.",
+    "lede": "Sin suscripción. El crédito se gasta una vez, al crear el proyecto. Todo lo que hagas dentro — añadir el tema, redibujar la curva, volver a localizar el mismo archivo, exportar y reexportar — es gratis e ilimitado, para siempre.",
+    "freeTag": "Empieza aquí",
+    "freeAmount": "Gratis",
+    "freeSmall": "Tu primer proyecto, completo.",
+    "freeItems": [
+      "Onda o curva emocional",
+      "Mood board y tarjetas de plano",
+      "Exportación EDL y PDF de rodaje",
+      "Sin tarjeta"
+    ],
+    "founderTag": "Precio fundador",
+    "founderThen": "luego",
+    "founderSmall": "Por crédito de proyecto. Tuyo para siempre.",
+    "founderItems": [
+      "Un proyecto completo, de la idea al rodaje",
+      "Ediciones y exportaciones ilimitadas",
+      "Tuyo para siempre, sin renovaciones",
+      "Máximo 2 por cuenta"
+    ],
+    "packsTitle": "¿Vas a planificar más de un proyecto? Con los packs el crédito sale más barato.",
+    "packsNotice": "Los créditos no caducan, y todo lo que pasa dentro de un proyecto sigue siendo ilimitado y gratis compres como compres. Las compras se abren con el lanzamiento. El ahorro se calcula frente a comprar créditos individuales a 19,99 €; los packs nunca se han vendido a otro precio.",
+    "founderNoticeBefore": "Precio fundador para los 100 primeros compradores o durante seis meses, lo que ocurra antes. Después el precio pasa a",
+    "founderNoticeAfter": ". Los pagos los procesa Stripe, que es quien aparece como vendedor en tu extracto.",
+    "founderNoticeLink": "Ver la página de precios completa →"
+  },
+  "closer": {
+    "title": "Piensa en ritmo.<br>Piensa en <em class=\"closer-em\">emoción</em>.<br>Y luego rueda.",
+    "status": "Estado del lanzamiento",
+    "req": "La build firmada de macOS está en notarización. Windows todavía no tiene fecha."
+  }
+}

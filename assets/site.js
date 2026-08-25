@@ -16,6 +16,32 @@
 
   var BRAND = window.BRAND || {};
 
+  /* ─── 0. Idioma ─────────────────────────────────────────────────────
+     El idioma sale del `<html lang>` que escribe el generador, y de ahí
+     solamente: sin fetch, sin cookies y sin `localStorage`. El idioma vive
+     en la URL, así que no hay nada que recordar. */
+
+  var LANG = document.documentElement.lang === 'es' ? 'es' : 'en';
+
+  var STRINGS = {
+    en: {
+      linkCopied: 'Link copied',
+      shareTitle: '{name} — plan your shoot on a timeline',
+      shareText: 'Open this on your Mac to download {name}.',
+    },
+    es: {
+      linkCopied: 'Enlace copiado',
+      shareTitle: '{name} — planifica tu rodaje en un timeline',
+      shareText: 'Abre esto en tu Mac para descargar {name}.',
+    },
+  };
+
+  var COPY = STRINGS[LANG];
+
+  function fill(template, name) {
+    return template.split('{name}').join(name);
+  }
+
   /* ─── 1. Valores de marca ──────────────────────────────────────────── */
 
   function readPath(obj, path) {
@@ -24,7 +50,24 @@
     }, obj);
   }
 
+  /* El wordmark: PREframe con el PRE en degradado. Se construye con nodos,
+     no con innerHTML, y sustituye al texto de reserva del HTML. */
+  function renderWordmark(el) {
+    var wm = BRAND.wordmark;
+    if (!wm) return;
+    el.textContent = '';
+    var pre = document.createElement('b');
+    pre.className = 'wm-pre';
+    pre.textContent = wm.pre;
+    el.appendChild(pre);
+    el.appendChild(document.createTextNode(wm.rest));
+  }
+
   document.querySelectorAll('[data-brand]').forEach(function (el) {
+    if (el.getAttribute('data-brand') === 'name') {
+      renderWordmark(el);
+      return;
+    }
     var value = readPath(BRAND, el.getAttribute('data-brand'));
     /* null/undefined = dato que todavía no existe (versión, tamaño, email).
        Se deja el contenido de reserva del HTML, que ya dice que está
@@ -70,9 +113,10 @@
     btn.addEventListener('click', function () {
       track('send_to_mac');
 
+      var name = BRAND.name || 'Preframe';
       var shareData = {
-        title: (BRAND.name || 'Preframe') + ' — plan your shoot on a timeline',
-        text: 'Open this on your Mac to download ' + (BRAND.name || 'Preframe') + '.',
+        title: fill(COPY.shareTitle, name),
+        text: fill(COPY.shareText, name),
         url: url,
       };
 
@@ -92,7 +136,7 @@
 
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(url).then(
-          function () { feedback('Link copied'); },
+          function () { feedback(COPY.linkCopied); },
           function () { feedback(url); }
         );
         return;

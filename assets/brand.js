@@ -12,7 +12,12 @@
    ───────────────────────────────────────────────────────────────────── */
 
 window.BRAND = {
-  name: 'Preframe',
+  name: 'PreFrame',
+
+  /* El wordmark visual: PREframe, con el PRE en degradado de marca. Las dos
+     mitades viven aquí para que un rebrand siga siendo un solo archivo.
+     `site.js` lo renderiza en cada [data-brand="name"]. */
+  wordmark: { pre: 'Pre', rest: 'Frame' },
   domain: 'preframe-app.com',
   url: 'https://www.preframe-app.com',
 
@@ -41,7 +46,18 @@ window.BRAND = {
       url: null,
       version: null,        /* no inventar: se rellena al publicar */
       size: null,
-      requirements: 'macOS 12+ · Apple Silicon & Intel',
+
+      /* Texto visible: depende del idioma de la página, igual que
+         `price.founderLimit`. Sin esto, el HTML servía español y el JS lo
+         reescribía en inglés al hidratar. El idioma sale del `<html lang>`
+         que escribe el generador; nada de almacenamiento. */
+      requirements: (function () {
+        var byLang = {
+          en: 'macOS 12+ · Apple Silicon & Intel',
+          es: 'macOS 12+ · Apple Silicon e Intel',
+        };
+        return byLang[document.documentElement.lang === 'es' ? 'es' : 'en'];
+      })(),
     },
     windows: {
       available: false,
@@ -55,10 +71,27 @@ window.BRAND = {
      [PENDIENTE] Moneda: EUR mientras no se confirme qué muestra Stripe
      Checkout con Managed Payments a un comprador estadounidense. */
   price: {
-    founder: '€9.99',
-    standard: '€19.99',
+    /* Símbolo DETRÁS del número (decisión de Alberto, 2026-08-14). El
+       separador decimal sí cambia con el idioma: coma en español, punto en
+       inglés. Estos valores tienen que coincidir con `shared.price.*` del
+       diccionario, que es el fallback que se ve sin JavaScript. */
+    founder: (function () {
+      return document.documentElement.lang === 'es' ? '9,99 €' : '9.99 €';
+    })(),
+    standard: (function () {
+      return document.documentElement.lang === 'es' ? '19,99 €' : '19.99 €';
+    })(),
     currency: 'EUR',
     maxPerAccount: 2,
-    founderLimit: 'first 100 buyers or six months',
+
+    /* Texto visible, así que depende del idioma de la página. El idioma sale
+       del `<html lang>` que escribe el generador; nada de almacenamiento. */
+    founderLimit: (function () {
+      var byLang = {
+        en: 'first 100 buyers or six months',
+        es: 'los 100 primeros compradores o seis meses',
+      };
+      return byLang[document.documentElement.lang === 'es' ? 'es' : 'en'];
+    })(),
   },
 };

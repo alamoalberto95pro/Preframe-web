@@ -1,0 +1,24 @@
+{#- Navegación. Partial ÚNICO: antes vivía copiada a mano en cinco ficheros.
+
+    Los enlaces se resuelven dentro del idioma de la página (`langBase`), así
+    que el inglés sigue apuntando a /pricing/ y el español a /es/pricing/.
+
+    El conmutador de idioma va justo antes del botón primario y es un enlace
+    y nada más: sin JavaScript, sin localStorage y sin cookies — la política
+    de privacidad publicada promete cero almacenamiento, y el idioma ya vive
+    en la URL. El rótulo es el idioma AL QUE se cambia; el aria-label sale
+    del diccionario de ESE idioma, que es donde tiene sentido escribirlo. -#}
+<nav class="site-nav" aria-label="{{ S.nav.aria | safe }}">
+  <div class="wrap nav-in">
+    <a class="logo" href="{{ langBase }}/">
+      <img class="logo-mark" src="/assets/mark.svg" alt="" aria-hidden="true" width="28" height="28">
+      <span data-brand="name">PreFrame</span>
+    </a>
+    <div class="nav-links">
+      <a href="{{ langBase }}/pricing/">{{ S.nav.pricing | safe }}</a>
+      <a href="{{ langBase }}/support/">{{ S.nav.support | safe }}</a>
+      <a class="lang-switch" href="{{ altUrl }}" hreflang="{{ other }}" lang="{{ other }}" aria-label="{{ t[other].shared.langSwitch.aria | safe }}">{{ site.languages[other].label }}</a>
+      <a href="{{ langBase }}/download/" class="btn btn-primary">{{ S.nav.cta | safe }}</a>
+    </div>
+  </div>
+</nav>

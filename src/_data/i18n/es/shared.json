@@ -1,0 +1,61 @@
+{
+  "skipLink": "Saltar al contenido",
+  "nav": {
+    "aria": "Principal",
+    "pricing": "Precios",
+    "support": "Soporte",
+    "cta": "Consigue PreFrame"
+  },
+  "langSwitch": {
+    "aria": "Ver esta página en español"
+  },
+  "buttons": {
+    "downloadMac": "Descargar para macOS",
+    "comingSoon": "Próximamente",
+    "sendToMac": "Envíatelo a tu Mac"
+  },
+  "footer": {
+    "tagline": "Preproducción para quien rueda siguiendo un ritmo.",
+    "download": "Descargar",
+    "pricing": "Precios",
+    "support": "Soporte",
+    "releases": "Notas de versión",
+    "terms": "Términos",
+    "privacy": "Privacidad"
+  },
+  "packs": {
+    "popular": "El más elegido",
+    "items": [
+      {
+        "tag": "Individual",
+        "amount": "19,99 €",
+        "per": "un crédito · un proyecto",
+        "save": "El precio de referencia",
+        "isBase": true
+      },
+      {
+        "tag": "Pack de 3",
+        "amount": "49,99 €",
+        "per": "16,66 € por crédito",
+        "save": "Ahorras 9,98 € frente a comprarlos de uno en uno"
+      },
+      {
+        "tag": "Pack de 5",
+        "amount": "74,99 €",
+        "per": "15,00 € por crédito",
+        "save": "Ahorras 24,96 € frente a comprarlos de uno en uno",
+        "isPopular": true
+      },
+      {
+        "tag": "Pack de 10",
+        "amount": "129,99 €",
+        "per": "13,00 € por crédito",
+        "save": "Ahorras 69,91 € frente a comprarlos de uno en uno"
+      }
+    ]
+  },
+  "price": {
+    "founder": "9,99 €",
+    "standard": "19,99 €"
+  }
+}

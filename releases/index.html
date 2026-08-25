@@ -3,18 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Release notes — Preframe</title>
-  <meta name="description" content="Every Preframe release, what changed in it and when. Nothing has shipped yet — the first entry lands with the first signed build.">
+  <title>Release notes — PreFrame</title>
+  <meta name="description" content="Every PreFrame release, what changed in it and when. Nothing has shipped yet — the first entry lands with the first signed build.">
   <meta name="theme-color" content="#080808">
   <link rel="canonical" href="https://www.preframe-app.com/releases/">
+
+  <!-- Rutas por idioma: el inglés se queda en la raíz y el español vive bajo
+       /es/. x-default apunta al inglés. -->
+  <link rel="alternate" hreflang="en" href="https://www.preframe-app.com/releases/">
+  <link rel="alternate" hreflang="es" href="https://www.preframe-app.com/es/releases/">
+  <link rel="alternate" hreflang="x-default" href="https://www.preframe-app.com/releases/">
+
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Preframe">
+  <meta property="og:site_name" content="PreFrame">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="es_ES">
   <meta property="og:url" content="https://www.preframe-app.com/releases/">
-  <meta property="og:title" content="Release notes — Preframe">
-  <meta property="og:description" content="Every Preframe release, what changed in it and when.">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:title" content="Release notes — PreFrame">
+  <meta property="og:description" content="Every PreFrame release, what changed in it and when.">
+  <meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="/assets/icon-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preload" href="/assets/fonts/satoshi-700.woff2" as="font" type="font/woff2" crossorigin>
@@ -33,16 +41,14 @@
 <nav class="site-nav" aria-label="Main">
   <div class="wrap nav-in">
     <a class="logo" href="/">
-      <span class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#F5F3EF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18"/><path d="M3 7.5h4"/><path d="M3 12h18"/><path d="M3 16.5h4"/><path d="M17 3v18"/><path d="M21 7.5h-4"/><path d="M21 16.5h-4"/></svg>
-      </span>
-      <span data-brand="name">Preframe</span>
+      <img class="logo-mark" src="/assets/mark.svg" alt="" aria-hidden="true" width="28" height="28">
+      <span data-brand="name">PreFrame</span>
     </a>
     <div class="nav-links">
-      <a href="/#how">How it works</a>
       <a href="/pricing/">Pricing</a>
       <a href="/support/">Support</a>
-      <a href="/download/" class="btn btn-primary">Get Preframe</a>
+      <a class="lang-switch" href="/es/releases/" hreflang="es" lang="es" aria-label="Ver esta página en español">ES</a>
+      <a href="/download/" class="btn btn-primary">Get PreFrame</a>
     </div>
   </div>
 </nav>
@@ -54,8 +60,7 @@
     <span class="eyebrow eyebrow-d">Release notes</span>
     <h1>Everything that changes, written down.</h1>
     <p class="lede">
-      Preframe updates itself, and an app that updates itself owes you a plain account of what it
-      just changed. Every version lands here, newest first, in language a person can read.
+      PreFrame updates itself, and an app that updates itself owes you a plain account of what it just changed. Every version lands here, newest first, in language a person can read.
     </p>
   </div>
 </section>
@@ -92,13 +97,11 @@
   <div class="wrap foot">
     <div>
       <a class="logo" href="/" style="margin-bottom:var(--space-3)">
-        <span class="logo-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#F5F3EF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18"/><path d="M3 7.5h4"/><path d="M3 12h18"/><path d="M3 16.5h4"/><path d="M17 3v18"/><path d="M21 7.5h-4"/><path d="M21 16.5h-4"/></svg>
-        </span>
-        <span data-brand="name">Preframe</span>
+        <img class="logo-mark" src="/assets/mark.svg" alt="" aria-hidden="true" width="28" height="28">
+        <span data-brand="name">PreFrame</span>
       </a>
       <p class="meta mute-d">Pre-production for people who shoot to a rhythm.</p>
-      <p class="meta mute-d">© <span data-year>2026</span> <span data-brand="name">Preframe</span></p>
+      <p class="meta mute-d">© <span data-year>2026</span> <span data-brand="name">PreFrame</span></p>
     </div>
     <div class="foot-links">
       <a href="/download/">Download</a>
@@ -107,6 +110,7 @@
       <a href="/releases/">Release notes</a>
       <a href="/legal/terms/">Terms</a>
       <a href="/legal/privacy/">Privacy</a>
+      <a class="lang-switch" href="/es/releases/" hreflang="es" lang="es" aria-label="Ver esta página en español">ES</a>
     </div>
   </div>
 </footer>

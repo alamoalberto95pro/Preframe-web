@@ -14,87 +14,171 @@
 (function () {
   'use strict';
 
-  /* ─── La tarjeta que late ───────────────────────────────────────────
-     Réplica del "cinematic breathing" del editor: la envolvente sale de la
-     silueta de la onda (timeline-data) recorrida en bucle, y los picos por
-     encima de un umbral hacen de transitorio — el destello del golpe. La
-     misma fórmula de sombra que usa la app: crece con la energía. */
-  var beatCard = document.querySelector('[data-beat-card]');
-  var DATA = window.PREFRAME_TIMELINE;
-  var reducedQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var win = document.querySelector('[data-sun-win]');
+  var winLabel = document.querySelector('[data-sun-winlabel]');
+  var rowKey = document.querySelector('[data-sun-rowkey]');
+  var rowVal = document.querySelector('[data-sun-rowval]');
+  var cursor = document.querySelector('[data-sun-cursor]');
+  var bar = document.querySelector('[data-sunbar]');
+  if (!win || !bar || !cursor) return;
 
-  if (beatCard && DATA && !reducedQuery.matches && window.IntersectionObserver) {
-    var beatHost = beatCard.closest('.bento-card') || beatCard.parentElement;
-    var LOOP = 5200;
-    var beatRaf = 0;
-    var beatStart = 0;
+  var reduced2 = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var WIN_W = 22;          /* ancho de la ventana, en % de la barra */
+  var HOME = 56;           /* posición de reposo: la golden hour de la tarde */
 
-    var beatFrame = function (now) {
-      beatRaf = window.requestAnimationFrame(beatFrame);
-      if (!beatStart) beatStart = now;
-      var t = ((now - beatStart) % LOOP) / LOOP;
+  /* Franjas del día alineadas con el degradado de la barra. Se evalúan en el
+     CENTRO de la ventana.
 
-      var raw = DATA.amplitudeAt(Math.round(t * 128), 128);   /* 0..~1 */
-      var e = Math.max(0, Math.min(1, raw));
-      var transient = raw > 0.82;                             /* el golpe */
+     Los rótulos van SIEMPRE en inglés, en los dos idiomas de la web: son
+     una réplica de la tira solar de la app, y los mockups y capturas se
+     enseñan en inglés (decisión de Alberto, 2026-08-14). Se corresponden con
+     `windowLightLabel` (solar.ts) con la app en inglés. */
+  var COPY = {
+    night: 'Night',
+    blueHour: 'Blue hour',
+    morning: 'Morning light',
+    afternoon: 'Afternoon light',
+    goldenHour: 'Golden hour',
+  };
 
-      var spread = Math.round(4 + e * 16);
-      var blur = Math.round(12 + e * 48);
-      var alpha = (0.15 + e * 0.40).toFixed(2);
-      var shadow = '0 2px ' + blur + 'px ' + spread + 'px rgba(232,129,74,' + alpha + ')';
-      if (transient) shadow += ', 0 0 ' + (blur + 30) + 'px ' + (spread + 10) + 'px rgba(232,129,74,0.5)';
-
-      beatCard.style.boxShadow = shadow;
-      beatCard.style.transform = 'scale(' + (1 + e * 0.02) + ')';
-    };
-
-    new window.IntersectionObserver(function (entries) {
-      if (entries[0].isIntersecting) {
-        if (!beatRaf) beatRaf = window.requestAnimationFrame(beatFrame);
-      } else if (beatRaf) {
-        window.cancelAnimationFrame(beatRaf);
-        beatRaf = 0;
-        beatStart = 0;
-      }
-    }, { threshold: 0 }).observe(beatHost);
+  var BANDS = [
+    [0.13, COPY.night],
+    [0.30, COPY.blueHour],
+    [0.50, COPY.morning],
+    [0.62, COPY.afternoon],
+    [0.80, COPY.goldenHour],
+    [0.90, COPY.blueHour],
+    [1.01, COPY.night],
+  ];
+  function labelAt(t) {
+    for (var i = 0; i < BANDS.length; i++) if (t < BANDS[i][0]) return BANDS[i][1];
+    return COPY.night;
+  }
+  function fmtHour(t) {
+    var minutes = Math.round(t * 24 * 60);
+    var h = Math.floor(minutes / 60) % 24;
+    var m = minutes % 60;
+    return h + ':' + String(m).padStart(2, '0');
   }
 
-  var marker = document.querySelector('[data-sun-now]');
-  if (!marker) return;
+  var lastLabel = '';
+  function setWindow(leftPct) {
+    win.style.left = leftPct + '%';
+    var center = (leftPct + WIN_W / 2) / 100;
+    var label = labelAt(center);
+    if (label !== lastLabel && winLabel) {
+      lastLabel = label;
+      winLabel.textContent = label;
+      winLabel.classList.remove('is-pop');
+      void winLabel.offsetWidth;
+      winLabel.classList.add('is-pop');
+    }
+    if (rowKey) rowKey.textContent = label;
+    if (rowVal) rowVal.textContent = fmtHour(leftPct / 100) + ' → ' + fmtHour((leftPct + WIN_W) / 100);
+  }
 
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (reduced.matches || !window.IntersectionObserver) {
-    marker.style.left = '38%';   /* pose quieta: media tarde */
+  if (reduced2.matches || !window.IntersectionObserver) {
+    setWindow(HOME);
+    cursor.style.display = 'none';
     return;
   }
 
-  var host = marker.closest('.bento-card') || marker.parentElement;
-  var DAY = 18000;
-  var rafId = 0;
-  var startedAt = 0;
+  /* ─── Coreografía: el fantasma agarra la ventana y la pasea ─────────── */
+  var host = bar.closest('.bento-visual') || bar.parentElement;
+  var alive = true;
+  var visible = false;
+  var running = false;
 
-  function frame(now) {
-    rafId = window.requestAnimationFrame(frame);
-    if (!startedAt) startedAt = now;
-    marker.style.left = ((((now - startedAt) % DAY) / DAY) * 100) + '%';
+  function wait(ms) { return new Promise(function (r) { window.setTimeout(r, ms); }); }
+
+  function cursorTo(x, y, ms) {
+    return new Promise(function (resolve) {
+      var st = window.getComputedStyle(cursor);
+      var m = new DOMMatrixReadOnly(st.transform === 'none' ? '' : st.transform);
+      var x0 = m.m41, y0 = m.m42;
+      var t0 = window.performance.now();
+      (function step(now) {
+        if (!alive) return resolve();
+        var p = Math.min(1, (now - t0) / ms);
+        var e = 1 - Math.pow(1 - p, 3);
+        cursor.style.transform = 'translate(' + (x0 + (x - x0) * e) + 'px,' + (y0 + (y - y0) * e) + 'px)';
+        if (p < 1) window.requestAnimationFrame(step);
+        else resolve();
+      })(window.performance.now());
+    });
+  }
+
+  /** Punto (px relativo al host) del centro de la ventana en leftPct. */
+  function winPoint(leftPct) {
+    var hostR = host.getBoundingClientRect();
+    var barR = bar.getBoundingClientRect();
+    return {
+      x: barR.left - hostR.left + barR.width * (leftPct + WIN_W / 2) / 100,
+      y: barR.top - hostR.top + barR.height / 2,
+    };
+  }
+
+  /** Arrastra la ventana de a% a b%, con el cursor pegado a ella. */
+  function dragWindow(fromPct, toPct, ms) {
+    return new Promise(function (resolve) {
+      var t0 = window.performance.now();
+      (function step(now) {
+        if (!alive) return resolve();
+        var p = Math.min(1, (now - t0) / ms);
+        var e = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+        var left = fromPct + (toPct - fromPct) * e;
+        setWindow(left);
+        var pt = winPoint(left);
+        cursor.style.transform = 'translate(' + pt.x + 'px,' + pt.y + 'px)';
+        if (p < 1) window.requestAnimationFrame(step);
+        else resolve();
+      })(window.performance.now());
+    });
+  }
+
+  async function performLoop() {
+    if (running) return;
+    running = true;
+    var pos = HOME;
+    setWindow(pos);
+
+    while (alive && visible) {
+      /* aparece lejos, llega a la ventana, la agarra */
+      var start = winPoint(pos);
+      cursor.style.transform = 'translate(' + (start.x - 130) + 'px,' + (start.y + 70) + 'px)';
+      cursor.classList.add('is-on');
+      await cursorTo(start.x, start.y, 750); if (!alive || !visible) break;
+      cursor.classList.add('is-down');
+      await wait(200);
+
+      /* paseo: amanecer → mañana → vuelta a la golden de la tarde */
+      await dragWindow(pos, 4, 2000); pos = 4; if (!alive || !visible) break;
+      await wait(650);
+      await dragWindow(pos, 33, 1500); pos = 33; if (!alive || !visible) break;
+      await wait(650);
+      await dragWindow(pos, HOME, 1700); pos = HOME; if (!alive || !visible) break;
+
+      /* suelta y se retira */
+      cursor.classList.remove('is-down');
+      await wait(250);
+      await cursorTo(winPoint(pos).x + 120, winPoint(pos).y + 80, 650);
+      cursor.classList.remove('is-on');
+      await wait(1600);
+    }
+    running = false;
   }
 
   new window.IntersectionObserver(function (entries) {
-    if (entries[0].isIntersecting) {
-      if (!rafId) rafId = window.requestAnimationFrame(frame);
-    } else if (rafId) {
-      window.cancelAnimationFrame(rafId);
-      rafId = 0;
-      startedAt = 0;
-    }
-  }, { threshold: 0 }).observe(host);
+    visible = entries[0].intersectionRatio > 0.4;
+    if (visible) performLoop();
+  }, { threshold: [0, 0.4, 1] }).observe(host);
 
-  if (reduced.addEventListener) {
-    reduced.addEventListener('change', function () {
-      if (!reduced.matches) return;
-      window.cancelAnimationFrame(rafId);
-      rafId = 0;
-      marker.style.left = '38%';
+  if (reduced2.addEventListener) {
+    reduced2.addEventListener('change', function () {
+      if (!reduced2.matches) return;
+      alive = false;
+      cursor.style.display = 'none';
+      setWindow(HOME);
     });
   }
 })();

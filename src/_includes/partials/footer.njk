@@ -1,0 +1,32 @@
+{#- Footer. Partial ÚNICO. El cambio de idioma se repite aquí porque el nav
+    se auto-oculta durante el hero: si solo estuviera arriba, en la landing
+    no habría forma de cambiar de idioma sin volver a subir.
+
+    Las páginas legales no están traducidas: sus enlaces son absolutos y
+    apuntan al mismo sitio desde los dos idiomas, a propósito. -#}
+<footer class="canvas-dark site-footer">
+  <div class="wrap foot">
+    <div>
+      <a class="logo" href="{{ langBase }}/" style="margin-bottom:var(--space-3)">
+        <img class="logo-mark" src="/assets/mark.svg" alt="" aria-hidden="true" width="28" height="28">
+        <span data-brand="name">PreFrame</span>
+      </a>
+      <p class="meta mute-d">{{ S.footer.tagline | safe }}</p>
+      <p class="meta mute-d">© <span data-year>2026</span> <span data-brand="name">PreFrame</span></p>
+    </div>
+    <div class="foot-links">
+      <a href="{{ langBase }}/download/">{{ S.footer.download | safe }}</a>
+      <a href="{{ langBase }}/pricing/">{{ S.footer.pricing | safe }}</a>
+      <a href="{{ langBase }}/support/">{{ S.footer.support | safe }}</a>
+      <a href="{{ langBase }}/releases/">{{ S.footer.releases | safe }}</a>
+      <a href="/legal/terms/">{{ S.footer.terms | safe }}</a>
+      <a href="/legal/privacy/">{{ S.footer.privacy | safe }}</a>
+      <a class="lang-switch" href="{{ altUrl }}" hreflang="{{ other }}" lang="{{ other }}" aria-label="{{ t[other].shared.langSwitch.aria | safe }}">{{ site.languages[other].label }}</a>
+    </div>
+  </div>
+{%- if isHome %}
+  <!-- Wordmark de sala de cine: enorme, recortado por abajo, casi fundido con
+       el fondo. Cierra la página con la marca sin gastar una sección más. -->
+  <div class="foot-wordmark" aria-hidden="true" data-brand="name">PreFrame</div>
+{%- endif %}
+</footer>

@@ -1,13 +1,14 @@
 <!--
-  Diseño de la tarjeta de Open Graph (1200×630).
+  Tarjeta de Open Graph (1200×630).
 
-  [PENDIENTE] Exportar a `og-image.png` y descomentar las meta de og:image /
-  twitter:image en las páginas. En este entorno no hay conversor SVG→PNG.
-  Forma más rápida de exportarlo: abrir este archivo en el navegador a 1200×630
-  y capturar, o pasarlo por cualquier exportador de SVG.
+  Master vectorial. El PNG que consumen las meta (`og-image.png`) se genera
+  desde aquí con `npm run brand:build` en el repo de la app: rasteriza con el
+  Chromium de Electron, así que las fuentes y los degradados salen tal cual.
+  No editar el PNG a mano.
 
-  El texto va con las familias de marca; si el exportador no las encuentra,
-  instalar Satoshi/Inter antes de exportar o sustituir por texto vectorizado.
+  La marca de la esquina es el mismo dibujo que `mark-rim.svg`, incrustado
+  aquí en vez de referenciado porque un `<image>` externo no viaja en la
+  captura. Si cambia el icono, cambia también este bloque.
 -->
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
@@ -24,27 +25,54 @@
       <stop offset="0.5" stop-color="#A8845C"/>
       <stop offset="1" stop-color="#5D7FA8"/>
     </linearGradient>
-    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#E8814A"/>
-      <stop offset="1" stop-color="#8A7A6B"/>
+
+    <!-- Marca. Mismos tokens que brand/src/*.svg, en el espacio 0–100. -->
+    <linearGradient id="pf-tile" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="100">
+      <stop offset="0" stop-color="#463D35"/><stop offset="0.45" stop-color="#241F1B"/><stop offset="1" stop-color="#0D0B0A"/>
     </linearGradient>
+    <linearGradient id="pf-sheen" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="56">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.16"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="pf-cream" gradientUnits="userSpaceOnUse" x1="0" y1="24" x2="0" y2="76">
+      <stop offset="0" stop-color="#FFFCF7"/><stop offset="1" stop-color="#E6D3BC"/>
+    </linearGradient>
+    <linearGradient id="pf-amber" gradientUnits="userSpaceOnUse" x1="0" y1="14" x2="0" y2="86">
+      <stop offset="0" stop-color="#FFCE96"/><stop offset="0.5" stop-color="#E08A44"/><stop offset="1" stop-color="#A94E27"/>
+    </linearGradient>
+    <mask id="pf-knock" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
+      <rect width="100" height="100" fill="#FFFFFF"/>
+      <rect x="9.5" y="53.5" width="27" height="21" rx="6.5" fill="#000000"/>
+      <rect x="36.5" y="26.5" width="27" height="21" rx="6.5" fill="#000000"/>
+      <rect x="63.5" y="42.5" width="27" height="21" rx="6.5" fill="#000000"/>
+    </mask>
   </defs>
 
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect width="1200" height="630" fill="url(#glow)"/>
 
-  <!-- Marca -->
-  <rect x="80" y="72" width="40" height="40" rx="9" fill="url(#mark)"/>
-  <text x="136" y="102" font-family="Satoshi, Inter, sans-serif" font-size="30" font-weight="700" fill="#F5F3EF">Preframe</text>
+  <!-- Marca: tile a 56px en la esquina + wordmark PreFrame -->
+  <g transform="translate(80,66) scale(0.56)">
+    <path d="M30,0 L70,0 C85.7,0 91.4,2.1 95,5 C97.9,8.6 100,14.3 100,30 L100,70 C100,85.7 97.9,91.4 95,95 C91.4,97.9 85.7,100 70,100 L30,100 C14.3,100 8.6,97.9 5,95 C2.1,91.4 0,85.7 0,70 L0,30 C0,14.3 2.1,8.6 5,5 C8.6,2.1 14.3,0 30,0 Z" fill="url(#pf-tile)"/>
+    <path d="M30,0 L70,0 C85.7,0 91.4,2.1 95,5 C97.9,8.6 100,14.3 100,30 L100,70 C100,85.7 97.9,91.4 95,95 C91.4,97.9 85.7,100 70,100 L30,100 C14.3,100 8.6,97.9 5,95 C2.1,91.4 0,85.7 0,70 L0,30 C0,14.3 2.1,8.6 5,5 C8.6,2.1 14.3,0 30,0 Z" fill="url(#pf-sheen)"/>
+    <path d="M30,0 L70,0 C85.7,0 91.4,2.1 95,5 C97.9,8.6 100,14.3 100,30 L100,70 C100,85.7 97.9,91.4 95,95 C91.4,97.9 85.7,100 70,100 L30,100 C14.3,100 8.6,97.9 5,95 C2.1,91.4 0,85.7 0,70 L0,30 C0,14.3 2.1,8.6 5,5 C8.6,2.1 14.3,0 30,0 Z" fill="none" stroke="#FFFFFF" stroke-opacity="0.22" stroke-width="0.8"/>
+    <path d="M6,74 C22,74 22,44 44,44 C66,44 68,60 94,60" fill="none" stroke="url(#pf-cream)" stroke-width="6" stroke-linecap="round" stroke-opacity="0.56" mask="url(#pf-knock)"/>
+    <g fill="url(#pf-cream)" opacity="0.58">
+      <rect x="11" y="55" width="24" height="18" rx="5"/>
+      <rect x="38" y="28" width="24" height="18" rx="5"/>
+      <rect x="65" y="44" width="24" height="18" rx="5"/>
+    </g>
+    <rect x="46" y="14" width="8" height="72" rx="4" fill="url(#pf-amber)"/>
+  </g>
+  <text x="152" y="110" font-family="Satoshi, Inter, sans-serif" font-size="34" font-weight="500" letter-spacing="-0.68"><tspan fill="#E08A44">Pre</tspan><tspan fill="#F0EDE6">Frame</tspan></text>
 
   <!-- Titular -->
-  <text x="80" y="250" font-family="Satoshi, Inter, sans-serif" font-size="72" font-weight="700" fill="#F5F3EF" letter-spacing="-1.5">Your shot list isn't a list.</text>
-  <text x="80" y="332" font-family="Satoshi, Inter, sans-serif" font-size="72" font-weight="700" fill="#E8814A" letter-spacing="-1.5">It's a timeline.</text>
+  <text x="80" y="266" font-family="Satoshi, Inter, sans-serif" font-size="72" font-weight="700" fill="#F5F3EF" letter-spacing="-1.5">Your shot list isn't a list.</text>
+  <text x="80" y="348" font-family="Satoshi, Inter, sans-serif" font-size="72" font-weight="700" fill="#E8814A" letter-spacing="-1.5">It's a timeline.</text>
 
-  <text x="80" y="392" font-family="Inter, sans-serif" font-size="25" fill="#C5BFB2">Pre-production for music video directors and DoPs</text>
+  <text x="80" y="408" font-family="Inter, sans-serif" font-size="25" fill="#C5BFB2">Pre-production for filmmakers who feel the music first</text>
 
-  <!-- Timeline: waveform a la izquierda, curva a la derecha -->
-  <g transform="translate(80 460)">
+  <!-- Timeline: waveform a la izquierda, curva emocional a la derecha -->
+  <g transform="translate(80 470)">
     <g fill="#B85843">
       <rect x="0"   y="42" width="7" height="30" rx="2"/>
       <rect x="12"  y="26" width="7" height="46" rx="2"/>
@@ -80,7 +108,7 @@
   </g>
 
   <!-- Secciones -->
-  <g transform="translate(80 560)">
+  <g transform="translate(80 570)">
     <rect x="0"   y="0" width="180" height="3" rx="1.5" fill="#9B3D2E"/>
     <rect x="188" y="0" width="280" height="3" rx="1.5" fill="#B85843"/>
     <rect x="476" y="0" width="220" height="3" rx="1.5" fill="#C97A4A"/>

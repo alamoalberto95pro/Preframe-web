@@ -10,31 +10,37 @@
        y para los que planifican antes de tener el tema (curva emocional).
        Los videoclips caben, pero no definen. No volver a "music video
        directors" como categoría. -->
-  <title>Preframe — Pre-production software for filmmakers</title>
+  <title>PreFrame — Pre-production software for filmmakers</title>
   <meta name="description" content="Pre-production for filmmakers who feel the music first. See the film while the track plays — or plan it before the music exists, with a hand-drawn emotional curve. Export a shooting PDF and cut markers for Premiere or DaVinci Resolve.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <meta name="theme-color" content="#080808">
   <meta name="color-scheme" content="dark">
   <link rel="canonical" href="https://www.preframe-app.com/">
 
+  <!-- Rutas por idioma: el inglés se queda en la raíz y el español vive bajo
+       /es/. x-default apunta al inglés. -->
+  <link rel="alternate" hreflang="en" href="https://www.preframe-app.com/">
+  <link rel="alternate" hreflang="es" href="https://www.preframe-app.com/es/">
+  <link rel="alternate" hreflang="x-default" href="https://www.preframe-app.com/">
+
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Preframe">
+  <meta property="og:site_name" content="PreFrame">
   <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="es_ES">
   <meta property="og:url" content="https://www.preframe-app.com/">
-  <meta property="og:title" content="Preframe — Your shot list isn't a list. It's a timeline.">
+  <meta property="og:title" content="PreFrame — Your shot list isn't a list. It's a timeline.">
   <meta property="og:description" content="Plan every shot against the shape of the piece: the waveform of the track, or the emotional curve you draw when there's no track yet.">
   <meta property="og:image" content="https://www.preframe-app.com/assets/og-image.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Preframe — Think in rhythm. Think in emotion. Then shoot it.">
+  <meta property="og:image:alt" content="PreFrame — Think in rhythm. Think in emotion. Then shoot it.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Preframe — Your shot list isn't a list. It's a timeline.">
+  <meta name="twitter:title" content="PreFrame — Your shot list isn't a list. It's a timeline.">
   <meta name="twitter:description" content="Plan every shot against the shape of the piece: the waveform of the track, or the emotional curve you draw when there's no track yet.">
   <meta name="twitter:image" content="https://www.preframe-app.com/assets/og-image.png">
-
+<link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="/assets/icon-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
 
@@ -46,8 +52,7 @@
 
   <!-- Datos estructurados. `offers` es legítimo aquí porque el precio se
        muestra en la propia página; sin valoraciones ni fecha de lanzamiento,
-       que no existen. -->
-  <script type="application/ld+json">
+       que no existen. --><script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
@@ -55,7 +60,7 @@
         "@type": "WebSite",
         "@id": "https://www.preframe-app.com/#website",
         "url": "https://www.preframe-app.com/",
-        "name": "Preframe",
+        "name": "PreFrame",
         "description": "Pre-production software for filmmakers who feel the music first.",
         "inLanguage": "en",
         "publisher": { "@id": "https://www.preframe-app.com/#org" }
@@ -63,14 +68,14 @@
       {
         "@type": "Organization",
         "@id": "https://www.preframe-app.com/#org",
-        "name": "Preframe",
+        "name": "PreFrame",
         "url": "https://www.preframe-app.com/",
         "logo": "https://www.preframe-app.com/assets/icon-512.png"
       },
       {
         "@type": "SoftwareApplication",
         "@id": "https://www.preframe-app.com/#app",
-        "name": "Preframe",
+        "name": "PreFrame",
         "url": "https://www.preframe-app.com/",
         "applicationCategory": "MultimediaApplication",
         "applicationSubCategory": "Film pre-production",
@@ -101,16 +106,14 @@
 <nav class="site-nav" aria-label="Main">
   <div class="wrap nav-in">
     <a class="logo" href="/">
-      <span class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#F5F3EF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18"/><path d="M3 7.5h4"/><path d="M3 12h18"/><path d="M3 16.5h4"/><path d="M17 3v18"/><path d="M21 7.5h-4"/><path d="M21 16.5h-4"/></svg>
-      </span>
-      <span data-brand="name">Preframe</span>
+      <img class="logo-mark" src="/assets/mark.svg" alt="" aria-hidden="true" width="28" height="28">
+      <span data-brand="name">PreFrame</span>
     </a>
     <div class="nav-links">
-      <a href="#how">How it works</a>
       <a href="/pricing/">Pricing</a>
       <a href="/support/">Support</a>
-      <a href="/download/" class="btn btn-primary">Get Preframe</a>
+      <a class="lang-switch" href="/es/" hreflang="es" lang="es" aria-label="Ver esta página en español">ES</a>
+      <a href="/download/" class="btn btn-primary">Get PreFrame</a>
     </div>
   </div>
 </nav>
@@ -120,21 +123,21 @@
 <!-- ═══ 1 · HERO ═══════════════════════════════════════════════════════ -->
 <section class="canvas-dark hero" data-rail="The timeline">
   <div class="wrap hero-in">
-    <!-- Marca grande, frase, y el instrumento. Nada más: la barra de
-         navegación no aparece hasta que se deja atrás esta sección. -->
-    <span class="hero-mark" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#F5F3EF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18"/><path d="M3 7.5h4"/><path d="M3 12h18"/><path d="M3 16.5h4"/><path d="M17 3v18"/><path d="M21 7.5h-4"/><path d="M21 16.5h-4"/></svg>
-    </span>
-    <h1 class="hero-title" data-brand="name">Preframe</h1>
+    <!-- Marca grande, frase, y la app real dentro de su Mac. La barra de
+         navegación no aparece hasta que se deja atrás esta sección.
+
+         Sin icono aquí a propósito: el tile ya sale en el nav, en el footer y
+         en el Dock. En el hero competía con el wordmark en vez de sumar, así
+         que la marca la lleva el nombre solo, a tamaño de cartel. -->
+    <h1 class="hero-title" data-brand="name">PreFrame</h1>
     <p class="hero-claim">Your shot list isn't a list.<br>It's a <em>timeline</em>.</p>
-    <p class="hero-who">For filmmakers who feel the music first</p>
+    <p class="hero-who">For filmmakers who feel the <em>music</em> and the <em>story</em> first</p>
 
     <!-- Jerarquía del CTA: el botón principal NUNCA es el deshabilitado. El
          único gesto real que existe hoy en escritorio es ver el producto, así
          que ese es el primario; la descarga queda al lado, presente y honesta
          con su "coming soon". En móvil el primario es llevarse el enlace. -->
     <div class="cta-row">
-      <a href="#how" class="btn btn-primary not-mobile" data-track="cta_how" data-arrow>See it in action</a>
       <button type="button" class="btn btn-primary only-mobile" data-send-to-mac>
         <span data-label>Send this to your Mac</span>
       </button>
@@ -143,6 +146,198 @@
       </button>
     </div>
 
+    <!-- El instrumento interactivo vive ahora en su propia sección más abajo
+         (data-rail "Touch it"): el hero, como en Apple, enseña la app real. -->
+
+    <!-- La app de verdad, capturada de la app de verdad: el editor con el
+         demo "Neon Pulse", la curva dibujada a mano sobre el waveform y el
+         Mood Bar con su paleta. Sin maquetas inventadas. -->
+    <figure class="mac" aria-label="The PreFrame editor: a waveform cut into sections, a hand-drawn emotional curve over it, and the mood board with a palette.">
+      <div class="mac-screen">
+        <img src="/assets/shots/editor-full.webp" width="2000" height="1250"
+             alt="PreFrame editor showing the Neon Pulse demo project: colored narrative sections over the waveform, an emotional curve drawn on top, the shot list below and the Mood Bar canvas on the right."
+             fetchpriority="high" decoding="async">
+      </div>
+      <div class="mac-base" aria-hidden="true"></div>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ═══ 2 · STATEMENT ══════════════════════════════════════════════════
+     El posicionamiento entero, con las palabras de Alberto. La primera frase
+     va a tamaño de sala; el resto, legible. -->
+<section class="canvas-light band statement" data-rail="The story">
+  <div class="wrap">
+    <p class="statement-kicker">What PreFrame is</p>
+    <h2 class="statement-big">
+      PreFrame helps you plan the next story you want to tell — whether you already <em>know the song</em>, or you <em>don't yet</em>.
+    </h2>
+    <div class="statement-rest">
+      <p>If you have the track, drop it in and feel it: a focused mode strips away everything else so you can listen, sense where the shots live, and mark cuts as you go. If you don't have it yet, sketch the shape of the piece as you imagine it and build the story around that instead.</p>
+      <p>Either way, switch to a structured mode to turn what you felt — or imagined — into a real plan: section by section, shot by shot. A moodboard runs alongside you through it all, so the look of the piece never gets lost. And when the real track finally lands, neither does your plan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 2 · MOOD BAR ═══════════════════════════════════════════════════
+     Segunda sección, en blanco: el canvas enseñando su potencial. Es un
+     MOCKUP fiel de los objetos reales del canvas (mismas tarjetas que en la
+     app), montado aquí para poder enseñar una paleta ajena al naranja de
+     marca, referencias generadas sin copyright y un vídeo de referencia.
+     Los rótulos van en español porque replican la app real, igual que las
+     capturas. -->
+<section class="canvas-soft band" data-rail="Mood board">
+  <div class="wrap" style="text-align:center">
+    <span class="eyebrow eyebrow-l">The Mood Bar</span>
+    <h2 class="title-grad" style="max-width:22ch;margin-inline:auto">Half timeline, half mood board.<br>All one project.</h2>
+    <p class="lede mute-l" style="margin:var(--space-6) auto 0">
+      References, video, notes, palettes — even the curve itself — on a canvas that lives beside your timeline and filters by section.
+    </p>
+
+    <div class="canvasmock" role="img" aria-label="The Mood Bar canvas holding two reference frames, a YouTube reference video, a handwritten note, a color palette and the emotional curve card, with the canvas toolbar below.">
+      <div class="cm-chips" aria-hidden="true"><span class="is-active">All</span><span>Opening</span><span>Build</span><span>Peak</span><span>Turn</span><span>Release</span>
+      </div>
+      <div class="cm-board" aria-hidden="true">
+
+        <figure class="cm-card cm-img" style="left:3%;top:6%;width:30%">
+          <img src="/assets/shots/photo-dusk.webp" width="880" height="550" loading="lazy" decoding="async" alt="">
+          <figcaption>canyon_dusk_ref.jpg</figcaption>
+        </figure>
+
+        <div class="cm-card cm-yt" style="left:36.5%;top:2.5%;width:27%">
+          <div class="cm-yt-thumb">
+            <img src="/assets/shots/photo-yt.webp" width="880" height="495" loading="lazy" decoding="async" alt="">
+            <span class="cm-play"></span>
+            <span class="cm-dur">8:24</span>
+          </div>
+          <p class="cm-yt-title">How I shot cinematic b-roll at golden hour</p>
+          <span class="cm-cap">YouTube · reference</span>
+        </div>
+
+        <div class="cm-card cm-note" style="right:3.5%;top:8%;width:26%">
+          “Shoot the chorus handheld — let it breathe with the crowd.”
+        </div>
+
+        <figure class="cm-card cm-img" style="left:8%;bottom:14%;width:26%">
+          <img src="/assets/shots/photo-night.webp" width="880" height="550" loading="lazy" decoding="async" alt="">
+          <figcaption>city_night_02.jpg</figcaption>
+        </figure>
+
+        <div class="cm-card cm-shot" style="left:37%;bottom:11%;width:24%">
+          <div class="cm-shot-thumb"><img src="/assets/shots/photo-crowd.webp" width="880" height="550" loading="lazy" decoding="async" alt=""><span class="cm-dur">18s</span></div>
+          <p class="cm-shot-name">Chorus, in the crowd</p>
+          <span class="cm-cap">Medium shot · 24mm</span>
+          <span class="cm-gear">Sony a6700</span>
+        </div><div class="cm-card cm-palette" style="right:4.5%;top:41%;width:27%">
+          <div class="cm-swatches">
+            <i style="background:#16323E"></i><i style="background:#2C6E49"></i><i style="background:#8C2F39"></i><i style="background:#D9C5A0"></i>
+          </div>
+          <div class="cm-hexes"><span>#16323E</span><span>#2C6E49</span><span>#8C2F39</span><span>#D9C5A0</span></div>
+        </div>
+
+        <div class="cm-card cm-curve" style="right:6%;bottom:9%;width:26%">
+          <span class="cm-curve-label">Emotional curve</span>
+          <svg viewBox="0 0 240 80" preserveAspectRatio="none" focusable="false">
+            <defs>
+              <linearGradient id="cmCurve" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#E0603A"/><stop offset="100%" stop-color="#5D7FA8"/>
+              </linearGradient>
+            </defs>
+            <path d="M 0.00 60.48 C 14.40 60.48, 14.40 52.80, 28.80 52.80 C 45.60 52.80, 45.60 42.56, 62.40 42.56 C 79.20 42.56, 79.20 47.68, 96.00 47.68 C 110.40 47.68, 110.40 25.92, 124.80 25.92 C 138.00 25.92, 138.00 15.68, 151.20 15.68 C 164.40 15.68, 164.40 36.80, 177.60 36.80 C 190.80 36.80, 190.80 20.80, 204.00 20.80 C 222.00 20.80, 222.00 57.92, 240.00 57.92" fill="none" stroke="url(#cmCurve)" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div class="cm-toolbar"><span>Image</span><span>Text</span><span>Video</span><span>Palette</span>
+          <b>+ Add shot</b>
+        </div>
+        <span class="cm-zoom">100%</span>
+      </div>
+    </div>
+
+    <ul class="canvas-caps canvas-caps-light" aria-label="What the canvas holds">
+      <li>Reference images</li>
+      <li>Video &amp; YouTube</li>
+      <li>Written notes</li>
+      <li>Palettes with hex</li>
+      <li>The emotional curve</li>
+      <li>Filter by section</li>
+      <li>The track, always in reach</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══ 3 · FEATURES CON LA APP REAL ═══════════════════════════════════
+     Filas alternas al modo Apple: titular corto, una frase de beneficio y la
+     captura REAL de la app en un marco de ventana. Sustituyen a los pilares
+     dibujados — ahora los dos sustratos se enseñan de verdad. -->
+<section class="canvas-light band" data-rail="What it does">
+  <div class="wrap">
+
+    <div class="feature">
+      <div class="feature-copy">
+        <span class="eyebrow eyebrow-l">Two substrates, one timeline</span>
+        <h2>Draw the feeling.<br>Right over the track.</h2>
+        <p class="mute-l">When you feel the music first, the song becomes your canvas. When the track isn't here yet, you draw the emotional curve by hand — and lay one over the other when it lands. The switch says it all: <em class="feature-em">Music · Curve · Both</em>.</p>
+      </div>
+      <figure class="shotframe">
+        <img src="/assets/shots/substrates.webp" width="1352" height="545" loading="lazy" decoding="async"
+             alt="The PreFrame timeline with the substrate switch: a hand-drawn emotional curve, colored from blue to orange by intensity, drawn directly over the waveform and its narrative sections.">
+      </figure>
+    </div>
+
+    <div class="feature feature-flip">
+      <div class="feature-copy">
+        <span class="eyebrow eyebrow-l">Export</span>
+        <h2>Leave with the cut already mapped.</h2>
+        <p class="mute-l">One dialog, two deliverables: a printable shooting plan with your shots, timecodes and uncovered time — and your sections as timeline markers for Premiere or DaVinci Resolve, at 24, 25 or 30 fps.</p>
+      </div>
+      <figure class="shotframe shotframe-tall">
+        <img src="/assets/shots/export.webp" width="1000" height="1460" loading="lazy" decoding="async"
+             alt="PreFrame's export dialog: a printable shooting plan, and section markers for Premiere or DaVinci Resolve with selectable frame rate.">
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ 3c · FOCUS & FICHA — a lo grande ═══════════════════════════════
+     La captura manda: imagen a todo el ancho con el texto sobre un degradado
+     lateral, para que en un portátil se VEA la interfaz y no un sello. -->
+<!-- Zoom al scroll, al modo de las páginas de producto de Apple: la captura
+     nace con márgenes y esquinas redondeadas y, según bajas, crece con
+     suavidad hasta ocupar la pantalla entera; el texto aparece centrado
+     sobre un bloque negro translúcido. Conducido por scroll (motion.js),
+     nunca secuestrado: la rueda mueve la página a su ritmo. -->
+<section class="zoom-feature" data-rail="Focus &amp; Ficha" data-zoom>
+  <div class="zf-sticky">
+    <figure class="zf-media">
+      <img src="/assets/shots/ficha.webp" width="2000" height="1250" loading="lazy" decoding="async"
+           alt="PreFrame in Ficha mode: a light spec-sheet view of the same project, with the emotional curve over the waveform, numbered section cards, and the mood panel with palette and reference images.">
+    </figure>
+    <div class="zf-copy">
+      <span class="eyebrow eyebrow-d">Focus &amp; Ficha</span>
+      <h2>One project.<br>Two states of mind.</h2>
+      <p><strong>Focus</strong> is the dark room: you, the track and the timeline. <strong>Ficha</strong> turns the same project into a bright spec sheet — sections numbered, notes visible, every shot laid out to review before the shoot.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ 3b · EL INSTRUMENTO ════════════════════════════════════════════
+     El timeline interactivo, ahora como sección propia: primero se ve la
+     app (hero), luego se toca su idea central. -->
+<!-- Blanco puro al modo Apple: kicker, titular con el degradado sutil de
+     marca recorriendo el texto, y el instrumento oscuro flotando sobre el
+     blanco como una ventana de app. -->
+<section class="canvas-light band" data-rail="Touch it">
+  <div class="wrap" style="text-align:center">
+    <span class="eyebrow eyebrow-l">The idea, live</span>
+    <h2 class="title-grad" style="max-width:20ch;margin-inline:auto">Watch the pointer work the timeline. Then take it from it.</h2>
+    <p class="lede mute-l" style="margin:var(--space-5) auto 0">
+      This isn't a recording — it's the real instrument. The moment you touch it, it's yours.
+    </p>
+    <div style="height:var(--space-7)"></div>
     <!-- ─── El stage: la pantalla real de la app ─────────────────────── -->
     <div class="stage" data-hero-stage data-duration="221">
       <div class="stage-bar">
@@ -233,254 +428,85 @@
   </div>
 </section>
 
-<!-- ═══ 1b · TICKER ════════════════════════════════════════════════════
-     Una cinta de afirmaciones cortas entre el hero y el statement. Cada una
-     es un hecho del producto, no un adjetivo: es la versión de una fila de
-     logos para un producto que aún no puede enseñar logos. Duplicada dos
-     veces en el DOM para que el bucle CSS sea continuo; aria-hidden en la
-     copia. Con reduced-motion queda quieta y se lee igual. -->
-<div class="ticker canvas-dark" aria-label="Preframe at a glance">
-  <div class="ticker-track">
-    <div class="ticker-run">
-      <span>No subscription — pay per project</span><i></i>
-      <span>Your first project is free</span><i></i>
-      <span>Audio never leaves your machine</span><i></i>
-      <span>EDL to Resolve &amp; Premiere</span><i></i>
-      <span>Plan before the track exists</span><i></i>
-      <span>Works offline</span><i></i>
-      <span>Printable shooting PDF</span><i></i>
-    </div>
-    <div class="ticker-run" aria-hidden="true">
-      <span>No subscription — pay per project</span><i></i>
-      <span>Your first project is free</span><i></i>
-      <span>Audio never leaves your machine</span><i></i>
-      <span>EDL to Resolve &amp; Premiere</span><i></i>
-      <span>Plan before the track exists</span><i></i>
-      <span>Works offline</span><i></i>
-      <span>Printable shooting PDF</span><i></i>
-    </div>
-  </div>
-</div>
-
-<!-- ═══ 2 · STATEMENT ══════════════════════════════════════════════════
-     Un solo pensamiento a tamaño de sala. Las palabras clave se entintan:
-     el párrafo explicativo se ha fundido dentro de la frase grande porque
-     dos bloques de texto seguidos se leían como artículo, no como statement. -->
-<section class="canvas-light band statement" data-rail="The problem">
-  <div class="wrap">
-    <p class="statement-kicker">The problem</p>
-    <h2 class="statement-big">
-      The track <em>almost never</em> arrives first. You pitch, you scout, you build the whole
-      piece in your head — while the music is still being made. Preframe lets you plan against the
-      <em>shape</em> of the piece, and when the master lands, everything stays where you put it.
-    </h2>
-  </div>
-</section>
-
-<!-- ═══ 3 · DOS PILARES ════════════════════════════════════════════════ -->
-<section class="canvas-soft band-tight" data-rail="Two substrates">
-  <div class="wrap">
-    <span class="eyebrow eyebrow-l">Two ways to shape a piece</span>
-    <h2>One timeline. Two substrates.</h2>
-    <div class="pillars">
-      <div class="pillar">
-        <span class="tagline">When you feel the music first</span>
-        <h3>The waveform</h3>
-        <p>
-          Import the MP3 and the song becomes your canvas. Cut sections on the beat, place shots
-          where they actually land, and see the silence you haven't covered.
-        </p>
-        <div class="pillar-vis" data-pillar-wave aria-hidden="true"></div>
-      </div>
-      <div class="pillar">
-        <span class="tagline">When the track isn't here yet</span>
-        <h3>The emotional curve</h3>
-        <p>
-          Set a duration and draw the intensity of the piece by hand — where it breathes, where it
-          breaks. Label the peaks. Plan the whole shoot against feeling instead of a file.
-        </p>
-        <div class="pillar-vis" data-pillar-curve aria-hidden="true"></div>
-      </div>
-    </div>
-    <p class="notice">Both live on the same timeline, and you can lay one over the other once the track exists.</p>
-  </div>
-</section>
-
-<!-- ═══ 4 · CÓMO FUNCIONA ══════════════════════════════════════════════ -->
-<section class="canvas-light band-tight" id="how" data-rail="How it works">
-  <div class="wrap">
-    <span class="eyebrow eyebrow-l">How it works</span>
-    <h2>Four moves, one afternoon.</h2>
-    <!-- Cuatro pasos en una fila, sin cajas de captura. Había cuatro
-         rectángulos vacíos de "screenshot pending" y pesaban más que el texto
-         que acompañaban. Cuando existan las capturas del proyecto demo, cada
-         paso recupera su visual. -->
-    <ol class="flow">
-      <li>
-        <span class="flow-n">01</span>
-        <h3>Start with the track — or without it</h3>
-        <p class="mute-l">Drop in the MP3, or just type how long the piece should be. The audio never leaves your machine.</p>
-      </li>
-      <li>
-        <span class="flow-n">02</span>
-        <h3>Give the piece a shape</h3>
-        <p class="mute-l">Cut it into named sections and draw the emotional curve on top. This is the skeleton every shot hangs from.</p>
-      </li>
-      <li>
-        <span class="flow-n">03</span>
-        <h3>Place your shots in time</h3>
-        <p class="mute-l">Each shot carries its lens, its movement and its exact position. Uncovered time shows up on its own.</p>
-      </li>
-      <li>
-        <span class="flow-n">04</span>
-        <h3>Export and shoot</h3>
-        <p class="mute-l">Your sections arrive in Resolve and Premiere as colored markers, plus a printable shooting PDF. Re-export as many times as you want.</p>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<!-- ═══ 5 · VÍDEO DEMO ═════════════════════════════════════════════════ -->
-<section class="canvas-dark band" data-rail="See it move">
-  <div class="wrap" style="text-align:center">
-    <span class="eyebrow eyebrow-d">See it move</span>
-    <h2 style="max-width:19ch;margin-inline:auto">Nothing else plans a shoot on a timeline of feeling.</h2>
-    <p class="lede mute-d" style="margin:var(--space-6) auto 0">
-      Every other tool is a board, a list or a calendar. Ninety seconds and you'll see the difference.
-    </p>
-    <!-- [PENDIENTE] Vídeo de 60–90 s. Autoalojado o youtube-nocookie con
-         carga diferida: nada de embeds que escriban cookies. Mientras no
-         existe, el hueco es una pantalla de cine apagada con la insignia de
-         play en espera — honesto, pero con dignidad de sala. -->
-    <div class="cinema" style="margin-top:var(--space-9)">
-      <div class="cinema-badge" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
-      </div>
-      <span class="cinema-caption">Demo film · 90 s · with launch</span>
-    </div>
+<!-- ═══ 5b · BIBLIOTECA DE PLANOS Y EQUIPO ═════════════════════════════ -->
+<section class="bg-feature" data-rail="Your library">
+  <img class="bg-feature-img" src="/assets/shots/gallery.webp" width="1400" height="1057" loading="lazy" decoding="async"
+       alt="PreFrame's shot gallery: a grid of shot cards with durations and lens chips — Drone ciudad, Fade in luces, Wide neon street, Close-up rostros — filterable by narrative section, with search.">
+  <div class="fb-copy">
+    <span class="eyebrow eyebrow-d">Shots &amp; gear</span>
+    <h2>Describe a shot once.<br>Shoot it forever.</h2>
+    <p>Every shot carries the film vocabulary — wide, medium, close-up, overhead — plus your camera, your lens, a thumbnail and its notes. Save it to your library and drop it into the next project with the gear already attached.</p>
   </div>
 </section>
 
 <!-- ═══ 6 · RESTO DE CAPACIDADES ═══════════════════════════════════════
-     Pestañas en vez de rejilla de tarjetas: una idea a la vez, con su
-     objeto real al lado. Los visuales no son capturas — son los mismos
-     componentes que usa el producto, funcionando aquí.
-     ════════════════════════════════════════════════════════════════════ -->
+     Dos tarjetas: hora dorada (visualización de datos con la franja del día
+     recorriéndose) y el mapa de qué vive en tu disco. El moodboard y la
+     biblioteca ya tienen sección propia con captura real; la tarjeta del
+     latido se retiró — esa función no está activa en la app hoy. -->
 <section class="canvas-soft band" data-rail="Everything else">
-  <!-- Bento grid, el patrón de Apple/Figma/Stripe para "todo lo demás": un
-       mosaico de tarjetas de tamaños distintos, una idea por celda, el visual
-       manda y el texto acompaña. Sustituye a las pestañas con scroll pegado —
-       aquello retenía la página; esto se recorre con la vista. Los visuales
-       son los mismos componentes de producto de siempre. -->
   <div class="wrap">
     <span class="eyebrow eyebrow-l">Everything else it does</span>
-    <h2>The parts of a shoot nobody else models.</h2>
+    <h2 class="title-grad">The parts of a shoot nobody else models.</h2>
 
-    <div class="bento">
-
-      <!-- Celda grande: el moodboard, que es el visual con más vida. -->
-      <article class="bento-card bento-mood">
-        <div class="bento-copy">
-          <h3>Mood board</h3>
-          <p>References, frames and handwritten notes on one canvas — objects made for film, not for project managers.</p>
-        </div>
-        <div class="bento-visual mini-mood" aria-hidden="true">
-          <div class="mc mc-ref"><div class="refimg r1"></div><span class="mc-cap">ridge_dusk_ref.jpg</span></div>
-          <div class="mc mc-ref"><div class="refimg r2"></div><span class="mc-cap">headlights_02.jpg</span></div>
-          <div class="mc mc-note">“Keep the road wet — reflections carry the whole chorus.”</div>
-        </div>
-      </article>
-
-      <!-- La franja del día se recorre sola: la ventana dorada es lo que se
-           abre y se cierra. -->
-      <article class="bento-card bento-sun">
+    <div class="bento bento-2">
+      <article class="bento-card">
         <div class="bento-copy">
           <h3>Golden hour, per shot</h3>
-          <p>The light for that place, that day — attached to the shot itself.</p>
+          <p>The light for that place, that day — attached to the shot itself. You'll know before you scout whether it's possible.</p>
         </div>
         <div class="bento-visual mini-sun" aria-hidden="true">
           <div class="sun-row"><span class="sun-key">Location</span><span class="sun-val">Cabo de Gata, ES</span></div>
-          <div class="sunbar" data-sunbar><span class="sunwin"></span><span class="sun-now" data-sun-now></span></div>
-          <div class="sun-row"><span class="sun-key">Golden hour</span><span class="sun-val is-brand">18:41 → 19:12</span></div>
-        </div>
-      </article>
-
-      <article class="bento-card bento-library">
-        <div class="bento-copy">
-          <h3>Shots and gear you reuse</h3>
-          <p>Your recurring setups and your kit, saved once.</p>
-        </div>
-        <ul class="bento-visual mini-list" aria-hidden="true">
-          <li><span class="ml-tag">SHOT</span> Tracking, headlights <span class="ml-meta">24mm · gimbal</span></li>
-          <li><span class="ml-tag">SHOT</span> Wide, road from ridge <span class="ml-meta">16mm · tripod</span></li>
-          <li><span class="ml-tag is-gear">GEAR</span> FX3 + 24-70 <span class="ml-meta">body · zoom</span></li>
-        </ul>
-      </article>
-
-      <!-- La función más "feel the music first" de la app: la tarjeta del
-           plano activo LATE con la música — el glow sigue la envolvente y
-           destella en los golpes. Aquí se reproduce con la silueta de la
-           onda como envolvente (showcase.js), sin audio: mismo latido. -->
-      <article class="bento-card bento-beat">
-        <div class="bento-copy">
-          <h3>It feels the track with you</h3>
-          <p>While the music plays, the app breathes with it — the active shot glows with the energy and flashes on the hits.</p>
-        </div>
-        <div class="bento-visual bento-beat-stage" aria-hidden="true">
-          <div class="beat-card" data-beat-card>
-            <div class="tc">1:26 → 2:20</div>
-            <div class="nm">Chorus, close</div>
-            <div class="sub">50mm · handheld</div>
+          <!-- La ventana elegida lleva su etiqueta fija; el puntero recorre el
+               día y va nombrando cada luz con los literales reales de la app
+               (windowLightLabel en solar.ts). --><div class="sunbar" data-sunbar>
+            <span class="sunwin" data-sun-win><b class="sunwin-tag" data-sun-winlabel>Golden hour</b></span>
           </div>
+          <div class="sun-row"><span class="sun-key" data-sun-rowkey>Golden hour</span><span class="sun-val is-brand" data-sun-rowval>18:41 → 19:12</span></div>
+          <!-- El puntero fantasma que agarra la ventana y la pasea por el día. -->
+          <span class="sun-cursor" data-sun-cursor>
+            <svg viewBox="0 0 24 24"><path d="M5 3l14 8-6.5 1.5L9 19z"/></svg>
+          </span>
         </div>
       </article>
 
-      <!-- Tira ancha inferior: qué vive en tu disco y qué se sincroniza. -->
-      <article class="bento-card bento-offline">
+      <article class="bento-card">
         <div class="bento-copy">
           <h3>Nothing leaves your machine</h3>
           <p>Your track and your references never get uploaded. Open the app on a mountain with no signal and keep working.</p>
         </div>
         <div class="bento-visual mini-offline" aria-hidden="true">
-          <div class="off-row"><span class="off-dot is-local"></span>midnight_run_master_v3.mp3<span class="off-where">on your disk</span></div>
-          <div class="off-row"><span class="off-dot is-local"></span>ridge_dusk_ref.jpg<span class="off-where">on your disk</span></div>
+          <div class="off-row"><span class="off-dot is-local"></span>neon_pulse_master.mp3<span class="off-where">on your disk</span></div>
+          <div class="off-row"><span class="off-dot is-local"></span>ridge_dusk.jpg<span class="off-where">on your disk</span></div>
           <div class="off-rule"></div>
           <div class="off-row is-sync"><span class="off-dot"></span>the plan itself<span class="off-where">synced to your account</span></div>
         </div>
       </article>
-
     </div>
   </div>
 </section>
 
-<!-- ═══ 7 · PDF DE RODAJE ══════════════════════════════════════════════ -->
+<!-- ═══ 7 · PDF DE RODAJE ══════════════════════════════════════════════
+     El documento REAL: la vista previa del plan de rodaje generada por la
+     app (proyecto demo), con sus planos, timecodes, casillas, notas y la
+     fila de TIEMPO SIN CUBRIR calculada. -->
 <section class="canvas-light band" data-rail="On set">
   <div class="wrap split">
     <div>
       <span class="eyebrow eyebrow-l">On set</span>
       <h2>Print it. Take it. Tick it off.</h2>
       <p class="mute-l" style="margin-top:var(--space-5);max-width:46ch">
-        A shooting PDF with your sections, your shots and their timecodes — plus blank lines to
-        write on between takes. Uncovered time is calculated for you and printed in the sheet, so
-        nobody discovers the hole at 6pm.
+        A shooting plan with every shot, its timecode, a box to tick between takes and blank lines to write on. Uncovered time is calculated and printed — nobody discovers the hole at 6pm.
       </p>
-      <!-- [PENDIENTE] PDF de muestra generado desde el proyecto demo. -->
-      <p class="notice">A sample PDF goes here once the demo project is built.</p>
+      <p class="mute-l" style="margin-top:var(--space-4);max-width:46ch">
+        This is the actual document the app generates, from the demo project you saw above.
+      </p>
     </div>
     <div>
-      <div class="paper-sheet" role="img" aria-label="A shooting sheet with shots, timecodes, tick boxes and a highlighted row of uncovered time between 01:02 and 01:26.">
-        <div class="ps-head">
-          <span class="ps-title">Midnight Run</span>
-          <span class="ps-meta">DAY 1 · 03:41</span>
-        </div>
-        <div class="ps-row"><span class="ps-box"></span><span class="ps-tc">00:00</span><span class="ps-line"></span></div>
-        <div class="ps-row"><span class="ps-box"></span><span class="ps-tc">00:14</span><span class="ps-line" style="width:70%;flex:none"></span></div>
-        <div class="ps-row"><span class="ps-box"></span><span class="ps-tc">00:38</span><span class="ps-line"></span></div>
-        <div class="ps-gap">01:02 → 01:26 · UNCOVERED TIME</div>
-        <div class="ps-row"><span class="ps-box"></span><span class="ps-tc">01:26</span><span class="ps-line" style="width:84%;flex:none"></span></div>
-        <div class="ps-row"><span class="ps-box"></span><span class="ps-tc">01:50</span><span class="ps-line"></span></div>
-        <div class="ps-row" style="border:0"><span class="ps-box"></span><span class="ps-tc">02:14</span><span class="ps-line" style="width:62%;flex:none"></span></div>
-      </div>
+      <figure class="paper-real">
+        <img src="/assets/shots/pdf-shots.webp" width="1400" height="1256" loading="lazy" decoding="async"
+             alt="A page of the real shooting plan PDF: shots with thumbnails, timecodes and tick boxes, blank note lines, and a highlighted UNCOVERED TIME row between 0:08 and 0:16.">
+      </figure>
     </div>
   </div>
 </section>
@@ -498,11 +524,9 @@
          llegue la foto (webp 192×192), entra junto a la atribución. -->
     <figure class="founder-quote">
       <blockquote>
-        <p>I got tired of planning films in a <em>spreadsheet</em>. Every tool made me describe
-        the piece in rows and figure out the timing later. Preframe is the one I wanted on my
-        own shoots.</p>
+        <p>I got tired of planning films in a <em>spreadsheet</em>. Every tool made me describe the piece in rows and figure out the timing later. PreFrame is the one I wanted on my own shoots.</p>
       </blockquote>
-      <figcaption>Alberto — filmmaker, building Preframe</figcaption>
+      <figcaption>Alberto — filmmaker, building PreFrame</figcaption>
     </figure>
   </div>
 </section>
@@ -513,9 +537,7 @@
     <span class="eyebrow eyebrow-l">Pricing</span>
     <h2>One credit is one project.</h2>
     <p class="mute-l" style="margin-top:var(--space-5);max-width:54ch">
-      No subscription. A credit is spent once, when you create a project. Everything you do inside
-      it — add the track, redraw the curve, relocate the same file, export and re-export — is free
-      and unlimited, forever.
+      No subscription. A credit is spent once, when you create a project. Everything you do inside it — add the track, redraw the curve, relocate the same file, export and re-export — is free and unlimited, forever.
     </p>
     <div class="prices">
       <div class="price">
@@ -535,8 +557,8 @@
              al que subirá — no tachado, porque nunca se ha vendido a ese
              precio y un tachado diría que sí (Directiva Ómnibus). -->
         <div class="amount-row">
-          <span class="amount"><span data-brand="price.founder">€9.99</span></span>
-          <span class="amount-next">then <b data-brand="price.standard">€19.99</b></span>
+          <span class="amount"><span data-brand="price.founder">9.99 €</span></span>
+          <span class="amount-next">then <b data-brand="price.standard">19.99 €</b></span>
         </div>
         <p class="mute-l small">Per project credit. Yours forever.</p>
         <ul>
@@ -547,10 +569,45 @@
         </ul>
       </div>
     </div>
+    <!-- Packs, junto a las tarjetas de precio. Informativos: sin botones
+         hasta validar Stripe en test mode; ahorro como comparación contra
+         sueltos, nunca como descuento (Ómnibus). El fundador de 9,99 € no se
+         mezcla con esta rejilla a propósito. -->
+    <h3 style="margin-top:clamp(40px,5vw,64px)">Planning more than one project? Packs bring the credit down.</h3>
+    <div class="packs">
+      <div class="pack">
+        <span class="tag">Single</span>
+        <div class="amount">19.99 €</div>
+        <p class="pack-per">one credit · one project</p>
+        <p class="pack-save is-base">The reference price</p>
+      </div>
+      <div class="pack">
+        <span class="tag">Pack of 3</span>
+        <div class="amount">49.99 €</div>
+        <p class="pack-per">16.66 € per credit</p>
+        <p class="pack-save">Save 9.98 € vs buying them one by one</p>
+      </div>
+      <div class="pack is-popular">
+        <span class="pack-badge">Most popular</span>
+        <span class="tag">Pack of 5</span>
+        <div class="amount">74.99 €</div>
+        <p class="pack-per">15.00 € per credit</p>
+        <p class="pack-save">Save 24.96 € vs buying them one by one</p>
+      </div>
+      <div class="pack">
+        <span class="tag">Pack of 10</span>
+        <div class="amount">129.99 €</div>
+        <p class="pack-per">13.00 € per credit</p>
+        <p class="pack-save">Save 69.91 € vs buying them one by one</p>
+      </div>
+    </div>
+
     <p class="notice">
-      Founder price available to the first 100 buyers or for six months, whichever comes first.
-      After that the price goes to <span data-brand="price.standard">€19.99</span>. Payments are
-      processed by Stripe, which appears as the seller on your statement.
+      Credits never expire, and everything inside a project stays unlimited and free whichever way you buy. Purchases open with launch. Savings are compared against buying single credits at 19.99 €; packs have never been sold at a different price.
+    </p>
+
+    <p class="notice">
+      Founder price available to the first 100 buyers or for six months, whichever comes first. After that the price goes to <span data-brand="price.standard">19.99 €</span>. Payments are processed by Stripe, which appears as the seller on your statement.
       <a href="/pricing/">See the full pricing page →</a>
     </p>
   </div>
@@ -582,13 +639,11 @@
   <div class="wrap foot">
     <div>
       <a class="logo" href="/" style="margin-bottom:var(--space-3)">
-        <span class="logo-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#F5F3EF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18"/><path d="M3 7.5h4"/><path d="M3 12h18"/><path d="M3 16.5h4"/><path d="M17 3v18"/><path d="M21 7.5h-4"/><path d="M21 16.5h-4"/></svg>
-        </span>
-        <span data-brand="name">Preframe</span>
+        <img class="logo-mark" src="/assets/mark.svg" alt="" aria-hidden="true" width="28" height="28">
+        <span data-brand="name">PreFrame</span>
       </a>
       <p class="meta mute-d">Pre-production for people who shoot to a rhythm.</p>
-      <p class="meta mute-d">© <span data-year>2026</span> <span data-brand="name">Preframe</span></p>
+      <p class="meta mute-d">© <span data-year>2026</span> <span data-brand="name">PreFrame</span></p>
     </div>
     <div class="foot-links">
       <a href="/download/">Download</a>
@@ -597,11 +652,12 @@
       <a href="/releases/">Release notes</a>
       <a href="/legal/terms/">Terms</a>
       <a href="/legal/privacy/">Privacy</a>
+      <a class="lang-switch" href="/es/" hreflang="es" lang="es" aria-label="Ver esta página en español">ES</a>
     </div>
   </div>
   <!-- Wordmark de sala de cine: enorme, recortado por abajo, casi fundido con
        el fondo. Cierra la página con la marca sin gastar una sección más. -->
-  <div class="foot-wordmark" aria-hidden="true">Preframe</div>
+  <div class="foot-wordmark" aria-hidden="true" data-brand="name">PreFrame</div>
 </footer>
 
 <script src="/assets/brand.js"></script>
@@ -610,6 +666,7 @@
 <script src="/assets/site.js" defer></script>
 <script src="/assets/motion.js" defer></script>
 <script src="/assets/hero.js" defer></script>
+<script src="/assets/ghost.js" defer></script>
 <script src="/assets/decor.js" defer></script>
 <script src="/assets/showcase.js" defer></script>
 </body>

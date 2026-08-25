@@ -1,0 +1,16 @@
+{#- La rejilla de packs aparece igual en la landing y en /pricing/: un solo
+    partial y una sola entrada de diccionario (`shared.packs`), para que no
+    haya dos sitios donde corregir un precio. -#}
+<div class="packs">
+{%- for p in S.packs.items %}
+      <div class="pack{% if p.isPopular %} is-popular{% endif %}">
+        {%- if p.isPopular %}
+        <span class="pack-badge">{{ S.packs.popular | safe }}</span>
+        {%- endif %}
+        <span class="tag">{{ p.tag | safe }}</span>
+        <div class="amount">{{ p.amount | safe }}</div>
+        <p class="pack-per">{{ p.per | safe }}</p>
+        <p class="pack-save{% if p.isBase %} is-base{% endif %}">{{ p.save | safe }}</p>
+      </div>
+{%- endfor %}
+    </div>

@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "title": "Notas de versión — PreFrame",
+    "description": "Cada versión de PreFrame, qué cambió en ella y cuándo. Todavía no se ha publicado nada: la primera entrada llega con la primera build firmada.",
+    "ogTitle": "Notas de versión — PreFrame",
+    "ogDescription": "Cada versión de PreFrame, qué cambió en ella y cuándo."
+  },
+
+  "head": {
+    "eyebrow": "Notas de versión",
+    "title": "Todo lo que cambia, por escrito.",
+    "lede": "PreFrame se actualiza solo, y una app que se actualiza sola te debe una explicación clara de lo que acaba de cambiar. Cada versión aparece aquí, de la más nueva a la más vieja, contada en un idioma que entiende una persona."
+  },
+
+  "placeholderBefore": "Todavía no hay ninguna versión pública. La primera entrada aparecerá aquí el día que salga la primera build firmada —",
+  "placeholderLink": "estado",
+  "placeholderAfter": "."
+}

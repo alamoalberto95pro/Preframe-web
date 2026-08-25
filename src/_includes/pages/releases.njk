@@ -1,0 +1,36 @@
+{#- /releases/ — una plantilla, dos idiomas. -#}
+<section class="canvas-dark page-head">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-d">{{ C.head.eyebrow | safe }}</span>
+    <h1>{{ C.head.title | safe }}</h1>
+    <p class="lede">
+      {{ C.head.lede | safe }}
+    </p>
+  </div>
+</section>
+
+<section class="canvas-dark band-tight">
+  <div class="wrap wrap-narrow">
+    <!-- Sin versiones publicadas todavía. La primera entrada se añade el día
+         que exista el primer .dmg firmado; el bloque `.release` de abajo es
+         el formato a copiar. No inventar versiones ni fechas. -->
+    <div class="placeholder">
+      {{ C.placeholderBefore | safe }}
+      <a href="{{ langBase }}/download/">{{ C.placeholderLink | safe }}</a>{{ C.placeholderAfter | safe }}
+    </div>
+
+    <!--
+    Formato de cada entrada (copiar y rellenar):
+
+    <article class="release">
+      <div class="release-head">
+        <span class="release-v">1.0.0</span>
+        <span class="release-date">2026-00-00</span>
+      </div>
+      <ul>
+        <li>Qué cambió, en una línea, desde el punto de vista de quien rueda.</li>
+      </ul>
+    </article>
+    -->
+  </div>
+</section>

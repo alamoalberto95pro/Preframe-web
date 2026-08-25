@@ -493,17 +493,17 @@ p + p { margin-top: var(--space-4); }
   color: var(--text-primary);
   text-decoration: none;
 }
+/* El tile de la marca ya trae su propio fondo, su squircle y su brillo: aquí
+   solo se le da tamaño. La sombra va con `drop-shadow` y no con `box-shadow`
+   porque el PNG/SVG tiene las esquinas transparentes y una caja dibujaría la
+   sombra cuadrada por fuera del squircle. */
 .logo-mark {
   width: 28px;
   height: 28px;
-  border-radius: var(--radius-sm);
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, var(--brand-sunset), var(--brand-sepia));
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  display: block;
   flex: none;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.4));
 }
-.logo-mark svg { width: 16px; height: 16px; }
 
 .nav-links { display: flex; align-items: center; gap: var(--space-7); }
 .nav-links a {
@@ -515,6 +515,32 @@ p + p { margin-top: var(--space-4); }
 .nav-links a:hover { color: var(--text-primary); }
 .nav-links a[aria-current='page'] { color: var(--text-primary); }
 .nav-links .btn { padding: 10px var(--space-5); font-size: var(--web-small); }
+
+/* ─── Cambio de idioma ─────────────────────────────────────────────────
+   Un enlace y nada más: sin JavaScript, sin localStorage y sin cookies. La
+   política de privacidad publicada promete cero almacenamiento y el idioma
+   ya vive en la URL, así que no hay nada que recordar.
+
+   Discreto a propósito: hereda el tamaño de su contexto (nav o footer) y el
+   mismo gris de los enlaces de al lado; solo añade el recuadro que lo hace
+   legible como control y no como una sección más. */
+.nav-links .lang-switch,
+.foot-links .lang-switch {
+  color: var(--text-tertiary);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  padding: 5px var(--space-2);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+}
+.nav-links .lang-switch:hover,
+.foot-links .lang-switch:hover {
+  color: var(--text-primary);
+  border-color: var(--border-default);
+}
 
 /* ═══════════════════════════════════════════════════════════════════════
    HERO
@@ -543,28 +569,26 @@ p + p { margin-top: var(--space-4); }
   filter: blur(30px);
   pointer-events: none;
 }
-.hero-in { position: relative; text-align: center; }
+.hero-in {
+  position: relative;
+  text-align: center;
+  /* Más ancho que el resto de la página: el Mac es el protagonista y a 1180
+     se leía pequeño en un portátil. Los textos no se estiran porque llevan
+     su medida en `ch`. */
+  max-width: min(1340px, 94vw);
+}
 
 /* ─── Marca a tamaño de portada ───────────────────────────────────────
    La barra de navegación no está aquí, así que el nombre del producto es lo
    primero y ocupa lo que tiene que ocupar. Debajo, una sola frase. */
-.hero-mark {
-  display: inline-flex;
-  width: clamp(34px, 3.4vw, 44px);
-  height: clamp(34px, 3.4vw, 44px);
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-md);
-  background: linear-gradient(135deg, var(--brand-sunset), var(--brand-sepia));
-  box-shadow: 0 8px 26px -10px rgba(232, 129, 74, 0.7);
-  margin-bottom: var(--space-5);
-}
-.hero-mark svg { width: 58%; height: 58%; }
-
+/* El hero no lleva icono: la marca la sostiene el nombre solo, así que va a
+   tamaño de cartel. El `h1` ya hereda Satoshi 700, que es la más pesada que
+   viaja empaquetada — el peso extra sale del cuerpo y del tracking, no de un
+   font-weight que no existe. */
 .hero-title {
-  font-size: clamp(52px, 8.4vw, 104px);
-  line-height: 0.95;
-  letter-spacing: -0.045em;
+  font-size: clamp(62px, 10.2vw, 128px);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
   margin-bottom: var(--space-4);
 }
 .hero-claim {
@@ -588,19 +612,7 @@ p + p { margin-top: var(--space-4); }
 
 .hero .cta-row { justify-content: center; margin-top: var(--space-7); }
 
-/* ─── El stage: la pantalla de la app ─────────────────────────────────── */
-.stage {
-  position: relative;
-  margin-top: clamp(24px, 3.2vh, 40px);
-  padding: var(--space-4) var(--space-6) 0;
-  border: 1px solid var(--border-default);
-  border-bottom: 0;
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  background: linear-gradient(180deg, var(--surface-2), var(--surface-1));
-  box-shadow: var(--elev-4);
-  overflow: hidden;
-  text-align: left;
-}
+/* ─── La barra de ventana: tres puntos y un nombre de archivo ─────────── */
 .stage-bar {
   display: flex;
   align-items: center;
@@ -617,69 +629,6 @@ p + p { margin-top: var(--space-4); }
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-/* ─── La lista de planos, ocupando tiempo ─────────────────────────────
-   Cada bloque está donde está por sus segundos. Es la frase del titular
-   dicha con geometría: una lista no tiene forma, un timeline sí. */
-.lane {
-  position: relative;
-  height: 46px;
-  margin-bottom: var(--space-4);
-}
-.lane-shot,
-.lane-gap {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 0 8px;
-  border-radius: var(--radius-xs);
-  font-size: 11.5px;
-  white-space: nowrap;
-  overflow: hidden;
-  transition:
-    border-color var(--dur-fast) var(--ease-out),
-    background-color var(--dur-fast) var(--ease-out),
-    box-shadow var(--dur-fast) var(--ease-out);
-}
-.lane-shot {
-  border: 1px solid var(--border-default);
-  background: var(--surface-3);
-  color: var(--text-tertiary);
-}
-.lane-shot b {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: var(--font-weight-medium);
-  color: var(--text-tertiary);
-  flex: none;
-}
-/* Un plano se enciende cuando el playhead entra en su rango. */
-.lane-shot.is-live {
-  border-color: var(--brand-sunset);
-  background: var(--brand-sunset-subtle);
-  color: var(--text-primary);
-  box-shadow: var(--glow-playing-sm);
-}
-.lane-shot.is-live b { color: var(--brand-sunset); }
-
-/* Tiempo sin cubrir: rayado, para que se lea como agujero y no como plano. */
-.lane-gap {
-  justify-content: center;
-  font-family: var(--font-mono);
-  font-size: 9.5px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--brand-sunset);
-  border: 1px dashed rgba(232, 129, 74, 0.4);
-  background: repeating-linear-gradient(
-    -45deg,
-    rgba(232, 129, 74, 0.09) 0 6px,
-    transparent 6px 12px
-  );
 }
 
 .mc {
@@ -746,67 +695,7 @@ p + p { margin-top: var(--space-4); }
   border-color: rgba(232, 129, 74, 0.3);
 }
 
-/* ─── Cabecera del timeline + conmutador ──────────────────────────────── */
-.tl-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
-  margin-bottom: var(--space-3);
-}
-.tl-label {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-}
-.switch {
-  display: inline-flex;
-  gap: 3px;
-  padding: 3px;
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-sm);
-  background: var(--surface-1);
-}
-.switch button {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-  background: none;
-  border: 0;
-  padding: 7px 13px;
-  border-radius: var(--radius-xs);
-  cursor: pointer;
-  transition: color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
-}
-.switch button:hover { color: var(--text-primary); }
-.switch button[aria-pressed='true'] { background: var(--brand-sunset); color: var(--on-brand); }
-
-/* ─── La pista: waveform y curva en el mismo sitio ────────────────────── */
-.track { position: relative; height: clamp(72px, 11vh, 100px); }
-.layer {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  transition: opacity var(--dur-slow) var(--ease-in-out);
-}
-.layer.is-off { opacity: 0; pointer-events: none; }
-.layer.is-dim { opacity: 0.28; }
-
-.bar {
-  flex: 1;
-  border-radius: 1px;
-  opacity: 0.6;
-  transition: opacity var(--dur-base) var(--ease-out);
-}
-
-.curve-layer { display: block; }
-.curve-layer svg { width: 100%; height: 100%; display: block; overflow: visible; }
+/* ─── Los sustratos de las ventanas gemelas ───────────────────────────── */
 .curve-path { fill: none; stroke: url(#curveStroke); stroke-width: 2; stroke-linecap: round; }
 .curve-fill { fill: url(#curveFade); stroke: none; }
 
@@ -819,151 +708,112 @@ p + p { margin-top: var(--space-4); }
 #curveStroke stop:nth-of-type(4) { stop-color: var(--curve-cool); }
 #curveFade stop { stop-color: var(--brand-sunset); }
 
-.kf {
-  position: absolute;
-  width: 9px;
-  height: 9px;
-  margin: -4.5px 0 0 -4.5px;
-  border-radius: var(--radius-full);
-  background: var(--surface-0);
-  border: 1.5px solid var(--brand-sunset);
-  z-index: 4;
-  transition:
-    transform var(--dur-base) var(--ease-spring),
-    background-color var(--dur-base) var(--ease-out),
-    box-shadow var(--dur-base) var(--ease-out);
-}
-.kf.is-hot {
-  transform: scale(1.7);
-  background: var(--brand-sunset);
-  box-shadow: var(--glow-playing-md);
-}
-.kf-tag {
-  position: absolute;
-  transform: translate(-50%, -100%);
-  margin-top: -14px;
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-  white-space: nowrap;
-  opacity: 0;
-  z-index: 4;
-  transition: opacity var(--dur-base) var(--ease-out);
-}
-.kf-tag.is-hot { opacity: 1; color: var(--brand-sunset); }
+/* ═══════════════════════════════════════════════════════════════════════
+   DOS CAMINOS — las ventanas gemelas
 
-.rider {
-  position: absolute;
-  width: 11px;
-  height: 11px;
-  margin: -5.5px 0 0 -5.5px;
-  border-radius: var(--radius-full);
-  background: var(--brand-sunset);
-  box-shadow: var(--glow-playing-md);
-  opacity: 0;
-  z-index: 6;
-  transition: opacity var(--dur-base) var(--ease-out);
-}
-.rider.is-on { opacity: 1; }
+   El argumento de la sección es una rima visual: dos ventanas con la misma
+   tira de secciones abajo y los cortes en los mismos puntos, pero una corta
+   sobre la waveform del .mp3 y la otra sobre la curva emocional dibujada a
+   mano. Estático a propósito: aquí no se vende interactividad, se vende que
+   se puede planificar con canción o sin ella.
+   ═══════════════════════════════════════════════════════════════════════ */
 
-.playhead {
-  position: absolute;
-  top: -10px;
-  bottom: -10px;
-  left: 0;
-  width: 1.5px;
-  background: var(--brand-sunset);
-  box-shadow: var(--glow-playing-md);
-  z-index: 5;
+.duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-7) var(--space-6);
+  margin-top: var(--space-8);
+  text-align: left;
 }
-.playhead::before {
-  content: '';
+@media (max-width: 940px) {
+  .duo { grid-template-columns: 1fr; }
+}
+
+/* La ventana hereda el lenguaje del resto de mockups: oscura, flotando
+   sobre el blanco como una ventana de app. `relative` ancla el puntero
+   coreografiado de la ventana de la curva. */
+.duo-window {
+  position: relative;
+  padding: var(--space-4) var(--space-5) var(--space-5);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, var(--surface-2), var(--surface-1));
+  box-shadow: var(--elev-3);
+}
+
+/* El puntero coreografiado (curve-demo.js): mismo lenguaje que el cursor
+   de la card solar. Enseña el gesto; no promete interactividad — por eso
+   no lleva etiqueta. */
+.demo-cursor {
   position: absolute;
   top: 0;
-  left: -3.5px;
-  width: 8px;
-  height: 8px;
-  border-radius: var(--radius-full);
-  background: var(--brand-sunset);
+  left: 0;
+  z-index: 8;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease-out);
+}
+.demo-cursor.is-on { opacity: 1; }
+.demo-cursor svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--brand-sunset);
+  stroke: #160B04;   /* silueta sobre fondo oscuro, como el cursor solar */
+  stroke-width: 1;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55));
+  transition: transform var(--dur-instant) var(--ease-out);
+}
+.demo-cursor.is-down svg { transform: scale(0.82); }
+@media (max-width: 768px) {
+  .demo-cursor { display: none; }   /* en táctil no hay cursor que imitar */
+}
+.duo-visual { margin-top: var(--space-2); }
+.duo-visual svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+/* La waveform: barras verticales de un solo trazo. `preserveAspectRatio:
+   none` estira el viewBox, así que el grosor se fija aquí y no escala. */
+.duo-wave {
+  fill: none;
+  stroke: var(--text-tertiary);
+  stroke-width: 4;
+  stroke-linecap: round;
+  opacity: 0.75;
+  vector-effect: non-scaling-stroke;
 }
 
-/* ─── El timeline se toca ─────────────────────────────────────────────
-   Todo lo de aquí abajo existe para que se note que esto no es un vídeo.
-   La pista tiene cursor de rascar, los keyframes de agarrar, y el foco de
-   teclado se ve — porque el timeline es operable con teclado. */
-
-.track { cursor: ew-resize; touch-action: pan-y; }
-.track:focus-visible { outline: 2px solid var(--brand-sunset); outline-offset: 6px; }
-.stage.is-scrubbing { cursor: ew-resize; }
-
-.kf {
-  cursor: grab;
-  padding: 0;
-  appearance: none;
-}
-.kf:hover { transform: scale(1.45); }
-.kf.is-dragging { cursor: grabbing; transform: scale(1.9); box-shadow: var(--glow-playing-lg); }
-.kf:focus-visible { outline: 2px solid var(--brand-sunset); outline-offset: 4px; }
-
-/* Zona de agarre mayor que el punto: 9px es bonito y es imposible de coger. */
-.kf::after {
-  content: '';
-  position: absolute;
-  inset: -11px;
-  border-radius: var(--radius-full);
+/* Los cortes de sección: el mismo naranja en ambas ventanas — es la rima. */
+.duo-cut {
+  fill: none;
+  stroke: var(--brand-sunset);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 6;
+  opacity: 0.65;
+  vector-effect: non-scaling-stroke;
 }
 
-/* Lectura en vivo del playhead. */
-.readout {
-  margin-left: auto;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  color: var(--text-tertiary);
-  font-variant-numeric: tabular-nums;
-  white-space: pre;
-  flex: none;
+/* Los keyframes de la curva: el mismo punto que en la app — fondo oscuro,
+   aro sunset. */
+.duo-kf {
+  fill: var(--surface-0);
+  stroke: var(--brand-sunset);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
 }
-.stage.is-playing .readout { color: var(--brand-sunset); }
 
+.duo-card h3 {
+  margin-top: var(--space-5);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  letter-spacing: -0.01em;
+}
+.duo-card > p {
+  margin-top: var(--space-2);
+  max-width: 46ch;
+  font-size: var(--text-base);
+  line-height: 1.6;
+}
 
-/* Pista de atajos. Dice que se puede tocar, porque si no nadie lo intenta. */
-.stage-hint {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2) var(--space-5);
-  padding: var(--space-4) 0 var(--space-6);
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  letter-spacing: 0.04em;
-  color: var(--text-tertiary);
-}
-.stage-hint span,
-.stage-hint button { display: inline-flex; align-items: center; gap: 6px; }
-.stage-hint button {
-  border: 0;
-  background: none;
-  padding: 0;
-  font: inherit;
-  color: inherit;
-  cursor: pointer;
-  transition: color var(--dur-fast) var(--ease-out);
-}
-.stage-hint button:hover { color: var(--brand-sunset); }
-.stage-hint button:hover kbd { border-color: var(--brand-sunset); color: var(--brand-sunset); }
-kbd {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  line-height: 1;
-  padding: 4px 6px;
-  border: 1px solid var(--border-strong);
-  border-bottom-width: 2px;
-  border-radius: var(--radius-xs);
-  background: var(--surface-3);
-  color: var(--text-secondary);
-}
+.duo-close { margin-top: var(--space-8); }
 
 /* ─── Secciones narrativas ────────────────────────────────────────────── */
 .sections { display: flex; gap: 2px; margin-top: var(--space-3); }
@@ -985,17 +835,12 @@ kbd {
    ═══════════════════════════════════════════════════════════════════════ */
 
 .card,
-.pillar,
 .price,
 .cf-step,
 .faq details,
 .frame,
-.pillar-vis {
-  border-radius: var(--radius-xl);
-}
 
 .card,
-.pillar,
 .cf-step,
 .price {
   transition:
@@ -1004,14 +849,11 @@ kbd {
     border-color var(--dur-base) var(--ease-out);
 }
 .card:hover,
-.pillar:hover,
 .cf-step:hover {
   transform: translateY(-3px);
   border-color: #D8D3CA;
   box-shadow: 0 20px 44px -28px rgba(26, 25, 23, 0.35);
 }
-/* Las tarjetas oscuras (la de /download) piden lo contrario: aclarar el borde. */
-.canvas-dark .pillar:hover { border-color: var(--border-strong); box-shadow: var(--elev-3); }
 
 /* La destacada de precio ya lleva su anillo; al pasar por encima se refuerza
    en vez de moverse, para que no compita con la tarjeta gratuita. */
@@ -1026,150 +868,8 @@ kbd {
 .statement p { margin: var(--space-7) auto 0; max-width: 56ch; font-size: var(--web-lede); }
 
 /* ═══════════════════════════════════════════════════════════════════════
-   DOS PILARES
-   ═══════════════════════════════════════════════════════════════════════ */
-
-.pillars {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-6);
-  margin-top: clamp(36px, 4.5vw, 60px);
-}
-.pillar {
-  padding: var(--space-7) var(--space-7) var(--space-8);
-  border: 1px solid var(--paper-line);
-  border-radius: var(--radius-lg);
-  background: var(--paper);
-}
-.canvas-soft .pillar { background: var(--paper); }
-.pillar .tagline {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--sunset-ink);
-}
-.pillar h3 { margin: var(--space-4) 0 var(--space-3); }
-.pillar p { font-size: var(--web-small); color: var(--text-on-light-secondary); max-width: 42ch; }
-.pillar-vis {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  height: 108px;
-  margin-top: var(--space-6);
-  /* Sin padding a propósito: el playhead y el punto que cabalga se colocan en
-     porcentaje sobre esta caja, y cualquier relleno los desalinearía del
-     trazo. El aire interno lo dan las propias alturas. */
-  padding: 0;
-  border: 1px solid var(--paper-line);
-  border-radius: var(--radius-sm);
-  background: var(--paper-soft);
-  overflow: hidden;
-}
-.pillar-vis {
-  position: relative;   /* ancla del playhead y del punto que cabalga */
-}
-.pillar-vis .pb {
-  flex: 1;
-  border-radius: 1px;
-  background: #CFC9C0;
-  transition: opacity var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
-}
-.pillar-vis svg { width: 100%; height: 100%; }
-
-/* ─── Los motivos en movimiento ───────────────────────────────────────
-   La onda y la curva no se dibujan quietas en ninguna parte de la web:
-   donde aparecen, algo las recorre. Estas dos piezas las coloca decor.js. */
-.motif-head {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 1.5px;
-  margin-left: -0.75px;
-  background: var(--sunset-ink);
-  box-shadow: 0 0 10px rgba(176, 82, 31, 0.5);
-  pointer-events: none;
-}
-.motif-rider {
-  position: absolute;
-  width: 9px;
-  height: 9px;
-  margin: -4.5px 0 0 -4.5px;
-  border-radius: var(--radius-full);
-  background: var(--sunset-large);
-  box-shadow: 0 0 12px rgba(198, 96, 44, 0.55);
-  pointer-events: none;
-}
-/* El SVG de la curva ocupa la caja entera: el margen visual ya lo lleva la
-   propia curva dentro de su viewBox (`pad`), así que las coordenadas del
-   punto en porcentaje caen justo sobre el trazo. */
-[data-pillar-curve] { display: block; }
-
-.rule i { transition: opacity var(--dur-fast) linear, background-color var(--dur-fast) linear; }
-
-/* ═══════════════════════════════════════════════════════════════════════
    CÓMO FUNCIONA
    ═══════════════════════════════════════════════════════════════════════ */
-
-/* Cuatro pasos como KEYFRAMES sobre una línea de tiempo: la metáfora de la
-   casa aplicada a su propio "cómo funciona". Una línea cruza la fila y cada
-   número es un nodo posado en ella — el mismo lenguaje visual que la curva
-   del hero. */
-.flow {
-  list-style: none;
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-6);
-  margin-top: clamp(36px, 4.5vw, 60px);
-}
-/* La línea. Pasa por detrás de los nodos, a la altura de su centro. */
-.flow::before {
-  content: '';
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  right: 16px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--paper-line), var(--brand-sunset) 50%, var(--paper-line));
-  opacity: 0.6;
-}
-.flow li { position: relative; padding-top: var(--space-7); }
-/* El nodo: círculo sobre la línea, relleno del color del lienzo para
-   taparla a su paso — igual que un keyframe sobre la curva. */
-.flow-n {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  border: 2px solid var(--sunset-ink);
-  border-radius: var(--radius-full);
-  background: var(--paper);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  color: var(--sunset-ink);
-  margin: 0;
-}
-.flow li:hover .flow-n {
-  background: var(--sunset-ink);
-  color: var(--paper);
-  box-shadow: 0 0 0 6px rgba(176, 82, 31, 0.12);
-  transition: background-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
-}
-.flow h3 { font-size: var(--text-md); margin-bottom: var(--space-3); }
-.flow p { font-size: var(--web-small); }
-
-@media (max-width: 1024px) {
-  .flow { grid-template-columns: repeat(2, 1fr); }
-  .flow::before { display: none; }
-}
-@media (max-width: 640px) {
-  .flow { grid-template-columns: 1fr; }
-}
 
 .steps { display: grid; gap: clamp(44px, 6vw, 88px); margin-top: clamp(44px, 5.5vw, 80px); }
 .step {
@@ -1221,22 +921,6 @@ kbd {
    tarjetas que no miras.
    ═══════════════════════════════════════════════════════════════════════ */
 
-/* ─── 01 · Moodboard en miniatura ─────────────────────────────────────── */
-.mini-mood {
-  position: relative;
-  height: 300px;
-  border-radius: var(--radius-md);
-  background-color: var(--surface-1);
-  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-  background-size: 20px 20px;
-  overflow: hidden;
-}
-.mini-mood .mc { position: absolute; }
-.mini-mood .mc:nth-child(1) { left: 6%; top: 10%; width: 42%; transform: rotate(-1.6deg); }
-.mini-mood .mc:nth-child(2) { left: 40%; top: 40%; width: 38%; transform: rotate(1.2deg); }
-.mini-mood .mc:nth-child(3) { right: 6%; bottom: 8%; width: 46%; transform: rotate(-0.8deg); }
-.mini-mood .refimg { height: 92px; }
-
 /* ─── 02 · Hora dorada ────────────────────────────────────────────────── */
 .mini-sun { display: grid; gap: var(--space-3); }
 .sun-row {
@@ -1254,38 +938,6 @@ kbd {
 .sun-val.is-brand { color: var(--sunset-ink); }
 .mini-sun .sunbar { height: 30px; border-radius: var(--radius-sm); margin: var(--space-3) 0; }
 .mini-sun .sunwin { inset: -4px auto -4px 56%; width: 22%; border-color: var(--text-on-light-primary); }
-/* La marca del sol recorre el día en bucle: la ventana es lo que se abre. */
-.sun-now {
-  position: absolute;
-  top: -8px;
-  bottom: -8px;
-  width: 2px;
-  background: var(--paper);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
-}
-
-/* ─── 03 · Biblioteca ─────────────────────────────────────────────────── */
-.mini-list { list-style: none; display: grid; gap: 1px; }
-.mini-list li {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-4) var(--space-3);
-  border-bottom: 1px solid var(--paper-line-soft);
-  font-size: var(--web-small);
-}
-.ml-tag {
-  font-family: var(--font-mono);
-  font-size: 9.5px;
-  letter-spacing: 0.1em;
-  padding: 3px 6px;
-  border-radius: var(--radius-xs);
-  background: rgba(176, 82, 31, 0.1);
-  color: var(--sunset-ink);
-  flex: none;
-}
-.ml-tag.is-gear { background: rgba(138, 122, 107, 0.14); color: #6B5C4D; }
-.ml-meta { margin-left: auto; font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-on-light-tertiary); }
 
 /* ─── 04 · Offline ────────────────────────────────────────────────────── */
 .mini-offline { display: grid; gap: var(--space-3); font-family: var(--font-mono); font-size: var(--text-xs); }
@@ -1337,53 +989,6 @@ kbd {
   gap: clamp(32px, 5vw, 72px);
   align-items: center;
 }
-.paper-sheet {
-  aspect-ratio: 1 / 1.28;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-  padding: var(--space-6);
-  background: var(--paper);
-  border: 1px solid var(--paper-line);
-  border-radius: var(--radius-xs);
-  box-shadow: 0 26px 60px -28px rgba(0, 0, 0, 0.32);
-}
-.ps-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: var(--space-3);
-  padding-bottom: var(--space-3);
-  border-bottom: 1px solid var(--paper-line);
-}
-.ps-title { font-family: var(--font-display); font-size: var(--text-md); font-weight: var(--font-weight-bold); }
-.ps-meta { font-family: var(--font-mono); font-size: 9px; color: var(--text-on-light-secondary); }
-.ps-row {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  padding: 7px 0;
-  border-bottom: 1px solid var(--paper-line-soft);
-}
-.ps-box { width: 11px; height: 11px; border: 1px solid #C9C4BC; border-radius: 2px; flex: none; }
-.ps-tc {
-  width: 40px;
-  flex: none;
-  font-family: var(--font-mono);
-  font-size: 9px;
-  color: var(--sunset-ink);
-}
-.ps-line { flex: 1; height: 5px; border-radius: 2px; background: #EDEAE5; }
-.ps-gap {
-  padding: 6px var(--space-2);
-  border-radius: var(--radius-xs);
-  background: rgba(176, 82, 31, 0.12);
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.08em;
-  color: var(--sunset-ink);
-}
-
 /* ═══════════════════════════════════════════════════════════════════════
    FOUNDER
    ═══════════════════════════════════════════════════════════════════════ */
@@ -1659,43 +1264,26 @@ kbd {
      reparte el ancho. */
 }
 
-/* iPad apaisado es casi escritorio: el hero deja de medirse en vh para no
-   aplastarse cuando la altura disponible es corta. */
-@media (max-width: 1024px) and (orientation: landscape) {
-  .track { height: 76px; }
-}
-
 /* ─── Móvil (≤ 768px) ─────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .step,
   .split,
   .founder,
-  .pillars,
-  .grid,
-  .prices { grid-template-columns: 1fr; }
 
   .step:nth-child(even) .step-visual { order: 0; }
   .step-visual { margin-top: var(--space-5); }
 
   .nav-links { gap: var(--space-4); }
-  .nav-links a:not(.btn) { display: none; }
+  /* En móvil el nav se queda en logo + CTA. El cambio de idioma es la
+     excepción: si desaparece, en móvil no hay forma de cambiar de idioma
+     desde arriba. */
+  .nav-links a:not(.btn):not(.lang-switch) { display: none; }
 
   .hero .cta-row { flex-direction: column; align-items: stretch; }
   .hero .cta-row .btn { width: 100%; }
 
-  .stage { padding-inline: var(--space-4); }
   .stage-bar { flex-wrap: wrap; }
   .stage-file { margin-left: var(--space-2); }
-
-  .tl-head { flex-direction: column; align-items: flex-start; gap: var(--space-3); }
-
-  /* La lista de planos se queda sin texto: a este ancho no cabe una etiqueta
-     legible, pero los bloques siguen contando lo que importa — dónde cae cada
-     plano y dónde está el hueco sin cubrir. */
-  .lane { height: 30px; }
-  .lane-shot b,
-  .lane-shot span { display: none; }
-  .lane-gap { font-size: 8px; letter-spacing: 0.06em; padding: 0 2px; }
 
   .sec span { font-size: 8.5px; letter-spacing: 0.06em; }
   .paper-sheet { max-width: 420px; margin-inline: auto; }
@@ -1736,12 +1324,12 @@ kbd {
    ═══════════════════════════════════════════════════════════════════════ */
 
 @media print {
-  .site-nav, .stage, .site-footer, .cta-row { display: none; }
+  .site-nav, .duo, .site-footer, .cta-row { display: none; }
   body { background: #fff; color: #000; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
-   PASADA DE MARKETING (08-2026) — hero, ticker, statement, precio, cierre
+   PASADA DE MARKETING (08-2026) — hero, statement, precio, cierre
    ═══════════════════════════════════════════════════════════════════════ */
 
 /* ─── Hero: la palabra clave se entinta, el título respira luz ────────── */
@@ -1775,53 +1363,6 @@ kbd {
 }
 .btn[data-arrow]:hover::after { transform: translateX(4px); }
 
-/* ─── Ticker de beneficios ────────────────────────────────────────────
-   Hechos, no adjetivos. El bucle es CSS puro: dos copias del contenido y
-   una traslación del 50%. Pausa al pasar el ratón (se puede leer) y se
-   queda quieto con reduced-motion. */
-.ticker {
-  overflow: hidden;
-  border-top: 1px solid var(--border-default);
-  border-bottom: 1px solid var(--border-default);
-  padding-block: var(--space-4);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-}
-.ticker-track {
-  display: flex;
-  width: max-content;
-  animation: ticker-roll 36s linear infinite;
-}
-.ticker:hover .ticker-track { animation-play-state: paused; }
-.ticker-run {
-  display: flex;
-  align-items: center;
-  flex: none;
-}
-.ticker-run span {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-  white-space: nowrap;
-  padding-inline: var(--space-6);
-}
-.ticker-run i {
-  width: 5px;
-  height: 5px;
-  border-radius: var(--radius-full);
-  background: var(--brand-sunset);
-  flex: none;
-}
-@keyframes ticker-roll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .ticker-track { animation: none; }
-}
-
 /* ─── Statement: un pensamiento a tamaño de sala ──────────────────────
    `.statement .statement-kicker` y no `.statement-kicker` a secas: la regla
    heredada `.statement p` (margen grande + tamaño de lede) ganaría por
@@ -1838,7 +1379,7 @@ kbd {
 .statement .statement-big {
   font-family: var(--font-display);
   font-weight: var(--font-weight-medium);
-  font-size: clamp(24px, 3.4vw, 44px);
+  font-size: clamp(28px, 4vw, 56px);
   line-height: 1.28;
   letter-spacing: -0.02em;
   max-width: 30ch;
@@ -1939,7 +1480,6 @@ kbd {
   box-shadow: 0 22px 48px -30px rgba(26, 25, 23, 0.38);
 }
 
-.bento-mood { grid-column: span 2; grid-row: span 2; }
 .bento-offline { grid-column: span 2; }
 
 .bento-copy h3 {
@@ -1955,10 +1495,6 @@ kbd {
 /* El visual llena lo que el texto no usa: es lo que hace que las celdas de
    distinto tamaño se sientan llenas y no estiradas. */
 .bento-visual { flex: 1; min-height: 0; }
-.bento-mood .mini-mood { height: 100%; min-height: 280px; }
-.bento-sun .mini-sun,
-.bento-library .mini-list { display: grid; align-content: center; height: 100%; }
-.bento-library .mini-list { list-style: none; }
 
 /* La tira ancha se parte en dos: texto a la izquierda, archivos a la derecha. */
 .bento-offline {
@@ -1971,153 +1507,790 @@ kbd {
 
 @media (max-width: 1024px) {
   .bento { grid-template-columns: 1fr; }
-  .bento-mood { grid-column: auto; grid-row: auto; }
   .bento-offline { grid-column: auto; flex-direction: column; align-items: stretch; }
-  .bento-beat-stage { min-height: 150px; }
-  .bento-mood .mini-mood { min-height: 230px; }
 }
 
-/* ─── Bento · la tarjeta que late ─────────────────────────────────────
-   Réplica del "cinematic breathing" de la app: el glow del plano activo
-   sigue la envolvente de la música y destella en los transitorios. Aquí la
-   envolvente es la silueta de la onda de timeline-data, tocada por
-   showcase.js — mismo latido, sin audio. */
-.bento-beat-stage {
-  display: grid;
-  place-items: center;
-  min-height: 170px;
-  border-radius: var(--radius-md);
-  background:
-    radial-gradient(60% 70% at 50% 45%, rgba(232, 129, 74, 0.10), transparent 70%),
-    var(--surface-1);
-  overflow: hidden;
-}
-.beat-card {
-  padding: var(--space-4) var(--space-5);
-  border: 1px solid var(--brand-sunset);
-  border-radius: var(--radius-sm);
-  background: var(--surface-3);
-  text-align: left;
-  will-change: box-shadow, transform;
-}
-.beat-card .tc {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.05em;
-  color: var(--brand-sunset);
-}
-.beat-card .nm { margin-top: 5px; font-size: 13.5px; color: var(--text-primary); }
-.beat-card .sub {
-  margin-top: 5px;
-  font-family: var(--font-mono);
-  font-size: 9.5px;
-  color: var(--text-tertiary);
-}
-/* Pose quieta (reduced-motion o sin JS): un glow fijo digno. */
-.beat-card { box-shadow: 0 4px 24px 6px rgba(232, 129, 74, 0.28); }
+/* ═══════════════════════════════════════════════════════════════════════
+   LA APP REAL — MacBook del hero y marcos de captura
 
-/* ─── Cine: el hueco del demo con dignidad de sala ────────────────────── */
-.cinema {
+   El patrón de developer.apple.com: el producto se enseña dentro de la
+   máquina en la que vive. Las capturas son de la app real corriendo
+   (proyecto demo "Neon Pulse"), no maquetas.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.mac {
+  max-width: 100%;
+  margin: clamp(32px, 5vh, 60px) auto 0;
+}
+/* Pantalla: bisel negro con esquinas generosas, borde fino para separarse
+   del fondo también negro, y un brillo de hora dorada debajo. */
+.mac-screen {
+  padding: clamp(10px, 1.4vw, 18px) clamp(10px, 1.4vw, 18px) clamp(12px, 1.7vw, 22px);
+  background: #060606;
+  border: 1px solid var(--border-strong);
+  border-radius: clamp(14px, 1.8vw, 24px) clamp(14px, 1.8vw, 24px) 0 0;
+  box-shadow:
+    0 60px 140px -50px rgba(232, 129, 74, 0.28),
+    var(--elev-4);
+}
+.mac-screen img {
+  width: 100%;
+  height: auto;
+  border-radius: clamp(6px, 0.8vw, 10px);
+  display: block;
+}
+/* Base de aluminio con su muesca central. */
+.mac-base {
   position: relative;
-  aspect-ratio: 16 / 9;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-xl);
-  background:
-    radial-gradient(80% 90% at 50% 55%, var(--surface-2), var(--surface-0) 85%);
-  box-shadow: var(--elev-4);
-  overflow: hidden;
+  height: clamp(12px, 1.6vw, 20px);
+  margin-inline: -3.5%;
+  background: linear-gradient(180deg, #3d3d40, #232326 55%, #1a1a1c);
+  border-radius: 0 0 clamp(10px, 1.4vw, 18px) clamp(10px, 1.4vw, 18px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 0;
 }
-/* Viñeta de sala. */
-.cinema::after {
+.mac-base::before {
   content: '';
   position: absolute;
-  inset: 0;
-  box-shadow: inset 0 0 120px 30px rgba(0, 0, 0, 0.55);
-  pointer-events: none;
-}
-.cinema-badge {
-  display: grid;
-  place-items: center;
-  width: clamp(64px, 7vw, 88px);
-  height: clamp(64px, 7vw, 88px);
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(232, 129, 74, 0.35);
-  background: var(--brand-sunset-subtle);
-  color: var(--brand-sunset);
-  backdrop-filter: blur(6px);
-}
-.cinema-badge svg { width: 42%; height: 42%; margin-left: 6%; }
-.cinema-caption {
-  position: absolute;
-  bottom: var(--space-5);
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 12%;
+  height: 45%;
+  background: linear-gradient(180deg, #101012, #2a2a2d);
+  border-radius: 0 0 10px 10px;
 }
 
-/* ─── La hoja del PDF, flotando ───────────────────────────────────────
-   Una segunda hoja asoma detrás, girada: el documento deja de estar
-   "pegado" a la página y pasa a estar sobre la mesa. */
-.paper-sheet {
+/* ─── Filas de features ───────────────────────────────────────────────── */
+.feature {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(32px, 5vw, 80px);
+  align-items: center;
+  padding-block: clamp(40px, 6vw, 88px);
+}
+.feature + .feature { border-top: 1px solid var(--paper-line-soft); }
+.feature-flip .feature-copy { order: 2; }
+.feature-flip .shotframe { order: 1; }
+.feature-copy h2 { margin-top: var(--space-4); }
+.feature-copy p { margin-top: var(--space-5); max-width: 48ch; }
+.feature-em { font-style: normal; font-family: var(--font-mono); font-size: 0.85em; color: var(--sunset-ink); }
+
+/* Marco de captura: la app tal cual, con borde de ventana y sombra. */
+.shotframe {
+  margin: 0;
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--surface-1);
+  box-shadow: 0 32px 64px -36px rgba(26, 25, 23, 0.45);
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+.shotframe:hover {
+  transform: translateY(-4px) scale(1.005);
+  box-shadow: 0 44px 80px -40px rgba(26, 25, 23, 0.55);
+}
+.shotframe img { width: 100%; height: auto; display: block; }
+/* La captura alta (el modal de export) no debe dominar la fila. */
+.shotframe-tall { max-width: 460px; justify-self: center; }
+
+@media (max-width: 1024px) {
+  .feature { grid-template-columns: 1fr; }
+  .feature-flip .feature-copy { order: 1; }
+  .feature-flip .shotframe { order: 2; }
+  .shotframe-tall { max-width: 400px; justify-self: start; }
+  .mac-base { margin-inline: -2%; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   PASADA "LA APP DE VERDAD, EN SU MAC" (12-08)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ─── El Mac, plateado ────────────────────────────────────────────────
+   Sobre fondo negro un portátil negro desaparecía: el chasis pasa a
+   aluminio — bisel plateado alrededor de la pantalla y base a juego —
+   y la pantalla queda negra dentro, como el hardware real. */
+/* Gris espacial: chasis oscuro con canto iluminado — se recorta del fondo
+   negro por el borde alto y el brillo, no por ser claro. */
+.mac-screen {
+  background: linear-gradient(180deg, #7c7d83, #55565c 55%, #3e3f45);
+  border: 1px solid #26272b;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 60px 140px -50px rgba(232, 129, 74, 0.30),
+    var(--elev-4);
+}
+.mac-screen img {
+  border: 1px solid #17171a;
+  border-radius: clamp(4px, 0.5vw, 8px);
+  background: #060606;
+  box-shadow: 0 0 0 clamp(3px, 0.45vw, 6px) #0a0a0c;
+}
+.mac-base {
+  background: linear-gradient(180deg, #85868c, #5a5b61 45%, #35363b);
+  border: 1px solid #232428;
+  border-top: 1px solid #97989e;
+}
+.mac-base::before {
+  background: linear-gradient(180deg, #3a3b40, #6a6b71);
+  border-radius: 0 0 10px 10px;
+}
+
+/* ─── Bento a dos columnas ────────────────────────────────────────────── */
+.bento-2 { grid-template-columns: repeat(2, 1fr); }
+.bento-2 .mini-sun { display: grid; align-content: center; height: 100%; }
+@media (max-width: 1024px) {
+  .bento-2 { grid-template-columns: 1fr; }
+}
+
+/* ─── Marco de captura sobre lienzo oscuro ────────────────────────────── */
+.shotframe-dark {
+  border-color: var(--border-strong);
+  background: var(--surface-1);
+  box-shadow: 0 40px 90px -40px rgba(232, 129, 74, 0.25), var(--elev-4);
+  max-width: 1040px;
+  margin-inline: auto;
+}
+
+/* ─── Capacidades del canvas: hechos en fila ──────────────────────────── */
+.canvas-caps {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+  padding: 0;
+}
+.canvas-caps li {
+  padding: 8px var(--space-4);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+}
+.canvas-caps li:nth-child(odd) { border-color: rgba(232, 129, 74, 0.28); color: var(--brand-sunset); }
+
+/* ─── La hoja del PDF real, flotando ──────────────────────────────────
+   El documento generado por la app, girado sobre la mesa; se endereza al
+   pasar el ratón. La segunda hoja asoma detrás (::before del contenedor,
+   ya definida en el bloque del split). */
+.paper-real {
+  margin: 0;
   position: relative;
   transform: rotate(-1.2deg);
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--paper);
   box-shadow: 0 34px 70px -30px rgba(26, 25, 23, 0.45);
   transition: transform var(--dur-base) var(--ease-out);
 }
-.paper-sheet:hover { transform: rotate(0deg); }
-.split > div:last-child { position: relative; }
-.split > div:last-child::before {
-  content: '';
-  position: absolute;
-  inset: 4% 2% -2% 6%;
-  background: var(--paper-soft);
-  border: 1px solid var(--paper-line);
-  border-radius: var(--radius-xs);
-  transform: rotate(1.6deg);
+.paper-real:hover { transform: rotate(0deg); }
+.paper-real img { width: 100%; height: auto; display: block; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   EL WORDMARK — PREframe
+
+   El PRE lleva el degradado de marca (sunset → ámbar); el resto hereda el
+   color del contexto. `site.js` lo renderiza en cada [data-brand="name"],
+   así que esta regla es la única definición visual de la marca escrita.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.wm-pre {
+  font-weight: inherit;               /* <b> solo como gancho, no engorda */
+  background: linear-gradient(100deg, var(--brand-sunset), var(--brand-amber));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* `background-clip: text` recorta el degradado a la CAJA del <b>, no a la
+     tinta. Los títulos de marca llevan tracking negativo (-0.05em en el hero,
+     -0.045em en el footer) y ese hueco se descuenta TAMBIÉN después de la
+     última letra: la caja cerraba 2.2px antes que la "e", y por ese filo
+     asomaba el degradado blanco del h1 que hay debajo. El padding ensancha la
+     caja de recorte y el margen negativo devuelve la posición, así que la
+     letra sale entera y el layout no se mueve. No puede pintar de más: el
+     degradado sigue recortado a los glifos de "Pre", nunca a los de "Frame". */
+  padding-right: 0.08em;
+  margin-right: -0.08em;
+}
+@supports not (background-clip: text) {
+  .wm-pre { background: none; color: var(--brand-sunset); }
 }
 
-/* ─── Founder: cita editorial ─────────────────────────────────────────── */
-.founder-quote {
-  max-width: 880px;
-  margin: 0;
+/* En el título del hero, el degradado del PRE gana al degradado blanco del
+   conjunto (ambos usan clip; el del hijo manda sobre su propio texto). En el
+   wordmark gigante del footer el PRE se atenúa para seguir siendo marca de
+   agua y no un cartel. */
+.foot-wordmark .wm-pre { opacity: 0.45; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   PACKS DE CRÉDITOS — informativo, sin botones hasta validar Stripe
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.packs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+  margin-top: clamp(32px, 4vw, 52px);
+  align-items: stretch;
 }
-.founder-quote blockquote { margin: 0; position: relative; }
-.founder-quote blockquote::before {
-  content: '“';
-  position: absolute;
-  left: -0.08em;
-  top: -0.32em;
-  font-family: var(--font-display);
-  font-size: 7em;
-  line-height: 1;
-  color: var(--brand-sunset);
-  opacity: 0.35;
-  pointer-events: none;
+.pack {
+  position: relative;
+  padding: var(--space-7) var(--space-6);
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius-xl);
+  background: var(--paper);
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out);
 }
-.founder-quote blockquote p {
-  font-family: var(--font-display);
-  font-weight: var(--font-weight-medium);
-  font-size: clamp(24px, 3.2vw, 40px);
-  line-height: 1.3;
-  letter-spacing: -0.02em;
-  color: var(--text-secondary);
-  padding-left: clamp(28px, 4vw, 56px);
-  text-wrap: balance;
+.pack:hover {
+  transform: translateY(-3px);
+  border-color: #D8D3CA;
+  box-shadow: 0 22px 48px -30px rgba(26, 25, 23, 0.38);
 }
-.founder-quote blockquote em {
-  font-style: normal;
-  color: var(--brand-sunset);
-}
-.founder-quote figcaption {
-  margin-top: var(--space-6);
-  padding-left: clamp(28px, 4vw, 56px);
+.pack .amount { margin: var(--space-3) 0 var(--space-1); font-size: 38px; }
+.pack-per {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
+  letter-spacing: 0.04em;
+  color: var(--text-on-light-secondary);
+  font-variant-numeric: tabular-nums;
+}
+.pack-save {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--paper-line-soft);
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  color: var(--sunset-ink);
+}
+.pack-save.is-base { color: var(--text-on-light-tertiary); }
+
+/* El más popular: anillo de marca y su insignia. */
+.pack.is-popular {
+  border-color: var(--brand-sunset);
+  box-shadow: 0 0 0 1px var(--brand-sunset);
+}
+.pack.is-popular:hover {
+  box-shadow: 0 0 0 1px var(--brand-sunset), 0 22px 48px -30px rgba(232, 129, 74, 0.5);
+}
+.pack-badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  padding: 5px var(--space-4);
+  border-radius: var(--radius-full);
+  background: var(--brand-sunset);
+  color: var(--on-brand);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1024px) { .packs { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .packs { grid-template-columns: 1fr; } }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   EL CANVAS, EN MOCKUP FIEL — sección 2
+
+   Réplica de los objetos reales del Mood Bar (imagen, vídeo, nota, paleta,
+   plano, curva) sobre el canvas de puntos oscuro, dentro de la sección
+   blanca. Construido como mockup para poder enseñar una paleta ajena al
+   naranja de marca y referencias sin copyright.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.canvasmock {
+  max-width: 1080px;
+  margin: var(--space-8) auto 0;
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--surface-1);
+  box-shadow: 0 40px 90px -44px rgba(26, 25, 23, 0.5);
+  text-align: left;
+}
+
+/* Filtros por sección, como en la app. */
+.cm-chips {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--border-default);
+  overflow-x: auto;
+}
+.cm-chips span {
+  flex: none;
+  padding: 6px var(--space-4);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+}
+.cm-chips .is-active { border-color: var(--brand-sunset); color: var(--brand-sunset); }
+
+/* El tablero: canvas de puntos con las tarjetas encima. */
+.cm-board {
+  position: relative;
+  height: clamp(380px, 46vw, 560px);
+  background-color: var(--surface-1);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.cm-card {
+  position: absolute;
+  margin: 0;
+  padding: var(--space-2);
+  background: var(--surface-3);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.9);
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+.cm-card:hover {
+  transform: translateY(-3px) rotate(0deg) !important;
+  box-shadow: 0 26px 52px -22px rgba(0, 0, 0, 0.95);
+  z-index: 5;
+}
+.cm-card img { width: 100%; height: auto; display: block; border-radius: var(--radius-xs); }
+.cm-cap {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  color: var(--text-tertiary);
+}
+.cm-img figcaption {
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  color: var(--text-tertiary);
+}
+
+/* Vídeo de referencia. */
+.cm-yt-thumb { position: relative; }
+.cm-play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  background: rgba(8, 8, 8, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+.cm-play::after {
+  content: '';
+  position: absolute;
+  left: 55%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-left: 10px solid var(--text-primary);
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+.cm-dur {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+  background: rgba(8, 8, 8, 0.8);
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  color: var(--text-primary);
+}
+.cm-yt-title { margin-top: var(--space-2); font-size: 12px; line-height: 1.35; color: var(--text-primary); }
+
+/* Nota — Fraunces cursiva: contenido tecleado por el usuario, diegético. */
+.cm-note {
+  padding: var(--space-4);
+  font-family: var(--font-focus-display);
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text-primary);
+  background: var(--brand-sunset-subtle);
+  border-color: rgba(232, 129, 74, 0.3);
+}
+
+/* Card de plano. */
+.cm-shot-thumb { position: relative; }
+.cm-shot-name { margin-top: var(--space-2); font-size: 12.5px; color: var(--text-primary); }
+.cm-gear {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 3px 8px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-tertiary);
+}
+
+/* Paleta — a propósito SIN los naranjas de marca. */
+.cm-swatches { display: flex; height: 44px; border-radius: var(--radius-xs); overflow: hidden; }
+.cm-swatches i { flex: 1; }
+.cm-hexes {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-tertiary);
+}
+
+/* Curva. */
+.cm-curve svg { width: 100%; height: 64px; display: block; margin-top: var(--space-2); }
+.cm-curve-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-tertiary);
 }
+
+/* Barra de herramientas del canvas. */
+.cm-toolbar {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-4);
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: rgba(8, 8, 8, 0.85);
+  backdrop-filter: blur(8px);
+}
+.cm-toolbar span {
+  padding: 7px var(--space-4);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+.cm-toolbar b {
+  padding: 7px var(--space-4);
+  border-radius: var(--radius-sm);
+  background: var(--brand-sunset);
+  color: var(--on-brand);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-medium);
+}
+.cm-zoom {
+  position: absolute;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-tertiary);
+}
+
+/* Los chips de capacidades sobre lienzo claro. */
+.canvas-caps-light li { border-color: var(--paper-line); color: var(--text-on-light-secondary); }
+.canvas-caps-light li:nth-child(odd) { border-color: rgba(176, 82, 31, 0.3); color: var(--sunset-ink); }
+
+@media (max-width: 768px) {
+  .cm-board { height: 520px; }
+  /* En estrecho, las tarjetas se reparten en dos columnas holgadas. */
+  .cm-card { width: 44% !important; }
+  .cm-note { display: none; }
+  .cm-toolbar span:nth-child(3), .cm-toolbar span:nth-child(4) { display: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FEATURE A LO GRANDE — imagen a todo el ancho, texto sobre degradado
+
+   Para un portátil de 16": la captura ES la sección, y el texto vive sobre
+   un degradado lateral oscuro que garantiza contraste tanto sobre la app
+   clara (Ficha) como sobre la oscura (galería).
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.wrap-wide { max-width: 1400px; }
+
+.feature-big {
+  position: relative;
+  margin: 0;
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--surface-1);
+  box-shadow: 0 40px 90px -44px rgba(26, 25, 23, 0.5);
+}
+.feature-big > img { width: 100%; height: auto; display: block; }
+
+.fb-copy {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: min(46%, 560px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: clamp(24px, 4vw, 64px);
+  background: linear-gradient(90deg, rgba(8, 8, 8, 0.92) 0%, rgba(8, 8, 8, 0.78) 55%, rgba(8, 8, 8, 0.35) 82%, transparent);
+  color: var(--text-primary);
+}
+.feature-big.is-right .fb-copy,
+.bg-feature.is-right .fb-copy {
+  inset: 0 0 0 auto;
+  background: linear-gradient(270deg, rgba(8, 8, 8, 0.92) 0%, rgba(8, 8, 8, 0.78) 55%, rgba(8, 8, 8, 0.35) 82%, transparent);
+}
+.fb-copy h2 { color: var(--text-primary); font-size: clamp(26px, 2.9vw, 44px); }
+.fb-copy p { color: var(--text-tertiary); font-size: var(--web-small); max-width: 42ch; }
+.fb-copy strong { color: var(--text-primary); font-weight: var(--font-weight-semibold); }
+
+/* En pantallas medias y móvil el degradado lateral se queda sin sitio: el
+   texto pasa a bloque sólido bajo la imagen. */
+@media (max-width: 900px) {
+  .fb-copy,
+  .feature-big.is-right .fb-copy,
+.bg-feature.is-right .fb-copy {
+    position: static;
+    width: 100%;
+    background: var(--surface-1);
+    padding: var(--space-6);
+  }
+}
+
+/* ─── El statement largo: primera frase grande, resto legible ─────────── */
+.statement .statement-rest {
+  max-width: 62ch;
+  margin: var(--space-7) auto 0;
+  text-align: left;
+  display: grid;
+  gap: var(--space-4);
+}
+.statement .statement-rest p {
+  margin: 0;
+  max-width: none;
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.7;
+  color: var(--text-on-light-secondary);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FEATURE COMO FONDO DE SECCIÓN — sin recuadro
+
+   La captura no es una lámina dentro de la sección: ES la sección, de borde
+   a borde, con el texto sobre un velo lateral. Sustituye al formato
+   .feature-big enmarcado.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.bg-feature {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-0);
+}
+.bg-feature-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 420px;
+  object-fit: cover;
+}
+/* El velo y el texto reutilizan .fb-copy, aquí sin radio que respetar. */
+.bg-feature .fb-copy { z-index: 1; }
+
+@media (max-width: 900px) {
+  .bg-feature .fb-copy { position: static; width: 100%; background: var(--surface-1); }
+}
+
+/* ─── hero-who: blanco, con music y story encendidos ──────────────────── */
+.hero-who { color: var(--text-primary); }
+.hero-who em {
+  font-style: normal;
+  background: linear-gradient(100deg, var(--brand-sunset), var(--brand-amber));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@supports not (background-clip: text) {
+  .hero-who em { background: none; color: var(--brand-sunset); }
+}
+
+/* ─── Entrada solo-fundido, para las piezas grandes de imagen ─────────── */
+.has-motion .reveal.reveal-fade { transform: none; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   TITULAR CON DEGRADADO SUTIL DE MARCA — sobre blanco puro
+
+   El patrón de las páginas de producto de Apple ("Juntos todo es mejor."):
+   el titular arranca en tinta y se va calentando hacia el naranja de marca
+   al final del recorrido. Sutil: la mayor parte del texto sigue oscura.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.title-grad {
+  background: linear-gradient(100deg, #1A1917 0%, #513122 55%, var(--sunset-ink) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@supports not (background-clip: text) {
+  .title-grad { background: none; color: var(--text-on-light-primary); }
+}
+
+/* La ventana oscura sobre lienzo claro: el borde blanco-alfa desaparece
+   sobre blanco; se sustituye por uno entintado y una sombra de objeto
+   sobre mesa. */
+.canvas-light .duo-window {
+  border-color: rgba(26, 25, 23, 0.16);
+  box-shadow: 0 34px 70px -36px rgba(26, 25, 23, 0.45);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ZOOM AL SCROLL — la captura crece hasta llenar la pantalla
+
+   `--zf` va de 0 (imagen con márgenes y esquinas) a 1 (pantalla completa);
+   lo escribe motion.js leyendo el avance del scroll dentro de la sección.
+   Sin JavaScript, o con reducir-movimiento, --zf vale 1: imagen llena y
+   texto visible — nadie pierde contenido.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.zoom-feature {
+  --zf: 1;
+  --zf-copy: 1;
+  position: relative;
+  /* Un solo viewport: el crecimiento ocurre en la aproximación, el negro
+     funde al llegar arriba, y no hay NINGÚN tramo anclado — el siguiente
+     gesto de scroll ya la deja atrás. */
+  height: 100vh;
+  background: var(--paper);
+}
+.zf-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.zf-media {
+  margin: 0;
+  width: calc(68vw + 32vw * var(--zf));
+  height: calc(60vh + 40vh * var(--zf));
+  border-radius: calc(26px * (1 - var(--zf)));
+  overflow: hidden;
+  box-shadow: 0 40px 90px -44px rgba(26, 25, 23, 0.5);
+}
+.zf-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* El bloque de texto: negro translúcido, centrado sobre la imagen. */
+/* El bloque negro: PANTALLA COMPLETA y sin blur, pero TRANSLÚCIDO — la
+   interfaz sigue viéndose detrás. El fundido anima la opacidad del bloque
+   entero (0 → 1), y el tope de oscuridad lo pone el alpha del fondo: el
+   texto llega nítido al 100% mientras el negro nunca pasa del 55%. */
+.zf-copy {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0;
+  padding: clamp(24px, 5vw, 72px);
+  background: rgba(8, 8, 8, 0.55);
+  text-align: center;
+  color: var(--text-primary);
+  opacity: var(--zf-copy);
+  pointer-events: none;
+}
+.zf-copy > * { max-width: 640px; }
+.zf-copy h2 { color: var(--text-primary); margin-top: var(--space-4); font-size: clamp(28px, 3.4vw, 48px); }
+/* Secundario más claro y una sombra corta: legible también sobre las zonas
+   blancas de la interfaz que asoman tras el velo, sin oscurecerlo más. */
+.zf-copy p { margin-top: var(--space-5); color: var(--text-secondary); font-size: var(--web-small); }
+.zf-copy h2, .zf-copy p { text-shadow: 0 1px 14px rgba(0, 0, 0, 0.45); }
+.zf-copy strong { color: var(--text-primary); }
+
+@media (max-width: 900px) {
+  .zoom-feature { height: 100vh; }
+  .zf-media { width: calc(88vw + 12vw * var(--zf)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .zoom-feature { height: auto; }
+  .zf-sticky { position: static; height: auto; min-height: 70vh; }
+}
+
+/* ─── Card solar: etiqueta fija en la ventana + puntero que nombra ────── */
+
+/* La ventana elegida lleva su nombre encima, quieto. */
+.sunwin { overflow: visible; }
+.sunwin-tag {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 6px);
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  background: var(--text-on-light-primary);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+/* Piquito del tag hacia la ventana. */
+.sunwin-tag::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: var(--text-on-light-primary);
+}
+
+/* La barra necesita aire arriba (tag de la ventana) y abajo (el que viaja). */
+.bento-2 .mini-sun .sunbar { margin-top: var(--space-6); margin-bottom: var(--space-7); }
+
+/* ─── El fantasma de la card solar ────────────────────────────────────
+   Mismo lenguaje que el puntero del timeline: flecha naranja que agarra la
+   ventana y la pasea por el día. El pop del tag ya existe (.is-pop). */
+.mini-sun { position: relative; }
+.sun-cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease-out);
+}
+.sun-cursor.is-on { opacity: 1; }
+.sun-cursor svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--brand-sunset);
+  stroke: #160B04;
+  stroke-width: 1;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.4));
+  transition: transform var(--dur-instant) var(--ease-out);
+}
+.sun-cursor.is-down svg { transform: scale(0.82); }
+
+/* El tag de la ventana también hace pop al renombrarse. */
+.sunwin-tag.is-pop { animation: sun-tag-pop var(--dur-base) var(--ease-spring); }
+
+/* La ventana se mueve con transición apagada: la conduce el rAF. */
+.mini-sun .sunwin { transition: none; }

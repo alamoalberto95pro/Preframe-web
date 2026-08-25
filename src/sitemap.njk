@@ -1,0 +1,25 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- GENERADO por Eleventy desde src/sitemap.njk. No editar a mano.
+     Solo las páginas indexables, en los dos idiomas, con los hreflang
+     cruzados. /buy/* y las legales van con `noindex`, así que no aparecen —
+     igual que antes. Las fechas viven en src/_data/pages.js. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{%- for key, p in pages %}
+{%- for code, l in site.languages %}
+  <url>
+    <loc>{{ site.url }}{{ l.prefix }}{{ p.path }}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="{{ site.url }}{{ site.languages.en.prefix }}{{ p.path }}"/>
+    <xhtml:link rel="alternate" hreflang="es" href="{{ site.url }}{{ site.languages.es.prefix }}{{ p.path }}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ site.languages.en.prefix }}{{ p.path }}"/>
+    <lastmod>{{ p.lastmod }}</lastmod>
+    <changefreq>{{ p.changefreq }}</changefreq>
+    <priority>{{ p.priority }}</priority>
+  </url>
+{%- endfor %}
+{%- endfor %}
+</urlset>

@@ -20,7 +20,8 @@
      [VERIFICAR] con la gestoría si hace falta además una versión en español.
 
      Redactado el 2026-08-25 (ver Documentacion/negocio/legal-terminos-privacidad.md).
-     Quedan [PENDING] en: responsable (gestoría), retención de eventos y email. -->
+     Quedan [PENDING] en: responsable (gestoría) y email.
+     Retención de eventos cerrada el 2026-08-25: 90 días (job pg_cron `purge_events`). -->
 <body class="canvas-dark">
   <main class="doc-page">
     <a class="logo" href="/">
@@ -160,8 +161,9 @@
       works and reaches the people it is meant for (Art. 6(1)(f) GDPR).
     </p>
 
-    <!-- Retención de eventos de uso: Alberto está decidiendo el borrado de
-         logs (2026-08-25). Rellenar el [PENDING] y quitar el banner. -->
+    <!-- Retención: 90 días para eventos y errores, misma ventana porque
+         comparten session_id. Jobs pg_cron `purge_events` y
+         `purge_client_errors` en Supabase (migración 20260825_events_retention). -->
     <h2>8. Retention and deletion</h2>
     <ul>
       <li><strong>Account and projects</strong>: kept for as long as your
@@ -171,8 +173,8 @@
         obligations as merchant of record.</li>
       <li><strong>Error reports</strong>: deleted automatically after 90 days
         (section 4).</li>
-      <li><strong>Usage events</strong>: [PENDING — retention period for the
-        usage-events log].</li>
+      <li><strong>Usage events</strong>: deleted automatically after 90 days,
+        the same period as error reports.</li>
       <li><strong>Local data on your computer</strong>: the "Delete all local
         data on this computer" button in Settings removes everything PreFrame
         stores on that machine. It does not delete your account or the projects

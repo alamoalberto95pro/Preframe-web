@@ -17,7 +17,7 @@
     "mood": "Mood board",
     "features": "Qué hace",
     "zoom": "Focus &amp; Ficha",
-    "instrument": "Tócalo",
+    "duo": "Dos caminos",
     "library": "Tu biblioteca",
     "everything": "Todo lo demás",
     "onset": "En rodaje",
@@ -29,7 +29,7 @@
     "claim": "Tu escaleta no es una lista.<br>Es un <em>timeline</em>.",
     "who": "Para filmmakers que sienten primero la <em>música</em> y la <em>historia</em>",
     "figureAria": "El editor de PreFrame: una onda cortada en secciones, una curva emocional dibujada a mano encima y el mood board con una paleta.",
-    "shotAlt": "El editor de PreFrame con el proyecto de demostración Neon Pulse: secciones narrativas de color sobre la onda, una curva emocional dibujada encima, la escaleta debajo y el lienzo del Mood Bar a la derecha."
+    "shotAlt": "El editor de PreFrame con el proyecto de demostración Amanecer: secciones narrativas de color sobre la onda, una curva emocional dibujada encima, la escaleta debajo y el lienzo del Mood Bar a la derecha."
   },
   "statement": {
     "kicker": "Qué es PreFrame",
@@ -98,69 +98,29 @@
     "title": "Un proyecto.<br>Dos maneras de mirarlo.",
     "body": "<strong>Focus</strong> es la sala a oscuras: tú, el tema y el timeline. <strong>Ficha</strong> convierte el mismo proyecto en una ficha técnica luminosa — secciones numeradas, notas a la vista y todos los planos desplegados para repasarlos antes del rodaje."
   },
-  "instrument": {
-    "eyebrow": "La idea, en directo",
-    "title": "Mira cómo el puntero maneja el timeline. Y luego quítaselo.",
-    "lede": "Esto no es un vídeo grabado: es el instrumento de verdad. En cuanto lo tocas, es tuyo.",
+  "duo": {
+    "eyebrow": "Con canción o sin ella",
+    "title": "Empieza con la canción.<br>O antes de que exista.",
+    "lede": "Hay proyectos que empiezan con el .mp3 en la mano. Otros empiezan como una sensación, mucho antes de que llegue la música. PreFrame planifica los dos.",
+    "withAria": "La onda de una canción cortada en cinco secciones narrativas — Opening, Build, Peak, Turn, Release — con las líneas de corte cayendo sobre la música.",
+    "withoutAria": "Una curva emocional dibujada a mano con keyframes, cortada en las mismas cinco secciones — sin audio por ninguna parte. Un puntero agarra un keyframe y toda la curva le sigue.",
+    "withTitle": "La canción llegó primero",
+    "withBody": "Mete el tema y córtalo en secciones narrativas, sobre su propia onda. Cada plano se apoya en segundos reales: el estribillo está exactamente donde está el estribillo.",
+    "withoutTitle": "La canción aún no está",
+    "withoutBody": "Dibuja la curva emocional que quieres que siga la pieza y corta tus secciones sobre ella. La planificación empieza cuando empieza la idea, no cuando llega la entrega.",
+    "close": "Y el día que llega la canción, se encuentran: <em class=\"feature-em\">Music&nbsp;·&nbsp;Curve&nbsp;·&nbsp;Both</em>.",
     "fileTrack": "midnight_run_master_v3.mp3",
     "fileNoTrack": "no track yet · 3:41",
-    "readout": "0:00  OPENING  18%",
-    "laneAria": "Planos colocados en el tiempo. Entre 1:02 y 1:26 hay un hueco sin cubrir.",
-    "lane": [
-      {
-        "title": "0:00 → 0:14 · Ridge, wide",
-        "tc": "0:00",
-        "name": "Ridge, wide"
-      },
-      {
-        "title": "0:14 → 0:38 · Approach",
-        "tc": "0:14",
-        "name": "Approach"
-      },
-      {
-        "title": "0:38 → 1:02 · Tracking, headlights · 24mm gimbal",
-        "tc": "0:38",
-        "name": "Tracking, headlights"
-      },
-      {
-        "title": "1:26 → 2:20 · Chorus, close",
-        "tc": "1:26",
-        "name": "Chorus, close"
-      },
-      {
-        "title": "2:20 → 3:10 · Turn, wet road",
-        "tc": "2:20",
-        "name": "Turn, wet road"
-      },
-      {
-        "title": "3:10 → 3:41 · Last look",
-        "tc": "3:10",
-        "name": "Last look"
-      }
-    ],
-    "gapTitle": "1:02 → 1:26 · uncovered",
-    "gapLabel": "uncovered",
-    "timelineLabel": "Timeline",
-    "switchAria": "Sustrato del timeline",
-    "modeWave": "Track",
-    "modeCurve": "No track",
-    "modeBoth": "Both",
-    "trackAria": "Timeline. Barra espaciadora para reproducir, flechas para desplazarte, 1 2 3 para cambiar de sustrato.",
-    "trackValueText": "0:00",
     "sections": [
       "Opening",
       "Build",
       "Peak",
       "Turn",
       "Release"
-    ],
-    "hintDrag": "<kbd>Arrastra</kbd> un keyframe",
-    "hintPlay": "<kbd>Space</kbd> reproducir",
-    "hintScrub": "<kbd>←</kbd><kbd>→</kbd> recorrer",
-    "hintSubstrate": "<kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> sustrato"
+    ]
   },
   "library": {
-    "shotAlt": "La galería de planos de PreFrame: una rejilla de tarjetas de plano con duraciones y chips de óptica — Drone ciudad, Fade in luces, Wide neon street, Close-up rostros — filtrable por sección narrativa y con buscador.",
+    "shotAlt": "La galería de planos de PreFrame: una rejilla de tarjetas de plano con duraciones y chips de óptica — Window in the dark, She wakes up, Running, The bridge — filtrable por sección narrativa y con buscador.",
     "eyebrow": "Planos y equipo",
     "title": "Describe un plano una vez.<br>Rueda con él para siempre.",
     "body": "Cada plano lleva el vocabulario del cine — general, medio, primer plano, cenital — más tu cámara, tu óptica, una miniatura y sus notas. Guárdalo en tu biblioteca y suéltalo en el siguiente proyecto con el equipo ya enganchado."
@@ -191,8 +151,9 @@
     "eyebrow": "En rodaje",
     "title": "Imprímelo. Llévatelo. Ve tachando.",
     "p1": "Un plan de rodaje con todos los planos, su timecode, una casilla que marcar entre tomas y líneas en blanco para escribir. El tiempo sin cubrir se calcula y se imprime: nadie descubre el hueco a las seis de la tarde.",
-    "p2": "Este es el documento que genera la app, tal cual, a partir del proyecto de demostración que has visto arriba.",
-    "shotAlt": "Una página del PDF real del plan de rodaje: planos con miniatura, timecodes y casillas para marcar, líneas en blanco para notas y una fila resaltada de TIEMPO SIN CUBRIR entre 0:08 y 0:16."
+    "p2": "Es el documento tal cual lo genera la app: portada y páginas, directamente del proyecto de demostración.",
+    "coverAlt": "Portada del PDF real del plan de rodaje: título y duración del proyecto, un recuadro de notas de producción, la onda cortada en secciones y el recuento de planos, secciones, tiempo cubierto y pendiente.",
+    "shotAlt": "Una página del PDF real del plan de rodaje: tarjetas de plano con timecodes y casillas para marcar, líneas en blanco para notas y una fila resaltada de TIEMPO SIN CUBRIR entre 0:08 y 0:16."
   },
   "founder": {
     "eyebrow": "Quién está detrás",

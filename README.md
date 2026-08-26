@@ -86,34 +86,40 @@ Sí se traduce lo que rodea al mockup: títulos, ledes, listas de capacidades,
 los `aria-label` que lo describen y los `stage-hint` que invitan a tocarlo —
 un visitante español tiene que poder leer que puede arrastrar un keyframe.
 
-Las capturas `.webp` de `assets/shots/` se hicieron con la app en español y
-**hay que rehacerlas con la app en inglés** (ver la sección siguiente).
+Las capturas `.webp` de `assets/shots/` salen de la app real en inglés (ver
+"Cómo se hacen las capturas").
 
 Las páginas legales, `/buy/*` y la 404 no están traducidas: sus enlaces
 apuntan al mismo sitio desde los dos idiomas, a propósito.
 
-### Capturas pendientes de rehacer
+### Cómo se hacen las capturas
 
-El texto de los mockups en HTML ya está en inglés, pero **las capturas de
-pantalla son imágenes y siguen enseñando la interfaz en español**. Hay que
-volver a hacerlas con la app en inglés (Configuración → Idioma → English):
+Las siete capturas con interfaz (`editor-full`, `ficha`, `gallery`, `export`,
+`pdf-cover`, `pdf-shots`, `substrates`) las genera `tools/capture-shots.mjs` con Playwright
+contra la app de verdad, sin retoques: el proyecto de demostración "Amanecer"
+(`/editor/demo`: fotos reales, Mood Bar poblado, curva con etiquetas) y, para
+el diálogo de exportación y las dos hojas del PDF (portada y página de planos,
+recortadas del HTML de la vista previa a ancho de impresión), el demo "Neon
+Pulse" (`/editor/1`), porque
+"Amanecer" nace en preproducción y ahí EXPORT está deshabilitado a propósito.
 
-| Fichero | Qué se ve en español |
-|---|---|
-| `assets/shots/editor-full.webp` | `Proyectos`, `Biblioteca`, `Equipo`, `Guardar`, `Cambiar audio`, `EXPORTAR`, `ESTADO`, `en rodaje`, `MOOD`, `Ficha`, `MÚSICA`/`CURVA`/`AMBAS`, `Dibujar curva`, `Sin etiqueta`…`CTA`, `Sin planos aún`, `Todos`, `Imagen`, `Texto`, `Vídeo`, `Paleta`, `Añadir plano` |
-| `assets/shots/ficha.webp` | lo mismo, más `7 secciones`, `Clic en seccion para editar`, `CONTEXTO`, `Nota`, `02 planos`, la barra de atajos entera |
-| `assets/shots/gallery.webp` | `Añadir plano`, `Nuevo`, `Creados en este proyecto`, `De biblioteca`, `Buscar plano...`, `Todos`, `Sin tipo`, `Lente`, `Detalle`, `Medio`, `Cámara lenta`, `Cancelar`, `Añadir` |
-| `assets/shots/pdf-shots.webp` | `NOTAS`, `TIEMPO SIN CUBRIR`, `planos`, `Detalle`, `General`, `Medio`, `Lente` |
-| `assets/shots/export.webp` | `EXPORTAR GUÍA DE MONTAJE`, `Plan de rodaje`, `Previsualizar plan de rodaje`, `Marcadores para tu editor`, `próximamente`, la ayuda de Premiere, `Exportar marcadores`, `Marcar proyecto como terminado`. **Además le falta el selector de idioma del PDF**, que es nuevo |
-| `assets/shots/substrates.webp` | `MÚSICA`/`CURVA`/`AMBAS` y `Dibujar curva` |
+```
+# 1 · servidor de la app sin Supabase: sin backend no hay login y el demo carga solo
+cd ../PreFrame && VITE_SUPABASE_URL= VITE_SUPABASE_ANON_KEY= npx vite --port 5199 --strictPort
+# 2 · capturas → assets/shots/*.webp
+node tools/capture-shots.mjs
+```
+
+Necesita Playwright con Chromium (`npx playwright@1.62 install chromium`
+basta: el script lo busca en la caché de npx) y `cwebp` (`brew install webp`).
+Ventana 1440×900 escalada a 2000×1250, idioma forzado a inglés vía
+`localStorage` (`preframe:locale`), y se ocultan en el DOM los chips "DEMO" y
+"no backend", que son del entorno y no de la app. Si cambia el tamaño de
+alguna captura, actualizar `width`/`height` del `<img>` en
+`src/_includes/pages/home.njk` y, si cambia lo que se ve, los `*.shotAlt` de
+`src/_data/i18n/{en,es}/home.json`.
 
 Los `photo-*.webp` son fotos de stock, sin interfaz: no hay que tocarlas.
-
-Ojo también a los **nombres del proyecto de demostración** que salen en las
-capturas (`Drone ciudad`, `Fade in luces`, `Close-up rostros`, `Montaje
-rapido`…). No son interfaz sino datos que escribió Alberto, así que cambiar el
-idioma de la app no los traduce: hay que renombrarlos en el proyecto demo antes
-de capturar si se quieren en inglés. El `alt` de `library.shotAlt` los cita.
 
 ## Estructura
 

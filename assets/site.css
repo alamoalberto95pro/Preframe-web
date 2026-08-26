@@ -444,7 +444,7 @@ p + p { margin-top: var(--space-4); }
   left: 0;
   right: 0;
   z-index: 60;
-  background: rgba(8, 8, 8, 0.55);
+  background: rgba(8, 8, 8, 0.32);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid transparent;
@@ -470,7 +470,7 @@ p + p { margin-top: var(--space-4); }
 }
 /* Al separarse de arriba se condensa: más opaca, con línea y algo más baja. */
 .site-nav.is-scrolled {
-  background: rgba(8, 8, 8, 0.86);
+  background: rgba(8, 8, 8, 0.62);
   border-bottom-color: var(--border-default);
 }
 .nav-in {
@@ -482,6 +482,9 @@ p + p { margin-top: var(--space-4); }
   transition: height var(--dur-base) var(--ease-out);
 }
 .site-nav.is-scrolled .nav-in { height: 58px; }
+/* El CTA del header, con el texto en negro: sobre el naranja lee mejor que el crema. */
+.site-nav .btn-primary { color: #080808; }
+.site-nav .btn-primary:hover { color: #080808; }
 .logo {
   display: inline-flex;
   align-items: center;
@@ -988,6 +991,9 @@ p + p { margin-top: var(--space-4); }
   grid-template-columns: 1fr 1fr;
   gap: clamp(32px, 5vw, 72px);
   align-items: center;
+}
+@media (max-width: 768px) {
+  .split { grid-template-columns: 1fr; }
 }
 /* ═══════════════════════════════════════════════════════════════════════
    FOUNDER
@@ -1584,11 +1590,6 @@ p + p { margin-top: var(--space-4); }
   overflow: hidden;
   background: var(--surface-1);
   box-shadow: 0 32px 64px -36px rgba(26, 25, 23, 0.45);
-  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
-}
-.shotframe:hover {
-  transform: translateY(-4px) scale(1.005);
-  box-shadow: 0 44px 80px -40px rgba(26, 25, 23, 0.55);
 }
 .shotframe img { width: 100%; height: auto; display: block; }
 /* La captura alta (el modal de export) no debe dominar la fila. */
@@ -1674,8 +1675,7 @@ p + p { margin-top: var(--space-4); }
 .canvas-caps li:nth-child(odd) { border-color: rgba(232, 129, 74, 0.28); color: var(--brand-sunset); }
 
 /* ─── La hoja del PDF real, flotando ──────────────────────────────────
-   El documento generado por la app, girado sobre la mesa; se endereza al
-   pasar el ratón. La segunda hoja asoma detrás (::before del contenedor,
+   El documento generado por la app, girado sobre la mesa. Sin hover. La segunda hoja asoma detrás (::before del contenedor,
    ya definida en el bloque del split). */
 .paper-real {
   margin: 0;
@@ -1686,10 +1686,46 @@ p + p { margin-top: var(--space-4); }
   overflow: hidden;
   background: var(--paper);
   box-shadow: 0 34px 70px -30px rgba(26, 25, 23, 0.45);
-  transition: transform var(--dur-base) var(--ease-out);
 }
-.paper-real:hover { transform: rotate(0deg); }
 .paper-real img { width: 100%; height: auto; display: block; }
+
+/* ─── Dos hojas del PDF, apiladas ─────────────────────────────────────
+   La página de planos (clara) detrás, arriba a la izquierda, girada; la
+   portada (oscura) delante, a la derecha. Mismo tamaño de hoja: el abanico
+   deja ver el título y la onda de la portada. Al pasar el ratón se
+   enderezan un poco. */
+.paper-stack {
+  margin: 0 0 0 -12%;   /* se asoma un poco a la columna del texto */
+  position: relative;
+  width: 124%;
+  padding: 0 0 0 38%;
+}
+.paper-stack img {
+  display: block;
+  height: auto;
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius-sm);
+}
+.paper-sheet-front {
+  position: relative;
+  width: 62%;
+  margin-top: 12%;
+  background: var(--paper);
+  box-shadow: 0 34px 70px -30px rgba(26, 25, 23, 0.5);
+  transform: rotate(1.5deg);
+}
+.paper-sheet-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 62%;
+  box-shadow: 0 24px 50px -28px rgba(26, 25, 23, 0.6);
+  transform: rotate(-3deg);
+  transform-origin: top left;
+}
+@media (max-width: 1024px) {
+  .paper-stack { width: 100%; max-width: 520px; margin-inline: auto; }
+}
 
 /* ═══════════════════════════════════════════════════════════════════════
    EL WORDMARK — PREframe
@@ -1853,13 +1889,8 @@ p + p { margin-top: var(--space-4); }
   border: 1px solid var(--border-default);
   border-radius: var(--radius-sm);
   box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.9);
-  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
 }
-.cm-card:hover {
-  transform: translateY(-3px) rotate(0deg) !important;
-  box-shadow: 0 26px 52px -22px rgba(0, 0, 0, 0.95);
-  z-index: 5;
-}
+/* Sin hover: el mockup es una foto del producto, no un juguete. */
 .cm-card img { width: 100%; height: auto; display: block; border-radius: var(--radius-xs); }
 .cm-cap {
   display: block;

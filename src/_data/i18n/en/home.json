@@ -17,7 +17,7 @@
     "mood": "Mood board",
     "features": "What it does",
     "zoom": "Focus &amp; Ficha",
-    "instrument": "Touch it",
+    "duo": "Two ways in",
     "library": "Your library",
     "everything": "Everything else",
     "onset": "On set",
@@ -29,7 +29,7 @@
     "claim": "Your shot list isn't a list.<br>It's a <em>timeline</em>.",
     "who": "For filmmakers who feel the <em>music</em> and the <em>story</em> first",
     "figureAria": "The PreFrame editor: a waveform cut into sections, a hand-drawn emotional curve over it, and the mood board with a palette.",
-    "shotAlt": "PreFrame editor showing the Neon Pulse demo project: colored narrative sections over the waveform, an emotional curve drawn on top, the shot list below and the Mood Bar canvas on the right."
+    "shotAlt": "PreFrame editor showing the Amanecer demo project: colored narrative sections over the waveform, an emotional curve drawn on top, the shot list below and the Mood Bar canvas on the right."
   },
   "statement": {
     "kicker": "What PreFrame is",
@@ -93,74 +93,34 @@
     "shotAlt": "PreFrame's export dialog: a printable shooting plan, and section markers for Premiere or DaVinci Resolve with selectable frame rate."
   },
   "zoom": {
-    "shotAlt": "PreFrame in Ficha mode: a light spec-sheet view of the same project, with the emotional curve over the waveform, numbered section cards, and the mood panel with palette and reference images.",
+    "shotAlt": "PreFrame in Sheet mode: a light spec-sheet view of the same project, with the emotional curve over the waveform, numbered section cards, and the mood panel with palette and reference images.",
     "eyebrow": "Focus &amp; Ficha",
     "title": "One project.<br>Two states of mind.",
     "body": "<strong>Focus</strong> is the dark room: you, the track and the timeline. <strong>Ficha</strong> turns the same project into a bright spec sheet — sections numbered, notes visible, every shot laid out to review before the shoot."
   },
-  "instrument": {
-    "eyebrow": "The idea, live",
-    "title": "Watch the pointer work the timeline. Then take it from it.",
-    "lede": "This isn't a recording — it's the real instrument. The moment you touch it, it's yours.",
+  "duo": {
+    "eyebrow": "Track or no track",
+    "title": "Start with the song.<br>Or before it exists.",
+    "lede": "Some projects begin with the .mp3 in hand. Others begin as a feeling, long before the music lands. PreFrame plans both.",
+    "withAria": "A song's waveform cut into five narrative sections — Opening, Build, Peak, Turn, Release — with cut lines falling on the music.",
+    "withoutAria": "A hand-drawn emotional curve with keyframes, cut into the same five sections — no audio anywhere. A pointer grabs a keyframe and the whole curve follows.",
+    "withTitle": "The track came first",
+    "withBody": "Drop the song in and cut it into narrative sections, right on its waveform. Every shot sits on real seconds — the chorus is exactly where the chorus is.",
+    "withoutTitle": "The track isn't here yet",
+    "withoutBody": "Draw the emotional curve you want the film to follow, and cut your sections on it. Planning starts when the idea does — not when the delivery arrives.",
+    "close": "And the day the track lands, they meet: <em class=\"feature-em\">Music&nbsp;·&nbsp;Curve&nbsp;·&nbsp;Both</em>.",
     "fileTrack": "midnight_run_master_v3.mp3",
     "fileNoTrack": "no track yet · 3:41",
-    "readout": "0:00  OPENING  18%",
-    "laneAria": "Shots placed in time. A gap between 1:02 and 1:26 is uncovered.",
-    "lane": [
-      {
-        "title": "0:00 → 0:14 · Ridge, wide",
-        "tc": "0:00",
-        "name": "Ridge, wide"
-      },
-      {
-        "title": "0:14 → 0:38 · Approach",
-        "tc": "0:14",
-        "name": "Approach"
-      },
-      {
-        "title": "0:38 → 1:02 · Tracking, headlights · 24mm gimbal",
-        "tc": "0:38",
-        "name": "Tracking, headlights"
-      },
-      {
-        "title": "1:26 → 2:20 · Chorus, close",
-        "tc": "1:26",
-        "name": "Chorus, close"
-      },
-      {
-        "title": "2:20 → 3:10 · Turn, wet road",
-        "tc": "2:20",
-        "name": "Turn, wet road"
-      },
-      {
-        "title": "3:10 → 3:41 · Last look",
-        "tc": "3:10",
-        "name": "Last look"
-      }
-    ],
-    "gapTitle": "1:02 → 1:26 · uncovered",
-    "gapLabel": "uncovered",
-    "timelineLabel": "Timeline",
-    "switchAria": "Timeline substrate",
-    "modeWave": "Track",
-    "modeCurve": "No track",
-    "modeBoth": "Both",
-    "trackAria": "Timeline. Space to play, arrows to scrub, 1 2 3 to switch substrate.",
-    "trackValueText": "0:00",
     "sections": [
       "Opening",
       "Build",
       "Peak",
       "Turn",
       "Release"
-    ],
-    "hintDrag": "<kbd>Drag</kbd> a keyframe",
-    "hintPlay": "<kbd>Space</kbd> play",
-    "hintScrub": "<kbd>←</kbd><kbd>→</kbd> scrub",
-    "hintSubstrate": "<kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> substrate"
+    ]
   },
   "library": {
-    "shotAlt": "PreFrame's shot gallery: a grid of shot cards with durations and lens chips — Drone ciudad, Fade in luces, Wide neon street, Close-up rostros — filterable by narrative section, with search.",
+    "shotAlt": "PreFrame's shot gallery: a grid of shot cards with durations and lens chips — Window in the dark, She wakes up, Running, The bridge — filterable by narrative section, with search.",
     "eyebrow": "Shots &amp; gear",
     "title": "Describe a shot once.<br>Shoot it forever.",
     "body": "Every shot carries the film vocabulary — wide, medium, close-up, overhead — plus your camera, your lens, a thumbnail and its notes. Save it to your library and drop it into the next project with the gear already attached."
@@ -191,8 +151,9 @@
     "eyebrow": "On set",
     "title": "Print it. Take it. Tick it off.",
     "p1": "A shooting plan with every shot, its timecode, a box to tick between takes and blank lines to write on. Uncovered time is calculated and printed — nobody discovers the hole at 6pm.",
-    "p2": "This is the actual document the app generates, from the demo project you saw above.",
-    "shotAlt": "A page of the real shooting plan PDF: shots with thumbnails, timecodes and tick boxes, blank note lines, and a highlighted UNCOVERED TIME row between 0:08 and 0:16."
+    "p2": "This is the actual document the app generates — cover and pages straight from the demo project.",
+    "coverAlt": "Cover of the real shooting plan PDF: project title and duration, a production-notes box, the waveform cut into sections, and the counts of shots, sections, covered and pending time.",
+    "shotAlt": "A page of the real shooting plan PDF: shot cards with timecodes and tick boxes, blank note lines, and a highlighted UNCOVERED TIME row between 0:08 and 0:16."
   },
   "founder": {
     "eyebrow": "Who made this",

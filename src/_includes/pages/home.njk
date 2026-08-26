@@ -6,7 +6,7 @@
     planos NO son un descuido: replican la app real, igual que las capturas.
     Viven en el diccionario inglés tal cual están escritos hoy.
     ───────────────────────────────────────────────────────────────────── -#}
-{%- set I = C.instrument -%}
+{%- set D = C.duo -%}
 <!-- ═══ 1 · HERO ═══════════════════════════════════════════════════════ -->
 <section class="canvas-dark hero" data-rail="{{ C.rails.hero | safe }}">
   <div class="wrap hero-in">
@@ -37,7 +37,7 @@
          (data-rail "Touch it"): el hero, como en Apple, enseña la app real. -->
 
     <!-- La app de verdad, capturada de la app de verdad: el editor con el
-         demo "Neon Pulse", la curva dibujada a mano sobre el waveform y el
+         demo "Amanecer", la curva dibujada a mano sobre el waveform y el
          Mood Bar con su paleta. Sin maquetas inventadas. -->
     <figure class="mac" aria-label="{{ C.hero.figureAria | safe }}">
       <div class="mac-screen">
@@ -170,7 +170,7 @@
         <p class="mute-l">{{ C.substrates.body | safe }}</p>
       </div>
       <figure class="shotframe">
-        <img src="/assets/shots/substrates.webp" width="1352" height="545" loading="lazy" decoding="async"
+        <img src="/assets/shots/substrates.webp" width="942" height="374" loading="lazy" decoding="async"
              alt="{{ C.substrates.shotAlt | safe }}">
       </figure>
     </div>
@@ -182,7 +182,7 @@
         <p class="mute-l">{{ C.export.body | safe }}</p>
       </div>
       <figure class="shotframe shotframe-tall">
-        <img src="/assets/shots/export.webp" width="1000" height="1460" loading="lazy" decoding="async"
+        <img src="/assets/shots/export.webp" width="667" height="1044" loading="lazy" decoding="async"
              alt="{{ C.export.shotAlt | safe }}">
       </figure>
     </div>
@@ -213,113 +213,101 @@
 </section>
 
 
-<!-- ═══ 3b · EL INSTRUMENTO ════════════════════════════════════════════
-     El timeline interactivo, ahora como sección propia: primero se ve la
-     app (hero), luego se toca su idea central. -->
-<!-- Blanco puro al modo Apple: kicker, titular con el degradado sutil de
-     marca recorriendo el texto, y el instrumento oscuro flotando sobre el
-     blanco como una ventana de app. -->
-<section class="canvas-light band" data-rail="{{ C.rails.instrument | safe }}">
+<!-- ═══ 3b · DOS CAMINOS ═══════════════════════════════════════════════
+     Esta sección ya no vende interactividad: vende que se puede planificar
+     CON la canción (el .mp3 cortado en secciones sobre su waveform) o SIN
+     ella (la curva emocional como sustrato y los cortes encima). Dos
+     ventanas gemelas al modo Apple: la misma tira de secciones
+     abajo, distinto sustrato arriba. Los cortes caen en los mismos puntos
+     en ambas — esa rima visual es el argumento. En la ventana de la curva,
+     un puntero coreografiado (curve-demo.js) enseña el gesto de agarrar un
+     keyframe y moverlo; no es interactivo, solo muestra. -->
+<section class="canvas-light band" data-rail="{{ C.rails.duo | safe }}">
   <div class="wrap" style="text-align:center">
-    <span class="eyebrow eyebrow-l">{{ I.eyebrow | safe }}</span>
-    <h2 class="title-grad" style="max-width:20ch;margin-inline:auto">{{ I.title | safe }}</h2>
+    <span class="eyebrow eyebrow-l">{{ D.eyebrow | safe }}</span>
+    <h2 class="title-grad" style="max-width:18ch;margin-inline:auto">{{ D.title | safe }}</h2>
     <p class="lede mute-l" style="margin:var(--space-5) auto 0">
-      {{ I.lede | safe }}
+      {{ D.lede | safe }}
     </p>
-    <div style="height:var(--space-7)"></div>
-    <!-- ─── El stage: la pantalla real de la app ─────────────────────── -->
-    <div class="stage" data-hero-stage data-duration="221">
-      <div class="stage-bar">
-        <span class="dot" aria-hidden="true"></span>
-        <span class="dot" aria-hidden="true"></span>
-        <span class="dot" aria-hidden="true"></span>
-        <span class="stage-file"
-              data-stage-file
-              data-label-track="{{ I.fileTrack | safe }}"
-              data-label-notrack="{{ I.fileNoTrack | safe }}">{{ I.fileTrack | safe }}</span>
-        <!-- Lectura en vivo: timecode, sección e intensidad del instante en el
-             que está el playhead. La actualiza hero.js en cada frame. -->
-        <span class="readout" data-readout aria-live="off">{{ I.readout | safe }}</span>
-      </div>
 
-      <!-- La lista de planos, pero ocupando tiempo: cada bloque está donde
-           está por sus segundos, y se enciende cuando el playhead entra en
-           él. El hueco naranja es tiempo sin cubrir, calculado — el mismo que
-           luego sale impreso en el PDF de rodaje.
-           El moodboard vivía aquí y se ha ido a las capacidades: el hero solo
-           tiene que decir una cosa, y esta es la que la dice. -->
-      <div class="lane" aria-label="{{ I.laneAria | safe }}">
-        <div class="lane-shot" data-shot-start="0" data-shot-end="14" style="left:0%;width:6.3%" title="{{ I.lane[0].title | safe }}"><b>{{ I.lane[0].tc | safe }}</b><span>{{ I.lane[0].name | safe }}</span></div>
-        <div class="lane-shot" data-shot-start="14" data-shot-end="38" style="left:6.3%;width:10.9%" title="{{ I.lane[1].title | safe }}"><b>{{ I.lane[1].tc | safe }}</b><span>{{ I.lane[1].name | safe }}</span></div>
-        <div class="lane-shot" data-shot-start="38" data-shot-end="62" style="left:17.2%;width:10.9%" title="{{ I.lane[2].title | safe }}"><b>{{ I.lane[2].tc | safe }}</b><span>{{ I.lane[2].name | safe }}</span></div>
-        <div class="lane-gap" style="left:28.1%;width:10.9%" title="{{ I.gapTitle | safe }}">{{ I.gapLabel | safe }}</div>
-        <div class="lane-shot" data-shot-start="86" data-shot-end="140" style="left:38.9%;width:24.4%" title="{{ I.lane[3].title | safe }}"><b>{{ I.lane[3].tc | safe }}</b><span>{{ I.lane[3].name | safe }}</span></div>
-        <div class="lane-shot" data-shot-start="140" data-shot-end="190" style="left:63.3%;width:22.6%" title="{{ I.lane[4].title | safe }}"><b>{{ I.lane[4].tc | safe }}</b><span>{{ I.lane[4].name | safe }}</span></div>
-        <div class="lane-shot" data-shot-start="190" data-shot-end="221" style="left:86%;width:14%" title="{{ I.lane[5].title | safe }}"><b>{{ I.lane[5].tc | safe }}</b><span>{{ I.lane[5].name | safe }}</span></div>
-      </div>
-
-      <div class="tl-head">
-        <span class="tl-label">{{ I.timelineLabel | safe }}</span>
-        <div class="switch" role="group" aria-label="{{ I.switchAria | safe }}">
-          <button type="button" data-mode="wave" aria-pressed="true">{{ I.modeWave | safe }}</button>
-          <button type="button" data-mode="curve" aria-pressed="false">{{ I.modeCurve | safe }}</button>
-          <button type="button" data-mode="both" aria-pressed="false">{{ I.modeBoth | safe }}</button>
+    <div class="duo">
+      <article class="duo-card">
+        <div class="duo-window" role="img" aria-label="{{ D.withAria | safe }}">
+          <div class="stage-bar">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="stage-file">{{ D.fileTrack | safe }}</span>
+          </div>
+          <div class="duo-visual">
+            <svg viewBox="0 0 1000 150" preserveAspectRatio="none" focusable="false" aria-hidden="true">
+              <path class="duo-wave" d="M5 66.3V89.7M12 68.0V88.0M19 67.0V89.0M26 67.4V88.6M33 65.3V90.7M40 67.3V88.7M47 64.4V91.6M54 67.2V88.8M61 69.5V86.5M68 65.0V91.0M75 63.9V92.1M82 67.2V88.8M89 66.9V89.1M96 62.3V93.7M103 66.1V89.9M110 67.3V88.7M117 66.8V89.2M124 63.1V92.9M131 62.1V93.9M138 65.8V90.2M145 66.0V90.0M152 63.6V92.4M159 66.1V89.9M166 64.4V91.6M173 65.8V90.2M180 62.2V93.8M187 63.2V92.8M194 65.3V90.7M201 56.2V99.8M208 62.7V93.3M215 63.8V92.2M222 55.9V100.1M229 57.4V98.6M236 56.5V99.5M243 52.5V103.5M250 58.9V97.1M257 51.4V104.6M264 54.3V101.7M271 52.3V103.7M278 57.1V98.9M285 56.4V99.6M292 47.6V108.4M299 49.6V106.4M306 53.5V102.5M313 42.6V113.4M320 44.6V111.4M327 52.3V103.7M334 55.2V100.8M341 51.1V104.9M348 54.9V101.1M355 45.2V110.8M362 50.3V105.7M369 42.2V113.8M376 50.4V105.6M383 44.2V111.8M390 33.4V122.6M397 34.8V121.2M404 42.4V113.6M411 31.9V124.1M418 47.9V108.1M425 43.9V112.1M432 35.1V120.9M439 26.9V129.1M446 26.8V129.2M453 34.3V121.7M460 25.6V130.4M467 41.9V114.1M474 34.3V121.7M481 41.7V114.3M488 34.1V121.9M495 41.8V114.2M502 42.4V113.6M509 26.5V129.5M516 33.6V122.4M523 42.1V113.9M530 43.7V112.3M537 25.6V130.4M544 40.2V115.8M551 31.2V124.8M558 45.2V110.8M565 39.4V116.6M572 33.9V122.1M579 41.8V114.2M586 28.9V127.1M593 32.0V124.0M600 34.0V122.0M607 27.5V128.5M614 47.6V108.4M621 40.8V115.2M628 52.4V103.6M635 48.5V107.5M642 56.3V99.7M649 42.2V113.8M656 47.6V108.4M663 53.7V102.3M670 48.7V107.3M677 53.6V102.4M684 48.3V107.7M691 49.8V106.2M698 55.8V100.2M705 54.7V101.3M712 45.8V110.2M719 54.3V101.7M726 58.8V97.2M733 44.7V111.3M740 52.2V103.8M747 46.8V109.2M754 48.3V107.7M761 53.2V102.8M768 49.8V106.2M775 58.1V97.9M782 57.5V98.5M789 57.0V99.0M796 47.6V108.4M803 47.4V108.6M810 58.8V97.2M817 60.2V95.8M824 54.4V101.6M831 55.3V100.7M838 51.0V105.0M845 59.1V96.9M852 56.1V99.9M859 55.4V100.6M866 61.2V94.8M873 63.5V92.5M880 64.8V91.2M887 63.6V92.4M894 60.9V95.1M901 59.5V96.5M908 65.4V90.6M915 62.4V93.6M922 64.5V91.5M929 65.1V90.9M936 64.4V91.6M943 66.9V89.1M950 70.6V85.4M957 71.0V85.0M964 68.0V88.0M971 68.9V87.1M978 69.3V86.7M985 70.1V85.9M992 73.5V82.5"/>
+              <path class="duo-cut" d="M163.6 6V144M418.2 6V144M618.2 6V144M854.5 6V144"/>
+            </svg>
+          </div>
+          <div class="sections" aria-hidden="true">
+            <div class="sec" style="border-color:var(--section-1);flex:.9"><span>{{ D.sections[0] | safe }}</span></div>
+            <div class="sec" style="border-color:var(--section-2);flex:1.4"><span>{{ D.sections[1] | safe }}</span></div>
+            <div class="sec" style="border-color:var(--section-3);flex:1.1"><span>{{ D.sections[2] | safe }}</span></div>
+            <div class="sec" style="border-color:var(--section-4);flex:1.3"><span>{{ D.sections[3] | safe }}</span></div>
+            <div class="sec" style="border-color:var(--section-5);flex:.8"><span>{{ D.sections[4] | safe }}</span></div>
+          </div>
         </div>
-      </div>
+        <h3>{{ D.withTitle | safe }}</h3>
+        <p class="mute-l">{{ D.withBody | safe }}</p>
+      </article>
 
-      <div class="track"
-           tabindex="0"
-           role="slider"
-           aria-label="{{ I.trackAria | safe }}"
-           aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="{{ I.trackValueText | safe }}">
-        <div class="playhead" data-playhead aria-hidden="true"></div>
-        <div class="layer" data-wave-layer aria-hidden="true"></div>
-        <div class="layer curve-layer is-off" data-curve-layer aria-hidden="true">
-          <svg viewBox="0 0 1000 124" preserveAspectRatio="none" focusable="false">
-            <defs>
-              <!-- El trazo usa la temperatura de intensidad de la app:
-                   naranja arriba (clímax), azul abajo (tranquilo). -->
-              <linearGradient id="curveStroke" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%"   stop-color="#E0603A"/>
-                <stop offset="35%"  stop-color="#E8964E"/>
-                <stop offset="65%"  stop-color="#A8845C"/>
-                <stop offset="100%" stop-color="#5D7FA8"/>
-              </linearGradient>
-              <linearGradient id="curveFade" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%"   stop-color="#E8814A" stop-opacity=".26"/>
-                <stop offset="100%" stop-color="#E8814A" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <path class="curve-fill" data-curve-fill></path>
-            <path class="curve-path" data-curve-line></path>
-          </svg>
-          <div data-kf-host style="position:absolute;inset:0"></div>
-          <div class="rider" data-rider></div>
+      <article class="duo-card">
+        <div class="duo-window" role="img" data-curve-demo aria-label="{{ D.withoutAria | safe }}">
+          <div class="stage-bar">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="stage-file">{{ D.fileNoTrack | safe }}</span>
+          </div>
+          <div class="duo-visual">
+            <svg viewBox="0 0 1000 150" preserveAspectRatio="none" focusable="false" aria-hidden="true">
+              <defs>
+                <!-- Temperatura de intensidad de la app: cálido arriba
+                     (clímax), frío abajo. Los hex son reserva; el CSS los
+                     reescribe con los tokens --curve-*. -->
+                <linearGradient id="curveStroke" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="#E0603A"/>
+                  <stop offset="35%"  stop-color="#E8964E"/>
+                  <stop offset="65%"  stop-color="#A8845C"/>
+                  <stop offset="100%" stop-color="#5D7FA8"/>
+                </linearGradient>
+                <linearGradient id="curveFade" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="#E8814A" stop-opacity=".26"/>
+                  <stop offset="100%" stop-color="#E8814A" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path class="curve-fill" d="M0.0 110.3C27.3 106.9 113.6 98.9 163.6 90.1C213.6 81.3 257.6 68.3 300.0 57.4C342.4 46.4 379.9 26.7 418.2 24.6C456.5 22.5 496.7 42.7 530.0 44.8C563.3 46.9 581.5 32.6 618.2 37.2C654.9 41.8 710.6 62.8 750.0 72.5C789.4 82.1 812.8 86.8 854.5 95.2C896.2 103.6 975.8 118.3 1000.0 122.9L1000 150L0 150Z"/>
+              <path class="duo-cut" d="M163.6 6V144M418.2 6V144M618.2 6V144M854.5 6V144"/>
+              <path class="curve-path" d="M0.0 110.3C27.3 106.9 113.6 98.9 163.6 90.1C213.6 81.3 257.6 68.3 300.0 57.4C342.4 46.4 379.9 26.7 418.2 24.6C456.5 22.5 496.7 42.7 530.0 44.8C563.3 46.9 581.5 32.6 618.2 37.2C654.9 41.8 710.6 62.8 750.0 72.5C789.4 82.1 812.8 86.8 854.5 95.2C896.2 103.6 975.8 118.3 1000.0 122.9"/>
+              <circle class="duo-kf" cx="0.0" cy="110.3" r="6"/><circle class="duo-kf" cx="163.6" cy="90.1" r="6"/><circle class="duo-kf" cx="300.0" cy="57.4" r="6"/><circle class="duo-kf" cx="418.2" cy="24.6" r="6"/><circle class="duo-kf" cx="530.0" cy="44.8" r="6"/><circle class="duo-kf" cx="618.2" cy="37.2" r="6"/><circle class="duo-kf" cx="750.0" cy="72.5" r="6"/><circle class="duo-kf" cx="854.5" cy="95.2" r="6"/><circle class="duo-kf" cx="1000.0" cy="122.9" r="6"/>
+            </svg>
+          </div>
+          <div class="sections" aria-hidden="true">
+            <div class="sec" style="border-color:var(--section-1);flex:.9"><span>{{ D.sections[0] | safe }}</span></div>
+            <div class="sec" style="border-color:var(--section-2);flex:1.4"><span>{{ D.sections[1] | safe }}</span></div>
+            <div class="sec" style="border-color:var(--section-3);flex:1.1"><span>{{ D.sections[2] | safe }}</span></div>
+            <div class="sec" style="border-color:var(--section-4);flex:1.3"><span>{{ D.sections[3] | safe }}</span></div>
+            <div class="sec" style="border-color:var(--section-5);flex:.8"><span>{{ D.sections[4] | safe }}</span></div>
+          </div>
         </div>
-      </div>
-
-      <div class="sections">
-        <div class="sec" style="border-color:var(--section-1);flex:.9"><span>{{ I.sections[0] | safe }}</span></div>
-        <div class="sec" style="border-color:var(--section-2);flex:1.4"><span>{{ I.sections[1] | safe }}</span></div>
-        <div class="sec" style="border-color:var(--section-3);flex:1.1"><span>{{ I.sections[2] | safe }}</span></div>
-        <div class="sec" style="border-color:var(--section-4);flex:1.3"><span>{{ I.sections[3] | safe }}</span></div>
-        <div class="sec" style="border-color:var(--section-5);flex:.8"><span>{{ I.sections[4] | safe }}</span></div>
-      </div>
-
-      <!-- Se dice que se puede tocar, porque si no nadie lo intenta. -->
-      <p class="stage-hint">
-        <button type="button" data-hint-edit>{{ I.hintDrag | safe }}</button>
-        <span>{{ I.hintPlay | safe }}</span>
-        <span>{{ I.hintScrub | safe }}</span>
-        <span>{{ I.hintSubstrate | safe }}</span>
-      </p>
+        <h3>{{ D.withoutTitle | safe }}</h3>
+        <p class="mute-l">{{ D.withoutBody | safe }}</p>
+      </article>
     </div>
+
+    <p class="duo-close mute-l">{{ D.close | safe }}</p>
   </div>
 </section>
 
 <!-- ═══ 5b · BIBLIOTECA DE PLANOS Y EQUIPO ═════════════════════════════ -->
 <section class="bg-feature" data-rail="{{ C.rails.library | safe }}">
-  <img class="bg-feature-img" src="/assets/shots/gallery.webp" width="1400" height="1057" loading="lazy" decoding="async"
+  <img class="bg-feature-img" src="/assets/shots/gallery.webp" width="1444" height="1161" loading="lazy" decoding="async"
        alt="{{ C.library.shotAlt | safe }}">
   <div class="fb-copy">
     <span class="eyebrow eyebrow-d">{{ C.library.eyebrow | safe }}</span>
@@ -395,9 +383,13 @@
       </p>
     </div>
     <div>
-      <figure class="paper-real">
-        <img src="/assets/shots/pdf-shots.webp" width="1400" height="1256" loading="lazy" decoding="async"
+      <!-- Dos hojas del PDF real, apiladas: detrás, una página de planos con
+           la fila UNCOVERED TIME; delante, la portada. Sin hover. -->
+      <figure class="paper-stack">
+        <img class="paper-sheet-back" src="/assets/shots/pdf-shots.webp" width="1194" height="1333" loading="lazy" decoding="async"
              alt="{{ C.onset.shotAlt | safe }}">
+        <img class="paper-sheet-front" src="/assets/shots/pdf-cover.webp" width="1194" height="1333" loading="lazy" decoding="async"
+             alt="{{ C.onset.coverAlt | safe }}">
       </figure>
     </div>
   </div>

@@ -31,3 +31,8 @@ Alberto quiere el porqué de cada decisión y el cierre de cada tarea en un
   crear o cerrar una tarea desde la bitácora, comprobar que el enlace está y
   proponerlo si falta. Los roadmaps llevan al final un bloque "Trazabilidad"
   (Dataview) que lista sus tarjetas y sus días de bitácora.
+- **Análisis externos** (ChatGPT, Claude, web…) se guardan en
+  `../Documentacion/analisis/AAAA-MM-DD — Título.md` con su frontmatter (`tema`,
+  `fuente`, `estado`, `decision`, `tarea`). Cuando una decisión de la bitácora
+  se apoya en uno: `Basado en: [[analisis/…]]` en el bloque y rellenar
+  `decision:` (y `tarea:` si hay tarjeta) en el análisis. Entra en el mismo OK.

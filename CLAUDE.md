@@ -10,9 +10,14 @@ Alberto quiere el porqué de cada decisión y el cierre de cada tarea en un
 único sitio, enlazado a roadmaps y tablero.
 
 - Cada decisión tomada o tarea cerrada se apunta en la nota diaria de ese
-  día: `Documentacion/bitacora/AAAA-MM-DD — Título.md`. Si no existe, se crea
+  día: `Documentacion/bitacora/DD-mmm-AAAA — Título.md` (p. ej. `28-ago-2026 — …`).
+  Si no existe, se crea
   desde `Documentacion/plantillas/bitacora-dia.md` (fecha, título corto,
   roadmaps tocados, tags `bitacora` y, si hay decisión, `decision`).
+- **Cada bloque, en dos partes:** primero `### Qué se ha hecho` en lenguaje
+  funcional (qué cambia para Alberto o para el usuario; es lo principal y
+  tiene que entenderse de golpe), después `### Técnico` (ficheros, commits,
+  comandos: lo que un agente necesita para retomar).
 - **Preguntar siempre antes de escribir.** No escribir en la bitácora por
   iniciativa propia: proponerlo con algo como *"¿Meto en la bitácora de hoy lo
   que hemos trabajado?"* y esperar el OK.

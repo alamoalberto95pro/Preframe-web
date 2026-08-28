@@ -1,13 +1,17 @@
 # Preframe-web — Reglas para Claude Code
 
-## Bitácora (`../Documentacion/bitacora/`)
+## Bitácora (`Documentacion/bitacora/`)
+
+La bóveda vive en `/Users/alberto/Library/Mobile Documents/iCloud~md~obsidian/Documents/Documentacion/`
+(carpeta de Obsidian en iCloud; desde el 28-ago-2026). Toda ruta
+`Documentacion/…` de este fichero es relativa a esa carpeta.
 
 Alberto quiere el porqué de cada decisión y el cierre de cada tarea en un
 único sitio, enlazado a roadmaps y tablero.
 
 - Cada decisión tomada o tarea cerrada se apunta en la nota diaria de ese
-  día: `../Documentacion/bitacora/AAAA-MM-DD — Título.md`. Si no existe, se crea
-  desde `../Documentacion/plantillas/bitacora-dia.md` (fecha, título corto,
+  día: `Documentacion/bitacora/AAAA-MM-DD — Título.md`. Si no existe, se crea
+  desde `Documentacion/plantillas/bitacora-dia.md` (fecha, título corto,
   roadmaps tocados, tags `bitacora` y, si hay decisión, `decision`).
 - **Preguntar siempre antes de escribir.** No escribir en la bitácora por
   iniciativa propia: proponerlo con algo como *"¿Meto en la bitácora de hoy lo
@@ -32,7 +36,7 @@ Alberto quiere el porqué de cada decisión y el cierre de cada tarea en un
   proponerlo si falta. Los roadmaps llevan al final un bloque "Trazabilidad"
   (Dataview) que lista sus tarjetas y sus días de bitácora.
 - **Análisis externos** (ChatGPT, Claude, web…) se guardan en
-  `../Documentacion/analisis/AAAA-MM-DD — Título.md` con su frontmatter (`tema`,
+  `Documentacion/analisis/AAAA-MM-DD — Título.md` con su frontmatter (`tema`,
   `fuente`, `estado`, `decision`, `tarea`). Cuando una decisión de la bitácora
   se apoya en uno: `Basado en: [[analisis/…]]` en el bloque y rellenar
   `decision:` (y `tarea:` si hay tarjeta) en el análisis. Entra en el mismo OK.

@@ -10,6 +10,7 @@ eleventyExcludeFromCollections: true
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 {%- for key, p in pages %}
+{%- if p.sitemap !== false %}
 {%- for code, l in site.languages %}
   <url>
     <loc>{{ site.url }}{{ l.prefix }}{{ p.path }}</loc>
@@ -21,5 +22,6 @@ eleventyExcludeFromCollections: true
     <priority>{{ p.priority }}</priority>
   </url>
 {%- endfor %}
+{%- endif %}
 {%- endfor %}
 </urlset>

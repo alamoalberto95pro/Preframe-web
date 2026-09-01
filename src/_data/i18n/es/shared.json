@@ -21,7 +21,8 @@
     "support": "Soporte",
     "releases": "Notas de versión",
     "terms": "Términos",
-    "privacy": "Privacidad"
+    "privacy": "Privacidad",
+    "aviso": "Aviso legal"
   },
   "packs": {
     "popular": "El más elegido",
@@ -57,5 +58,10 @@
   "price": {
     "founder": "9,99 €",
     "standard": "19,99 €"
+  },
+  "legalDocs": {
+    "terms": "Términos de servicio",
+    "privacy": "Política de privacidad",
+    "aviso": "Aviso legal"
   }
 }

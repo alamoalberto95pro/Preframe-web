@@ -2,8 +2,8 @@
     se auto-oculta durante el hero: si solo estuviera arriba, en la landing
     no habría forma de cambiar de idioma sin volver a subir.
 
-    Las páginas legales no están traducidas: sus enlaces son absolutos y
-    apuntan al mismo sitio desde los dos idiomas, a propósito. -#}
+    Las legales son bilingües desde el 01-sep-2026: sus enlaces llevan
+    `langBase` como los demás. -#}
 <footer class="canvas-dark site-footer">
   <div class="wrap foot">
     <div>
@@ -19,8 +19,9 @@
       <a href="{{ langBase }}/pricing/">{{ S.footer.pricing | safe }}</a>
       <a href="{{ langBase }}/support/">{{ S.footer.support | safe }}</a>
       <a href="{{ langBase }}/releases/">{{ S.footer.releases | safe }}</a>
-      <a href="/legal/terms/">{{ S.footer.terms | safe }}</a>
-      <a href="/legal/privacy/">{{ S.footer.privacy | safe }}</a>
+      <a href="{{ langBase }}/legal/terms/">{{ S.footer.terms | safe }}</a>
+      <a href="{{ langBase }}/legal/privacy/">{{ S.footer.privacy | safe }}</a>
+      <a href="{{ langBase }}/legal/aviso-legal/">{{ S.footer.aviso | safe }}</a>
       <a class="lang-switch" href="{{ altUrl }}" hreflang="{{ other }}" lang="{{ other }}" aria-label="{{ t[other].shared.langSwitch.aria | safe }}">{{ site.languages[other].label }}</a>
     </div>
   </div>

@@ -140,8 +140,8 @@ docTitle: Privacy Policy — PreFrame
       works and reaches the people it is meant for (Art. 6(1)(f) GDPR).
     </p>
 
-    <!-- Retención de eventos de uso: Alberto está decidiendo el borrado de
-         logs. Rellenar el [PENDING] y quitar el banner. -->
+    <!-- Retención de eventos: 90 días, confirmado por Alberto el 01-sep-2026
+         (jobs pg_cron purge_events + purge_client_errors, en producción). -->
     <h2>8. Retention and deletion</h2>
     <ul>
       <li><strong>Account and projects</strong>: kept for as long as your
@@ -151,8 +151,8 @@ docTitle: Privacy Policy — PreFrame
         obligations as merchant of record.</li>
       <li><strong>Error reports</strong>: deleted automatically after 90 days
         (section 4).</li>
-      <li><strong>Usage events</strong>: [PENDING — retention period for the
-        usage-events log].</li>
+      <li><strong>Usage events</strong>: deleted automatically after
+        90 days.</li>
       <li><strong>Local data on your computer</strong>: the "Delete all local
         data on this computer" button in Settings removes everything PreFrame
         stores on that machine. It does not delete your account or the projects

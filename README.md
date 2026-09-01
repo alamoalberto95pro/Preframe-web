@@ -124,7 +124,7 @@ Los `photo-*.webp` son fotos de stock, sin interfaz: no hay que tocarlas.
 ## Estructura
 
 ```
-/                  landing completa (hero animado + 10 secciones)   · generado
+/                  landing completa (hero animado + 12 secciones)   · generado
 /download/         estado de la release — botones deshabilitados    · generado
 /pricing/          el crédito en 3 pasos + precio fundador + FAQ    · generado
 /support/          FAQ técnica (instalación, relink, audio-lock)    · generado
@@ -152,7 +152,8 @@ Los `photo-*.webp` son fotos de stock, sin interfaz: no hay que tocarlas.
 | `assets/hero.js` | Animación del timeline del hero (waveform ⇄ curva emocional), en DOM y SVG. |
 | `assets/decor.js` | Visuales generados: mini-onda y mini-curva de los pilares, regla del cierre. |
 | `assets/favicon.svg` | Icono de marca. |
-| `assets/og-image.svg` | Diseño de la tarjeta social. **Falta exportarlo a PNG 1200×630.** |
+| `assets/og-image.svg` | Diseño de la tarjeta social. Fuente del PNG. |
+| `assets/og-image.png` | Export 1200×630 del SVG; es el que referencian los `og:image`. Si cambia el SVG, reexportar. |
 
 ### Sincronizar tokens con la app
 
@@ -223,10 +224,12 @@ python3 -m http.server 8080
 
 ## Privacidad
 
-Cero orígenes externos: fuentes autoalojadas, sin Google Fonts, sin CDNs, sin
-scripts de terceros. No se escriben cookies ni `localStorage` — de eso depende
-que no haga falta banner de cookies. Al conectar la analítica sin cookies, no
-romper esa condición.
+Un único origen externo: el beacon de **Cloudflare Web Analytics**
+(`static.cloudflareinsights.com`, en `src/_includes/partials/head.njk`), que
+mide páginas vistas sin cookies. Todo lo demás es autoalojado: fuentes propias,
+sin Google Fonts, sin CDNs, sin más scripts de terceros. No se escriben cookies
+ni `localStorage` — de eso depende que no haga falta banner de cookies. Si se
+toca la analítica, no romper esa condición.
 
 Las URLs de `/buy/*` se configuran en Supabase → Edge Functions → Secrets
 (`CHECKOUT_SUCCESS_URL`, `CHECKOUT_CANCEL_URL`).

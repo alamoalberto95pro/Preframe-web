@@ -83,10 +83,11 @@
   });
 
   /* ─── 2. Analítica: intención de descarga ───────────────────────────
-     La única métrica que importa. Todavía no hay proveedor conectado
-     (pendiente de decidir Cloudflare Web Analytics / Umami / Plausible),
-     así que los eventos se acumulan en una cola y el día que se conecte
-     basta con vaciarla. No se envía nada a ningún tercero. */
+     La única métrica que importa. Las páginas vistas ya las mide el
+     beacon de Cloudflare Web Analytics (en el head, sin cookies), pero
+     no acepta eventos custom, así que estos se acumulan en una cola
+     local y no se envían a ningún sitio. Si algún día hace falta
+     medirlos de verdad, tocará otro proveedor — sin cookies. */
 
   window.preframeEvents = window.preframeEvents || [];
 

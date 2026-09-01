@@ -510,16 +510,23 @@
      ════════════════════════════════════════════════════════════════════ -->
 <section class="canvas-dark band" data-rail="Quién lo hace">
   <div class="wrap">
-    <span class="eyebrow eyebrow-d">Quién está detrás</span>
-    <!-- Cita editorial, sin avatar: el círculo vacío de "photo pending"
-         hacía la página parecer a medio hacer. [MANUAL · pendiente] Cuando
-         llegue la foto (webp 192×192), entra junto a la atribución. -->
-    <figure class="founder-quote">
-      <blockquote>
-        <p>Me cansé de planificar piezas en una <em>hoja de cálculo</em>. Todas las herramientas me obligaban a describir la pieza en filas y a calcular los tiempos después. PreFrame es la que yo quería tener en mis propios rodajes.</p>
-      </blockquote>
-      <figcaption>Alberto — filmmaker, haciendo PreFrame</figcaption>
-    </figure>
+    <span class="eyebrow eyebrow-d">Quién lo hace</span>
+    <!-- Título + bio + firma. Sin cita inventada: la historia real (programador
+         de oficio, filmmaker de ocio) es la sección entera. La foto es un
+         recorte vertical con alfa que mira hacia arriba-derecha, así que va a
+         la IZQUIERDA del texto para que la mirada apunte al copy. En el título,
+         PreFrame va como wordmark de marca (data-brand), igual que en el hero. -->
+    <div class="founder-layout">
+      <figure class="founder-photo">
+        <img src="/assets/shots/founder.webp" width="640" height="865" loading="lazy" decoding="async"
+             alt="Alberto, el creador de PreFrame, mirando hacia arriba">
+      </figure>
+      <div class="founder-copy">
+        <h2>Detrás de <span data-brand="name">PreFrame</span></h2>
+        <p class="founder-bio">Soy Alberto: programador de oficio y ocio, y filmmaker por pura afición — ruedo los vídeos de mis viajes :). PreFrame nace de darme cuenta de que los filmmakers no tenemos un lugar dedicado donde dar luz a nuestras ideas: la inspiración vive en notas sueltas, el equipo en listas, los tiempos en hojas de cálculo. PreFrame es ese lugar, y crece escuchando las necesidades de todos los filmmakers, del aficionado al profesional.</p>
+        <p class="founder-sign">Alberto — programador y filmmaker aficionado, haciendo PreFrame</p>
+      </div>
+    </div>
   </div>
 </section>
 

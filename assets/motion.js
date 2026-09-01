@@ -33,7 +33,7 @@
     '.band > .wrap > p', '.band-tight > .wrap > p',
     '.step', '.card', '.bento-card', '.price', '.pack', '.cf-step',
     '.duo-card',                    /* las ventanas gemelas entran una tras otra */
-    '.faq details', '.founder-quote', '.frame',
+    '.faq details', '.founder-layout', '.frame',
     '.feature', '.mac',
     '.cm-card',                     /* el canvas se puebla tarjeta a tarjeta */
     '.canvas-caps li',

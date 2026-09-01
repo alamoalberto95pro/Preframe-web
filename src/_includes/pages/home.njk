@@ -403,15 +403,22 @@
 <section class="canvas-dark band" data-rail="{{ C.rails.founder | safe }}">
   <div class="wrap">
     <span class="eyebrow eyebrow-d">{{ C.founder.eyebrow | safe }}</span>
-    <!-- Cita editorial, sin avatar: el círculo vacío de "photo pending"
-         hacía la página parecer a medio hacer. [MANUAL · pendiente] Cuando
-         llegue la foto (webp 192×192), entra junto a la atribución. -->
-    <figure class="founder-quote">
-      <blockquote>
-        <p>{{ C.founder.quote | safe }}</p>
-      </blockquote>
-      <figcaption>{{ C.founder.attribution | safe }}</figcaption>
-    </figure>
+    <!-- Título + bio + firma. Sin cita inventada: la historia real (programador
+         de oficio, filmmaker de ocio) es la sección entera. La foto es un
+         recorte vertical con alfa que mira hacia arriba-derecha, así que va a
+         la IZQUIERDA del texto para que la mirada apunte al copy. En el título,
+         PreFrame va como wordmark de marca (data-brand), igual que en el hero. -->
+    <div class="founder-layout">
+      <figure class="founder-photo">
+        <img src="/assets/shots/founder.webp" width="640" height="865" loading="lazy" decoding="async"
+             alt="{{ C.founder.photoAlt | safe }}">
+      </figure>
+      <div class="founder-copy">
+        <h2>{{ C.founder.title | safe }}</h2>
+        <p class="founder-bio">{{ C.founder.bio | safe }}</p>
+        <p class="founder-sign">{{ C.founder.attribution | safe }}</p>
+      </div>
+    </div>
   </div>
 </section>
 

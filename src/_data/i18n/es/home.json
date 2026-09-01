@@ -156,9 +156,11 @@
     "shotAlt": "Una página del PDF real del plan de rodaje: tarjetas de plano con timecodes y casillas para marcar, líneas en blanco para notas y una fila resaltada de TIEMPO SIN CUBRIR entre 0:08 y 0:16."
   },
   "founder": {
-    "eyebrow": "Quién está detrás",
-    "quote": "Me cansé de planificar piezas en una <em>hoja de cálculo</em>. Todas las herramientas me obligaban a describir la pieza en filas y a calcular los tiempos después. PreFrame es la que yo quería tener en mis propios rodajes.",
-    "attribution": "Alberto — filmmaker, haciendo PreFrame"
+    "eyebrow": "Quién lo hace",
+    "title": "Detrás de <span data-brand=\"name\">PreFrame</span>",
+    "bio": "Soy Alberto: programador de oficio y ocio, y filmmaker por pura afición — ruedo los vídeos de mis viajes :). PreFrame nace de darme cuenta de que los filmmakers no tenemos un lugar dedicado donde dar luz a nuestras ideas: la inspiración vive en notas sueltas, el equipo en listas, los tiempos en hojas de cálculo. PreFrame es ese lugar, y crece escuchando las necesidades de todos los filmmakers, del aficionado al profesional.",
+    "attribution": "Alberto — programador y filmmaker aficionado, haciendo PreFrame",
+    "photoAlt": "Alberto, el creador de PreFrame, mirando hacia arriba"
   },
   "pricing": {
     "eyebrow": "Precios",

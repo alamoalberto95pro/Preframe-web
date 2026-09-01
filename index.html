@@ -511,15 +511,22 @@
 <section class="canvas-dark band" data-rail="Who made this">
   <div class="wrap">
     <span class="eyebrow eyebrow-d">Who made this</span>
-    <!-- Cita editorial, sin avatar: el círculo vacío de "photo pending"
-         hacía la página parecer a medio hacer. [MANUAL · pendiente] Cuando
-         llegue la foto (webp 192×192), entra junto a la atribución. -->
-    <figure class="founder-quote">
-      <blockquote>
-        <p>I got tired of planning films in a <em>spreadsheet</em>. Every tool made me describe the piece in rows and figure out the timing later. PreFrame is the one I wanted on my own shoots.</p>
-      </blockquote>
-      <figcaption>Alberto — filmmaker, building PreFrame</figcaption>
-    </figure>
+    <!-- Título + bio + firma. Sin cita inventada: la historia real (programador
+         de oficio, filmmaker de ocio) es la sección entera. La foto es un
+         recorte vertical con alfa que mira hacia arriba-derecha, así que va a
+         la IZQUIERDA del texto para que la mirada apunte al copy. En el título,
+         PreFrame va como wordmark de marca (data-brand), igual que en el hero. -->
+    <div class="founder-layout">
+      <figure class="founder-photo">
+        <img src="/assets/shots/founder.webp" width="640" height="865" loading="lazy" decoding="async"
+             alt="Alberto, the creator of PreFrame, looking up">
+      </figure>
+      <div class="founder-copy">
+        <h2>Behind <span data-brand="name">PreFrame</span></h2>
+        <p class="founder-bio">I'm Alberto: a programmer by trade and by hobby, and a filmmaker purely for the fun of it — I film my own travels :). PreFrame comes from realising that filmmakers have no dedicated place to bring our ideas to light: inspiration lives in scattered notes, gear in lists, timing in spreadsheets. PreFrame is that place, and it grows by listening to what filmmakers of every level need — hobbyist to pro.</p>
+        <p class="founder-sign">Alberto — programmer and hobbyist filmmaker, building PreFrame</p>
+      </div>
+    </div>
   </div>
 </section>
 

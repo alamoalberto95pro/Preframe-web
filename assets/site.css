@@ -1727,6 +1727,52 @@ p + p { margin-top: var(--space-4); }
   .paper-stack { width: 100%; max-width: 520px; margin-inline: auto; }
 }
 
+/* ─── Founder: retrato en círculo + bio ───────────────────────────────
+   El retrato es un recorte con alfa que mira arriba-derecha: va a la
+   izquierda para que la mirada apunte al texto, dentro de un círculo con un
+   lavado sutil que lo despega de la banda oscura. El encuadre lo hace el
+   object-position (la cara vive en el tercio alto del recorte). */
+.founder-layout {
+  display: grid;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+.founder-layout:has(.founder-photo) {
+  grid-template-columns: minmax(150px, 210px) 1fr;
+}
+.founder-photo {
+  margin: 0;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  background: radial-gradient(circle at 32% 24%, rgba(232, 181, 71, 0.14), rgba(255, 255, 255, 0.04) 62%);
+}
+.founder-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 8%;
+}
+.founder-copy { max-width: 64ch; }
+.founder-bio {
+  margin-top: var(--space-6);
+  font-size: var(--web-small);
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+.founder-sign {
+  margin-top: var(--space-5);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+}
+@media (max-width: 768px) {
+  .founder-layout:has(.founder-photo) { grid-template-columns: 1fr; }
+  .founder-photo { width: 170px; margin-inline: auto; }
+}
+
 /* ═══════════════════════════════════════════════════════════════════════
    EL WORDMARK — PREframe
 

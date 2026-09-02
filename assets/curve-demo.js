@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────────────────────────────
-   Preframe Web — el puntero de la curva emocional.
+   PreFrame Web — el puntero de la curva emocional.
 
    En la ventana "sin canción" de DOS CAMINOS, un cursor coreografiado
    enseña el gesto central del sustrato: agarra un keyframe, lo mueve, y

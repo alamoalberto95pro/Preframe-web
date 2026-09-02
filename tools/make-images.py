@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Genera la tarjeta social y los iconos de Preframe.
+Genera la tarjeta social y los iconos de PreFrame.
 
 Este script ES el diseño: se dibuja con la paleta Cinema Sunset y con la
 tipografía de marca real (Satoshi e Inter, convertidas al vuelo desde los

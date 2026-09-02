@@ -1,6 +1,6 @@
-# Preframe Web
+# PreFrame Web
 
-Web comercial de Preframe, servida en GitHub Pages sobre `www.preframe-app.com`.
+Web comercial de PreFrame, servida en GitHub Pages sobre `www.preframe-app.com`.
 
 **HTML estático servido desde la raíz, y el deploy sigue siendo un push.** Lo
 que hay en el repo es exactamente lo que sirve GitHub Pages: no hay Actions ni

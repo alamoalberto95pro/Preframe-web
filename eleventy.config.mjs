@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────────────────────────────
-   Preframe Web — generador de las páginas con navegación.
+   PreFrame Web — generador de las páginas con navegación.
 
    El sitio SIGUE siendo estático puro: GitHub Pages sirve la raíz del repo
    y el deploy es un push. Lo único que hace Eleventy es escribir en esa

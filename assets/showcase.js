@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────────────────────────────
-   Preframe Web — la franja del día del bento.
+   PreFrame Web — la franja del día del bento.
 
    La sección de capacidades es ahora un bento grid estático (las pestañas
    con scroll pegado se retiraron); lo único que se mueve aquí es la marca

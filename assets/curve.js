@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────────────────────────────
-   Preframe Web — la curva emocional, resuelta en JavaScript puro.
+   PreFrame Web — la curva emocional, resuelta en JavaScript puro.
 
    Antes esto se hacía pidiéndole al SVG `getPointAtLength()` unas cuantas
    cientas de veces. Funciona, pero es geometría del navegador: cuesta lo

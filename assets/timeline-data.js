@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────────────────────────────
-   Preframe Web — la forma del timeline del hero, en un solo sitio.
+   PreFrame Web — la forma del timeline del hero, en un solo sitio.
 
    La curva emocional se dibuja en tres sitios distintos (el timeline 2D del
    hero, la escena 3D que lo sustituye cuando el equipo puede con ella, y el

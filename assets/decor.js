@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────────────────────────────
-   Preframe Web — los motivos: la onda y la curva, allá donde aparezcan.
+   PreFrame Web — los motivos: la onda y la curva, allá donde aparezcan.
 
    El waveform y la curva emocional son los dos objetos del producto, así
    que en esta web no se dibujan quietos en ningún sitio. Cada aparición

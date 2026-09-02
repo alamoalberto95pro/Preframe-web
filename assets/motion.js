@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────────────────────────────
-   Preframe Web — movimiento de página.
+   PreFrame Web — movimiento de página.
 
    Dos cosas, las dos de scroll:
 

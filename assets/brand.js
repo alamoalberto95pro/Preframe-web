@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────────────────────────────
-   Preframe Web — constantes de marca y estado del producto.
+   PreFrame Web — constantes de marca y estado del producto.
 
    Punto único de verdad para los datos que se repiten en varias páginas y
    que cambian con el tiempo: nombre, dominio, disponibilidad de descarga,

@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────────────────────────────
-   Preframe Web — comportamiento común a todas las páginas.
+   PreFrame Web — comportamiento común a todas las páginas.
 
    Sin dependencias, sin build. Lo que hay aquí:
      · Rellena los `data-brand` con los valores de `brand.js`.
@@ -114,7 +114,7 @@
     btn.addEventListener('click', function () {
       track('send_to_mac');
 
-      var name = BRAND.name || 'Preframe';
+      var name = BRAND.name || 'PreFrame';
       var shareData = {
         title: fill(COPY.shareTitle, name),
         text: fill(COPY.shareText, name),

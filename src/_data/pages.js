@@ -18,6 +18,12 @@ module.exports = {
   pricing: { path: '/pricing/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-08-07' },
   support: { path: '/support/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-08-07' },
   releases: { path: '/releases/', changefreq: 'weekly', priority: '0.5', lastmod: '2026-08-07' },
+  /* /beta/ es la página PRIVADA de descarga para los filmmakers de la
+     beta: `noindex`, fuera del sitemap y sin un solo enlace entrante desde
+     el sitio. Se llega solo por el enlace que pasa Alberto en privado.
+     Cuando la descarga sea pública, esta página se borra o se queda quieta
+     (roadmap BETA, Fase 2). */
+  beta: { path: '/beta/', sitemap: false },
   terms: { path: '/legal/terms/', sitemap: false },
   privacy: { path: '/legal/privacy/', sitemap: false },
   aviso: { path: '/legal/aviso-legal/', sitemap: false },

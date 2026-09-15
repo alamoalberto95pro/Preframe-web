@@ -20,14 +20,15 @@
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   /* ─── 1. Títulos de la home ─────────────────────────────────────────
-     Solo en la portada (la única página con hero) y solo los <h2>: el
-     título de cada sección sube y aparece al llegar a él. El hero queda
-     fuera — está sobre el pliegue y tiene su propia entrada. El estado
-     oculto vive bajo `.has-motion`, que se pone desde aquí — nunca en el
-     HTML: sin JavaScript, o con "reducir movimiento", todo se ve desde el
-     primer momento. */
+     Solo en la portada (body.is-home, lo escribe el generador) y solo los
+     <h2>: el título de cada sección sube y aparece al llegar a él. El hero
+     queda fuera — está sobre el pliegue y tiene su propia entrada. El
+     estado oculto vive bajo `.has-motion`, que se pone desde aquí — nunca
+     en el HTML: sin JavaScript, o con "reducir movimiento", todo se ve
+     desde el primer momento. (No vale `.hero` como detector: /beta/
+     también tiene hero y no lleva este efecto.) */
 
-  var isHome = !!document.querySelector('.hero');
+  var isHome = document.body.classList.contains('is-home');
 
   if (isHome && 'IntersectionObserver' in window && !reduced.matches) {
     document.documentElement.classList.add('has-motion');

@@ -24,6 +24,12 @@
     "privacy": "Privacy",
     "aviso": "Legal notice"
   },
+  "beta": {
+    "dmgUrl": "https://github.com/alamoalberto95pro/preframe-releases/releases/download/v0.3.0/PreFrame-0.3.0-arm64.dmg",
+    "version": "v0.3.0",
+    "size": "120 MB"
+  },
+
   "packs": {
     "popular": "Most popular",
     "items": [

@@ -11,7 +11,10 @@
 <!doctype html>
 <html lang="{{ lang }}">
 {% include "partials/head.njk" -%}
-<body>
+{#- `is-home` marca la portada para el JS (motion.js anima los <h2> solo
+    allí). El selector `.hero` ya no vale como detector: /beta/ también
+    tiene hero y no debe heredar el efecto. -#}
+<body{% if isHome %} class="is-home"{% endif %}>
 
 <a class="skip-link" href="#main">{{ S.skipLink | safe }}</a>
 
@@ -27,12 +30,20 @@
 <script src="/assets/timeline-data.js"></script>
 <script src="/assets/curve.js"></script>
 {%- endif %}
+{%- if key == 'beta' %}
+{#- La curva canónica, para que el instrumento de /beta dibuje LA curva. -#}
+<script src="/assets/timeline-data.js"></script>
+{%- endif %}
 <script src="/assets/site.js" defer></script>
 <script src="/assets/motion.js" defer></script>
 {%- if isHome %}
 <script src="/assets/decor.js" defer></script>
 <script src="/assets/showcase.js" defer></script>
 <script src="/assets/curve-demo.js" defer></script>
+{%- endif %}
+{%- if key == 'beta' %}
+{#- El campo que respira, solo donde existe su [data-field]. -#}
+<script src="/assets/beta-field.js" defer></script>
 {%- endif %}
 </body>
 </html>

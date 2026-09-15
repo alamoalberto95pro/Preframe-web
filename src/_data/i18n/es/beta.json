@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "title": "Beta privada — PreFrame",
+    "description": "Descarga la beta de PreFrame para macOS. Firmada y notarizada por Apple.",
+    "ogTitle": "PreFrame — beta privada",
+    "ogDescription": "La beta de macOS, firmada y notarizada. Todo lo que hace PreFrame está en la home.",
+    "ogImageAlt": "PreFrame — Piensa en ritmo. Piensa en emoción. Y luego rueda."
+  },
+  "hero": {
+    "claim": "Tu enlace de descarga.<br>Todo lo demás está en la <a href=\"/es/\">home</a>.",
+    "private": "Beta privada — si tienes este enlace, aprovéchalo y disfruta",
+    "req": "macOS 12+ · Apple Silicon (a partir del M1)"
+  },
+  "trust": {
+    "eyebrow": "Sin sustos",
+    "title": "Firmada, notarizada y lista para abrirse.",
+    "cards": [
+      {
+        "title": "Doble clic y dentro",
+        "body": "Firmada y notarizada por Apple: se abre como cualquier app del Mac. Sin avisos de seguridad ni trucos de clic derecho."
+      },
+      {
+        "title": "Se actualiza sola",
+        "body": "Las versiones nuevas llegan dentro de la app, y cada una queda contada en las notas de versión."
+      },
+      {
+        "title": "Tus archivos son tuyos",
+        "body": "Tu audio y tus imágenes de referencia viven en tu ordenador. Puedes planificar una pieza entera sin conexión."
+      }
+    ],
+    "betaLine": "Esto es una beta. Si algo se rompe — o algo te molesta — escríbeme:"
+  }
+}

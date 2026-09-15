@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beta privada — PreFrame</title>
+  <meta name="description" content="Descarga la beta de PreFrame para macOS. Firmada y notarizada por Apple."><meta name="robots" content="noindex">
+  <meta name="theme-color" content="#080808">
+  <link rel="canonical" href="https://www.preframe-app.com/es/beta/">
+
+  <!-- Rutas por idioma: el inglés se queda en la raíz y el español vive bajo
+       /es/. x-default apunta al inglés. -->
+  <link rel="alternate" hreflang="en" href="https://www.preframe-app.com/beta/">
+  <link rel="alternate" hreflang="es" href="https://www.preframe-app.com/es/beta/">
+  <link rel="alternate" hreflang="x-default" href="https://www.preframe-app.com/beta/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PreFrame">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:url" content="https://www.preframe-app.com/es/beta/">
+  <meta property="og:title" content="PreFrame — beta privada">
+  <meta property="og:description" content="La beta de macOS, firmada y notarizada. Todo lo que hace PreFrame está en la home.">
+  <meta property="og:image" content="https://www.preframe-app.com/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="PreFrame — Piensa en ritmo. Piensa en emoción. Y luego rueda.">
+  <meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="/assets/fonts/satoshi-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/theme.css">
+  <link rel="stylesheet" href="/assets/site.css">
+  <!-- Cloudflare Web Analytics -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7370d962d8c64e75826a3a96ad82feb5"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<nav class="site-nav" aria-label="Principal">
+  <div class="wrap nav-in">
+    <a class="logo" href="/es/">
+      <img class="logo-mark" src="/assets/mark.svg" alt="" aria-hidden="true" width="28" height="28">
+      <span data-brand="name">PreFrame</span>
+    </a>
+    <div class="nav-links">
+      <a href="/es/pricing/">Precios</a>
+      <a href="/es/support/">Soporte</a>
+      <a class="lang-switch" href="/beta/" hreflang="en" lang="en" aria-label="View this page in English">EN</a>
+      <a href="/es/download/" class="btn btn-primary">Consigue PreFrame</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<section class="canvas-dark hero">
+  <div class="wrap hero-in">
+    <h1 class="hero-title" data-brand="name">PreFrame</h1>
+    <p class="hero-claim">Tu enlace de descarga.<br>Todo lo demás está en la <a href="/es/">home</a>.</p>
+    <p class="hero-who">Beta privada — si tienes este enlace, aprovéchalo y disfruta</p>
+
+    <div class="cta-row"><a class="btn btn-primary" href="https://github.com/alamoalberto95pro/preframe-releases/releases/download/v0.3.0/PreFrame-0.3.0-arm64.dmg"
+         data-track="download_intent" data-track-detail="beta_page_mac">
+        Descargar para macOS
+      </a>
+    </div>
+    <p class="req meta" style="color:var(--text-tertiary)">
+      v0.3.0 · 120 MB · macOS 12+ · Apple Silicon (a partir del M1)
+    </p>
+
+    <!-- El instrumento: la promesa entera en una ventana de la app. El mp3
+         en la barra, el campo que respira como onda, la curva emocional
+         dibujándose al paso del playhead y la pista de secciones con sus
+         planos. Decorativo (aria-hidden) y con los motivos canónicos:
+         paleta --section-*, curva de PREFRAME_TIMELINE, barra .stage-bar.
+         Rótulos en inglés en los dos idiomas — regla de mockups (t.js). -->
+    <div class="beta-stage" aria-hidden="true">
+      <div class="stage-bar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="stage-file">your_next_track.mp3</span>
+      </div>
+      <div class="beta-wave">
+        <div class="field" data-field></div>
+        <svg class="beta-curve" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true">
+          <path data-curve pathLength="1" d=""/>
+        </svg>
+        <span class="beta-playhead" data-playhead></span>
+      </div>
+      <div class="beta-sections">
+        <div style="--sec:var(--section-1);flex:.8"><b>HOOK</b><span>01 · 02</span></div>
+        <div style="--sec:var(--section-2);flex:1"><b>INTRO</b><span>03 · 04</span></div>
+        <div style="--sec:var(--section-3);flex:1.3"><b>DEVELOP</b><span>05 – 07</span></div>
+        <div style="--sec:var(--section-4);flex:1.1"><b>CLIMAX</b><span>08 · 09</span></div>
+        <div style="--sec:var(--section-5);flex:.9"><b>OUTRO</b><span>10</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Sin sustos: qué pasa al abrirla + a quién escribir ═════════════ -->
+<section class="canvas-light band-tight">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-l">Sin sustos</span>
+    <h2>Firmada, notarizada y lista para abrirse.</h2>
+    <div class="grid" style="margin-top:var(--space-7)">
+      <div class="card">
+        <h3>Doble clic y dentro</h3>
+        <p>Firmada y notarizada por Apple: se abre como cualquier app del Mac. Sin avisos de seguridad ni trucos de clic derecho.</p>
+      </div>
+      <div class="card">
+        <h3>Se actualiza sola</h3>
+        <p>Las versiones nuevas llegan dentro de la app, y cada una queda contada en las notas de versión.</p>
+      </div>
+      <div class="card">
+        <h3>Tus archivos son tuyos</h3>
+        <p>Tu audio y tus imágenes de referencia viven en tu ordenador. Puedes planificar una pieza entera sin conexión.</p>
+      </div>
+    </div>
+    <p class="notice">
+      Esto es una beta. Si algo se rompe — o algo te molesta — escríbeme: <a href="mailto:support@preframe-app.com">support@preframe-app.com</a>.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer class="canvas-dark site-footer">
+  <div class="wrap foot">
+    <div>
+      <a class="logo" href="/es/" style="margin-bottom:var(--space-3)">
+        <img class="logo-mark" src="/assets/mark.svg" alt="" aria-hidden="true" width="28" height="28">
+        <span data-brand="name">PreFrame</span>
+      </a>
+      <p class="meta mute-d">Preproducción para quien rueda siguiendo un ritmo.</p>
+      <p class="meta mute-d">© <span data-year>2026</span> <span data-brand="name">PreFrame</span></p>
+    </div>
+    <div class="foot-links">
+      <a href="/es/download/">Descargar</a>
+      <a href="/es/pricing/">Precios</a>
+      <a href="/es/support/">Soporte</a>
+      <a href="/es/releases/">Notas de versión</a>
+      <a href="/es/legal/terms/">Términos</a>
+      <a href="/es/legal/privacy/">Privacidad</a>
+      <a href="/es/legal/aviso-legal/">Aviso legal</a>
+      <a class="lang-switch" href="/beta/" hreflang="en" lang="en" aria-label="View this page in English">EN</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/brand.js"></script><script src="/assets/timeline-data.js"></script>
+<script src="/assets/site.js" defer></script>
+<script src="/assets/motion.js" defer></script><script src="/assets/beta-field.js" defer></script>
+</body>
+</html>

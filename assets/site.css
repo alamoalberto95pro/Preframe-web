@@ -206,6 +206,130 @@ section[id] { scroll-margin-top: 84px; }
 .has-motion .reveal.is-in { opacity: 1; transform: none; }
 
 /* ═══════════════════════════════════════════════════════════════════════
+   EL CAMPO QUE RESPIRA (/beta/)
+
+   Rescatado del coming soon (soon.css) el 15-sept-2026: un campo de barras
+   simétricas que respira; el pulso lo lleva una onda que lo recorre y la
+   altura general la marca una curva lenta. Abstracto a propósito — evoca
+   ritmo y emoción. Lo anima `beta-field.js` sobre [data-field].
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.field {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2px, 0.5vw, 4px);
+  height: clamp(120px, 22vh, 220px);
+  margin-top: clamp(28px, 5vh, 64px);
+  padding-inline: clamp(20px, 5vw, 48px);
+  overflow: hidden;
+}
+.field i {
+  display: block;
+  flex: 1 1 0;
+  min-width: 1px;
+  max-width: 7px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--brand-sepia);
+  will-change: height, opacity;
+}
+@media (max-width: 640px) {
+  .field { height: 96px; margin-top: var(--space-6); }
+}
+
+/* ─── El instrumento de /beta: la promesa entera en una ventana ────────
+   Una ventana de la app con el tema dentro: el mp3 en la barra, el campo
+   como onda, la curva emocional dibujándose al paso del playhead y la
+   pista de secciones de color con sus planos. Todos los motivos son los
+   canónicos: paleta --section-*, curva de PREFRAME_TIMELINE, barra
+   .stage-bar. Lo mueve `beta-field.js`; sin JavaScript queda la ventana
+   quieta con la curva dibujada. */
+.beta-stage {
+  position: relative;
+  max-width: 880px;
+  margin: clamp(28px, 5vh, 56px) auto 0;
+  padding: var(--space-4) var(--space-5) var(--space-4);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  background: var(--surface-1);
+  text-align: left;
+  overflow: hidden;
+}
+.beta-stage .stage-bar { margin-bottom: var(--space-2); }
+.beta-stage .field {
+  height: clamp(100px, 17vh, 160px);
+  margin-top: 0;
+  padding-inline: 0;
+  gap: clamp(2px, 0.3vw, 3px);
+}
+/* Waveform de mp3: barras finas y densas, no columnas. */
+.beta-stage .field i { max-width: 3.5px; }
+.beta-wave { position: relative; }
+.beta-curve { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.beta-curve path {
+  fill: none;
+  stroke: var(--brand-sunset);
+  stroke-width: 2.5;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  filter: drop-shadow(0 0 6px rgba(232, 129, 74, 0.5));
+}
+/* Sin movimiento (o sin JS): la curva entera, quieta. */
+@media (prefers-reduced-motion: reduce) {
+  .beta-curve path { stroke-dashoffset: 0; }
+}
+.beta-playhead {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1.5px;
+  background: color-mix(in srgb, var(--brand-sunset) 85%, #fff);
+  box-shadow: 0 0 10px rgba(232, 129, 74, 0.8);
+  opacity: 0;               /* lo enciende beta-field.js al arrancar */
+  will-change: transform;
+  pointer-events: none;
+}
+/* La pista de secciones: cada corte es un cambio de color, y debajo de
+   cada sección van sus planos. Rótulos en inglés en los dos idiomas —
+   regla de mockups (t.js, decisión 14-ago). */
+.beta-sections {
+  display: flex;
+  gap: 3px;
+  margin-top: var(--space-3);
+}
+.beta-sections > div {
+  border-top: 2.5px solid var(--sec);
+  padding-top: 7px;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.beta-sections b {
+  display: block;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+}
+.beta-sections span {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+}
+@media (max-width: 640px) {
+  .beta-stage .field { height: 84px; }
+  .beta-sections span { display: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
    EL RAÍL — la página como pista de tiempo
    ═══════════════════════════════════════════════════════════════════════ */
 

@@ -21,6 +21,11 @@
 {%- if isHome %}
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 {%- endif %}
+{%- if noindex %}
+  {#- Páginas no listadas (/beta/): fuera de los buscadores además de fuera
+      del sitemap. Se activa con `noindex: true` en el front matter. -#}
+  <meta name="robots" content="noindex">
+{%- endif %}
   <meta name="theme-color" content="#080808">
 {%- if isHome %}
   <meta name="color-scheme" content="dark">
@@ -40,7 +45,10 @@
   <meta property="og:url" content="{{ canonical }}">
   <meta property="og:title" content="{{ C.meta.ogTitle | safe }}">
   <meta property="og:description" content="{{ C.meta.ogDescription | safe }}">
-{%- if isHome %}
+{#- La tarjeta social con imagen: la home y /beta. La beta se comparte por
+    mensaje privado, así que el preview del enlace importa tanto como en la
+    portada (`ogImage: true` en su front matter). -#}
+{%- if isHome or ogImage %}
   <meta property="og:image" content="{{ site.url }}/assets/og-image.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">

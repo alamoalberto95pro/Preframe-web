@@ -3,9 +3,9 @@
 
    Sin dependencias, sin build. Lo que hay aquí:
      · Rellena los `data-brand` con los valores de `brand.js`.
-     · CTA de móvil: "Send this to your Mac" (compartir o copiar enlace).
      · Gancho de analítica en la intención de descarga.
      · Año del footer.
+   (El CTA de móvil "Send this to your Mac" se quitó el 15-sept-2026.)
 
    Nada de esto escribe cookies ni `localStorage`: de eso depende que la web
    no necesite banner de cookies.
@@ -15,32 +15,6 @@
   'use strict';
 
   var BRAND = window.BRAND || {};
-
-  /* ─── 0. Idioma ─────────────────────────────────────────────────────
-     El idioma sale del `<html lang>` que escribe el generador, y de ahí
-     solamente: sin fetch, sin cookies y sin `localStorage`. El idioma vive
-     en la URL, así que no hay nada que recordar. */
-
-  var LANG = document.documentElement.lang === 'es' ? 'es' : 'en';
-
-  var STRINGS = {
-    en: {
-      linkCopied: 'Link copied',
-      shareTitle: '{name} — plan your shoot on a timeline',
-      shareText: 'Open this on your Mac to download {name}.',
-    },
-    es: {
-      linkCopied: 'Enlace copiado',
-      shareTitle: '{name} — planifica tu rodaje en un timeline',
-      shareText: 'Abre esto en tu Mac para descargar {name}.',
-    },
-  };
-
-  var COPY = STRINGS[LANG];
-
-  function fill(template, name) {
-    return template.split('{name}').join(name);
-  }
 
   /* ─── 1. Valores de marca ──────────────────────────────────────────── */
 
@@ -98,52 +72,6 @@
   document.querySelectorAll('[data-track]').forEach(function (el) {
     el.addEventListener('click', function () {
       track(el.getAttribute('data-track'), el.getAttribute('data-track-detail'));
-    });
-  });
-
-  /* ─── 3. CTA de móvil ───────────────────────────────────────────────
-     Quien llega desde el móvil no puede instalar un .dmg. En vez de un
-     botón de descarga inútil, se lleva el enlace: hoja de compartir del
-     sistema si existe, y si no, copiar al portapapeles. */
-
-  document.querySelectorAll('[data-send-to-mac]').forEach(function (btn) {
-    var original = btn.querySelector('[data-label]') || btn;
-    var originalText = original.textContent;
-    var url = BRAND.url || window.location.origin;
-
-    btn.addEventListener('click', function () {
-      track('send_to_mac');
-
-      var name = BRAND.name || 'PreFrame';
-      var shareData = {
-        title: fill(COPY.shareTitle, name),
-        text: fill(COPY.shareText, name),
-        url: url,
-      };
-
-      function feedback(message) {
-        original.textContent = message;
-        window.setTimeout(function () {
-          original.textContent = originalText;
-        }, 2400);
-      }
-
-      if (navigator.share) {
-        navigator.share(shareData).catch(function () {
-          /* Cancelar la hoja de compartir no es un error: no se avisa. */
-        });
-        return;
-      }
-
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(url).then(
-          function () { feedback(COPY.linkCopied); },
-          function () { feedback(url); }
-        );
-        return;
-      }
-
-      feedback(url);
     });
   });
 

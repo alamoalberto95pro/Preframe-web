@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support — PreFrame</title>
+  <meta name="description" content="How to install PreFrame, relink a moved MP3, why audio locks after the first export, where your files live, and how to delete your local data or your account.">
+  <meta name="theme-color" content="#080808">
+  <link rel="canonical" href="https://www.preframe-app.com/support/">
+
+  <!-- Rutas por idioma: el inglés se queda en la raíz y el español vive bajo
+       /es/. x-default apunta al inglés. -->
+  <link rel="alternate" hreflang="en" href="https://www.preframe-app.com/support/">
+  <link rel="alternate" hreflang="es" href="https://www.preframe-app.com/es/support/">
+  <link rel="alternate" hreflang="x-default" href="https://www.preframe-app.com/support/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PreFrame">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:url" content="https://www.preframe-app.com/support/">
+  <meta property="og:title" content="Support — PreFrame">
+  <meta property="og:description" content="Installation, audio relink, the audio lock, where your files live, deleting your data.">
+  <meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="/assets/fonts/satoshi-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/theme.css">
+  <link rel="stylesheet" href="/assets/site.css">
+  <!-- Cloudflare Web Analytics -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7370d962d8c64e75826a3a96ad82feb5"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="site-nav" aria-label="Main">
+  <div class="wrap nav-in">
+    <a class="logo" href="/">
+      <img class="logo-mark" src="/assets/mark.svg" alt="" aria-hidden="true" width="28" height="28">
+      <span data-brand="name">PreFrame</span>
+    </a>
+    <div class="nav-links">
+      <a href="/pricing/">Pricing</a>
+      <a href="/support/">Support</a>
+      <a class="lang-switch" href="/es/support/" hreflang="es" lang="es" aria-label="Ver esta página en español">ES</a>
+      <a href="/download/" class="btn btn-primary">Get PreFrame</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<section class="canvas-dark page-head">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-d">Support</span>
+    <h1>One person answers these. That person is me.</h1>
+    <p class="lede">
+      PreFrame is made by one filmmaker, so support is honest rather than instant: most messages get an answer within two working days. If something is broken mid-shoot, say so in the subject line and it jumps the queue.
+    </p>
+    <!-- [MANUAL · pendiente] Correo de soporte sobre el dominio propio.
+         Mientras `BRAND.supportEmail` sea null, aquí va este aviso en vez de
+         un mailto inventado. Al tenerlo: rellenar brand.js y sustituir este
+         bloque por el botón de correo. -->
+    <div class="placeholder">
+      The support address on the PreFrame domain isn't live yet. It goes here — and in the app — before the first build ships.
+    </div>
+  </div>
+</section>
+
+<section class="canvas-light band-tight">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-l">Installing</span>
+    <h2>Getting it running.</h2>
+    <div class="faq">
+      <details>
+        <summary>How do I install it?</summary>
+        <div class="faq-body">
+          <p>Open the .dmg, drag PreFrame to your Applications folder, and open it. That's the whole process. The build is signed and notarized by Apple, so macOS opens it like any other app — no right-click trick, no security override.</p>
+          <p>There's nothing to download yet: the signature and notarization are still in progress. <a href="/download/">Current status here</a>.</p>
+        </div>
+      </details>
+      <details>
+        <summary>What does it need?</summary>
+        <div class="faq-body">
+          <p><span data-brand="download.mac.requirements">macOS 12+ · Apple Silicon &amp; Intel</span>. Windows has no build and no date.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Do I need to be online?</summary>
+        <div class="faq-body">
+          <p>Only to sign in and to sync your projects to your account. The planning itself works offline: your audio and your reference images live on your machine, so you can keep working on a location with no signal and it syncs when you're back.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="canvas-soft band-tight">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-l">Audio</span>
+    <h2>The track and where it lives.</h2>
+    <div class="faq">
+      <details>
+        <summary>PreFrame says it can't find my MP3. What happened?</summary>
+        <div class="faq-body">
+          <p>Your audio file is never uploaded and never copied into the app. PreFrame stores a <em>reference</em> to the file where it sits on your disk, the same way an NLE does. If you moved it, renamed it or it was on a drive that isn't plugged in, the reference no longer resolves.</p>
+          <p>Point PreFrame at the file again and everything reconnects: sections, shots and timecodes are unaffected, because they belong to the project and not to the file. Relinking the same file is free and you can do it as often as you need.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Why can't I swap the track after I've exported?</summary>
+        <div class="faq-body">
+          <p>Because an EDL you've already handed to an editor refers to specific timecodes. If the track underneath changed, that EDL would quietly stop matching the cut, and you'd find out in the edit.</p>
+          <p>So the first export fixes the audio for that project. You can still relink the same file as many times as you want, keep editing, and re-export. If you genuinely need a different track, that's a different piece — make a new project for it.</p>
+          <p>The same goes for a project planned <em>without</em> music: its first export fixes the duration you set by hand, because that duration is what defines the piece. Everything else — sections, shots, the emotional curve — stays editable. And if the song arrives later, you can still attach it: the audio then becomes the project's timeline and you keep working and exporting freely with it.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Can I start without any music at all?</summary>
+        <div class="faq-body">
+          <p>Yes, and that's the normal case. Set how long the piece should be and draw the emotional curve by hand: sections, peaks, the moment it breathes. When the master finally arrives you attach it to the same project, and everything you planned stays where you put it.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="canvas-light band-tight">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-l">Your data</span>
+    <h2>Where your files are, and how to remove them.</h2>
+    <div class="faq">
+      <details>
+        <summary>Where does PreFrame keep my things?</summary>
+        <div class="faq-body">
+          <p>Your MP3 stays exactly where you put it — PreFrame only remembers where that is. Your reference images and a local cache of your projects live inside the app's own storage on that computer.</p>
+          <p>What travels to your account is the plan itself: sections, shots, timecodes, curve, notes, plus your shot and gear library. That's what lets you open the same project on another machine.</p>
+        </div>
+      </details>
+      <details>
+        <summary>How do I wipe the local data on this computer?</summary>
+        <div class="faq-body">
+          <p>In Settings there's an option to delete all local data on this computer. It removes the local caches, the reference images stored by the app and the audio references — then the app reloads clean.</p>
+          <p>Two things worth knowing: it does not sign you out, and it does not touch the original files on your disk. It also doesn't delete the projects held in your account.</p>
+        </div>
+      </details>
+      <details>
+        <summary>How do I delete my account?</summary>
+        <div class="faq-body">
+          <p>Write to support asking for deletion and the account goes, along with the projects stored in it. Anything that was only ever local — your audio, your images — was never on a server to begin with, and you can remove it yourself with the wipe above.</p>
+          <p>Purchases can't be undeleted along with it: a spent credit is spent. Read the <a href="/legal/terms/">Terms</a> before asking.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Does the website track me?</summary>
+        <div class="faq-body">
+          <p>There are no cookies on this site and no advertising trackers, which is why you're not being asked to accept anything. See the <a href="/legal/privacy/">Privacy Policy</a> for the details.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="canvas-dark site-footer">
+  <div class="wrap foot">
+    <div>
+      <a class="logo" href="/" style="margin-bottom:var(--space-3)">
+        <img class="logo-mark" src="/assets/mark.svg" alt="" aria-hidden="true" width="28" height="28">
+        <span data-brand="name">PreFrame</span>
+      </a>
+      <p class="meta mute-d">Pre-production for people who shoot to a rhythm.</p>
+      <p class="meta mute-d">© <span data-year>2026</span> <span data-brand="name">PreFrame</span></p>
+    </div>
+    <div class="foot-links">
+      <a href="/download/">Download</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/support/">Support</a>
+      <a href="/releases/">Release notes</a>
+      <a href="/legal/terms/">Terms</a>
+      <a href="/legal/privacy/">Privacy</a>
+      <a href="/legal/aviso-legal/">Legal notice</a>
+      <a class="lang-switch" href="/es/support/" hreflang="es" lang="es" aria-label="Ver esta página en español">ES</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/brand.js"></script>
+<script src="/assets/site.js" defer></script>
+<script src="/assets/motion.js" defer></script>
+</body>
+</html>

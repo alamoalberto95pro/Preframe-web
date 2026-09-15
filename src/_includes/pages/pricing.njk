@@ -1,0 +1,142 @@
+{#- /pricing/ — una plantilla, dos idiomas. -#}
+<section class="canvas-dark page-head">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-d">{{ C.head.eyebrow | safe }}</span>
+    <h1>{{ C.head.title | safe }}</h1>
+    <p class="lede">
+      {{ C.head.lede | safe }}
+    </p>
+  </div>
+</section>
+
+<!-- ═══ El crédito, en tres pasos ══════════════════════════════════════ -->
+<section class="canvas-light band-tight">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-l">{{ C.flow.eyebrow | safe }}</span>
+    <h2>{{ C.flow.title | safe }}</h2>
+    <div class="credit-flow">
+      {%- for step in C.flow.steps %}
+      <div class="cf-step">
+        <span class="cf-n">{{ step.n | safe }}</span>
+        <h3>{{ step.title | safe }}</h3>
+        <p>{{ step.body | safe }}</p>
+        <span class="cf-cost {{ 'is-paid' if step.isPaid else 'is-free' }}">{{ step.cost | safe }}</span>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Precio ═════════════════════════════════════════════════════════
+     Dos versiones enteras y un solo interruptor, como en la home. Con
+     `site.pricesPublic: false` las tarjetas (Gratis y Fundador) y la
+     sección de packs se guardan, y en su lugar sale un único anuncio:
+     "los precios llegan con el lanzamiento". Nada de tarjetas sin cifra
+     (decisión de Alberto, 15-sept-2026). Con `true` vuelve todo tal cual. -->
+{%- if site.pricesPublic %}
+<section class="canvas-soft band-tight">
+  <div class="wrap">
+    <div class="prices" style="margin-top:0">
+      <div class="price">
+        <span class="tag">{{ C.plans.freeTag | safe }}</span>
+        <div class="amount">{{ C.plans.freeAmount | safe }}</div>
+        <p class="mute-l small">{{ C.plans.freeSmall | safe }}</p>
+        <ul>
+          {%- for item in C.plans.freeItems %}
+          <li>{{ item | safe }}</li>
+          {%- endfor %}
+        </ul>
+      </div>
+      <div class="price is-featured">
+        <span class="tag">{{ C.plans.founderTag | safe }}</span>
+        <div class="amount"><span data-brand="price.founder">{{ S.price.founder }}</span></div>
+        <p class="mute-l small">{{ C.plans.founderSmall | safe }}</p>
+        <ul>
+          {%- for item in C.plans.founderItems %}
+          <li>{{ item | safe }}</li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <p class="notice">
+      <strong>{{ C.plans.noticeStrong | safe }}</strong> <span data-brand="price.founder">{{ S.price.founder }}</span> {{ C.plans.noticeMid | safe }} <span data-brand="price.standard">{{ S.price.standard }}</span>{{ C.plans.noticeEnd | safe }}
+    </p>
+  </div>
+</section>
+
+<!-- ═══ Lo que NO cuesta crédito ═══════════════════════════════════════ -->
+<!-- ═══ PACKS DE CRÉDITOS ══════════════════════════════════════════════
+     Sección INFORMATIVA: sin botones de compra hasta que el flujo de Stripe
+     con packs esté validado en test mode. El ahorro se presenta como
+     comparación contra comprar créditos sueltos — NUNCA como descuento sobre
+     un precio anterior del propio pack (Directiva Ómnibus).
+     Repaso Ómnibus hecho el 01-sep-2026: el 9,99 € se presenta como precio
+     de salida con topes (máx. 2 por cuenta, 100 compradores o 6 meses) y el
+     19,99 € como precio futuro — nunca como rebaja sobre un precio anterior,
+     porque no lo hubo. El ahorro de los packs se compara contra créditos
+     sueltos a 19,99 €, nunca contra un precio anterior del pack. -->
+<section class="canvas-light band-tight" id="packs">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-l">{{ C.packs.eyebrow | safe }}</span>
+    <h2>{{ C.packs.title | safe }}</h2>
+    <p class="mute-l" style="margin-top:var(--space-5);max-width:56ch">
+      {{ C.packs.lede | safe }}
+    </p>
+
+    {% include "partials/packs.njk" %}
+
+    <p class="notice">
+      {{ C.packs.notice | safe }}
+    </p>
+  </div>
+</section>
+{%- else %}
+<section class="canvas-soft band-tight" id="packs">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-l">{{ C.launch.eyebrow | safe }}</span>
+    <h2>{{ C.launch.title | safe }}</h2>
+    <p class="mute-l" style="margin-top:var(--space-5);max-width:56ch">
+      {{ C.launch.lede | safe }}
+    </p>
+  </div>
+</section>
+{%- endif %}
+
+<section class="canvas-light band-tight">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-l">{{ C.freeForever.eyebrow | safe }}</span>
+    <h2>{{ C.freeForever.title | safe }}</h2>
+    <div class="grid" style="margin-top:var(--space-7)">
+      {%- for card in C.freeForever.cards %}
+      <div class="card">
+        <h3>{{ card.title | safe }}</h3>
+        <p>{{ card.body | safe }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ════════════════════════════════════════════════════════════ -->
+<section class="canvas-soft band-tight">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-l">{{ C.faq.eyebrow | safe }}</span>
+    <h2>{{ C.faq.title | safe }}</h2>
+    <div class="faq">
+      {%- for item in C.faq.items %}
+      <details>
+        <summary>{{ item.q | safe }}</summary>
+        <div class="faq-body">
+          {%- for para in item.a %}
+          <p>{{ para | safe }}</p>
+          {%- endfor %}
+        </div>
+      </details>
+      {%- endfor %}
+    </div>
+    <p class="notice">
+      {{ C.faq.noticeBefore | safe }} <a href="{{ langBase }}/support/">{{ C.faq.noticeLink | safe }}</a>{{ C.faq.noticeAfter | safe }}
+    </p>
+  </div>
+</section>

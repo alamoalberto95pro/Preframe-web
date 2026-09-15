@@ -1,0 +1,200 @@
+{
+  "meta": {
+    "title": "PreFrame — Pre-production software for filmmakers",
+    "description": "Pre-production for filmmakers who feel the music first. See the film while the track plays — or plan it before the music exists, with a hand-drawn emotional curve. Export a shooting PDF and cut markers for Premiere or DaVinci Resolve.",
+    "ogTitle": "PreFrame — Your shot list isn't a list. It's a timeline.",
+    "ogDescription": "Plan every shot against the shape of the piece: the waveform of the track, or the emotional curve you draw when there's no track yet.",
+    "ogImageAlt": "PreFrame — Think in rhythm. Think in emotion. Then shoot it."
+  },
+  "jsonld": {
+    "websiteDescription": "Pre-production software for filmmakers who feel the music first.",
+    "appDescription": "Pre-production for filmmakers who feel the music first. Plan every shot against the shape of the piece — the waveform of the track, or an emotional curve drawn by hand — then export a shooting PDF and cut markers for Premiere or DaVinci Resolve.",
+    "offerDescription": "One project credit. First project free."
+  },
+  "rails": {
+    "hero": "The timeline",
+    "statement": "The story",
+    "mood": "Mood board",
+    "features": "What it does",
+    "zoom": "Focus &amp; Ficha",
+    "duo": "Two ways in",
+    "library": "Your library",
+    "everything": "Everything else",
+    "onset": "On set",
+    "founder": "Who made this",
+    "pricing": "Pricing",
+    "closer": "Download"
+  },
+  "hero": {
+    "claim": "Your shot list isn't a list.<br>It's a <em>timeline</em>.",
+    "who": "For filmmakers who feel the <em>music</em> and the <em>story</em> first",
+    "figureAria": "The PreFrame editor: a waveform cut into sections, a hand-drawn emotional curve over it, and the mood board with a palette.",
+    "shotAlt": "PreFrame editor showing the Amanecer demo project: colored narrative sections over the waveform, an emotional curve drawn on top, the shot list below and the Mood Bar canvas on the right."
+  },
+  "statement": {
+    "kicker": "What PreFrame is",
+    "big": "PreFrame helps you plan the next story you want to tell — whether you already <em>know the song</em>, or you <em>don't yet</em>.",
+    "p1": "If you have the track, drop it in and feel it: a focused mode strips away everything else so you can listen, sense where the shots live, and mark cuts as you go. If you don't have it yet, sketch the shape of the piece as you imagine it and build the story around that instead.",
+    "p2": "Either way, switch to a structured mode to turn what you felt — or imagined — into a real plan: section by section, shot by shot. A moodboard runs alongside you through it all, so the look of the piece never gets lost. And when the real track finally lands, neither does your plan."
+  },
+  "mood": {
+    "eyebrow": "The Mood Bar",
+    "title": "Half timeline, half mood board.<br>All one project.",
+    "lede": "References, video, notes, palettes — even the curve itself — on a canvas that lives beside your timeline and filters by section.",
+    "canvasAria": "The Mood Bar canvas holding two reference frames, a YouTube reference video, a handwritten note, a color palette and the emotional curve card, with the canvas toolbar below.",
+    "chips": [
+      "All",
+      "Opening",
+      "Build",
+      "Peak",
+      "Turn",
+      "Release"
+    ],
+    "refDusk": "canyon_dusk_ref.jpg",
+    "ytDuration": "8:24",
+    "ytTitle": "How I shot cinematic b-roll at golden hour",
+    "ytCaption": "YouTube · reference",
+    "note": "“Shoot the chorus handheld — let it breathe with the crowd.”",
+    "refNight": "city_night_02.jpg",
+    "shotDuration": "18s",
+    "shotName": "Chorus, in the crowd",
+    "shotType": "Medium shot · 24mm",
+    "shotGear": "Sony a6700",
+    "curveLabel": "Emotional curve",
+    "toolbar": [
+      "Image",
+      "Text",
+      "Video",
+      "Palette"
+    ],
+    "toolbarAdd": "+ Add shot",
+    "zoom": "100%",
+    "capsAria": "What the canvas holds",
+    "caps": [
+      "Reference images",
+      "Video &amp; YouTube",
+      "Written notes",
+      "Palettes with hex",
+      "The emotional curve",
+      "Filter by section",
+      "The track, always in reach"
+    ]
+  },
+  "substrates": {
+    "eyebrow": "Two substrates, one timeline",
+    "title": "Draw the feeling.<br>Right over the track.",
+    "body": "When you feel the music first, the song becomes your canvas. When the track isn't here yet, you draw the emotional curve by hand — and lay one over the other when it lands. The switch says it all: <em class=\"feature-em\">Music · Curve · Both</em>.",
+    "shotAlt": "The PreFrame timeline with the substrate switch: a hand-drawn emotional curve, colored from blue to orange by intensity, drawn directly over the waveform and its narrative sections."
+  },
+  "export": {
+    "eyebrow": "Export",
+    "title": "Leave with the cut already mapped.",
+    "body": "One dialog, two deliverables: a printable shooting plan with your shots, timecodes and uncovered time — and your sections as timeline markers for Premiere or DaVinci Resolve, at 24, 25 or 30 fps.",
+    "shotAlt": "PreFrame's export dialog: a printable shooting plan, and section markers for Premiere or DaVinci Resolve with selectable frame rate."
+  },
+  "zoom": {
+    "shotAlt": "PreFrame in Sheet mode: a light spec-sheet view of the same project, with the emotional curve over the waveform, numbered section cards, and the mood panel with palette and reference images.",
+    "eyebrow": "Focus &amp; Ficha",
+    "title": "One project.<br>Two states of mind.",
+    "body": "<strong>Focus</strong> is the dark room: you, the track and the timeline. <strong>Ficha</strong> turns the same project into a bright spec sheet — sections numbered, notes visible, every shot laid out to review before the shoot."
+  },
+  "duo": {
+    "eyebrow": "Track or no track",
+    "title": "Start with the song.<br>Or before it exists.",
+    "lede": "Some projects begin with the .mp3 in hand. Others begin as a feeling, long before the music lands. PreFrame plans both.",
+    "withAria": "A song's waveform cut into five narrative sections — Opening, Build, Peak, Turn, Release — with cut lines falling on the music.",
+    "withoutAria": "A hand-drawn emotional curve with keyframes, cut into the same five sections — no audio anywhere. A pointer grabs a keyframe and the whole curve follows.",
+    "withTitle": "The track came first",
+    "withBody": "Drop the song in and cut it into narrative sections, right on its waveform. Every shot sits on real seconds — the chorus is exactly where the chorus is.",
+    "withoutTitle": "The track isn't here yet",
+    "withoutBody": "Draw the emotional curve you want the film to follow, and cut your sections on it. Planning starts when the idea does — not when the delivery arrives.",
+    "close": "And the day the track lands, they meet: <em class=\"feature-em\">Music&nbsp;·&nbsp;Curve&nbsp;·&nbsp;Both</em>.",
+    "fileTrack": "midnight_run_master_v3.mp3",
+    "fileNoTrack": "no track yet · 3:41",
+    "sections": [
+      "Opening",
+      "Build",
+      "Peak",
+      "Turn",
+      "Release"
+    ]
+  },
+  "library": {
+    "shotAlt": "PreFrame's shot gallery: a grid of shot cards with durations and lens chips — Window in the dark, She wakes up, Running, The bridge — filterable by narrative section, with search.",
+    "eyebrow": "Shots &amp; gear",
+    "title": "Describe a shot once.<br>Shoot it forever.",
+    "body": "Every shot carries the film vocabulary — wide, medium, close-up, overhead — plus your camera, your lens, a thumbnail and its notes. Save it to your library and drop it into the next project with the gear already attached."
+  },
+  "everything": {
+    "eyebrow": "Everything else it does",
+    "title": "The parts of a shoot nobody else models.",
+    "sun": {
+      "title": "Golden hour, per shot",
+      "body": "The light for that place, that day — attached to the shot itself. You'll know before you scout whether it's possible.",
+      "locationKey": "Location",
+      "locationVal": "Cabo de Gata, ES",
+      "windowLabel": "Golden hour",
+      "rowKey": "Golden hour",
+      "rowVal": "18:41 → 19:12"
+    },
+    "offline": {
+      "title": "Nothing leaves your machine",
+      "body": "Your track and your references never get uploaded. Open the app on a mountain with no signal and keep working.",
+      "localTrack": "neon_pulse_master.mp3",
+      "localImage": "ridge_dusk.jpg",
+      "localWhere": "on your disk",
+      "syncedWhat": "the plan itself",
+      "syncedWhere": "synced to your account"
+    }
+  },
+  "onset": {
+    "eyebrow": "On set",
+    "title": "Print it. Take it. Tick it off.",
+    "p1": "A shooting plan with every shot, its timecode, a box to tick between takes and blank lines to write on. Uncovered time is calculated and printed — nobody discovers the hole at 6pm.",
+    "p2": "This is the actual document the app generates — cover and pages straight from the demo project.",
+    "coverAlt": "Cover of the real shooting plan PDF: project title and duration, a production-notes box, the waveform cut into sections, and the counts of shots, sections, covered and pending time.",
+    "shotAlt": "A page of the real shooting plan PDF: shot cards with timecodes and tick boxes, blank note lines, and a highlighted UNCOVERED TIME row between 0:08 and 0:16."
+  },
+  "founder": {
+    "eyebrow": "Who made this",
+    "title": "Behind <span data-brand=\"name\">PreFrame</span>",
+    "bio": "I'm Alberto: a programmer by trade and by hobby — coming up on a decade building software — and a filmmaker purely for the fun of it: I film my own travels :). PreFrame comes from realising that filmmakers have no dedicated place to bring our ideas to light: inspiration lives in scattered notes, gear in lists, timing in spreadsheets. PreFrame is that place, and it grows by listening to what filmmakers of every level need — hobbyist to pro.",
+    "attribution": "Alberto — programmer and hobbyist filmmaker, building PreFrame",
+    "photoAlt": "Alberto, the creator of PreFrame, looking up"
+  },
+  "pricing": {
+    "eyebrow": "Pricing",
+    "title": "One credit is one project.",
+    "lede": "No subscription. A credit is spent once, when you create a project. Everything you do inside it — add the track, redraw the curve, relocate the same file, export and re-export — is free and unlimited, forever.",
+    "freeTag": "Start here",
+    "freeAmount": "Free",
+    "freeSmall": "Your first project, complete.",
+    "freeItems": [
+      "Waveform or emotional curve",
+      "Mood board and shot cards",
+      "EDL export and shooting PDF",
+      "No card required"
+    ],
+    "founderTag": "Founder price",
+    "founderThen": "then",
+    "founderSmall": "Per project credit. Yours forever.",
+    "founderItems": [
+      "One full project, start to shoot",
+      "Unlimited edits and exports",
+      "Yours forever, no renewal",
+      "Max 2 per account"
+    ],
+    "packsTitle": "Planning more than one project? Packs bring the credit down.",
+    "launchTitle": "Pricing arrives with the launch.",
+    "launchLede": "The model is already set: one credit is one project, no subscription, and your first project is free and complete. The figures are published on launch day.",
+    "packsNotice": "Credits never expire, and everything inside a project stays unlimited and free whichever way you buy. Purchases open with launch. Savings are compared against buying single credits at 19.99 €; packs have never been sold at a different price.",
+    "founderNoticeBefore": "Founder price available to the first 100 buyers or for six months, whichever comes first. After that the price goes to",
+    "founderNoticeAfter": ". Payments are processed by Stripe, which appears as the seller on your statement.",
+    "founderNoticeLink": "See the full pricing page →"
+  },
+  "closer": {
+    "title": "Think in rhythm.<br>Think in <em class=\"closer-em\">emotion</em>.<br>Then shoot it.",
+    "status": "Release status",
+    "req": "The signed macOS build is in notarization. Windows has no date yet."
+  }
+}

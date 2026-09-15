@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Genera la tarjeta social y los iconos de Preframe.
+Genera la tarjeta social y los iconos de PreFrame.
 
 Este script ES el diseño: se dibuja con la paleta Cinema Sunset y con la
 tipografía de marca real (Satoshi e Inter, convertidas al vuelo desde los
@@ -27,6 +27,7 @@ OUT = os.path.join(ROOT, "assets")
 
 INK    = (8, 8, 8)
 SUNSET = (232, 129, 74)
+AMBER  = (232, 181, 71)
 SEPIA  = (138, 122, 107)
 TEXT   = (245, 243, 239)
 TEXT_2 = (197, 191, 178)
@@ -95,7 +96,19 @@ d = ImageDraw.Draw(card)
 
 m = mark(72)
 card.paste(m, (80, 70), m)
-d.text((176, 84), "Preframe", font=font("satoshi-700", 54), fill=TEXT)
+
+# El wordmark: PreFrame — el PRE con el degradado de marca, como en la web.
+f_wm = font("satoshi-700", 54)
+pre_w = int(d.textlength("Pre", font=f_wm))
+pre_mask = Image.new("L", (pre_w + 6, 80), 0)
+ImageDraw.Draw(pre_mask).text((0, 0), "Pre", font=f_wm, fill=255)
+pre_grad = Image.new("RGB", pre_mask.size)
+gd = ImageDraw.Draw(pre_grad)
+for x in range(pre_mask.width):
+    t = x / max(1, pre_mask.width - 1)
+    gd.line([(x, 0), (x, pre_mask.height)], fill=lerp(SUNSET, AMBER, t))
+card.paste(pre_grad, (176, 84), pre_mask)
+d.text((176 + pre_w, 84), "Frame", font=f_wm, fill=TEXT)
 
 d.text((80, 214), "Think in rhythm.",  font=font("satoshi-700", 76), fill=TEXT)
 d.text((80, 298), "Think in emotion.", font=font("satoshi-700", 76), fill=TEXT)

@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Título con la categoría por delante: el eslogan no lo busca nadie. El
+       gancho se queda en og:title, que es donde vende (al compartir). -->
+  <!-- POSICIONAMIENTO (decisión de Alberto, 08-2026): esto NO se vende como
+       app de videoclips. Es para filmmakers que sienten la música primero —
+       y para los que planifican antes de tener el tema (curva emocional).
+       Los videoclips caben, pero no definen. No volver a "music video
+       directors" como categoría. -->
+  <title>PreFrame — Software de preproducción para filmmakers</title>
+  <meta name="description" content="Preproducción para filmmakers que sienten primero la música. Ve la pieza mientras suena el tema — o planifícala antes de que la música exista, con una curva emocional dibujada a mano. Exporta un PDF de rodaje y marcadores de corte para Premiere o DaVinci Resolve.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="theme-color" content="#080808">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://www.preframe-app.com/es/">
+
+  <!-- Rutas por idioma: el inglés se queda en la raíz y el español vive bajo
+       /es/. x-default apunta al inglés. -->
+  <link rel="alternate" hreflang="en" href="https://www.preframe-app.com/">
+  <link rel="alternate" hreflang="es" href="https://www.preframe-app.com/es/">
+  <link rel="alternate" hreflang="x-default" href="https://www.preframe-app.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PreFrame">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:url" content="https://www.preframe-app.com/es/">
+  <meta property="og:title" content="PreFrame — Tu escaleta no es una lista. Es un timeline.">
+  <meta property="og:description" content="Planifica cada plano sobre la forma de la pieza: la onda del tema, o la curva emocional que dibujas cuando todavía no hay tema.">
+  <meta property="og:image" content="https://www.preframe-app.com/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="PreFrame — Piensa en ritmo. Piensa en emoción. Y luego rueda.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PreFrame — Tu escaleta no es una lista. Es un timeline.">
+  <meta name="twitter:description" content="Planifica cada plano sobre la forma de la pieza: la onda del tema, o la curva emocional que dibujas cuando todavía no hay tema.">
+  <meta name="twitter:image" content="https://www.preframe-app.com/assets/og-image.png">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="preload" href="/assets/fonts/satoshi-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/theme.css">
+  <link rel="stylesheet" href="/assets/site.css">
+
+  <!-- Datos estructurados. `offers` es legítimo aquí porque el precio se
+       muestra en la propia página; sin valoraciones ni fecha de lanzamiento,
+       que no existen. Por eso mismo desaparece con `site.pricesPublic:
+       false`: marcar un precio que no está en la página es exactamente el
+       marcado que Google penaliza. --><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.preframe-app.com/#website",
+        "url": "https://www.preframe-app.com/",
+        "name": "PreFrame",
+        "description": "Software de preproducción para filmmakers que sienten primero la música.",
+        "inLanguage": "es",
+        "publisher": { "@id": "https://www.preframe-app.com/#org" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.preframe-app.com/#org",
+        "name": "PreFrame",
+        "url": "https://www.preframe-app.com/",
+        "logo": "https://www.preframe-app.com/assets/icon-512.png"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://www.preframe-app.com/#app",
+        "name": "PreFrame",
+        "url": "https://www.preframe-app.com/",
+        "applicationCategory": "MultimediaApplication",
+        "applicationSubCategory": "Film pre-production",
+        "operatingSystem": "macOS 12+",
+        "inLanguage": "es",
+        "image": "https://www.preframe-app.com/assets/og-image.png",
+        "description": "Preproducción para filmmakers que sienten primero la música. Planifica cada plano sobre la forma de la pieza —la onda del tema o una curva emocional dibujada a mano— y exporta un PDF de rodaje y marcadores de corte para Premiere o DaVinci Resolve.",
+        "publisher": { "@id": "https://www.preframe-app.com/#org" }
+      }
+    ]
+  }
+  </script>
+  <!-- Cloudflare Web Analytics -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7370d962d8c64e75826a3a96ad82feb5"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+</head>
+<body class="is-home">
+
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<nav class="site-nav" aria-label="Principal">
+  <div class="wrap nav-in">
+    <a class="logo" href="/es/">
+      <img class="logo-mark" src="/assets/mark.svg" alt="" aria-hidden="true" width="28" height="28">
+      <span data-brand="name">PreFrame</span>
+    </a>
+    <div class="nav-links">
+      <a href="/es/pricing/">Precios</a>
+      <a href="/es/support/">Soporte</a>
+      <a class="lang-switch" href="/" hreflang="en" lang="en" aria-label="View this page in English">EN</a>
+      <a href="/es/download/" class="btn btn-primary">Consigue PreFrame</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ═══ 1 · HERO ═══════════════════════════════════════════════════════ -->
+<section class="canvas-dark hero" data-rail="El timeline">
+  <div class="wrap hero-in">
+    <!-- Marca grande, frase, y la app real dentro de su Mac. La barra de
+         navegación no aparece hasta que se deja atrás esta sección.
+
+         Sin icono aquí a propósito: el tile ya sale en el nav, en el footer y
+         en el Dock. En el hero competía con el wordmark en vez de sumar, así
+         que la marca la lleva el nombre solo, a tamaño de cartel. -->
+    <h1 class="hero-title" data-brand="name">PreFrame</h1>
+    <p class="hero-claim">Tu escaleta no es una lista.<br>Es un <em>timeline</em>.</p>
+    <p class="hero-who">Para filmmakers que sienten primero la <em>música</em> y la <em>historia</em></p>
+
+    <!-- Jerarquía del CTA: el botón principal NUNCA es el deshabilitado. El
+         único gesto real que existe hoy en escritorio es ver el producto, así
+         que ese es el primario; la descarga queda al lado, presente y honesta
+         con su "coming soon". En móvil el primario es llevarse el enlace. -->
+    <div class="cta-row">
+      <button type="button" class="btn btn-primary only-mobile" data-send-to-mac>
+        <span data-label>Envíatelo a tu Mac</span>
+      </button>
+      <button type="button" class="btn btn-soon" disabled data-track="download_intent" data-track-detail="hero">
+        Descargar para macOS <span class="chip">Próximamente</span>
+      </button>
+    </div>
+
+    <!-- El instrumento interactivo vive ahora en su propia sección más abajo
+         (data-rail "Touch it"): el hero, como en Apple, enseña la app real. -->
+
+    <!-- La app de verdad, capturada de la app de verdad: el editor con el
+         demo "Amanecer", la curva dibujada a mano sobre el waveform y el
+         Mood Bar con su paleta. Sin maquetas inventadas. -->
+    <figure class="mac" aria-label="El editor de PreFrame: una onda cortada en secciones, una curva emocional dibujada a mano encima y el mood board con una paleta.">
+      <div class="mac-screen">
+        <img src="/assets/shots/editor-full.webp" width="2000" height="1250"
+             alt="El editor de PreFrame con el proyecto de demostración Amanecer: secciones narrativas de color sobre la onda, una curva emocional dibujada encima, la escaleta debajo y el lienzo del Mood Bar a la derecha."
+             fetchpriority="high" decoding="async">
+      </div>
+      <div class="mac-base" aria-hidden="true"></div>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ═══ 2 · STATEMENT ══════════════════════════════════════════════════
+     El posicionamiento entero, con las palabras de Alberto. La primera frase
+     va a tamaño de sala; el resto, legible. -->
+<section class="canvas-light band statement" data-rail="La historia">
+  <div class="wrap">
+    <p class="statement-kicker">Qué es PreFrame</p>
+    <h2 class="statement-big">
+      PreFrame te ayuda a planificar la próxima historia que quieres contar, tanto si ya <em>conoces la canción</em> como si <em>todavía no</em>.
+    </h2>
+    <div class="statement-rest">
+      <p>Si tienes el tema, suéltalo dentro y siéntelo: un modo concentrado aparta todo lo demás para que escuches, intuyas dónde vive cada plano y marques los cortes por el camino. Si todavía no lo tienes, dibuja la forma de la pieza tal como la imaginas y construye la historia sobre eso.</p>
+      <p>En los dos casos, pasa al modo estructurado para convertir lo que sentiste —o imaginaste— en un plan de verdad: sección a sección, plano a plano. Un mood board te acompaña todo el rato, así que el look de la pieza no se pierde por el camino. Y cuando por fin llega el tema definitivo, tu plan tampoco.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 2 · MOOD BAR ═══════════════════════════════════════════════════
+     Segunda sección, en blanco: el canvas enseñando su potencial. Es un
+     MOCKUP fiel de los objetos reales del canvas (mismas tarjetas que en la
+     app), montado aquí para poder enseñar una paleta ajena al naranja de
+     marca, referencias generadas sin copyright y un vídeo de referencia.
+     Los rótulos van en español porque replican la app real, igual que las
+     capturas. -->
+<section class="canvas-soft band" data-rail="Mood board">
+  <div class="wrap" style="text-align:center">
+    <span class="eyebrow eyebrow-l">El Mood Bar</span>
+    <h2 class="title-grad" style="max-width:22ch;margin-inline:auto">Mitad timeline, mitad mood board.<br>Un solo proyecto.</h2>
+    <p class="lede mute-l" style="margin:var(--space-6) auto 0">
+      Referencias, vídeo, notas, paletas —incluso la propia curva— en un lienzo que vive al lado de tu timeline y filtra por sección.
+    </p>
+
+    <div class="canvasmock" role="img" aria-label="El lienzo del Mood Bar con dos fotogramas de referencia, un vídeo de referencia de YouTube, una nota escrita a mano, una paleta de color y la tarjeta de la curva emocional, con la barra de herramientas del lienzo debajo.">
+      <div class="cm-chips" aria-hidden="true"><span class="is-active">All</span><span>Opening</span><span>Build</span><span>Peak</span><span>Turn</span><span>Release</span>
+      </div>
+      <div class="cm-board" aria-hidden="true">
+
+        <figure class="cm-card cm-img" style="left:3%;top:6%;width:30%">
+          <img src="/assets/shots/photo-dusk.webp" width="880" height="550" loading="lazy" decoding="async" alt="">
+          <figcaption>canyon_dusk_ref.jpg</figcaption>
+        </figure>
+
+        <div class="cm-card cm-yt" style="left:36.5%;top:2.5%;width:27%">
+          <div class="cm-yt-thumb">
+            <img src="/assets/shots/photo-yt.webp" width="880" height="495" loading="lazy" decoding="async" alt="">
+            <span class="cm-play"></span>
+            <span class="cm-dur">8:24</span>
+          </div>
+          <p class="cm-yt-title">How I shot cinematic b-roll at golden hour</p>
+          <span class="cm-cap">YouTube · reference</span>
+        </div>
+
+        <div class="cm-card cm-note" style="right:3.5%;top:8%;width:26%">
+          “Shoot the chorus handheld — let it breathe with the crowd.”
+        </div>
+
+        <figure class="cm-card cm-img" style="left:8%;bottom:14%;width:26%">
+          <img src="/assets/shots/photo-night.webp" width="880" height="550" loading="lazy" decoding="async" alt="">
+          <figcaption>city_night_02.jpg</figcaption>
+        </figure>
+
+        <div class="cm-card cm-shot" style="left:37%;bottom:11%;width:24%">
+          <div class="cm-shot-thumb"><img src="/assets/shots/photo-crowd.webp" width="880" height="550" loading="lazy" decoding="async" alt=""><span class="cm-dur">18s</span></div>
+          <p class="cm-shot-name">Chorus, in the crowd</p>
+          <span class="cm-cap">Medium shot · 24mm</span>
+          <span class="cm-gear">Sony a6700</span>
+        </div><div class="cm-card cm-palette" style="right:4.5%;top:41%;width:27%">
+          <div class="cm-swatches">
+            <i style="background:#16323E"></i><i style="background:#2C6E49"></i><i style="background:#8C2F39"></i><i style="background:#D9C5A0"></i>
+          </div>
+          <div class="cm-hexes"><span>#16323E</span><span>#2C6E49</span><span>#8C2F39</span><span>#D9C5A0</span></div>
+        </div>
+
+        <div class="cm-card cm-curve" style="right:6%;bottom:9%;width:26%">
+          <span class="cm-curve-label">Emotional curve</span>
+          <svg viewBox="0 0 240 80" preserveAspectRatio="none" focusable="false">
+            <defs>
+              <linearGradient id="cmCurve" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#E0603A"/><stop offset="100%" stop-color="#5D7FA8"/>
+              </linearGradient>
+            </defs>
+            <path d="M 0.00 60.48 C 14.40 60.48, 14.40 52.80, 28.80 52.80 C 45.60 52.80, 45.60 42.56, 62.40 42.56 C 79.20 42.56, 79.20 47.68, 96.00 47.68 C 110.40 47.68, 110.40 25.92, 124.80 25.92 C 138.00 25.92, 138.00 15.68, 151.20 15.68 C 164.40 15.68, 164.40 36.80, 177.60 36.80 C 190.80 36.80, 190.80 20.80, 204.00 20.80 C 222.00 20.80, 222.00 57.92, 240.00 57.92" fill="none" stroke="url(#cmCurve)" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div class="cm-toolbar"><span>Image</span><span>Text</span><span>Video</span><span>Palette</span>
+          <b>+ Add shot</b>
+        </div>
+        <span class="cm-zoom">100%</span>
+      </div>
+    </div>
+
+    <ul class="canvas-caps canvas-caps-light" aria-label="Lo que cabe en el lienzo">
+      <li>Imágenes de referencia</li>
+      <li>Vídeo y YouTube</li>
+      <li>Notas escritas</li>
+      <li>Paletas con su hex</li>
+      <li>La curva emocional</li>
+      <li>Filtro por sección</li>
+      <li>El tema, siempre a mano</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══ 3 · FEATURES CON LA APP REAL ═══════════════════════════════════
+     Filas alternas al modo Apple: titular corto, una frase de beneficio y la
+     captura REAL de la app en un marco de ventana. Sustituyen a los pilares
+     dibujados — ahora los dos sustratos se enseñan de verdad. -->
+<section class="canvas-light band" data-rail="Qué hace">
+  <div class="wrap">
+
+    <div class="feature">
+      <div class="feature-copy">
+        <span class="eyebrow eyebrow-l">Dos sustratos, un timeline</span>
+        <h2>Dibuja lo que sientes.<br>Justo encima del tema.</h2>
+        <p class="mute-l">Cuando sientes primero la música, la canción es tu lienzo. Cuando el tema todavía no ha llegado, dibujas la curva emocional a mano — y cuando llegue, pones una encima de la otra. El conmutador lo dice todo: <em class="feature-em">Music · Curve · Both</em>.</p>
+      </div>
+      <figure class="shotframe">
+        <img src="/assets/shots/substrates.webp" width="942" height="374" loading="lazy" decoding="async"
+             alt="El timeline de PreFrame con el conmutador de sustrato: una curva emocional dibujada a mano, coloreada de azul a naranja según la intensidad, trazada directamente sobre la onda y sus secciones narrativas.">
+      </figure>
+    </div>
+
+    <div class="feature feature-flip">
+      <div class="feature-copy">
+        <span class="eyebrow eyebrow-l">Exportación</span>
+        <h2>Sal con el corte ya trazado.</h2>
+        <p class="mute-l">Un diálogo, dos entregables: un plan de rodaje imprimible con tus planos, sus timecodes y el tiempo sin cubrir — y tus secciones como marcadores de timeline para Premiere o DaVinci Resolve, a 24, 25 o 30 fps.</p>
+      </div>
+      <figure class="shotframe shotframe-tall">
+        <img src="/assets/shots/export.webp" width="667" height="1044" loading="lazy" decoding="async"
+             alt="El diálogo de exportación de PreFrame: un plan de rodaje imprimible y los marcadores de sección para Premiere o DaVinci Resolve, con los fps seleccionables.">
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ 3c · FOCUS & FICHA — a lo grande ═══════════════════════════════
+     La captura manda: imagen a todo el ancho con el texto sobre un degradado
+     lateral, para que en un portátil se VEA la interfaz y no un sello. -->
+<!-- Zoom al scroll, al modo de las páginas de producto de Apple: la captura
+     nace con márgenes y esquinas redondeadas y, según bajas, crece con
+     suavidad hasta ocupar la pantalla entera; el texto aparece centrado
+     sobre un bloque negro translúcido. Conducido por scroll (motion.js),
+     nunca secuestrado: la rueda mueve la página a su ritmo. -->
+<section class="zoom-feature" data-rail="Focus &amp; Ficha" data-zoom>
+  <div class="zf-sticky">
+    <figure class="zf-media">
+      <img src="/assets/shots/ficha.webp" width="2000" height="1250" loading="lazy" decoding="async"
+           alt="PreFrame en modo Ficha: una vista clara del mismo proyecto en forma de ficha técnica, con la curva emocional sobre la onda, las tarjetas de sección numeradas y el panel de mood con la paleta y las imágenes de referencia.">
+    </figure>
+    <div class="zf-copy">
+      <span class="eyebrow eyebrow-d">Focus &amp; Ficha</span>
+      <h2>Un proyecto.<br>Dos maneras de mirarlo.</h2>
+      <p><strong>Focus</strong> es la sala a oscuras: tú, el tema y el timeline. <strong>Ficha</strong> convierte el mismo proyecto en una ficha técnica luminosa — secciones numeradas, notas a la vista y todos los planos desplegados para repasarlos antes del rodaje.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ 3b · DOS CAMINOS ═══════════════════════════════════════════════
+     Esta sección ya no vende interactividad: vende que se puede planificar
+     CON la canción (el .mp3 cortado en secciones sobre su waveform) o SIN
+     ella (la curva emocional como sustrato y los cortes encima). Dos
+     ventanas gemelas al modo Apple: la misma tira de secciones
+     abajo, distinto sustrato arriba. Los cortes caen en los mismos puntos
+     en ambas — esa rima visual es el argumento. En la ventana de la curva,
+     un puntero coreografiado (curve-demo.js) enseña el gesto de agarrar un
+     keyframe y moverlo; no es interactivo, solo muestra. -->
+<section class="canvas-light band" data-rail="Dos caminos">
+  <div class="wrap" style="text-align:center">
+    <span class="eyebrow eyebrow-l">Con canción o sin ella</span>
+    <h2 class="title-grad" style="max-width:18ch;margin-inline:auto">Empieza con la canción.<br>O antes de que exista.</h2>
+    <p class="lede mute-l" style="margin:var(--space-5) auto 0">
+      Hay proyectos que empiezan con el .mp3 en la mano. Otros empiezan como una sensación, mucho antes de que llegue la música. PreFrame planifica los dos.
+    </p>
+
+    <div class="duo">
+      <article class="duo-card">
+        <div class="duo-window" role="img" aria-label="La onda de una canción cortada en cinco secciones narrativas — Opening, Build, Peak, Turn, Release — con las líneas de corte cayendo sobre la música.">
+          <div class="stage-bar">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="stage-file">midnight_run_master_v3.mp3</span>
+          </div>
+          <div class="duo-visual">
+            <svg viewBox="0 0 1000 150" preserveAspectRatio="none" focusable="false" aria-hidden="true">
+              <path class="duo-wave" d="M5 66.3V89.7M12 68.0V88.0M19 67.0V89.0M26 67.4V88.6M33 65.3V90.7M40 67.3V88.7M47 64.4V91.6M54 67.2V88.8M61 69.5V86.5M68 65.0V91.0M75 63.9V92.1M82 67.2V88.8M89 66.9V89.1M96 62.3V93.7M103 66.1V89.9M110 67.3V88.7M117 66.8V89.2M124 63.1V92.9M131 62.1V93.9M138 65.8V90.2M145 66.0V90.0M152 63.6V92.4M159 66.1V89.9M166 64.4V91.6M173 65.8V90.2M180 62.2V93.8M187 63.2V92.8M194 65.3V90.7M201 56.2V99.8M208 62.7V93.3M215 63.8V92.2M222 55.9V100.1M229 57.4V98.6M236 56.5V99.5M243 52.5V103.5M250 58.9V97.1M257 51.4V104.6M264 54.3V101.7M271 52.3V103.7M278 57.1V98.9M285 56.4V99.6M292 47.6V108.4M299 49.6V106.4M306 53.5V102.5M313 42.6V113.4M320 44.6V111.4M327 52.3V103.7M334 55.2V100.8M341 51.1V104.9M348 54.9V101.1M355 45.2V110.8M362 50.3V105.7M369 42.2V113.8M376 50.4V105.6M383 44.2V111.8M390 33.4V122.6M397 34.8V121.2M404 42.4V113.6M411 31.9V124.1M418 47.9V108.1M425 43.9V112.1M432 35.1V120.9M439 26.9V129.1M446 26.8V129.2M453 34.3V121.7M460 25.6V130.4M467 41.9V114.1M474 34.3V121.7M481 41.7V114.3M488 34.1V121.9M495 41.8V114.2M502 42.4V113.6M509 26.5V129.5M516 33.6V122.4M523 42.1V113.9M530 43.7V112.3M537 25.6V130.4M544 40.2V115.8M551 31.2V124.8M558 45.2V110.8M565 39.4V116.6M572 33.9V122.1M579 41.8V114.2M586 28.9V127.1M593 32.0V124.0M600 34.0V122.0M607 27.5V128.5M614 47.6V108.4M621 40.8V115.2M628 52.4V103.6M635 48.5V107.5M642 56.3V99.7M649 42.2V113.8M656 47.6V108.4M663 53.7V102.3M670 48.7V107.3M677 53.6V102.4M684 48.3V107.7M691 49.8V106.2M698 55.8V100.2M705 54.7V101.3M712 45.8V110.2M719 54.3V101.7M726 58.8V97.2M733 44.7V111.3M740 52.2V103.8M747 46.8V109.2M754 48.3V107.7M761 53.2V102.8M768 49.8V106.2M775 58.1V97.9M782 57.5V98.5M789 57.0V99.0M796 47.6V108.4M803 47.4V108.6M810 58.8V97.2M817 60.2V95.8M824 54.4V101.6M831 55.3V100.7M838 51.0V105.0M845 59.1V96.9M852 56.1V99.9M859 55.4V100.6M866 61.2V94.8M873 63.5V92.5M880 64.8V91.2M887 63.6V92.4M894 60.9V95.1M901 59.5V96.5M908 65.4V90.6M915 62.4V93.6M922 64.5V91.5M929 65.1V90.9M936 64.4V91.6M943 66.9V89.1M950 70.6V85.4M957 71.0V85.0M964 68.0V88.0M971 68.9V87.1M978 69.3V86.7M985 70.1V85.9M992 73.5V82.5"/>
+              <path class="duo-cut" d="M163.6 6V144M418.2 6V144M618.2 6V144M854.5 6V144"/>
+            </svg>
+          </div>
+          <div class="sections" aria-hidden="true">
+            <div class="sec" style="border-color:var(--section-1);flex:.9"><span>Opening</span></div>
+            <div class="sec" style="border-color:var(--section-2);flex:1.4"><span>Build</span></div>
+            <div class="sec" style="border-color:var(--section-3);flex:1.1"><span>Peak</span></div>
+            <div class="sec" style="border-color:var(--section-4);flex:1.3"><span>Turn</span></div>
+            <div class="sec" style="border-color:var(--section-5);flex:.8"><span>Release</span></div>
+          </div>
+        </div>
+        <h3>La canción llegó primero</h3>
+        <p class="mute-l">Mete el tema y córtalo en secciones narrativas, sobre su propia onda. Cada plano se apoya en segundos reales: el estribillo está exactamente donde está el estribillo.</p>
+      </article>
+
+      <article class="duo-card">
+        <div class="duo-window" role="img" data-curve-demo aria-label="Una curva emocional dibujada a mano con keyframes, cortada en las mismas cinco secciones — sin audio por ninguna parte. Un puntero agarra un keyframe y toda la curva le sigue.">
+          <div class="stage-bar">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="stage-file">no track yet · 3:41</span>
+          </div>
+          <div class="duo-visual">
+            <svg viewBox="0 0 1000 150" preserveAspectRatio="none" focusable="false" aria-hidden="true">
+              <defs>
+                <!-- Temperatura de intensidad de la app: cálido arriba
+                     (clímax), frío abajo. Los hex son reserva; el CSS los
+                     reescribe con los tokens --curve-*. -->
+                <linearGradient id="curveStroke" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="#E0603A"/>
+                  <stop offset="35%"  stop-color="#E8964E"/>
+                  <stop offset="65%"  stop-color="#A8845C"/>
+                  <stop offset="100%" stop-color="#5D7FA8"/>
+                </linearGradient>
+                <linearGradient id="curveFade" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="#E8814A" stop-opacity=".26"/>
+                  <stop offset="100%" stop-color="#E8814A" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path class="curve-fill" d="M0.0 110.3C27.3 106.9 113.6 98.9 163.6 90.1C213.6 81.3 257.6 68.3 300.0 57.4C342.4 46.4 379.9 26.7 418.2 24.6C456.5 22.5 496.7 42.7 530.0 44.8C563.3 46.9 581.5 32.6 618.2 37.2C654.9 41.8 710.6 62.8 750.0 72.5C789.4 82.1 812.8 86.8 854.5 95.2C896.2 103.6 975.8 118.3 1000.0 122.9L1000 150L0 150Z"/>
+              <path class="duo-cut" d="M163.6 6V144M418.2 6V144M618.2 6V144M854.5 6V144"/>
+              <path class="curve-path" d="M0.0 110.3C27.3 106.9 113.6 98.9 163.6 90.1C213.6 81.3 257.6 68.3 300.0 57.4C342.4 46.4 379.9 26.7 418.2 24.6C456.5 22.5 496.7 42.7 530.0 44.8C563.3 46.9 581.5 32.6 618.2 37.2C654.9 41.8 710.6 62.8 750.0 72.5C789.4 82.1 812.8 86.8 854.5 95.2C896.2 103.6 975.8 118.3 1000.0 122.9"/>
+              <circle class="duo-kf" cx="0.0" cy="110.3" r="6"/><circle class="duo-kf" cx="163.6" cy="90.1" r="6"/><circle class="duo-kf" cx="300.0" cy="57.4" r="6"/><circle class="duo-kf" cx="418.2" cy="24.6" r="6"/><circle class="duo-kf" cx="530.0" cy="44.8" r="6"/><circle class="duo-kf" cx="618.2" cy="37.2" r="6"/><circle class="duo-kf" cx="750.0" cy="72.5" r="6"/><circle class="duo-kf" cx="854.5" cy="95.2" r="6"/><circle class="duo-kf" cx="1000.0" cy="122.9" r="6"/>
+            </svg>
+          </div>
+          <div class="sections" aria-hidden="true">
+            <div class="sec" style="border-color:var(--section-1);flex:.9"><span>Opening</span></div>
+            <div class="sec" style="border-color:var(--section-2);flex:1.4"><span>Build</span></div>
+            <div class="sec" style="border-color:var(--section-3);flex:1.1"><span>Peak</span></div>
+            <div class="sec" style="border-color:var(--section-4);flex:1.3"><span>Turn</span></div>
+            <div class="sec" style="border-color:var(--section-5);flex:.8"><span>Release</span></div>
+          </div>
+        </div>
+        <h3>La canción aún no está</h3>
+        <p class="mute-l">Dibuja la curva emocional que quieres que siga la pieza y corta tus secciones sobre ella. La planificación empieza cuando empieza la idea, no cuando llega la entrega.</p>
+      </article>
+    </div>
+
+    <p class="duo-close mute-l">Y el día que llega la canción, se encuentran: <em class="feature-em">Music&nbsp;·&nbsp;Curve&nbsp;·&nbsp;Both</em>.</p>
+  </div>
+</section>
+
+<!-- ═══ 5b · BIBLIOTECA DE PLANOS Y EQUIPO ═════════════════════════════ -->
+<section class="bg-feature" data-rail="Tu biblioteca">
+  <img class="bg-feature-img" src="/assets/shots/gallery.webp" width="1444" height="1161" loading="lazy" decoding="async"
+       alt="La galería de planos de PreFrame: una rejilla de tarjetas de plano con duraciones y chips de óptica — Window in the dark, She wakes up, Running, The bridge — filtrable por sección narrativa y con buscador.">
+  <div class="fb-copy">
+    <span class="eyebrow eyebrow-d">Planos y equipo</span>
+    <h2>Describe un plano una vez.<br>Rueda con él para siempre.</h2>
+    <p>Cada plano lleva el vocabulario del cine — general, medio, primer plano, cenital — más tu cámara, tu óptica, una miniatura y sus notas. Guárdalo en tu biblioteca y suéltalo en el siguiente proyecto con el equipo ya enganchado.</p>
+  </div>
+</section>
+
+<!-- ═══ 6 · RESTO DE CAPACIDADES ═══════════════════════════════════════
+     Dos tarjetas: hora dorada (visualización de datos con la franja del día
+     recorriéndose) y el mapa de qué vive en tu disco. El moodboard y la
+     biblioteca ya tienen sección propia con captura real; la tarjeta del
+     latido se retiró — esa función no está activa en la app hoy. -->
+<section class="canvas-soft band" data-rail="Todo lo demás">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-l">Todo lo demás que hace</span>
+    <h2 class="title-grad">Las partes de un rodaje que nadie más modela.</h2>
+
+    <div class="bento bento-2">
+      <article class="bento-card">
+        <div class="bento-copy">
+          <h3>Golden hour, plano a plano</h3>
+          <p>La luz de ese sitio, ese día — pegada al propio plano. Sabrás si es posible antes de ir a localizar.</p>
+        </div>
+        <div class="bento-visual mini-sun" aria-hidden="true">
+          <div class="sun-row"><span class="sun-key">Location</span><span class="sun-val">Cabo de Gata, ES</span></div>
+          <!-- La ventana elegida lleva su etiqueta fija; el puntero recorre el
+               día y va nombrando cada luz con los literales reales de la app
+               (windowLightLabel en solar.ts). --><div class="sunbar" data-sunbar>
+            <span class="sunwin" data-sun-win><b class="sunwin-tag" data-sun-winlabel>Golden hour</b></span>
+          </div>
+          <div class="sun-row"><span class="sun-key" data-sun-rowkey>Golden hour</span><span class="sun-val is-brand" data-sun-rowval>18:41 → 19:12</span></div>
+          <!-- El puntero fantasma que agarra la ventana y la pasea por el día. -->
+          <span class="sun-cursor" data-sun-cursor>
+            <svg viewBox="0 0 24 24"><path d="M5 3l14 8-6.5 1.5L9 19z"/></svg>
+          </span>
+        </div>
+      </article>
+
+      <article class="bento-card">
+        <div class="bento-copy">
+          <h3>Nada sale de tu ordenador</h3>
+          <p>Tu tema y tus referencias no se suben a ningún sitio. Abre la app en lo alto de una montaña sin cobertura y sigue trabajando.</p>
+        </div>
+        <div class="bento-visual mini-offline" aria-hidden="true">
+          <div class="off-row"><span class="off-dot is-local"></span>neon_pulse_master.mp3<span class="off-where">en tu disco</span></div>
+          <div class="off-row"><span class="off-dot is-local"></span>ridge_dusk.jpg<span class="off-where">en tu disco</span></div>
+          <div class="off-rule"></div>
+          <div class="off-row is-sync"><span class="off-dot"></span>el plan en sí<span class="off-where">sincronizado con tu cuenta</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 7 · PDF DE RODAJE ══════════════════════════════════════════════
+     El documento REAL: la vista previa del plan de rodaje generada por la
+     app (proyecto demo), con sus planos, timecodes, casillas, notas y la
+     fila de TIEMPO SIN CUBRIR calculada. -->
+<section class="canvas-light band" data-rail="En rodaje">
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow eyebrow-l">En rodaje</span>
+      <h2>Imprímelo. Llévatelo. Ve tachando.</h2>
+      <p class="mute-l" style="margin-top:var(--space-5);max-width:46ch">
+        Un plan de rodaje con todos los planos, su timecode, una casilla que marcar entre tomas y líneas en blanco para escribir. El tiempo sin cubrir se calcula y se imprime: nadie descubre el hueco a las seis de la tarde.
+      </p>
+      <p class="mute-l" style="margin-top:var(--space-4);max-width:46ch">
+        Es el documento tal cual lo genera la app: portada y páginas, directamente del proyecto de demostración.
+      </p>
+    </div>
+    <div>
+      <!-- Dos hojas del PDF real, apiladas: detrás, una página de planos con
+           la fila UNCOVERED TIME; delante, la portada. Sin hover. -->
+      <figure class="paper-stack">
+        <img class="paper-sheet-back" src="/assets/shots/pdf-shots.webp" width="1194" height="1333" loading="lazy" decoding="async"
+             alt="Una página del PDF real del plan de rodaje: tarjetas de plano con timecodes y casillas para marcar, líneas en blanco para notas y una fila resaltada de TIEMPO SIN CUBRIR entre 0:08 y 0:16.">
+        <img class="paper-sheet-front" src="/assets/shots/pdf-cover.webp" width="1194" height="1333" loading="lazy" decoding="async"
+             alt="Portada del PDF real del plan de rodaje: título y duración del proyecto, un recuadro de notas de producción, la onda cortada en secciones y el recuento de planos, secciones, tiempo cubierto y pendiente.">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 8 · FOUNDER ════════════════════════════════════════════════════
+     Sin testimonios: no hay clientes todavía. El sub-bloque de citas NO se
+     renderiza y no se activa hasta que existan citas reales con permiso
+     escrito (FTC Endorsement Guides / publicidad engañosa).
+     ════════════════════════════════════════════════════════════════════ -->
+<section class="canvas-dark band" data-rail="Quién lo hace">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-d">Quién lo hace</span>
+    <!-- Título + bio + firma. Sin cita inventada: la historia real (programador
+         de oficio, filmmaker de ocio) es la sección entera. La foto es un
+         recorte vertical con alfa que mira hacia arriba-derecha, así que va a
+         la IZQUIERDA del texto para que la mirada apunte al copy. En el título,
+         PreFrame va como wordmark de marca (data-brand), igual que en el hero. -->
+    <div class="founder-layout">
+      <figure class="founder-photo">
+        <img src="/assets/shots/founder.webp" width="640" height="865" loading="lazy" decoding="async"
+             alt="Alberto, el creador de PreFrame, mirando hacia arriba">
+      </figure>
+      <div class="founder-copy">
+        <h2>Detrás de <span data-brand="name">PreFrame</span></h2>
+        <p class="founder-bio">Soy Alberto: programador de oficio y ocio —camino de una década haciendo software— y filmmaker por pura afición: ruedo los vídeos de mis viajes :). PreFrame nace de darme cuenta de que los filmmakers no tenemos un lugar dedicado donde dar luz a nuestras ideas: la inspiración vive en notas sueltas, el equipo en listas, los tiempos en hojas de cálculo. PreFrame es ese lugar, y crece escuchando las necesidades de todos los filmmakers, del aficionado al profesional.</p>
+        <p class="founder-sign">Alberto — programador y filmmaker aficionado, haciendo PreFrame</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 9 · PRECIO ═════════════════════════════════════════════════════
+     Dos versiones enteras y un solo interruptor. Con `site.pricesPublic:
+     false` la sección completa (tarjetas, packs, letra pequeña) se guarda
+     y en su lugar sale su anuncio: el modelo en una frase y "los precios
+     llegan con el lanzamiento". Nada de tarjetas sin cifra — decisión de
+     Alberto, 15-sept-2026: mejor decirlo de frente que enseñar un hueco.
+     Al poner el flag en `true` vuelve la sección original tal cual. -->
+<section class="canvas-light band" id="pricing" data-rail="Precios">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-l">Precios</span>
+    <h2>Los precios llegan con el lanzamiento.</h2>
+    <p class="mute-l" style="margin-top:var(--space-5);max-width:56ch">
+      El modelo ya está decidido: un crédito es un proyecto, sin suscripción, y tu primer proyecto es gratis y completo. Las cifras se publican el día del lanzamiento.
+      <a href="/es/pricing/">Ver la página de precios completa →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ═══ 10 · CIERRE ════════════════════════════════════════════════════
+     El eco de la marca: el eslogan de la página de espera reaparece aquí,
+     así el visitante que vio la holding page reconoce la casa. -->
+<section class="canvas-dark band closer" id="download" data-rail="Descargar">
+  <div class="wrap">
+    <div class="rule" style="margin-bottom:var(--space-9)" data-rule aria-hidden="true"></div>
+    <h2>Piensa en ritmo.<br>Piensa en <em class="closer-em">emoción</em>.<br>Y luego rueda.</h2>
+    <div class="cta-row cta-row-center">
+      <button type="button" class="btn btn-soon not-mobile" disabled data-track="download_intent" data-track-detail="closer">
+        Descargar para macOS <span class="chip">Próximamente</span>
+      </button>
+      <button type="button" class="btn btn-primary only-mobile" data-send-to-mac>
+        <span data-label>Envíatelo a tu Mac</span>
+      </button>
+      <a href="/es/download/" class="btn btn-ghost-d">Estado del lanzamiento</a>
+    </div>
+    <p class="req meta">La build firmada de macOS está en notarización. Windows todavía no tiene fecha.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="canvas-dark site-footer">
+  <div class="wrap foot">
+    <div>
+      <a class="logo" href="/es/" style="margin-bottom:var(--space-3)">
+        <img class="logo-mark" src="/assets/mark.svg" alt="" aria-hidden="true" width="28" height="28">
+        <span data-brand="name">PreFrame</span>
+      </a>
+      <p class="meta mute-d">Preproducción para quien rueda siguiendo un ritmo.</p>
+      <p class="meta mute-d">© <span data-year>2026</span> <span data-brand="name">PreFrame</span></p>
+    </div>
+    <div class="foot-links">
+      <a href="/es/download/">Descargar</a>
+      <a href="/es/pricing/">Precios</a>
+      <a href="/es/support/">Soporte</a>
+      <a href="/es/releases/">Notas de versión</a>
+      <a href="/es/legal/terms/">Términos</a>
+      <a href="/es/legal/privacy/">Privacidad</a>
+      <a href="/es/legal/aviso-legal/">Aviso legal</a>
+      <a class="lang-switch" href="/" hreflang="en" lang="en" aria-label="View this page in English">EN</a>
+    </div>
+  </div>
+  <!-- Wordmark de sala de cine: enorme, recortado por abajo, casi fundido con
+       el fondo. Cierra la página con la marca sin gastar una sección más. -->
+  <div class="foot-wordmark" aria-hidden="true" data-brand="name">PreFrame</div>
+</footer>
+
+<script src="/assets/brand.js"></script>
+<script src="/assets/timeline-data.js"></script>
+<script src="/assets/curve.js"></script>
+<script src="/assets/site.js" defer></script>
+<script src="/assets/motion.js" defer></script>
+<script src="/assets/decor.js" defer></script>
+<script src="/assets/showcase.js" defer></script>
+<script src="/assets/curve-demo.js" defer></script>
+</body>
+</html>

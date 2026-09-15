@@ -1,12 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Solo la portada. Las legales y las páginas de compra llevan `noindex`, así
-     que anunciarlas aquí sería mandar señales contradictorias.
-     `lastmod` se actualiza a mano cuando cambia el contenido de verdad. -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!-- GENERADO por Eleventy desde src/sitemap.njk. No editar a mano.
+     Solo las páginas indexables, en los dos idiomas, con los hreflang
+     cruzados. /buy/* y las legales van con `noindex`, así que no aparecen —
+     igual que antes. Las fechas viven en src/_data/pages.js. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.preframe-app.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.preframe-app.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.preframe-app.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.preframe-app.com/"/>
     <lastmod>2026-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.preframe-app.com/es/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.preframe-app.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.preframe-app.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.preframe-app.com/"/>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.preframe-app.com/download/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.preframe-app.com/download/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.preframe-app.com/es/download/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.preframe-app.com/download/"/>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.preframe-app.com/es/download/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.preframe-app.com/download/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.preframe-app.com/es/download/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.preframe-app.com/download/"/>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.preframe-app.com/pricing/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.preframe-app.com/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.preframe-app.com/es/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.preframe-app.com/pricing/"/>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.preframe-app.com/es/pricing/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.preframe-app.com/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.preframe-app.com/es/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.preframe-app.com/pricing/"/>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.preframe-app.com/support/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.preframe-app.com/support/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.preframe-app.com/es/support/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.preframe-app.com/support/"/>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.preframe-app.com/es/support/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.preframe-app.com/support/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.preframe-app.com/es/support/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.preframe-app.com/support/"/>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.preframe-app.com/releases/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.preframe-app.com/releases/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.preframe-app.com/es/releases/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.preframe-app.com/releases/"/>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.preframe-app.com/es/releases/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.preframe-app.com/releases/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.preframe-app.com/es/releases/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.preframe-app.com/releases/"/>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

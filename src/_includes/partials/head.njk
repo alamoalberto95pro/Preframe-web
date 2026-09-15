@@ -1,0 +1,142 @@
+{#- El <head> de las cinco páginas. Copia literal del que estaba escrito a
+    mano, más lo que exige tener dos idiomas: hreflang cruzado y og:locale.
+
+    La landing lleva head largo (robots, color-scheme, tarjeta social
+    completa, JSON-LD) y las demás el corto: eso es lo que decide `isHome`,
+    no un capricho de plantilla. -#}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+{%- if isHome %}
+  <!-- Título con la categoría por delante: el eslogan no lo busca nadie. El
+       gancho se queda en og:title, que es donde vende (al compartir). -->
+  <!-- POSICIONAMIENTO (decisión de Alberto, 08-2026): esto NO se vende como
+       app de videoclips. Es para filmmakers que sienten la música primero —
+       y para los que planifican antes de tener el tema (curva emocional).
+       Los videoclips caben, pero no definen. No volver a "music video
+       directors" como categoría. -->
+{%- endif %}
+  <title>{{ C.meta.title | safe }}</title>
+  <meta name="description" content="{{ metaDescription | safe }}">
+{%- if isHome %}
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+{%- endif %}
+{%- if noindex %}
+  {#- Páginas no listadas (/beta/): fuera de los buscadores además de fuera
+      del sitemap. Se activa con `noindex: true` en el front matter. -#}
+  <meta name="robots" content="noindex">
+{%- endif %}
+  <meta name="theme-color" content="#080808">
+{%- if isHome %}
+  <meta name="color-scheme" content="dark">
+{%- endif %}
+  <link rel="canonical" href="{{ canonical }}">
+
+  <!-- Rutas por idioma: el inglés se queda en la raíz y el español vive bajo
+       /es/. x-default apunta al inglés. -->
+  <link rel="alternate" hreflang="en" href="{{ urlEn }}">
+  <link rel="alternate" hreflang="es" href="{{ urlEs }}">
+  <link rel="alternate" hreflang="x-default" href="{{ urlEn }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PreFrame">
+  <meta property="og:locale" content="{{ site.languages[lang].ogLocale }}">
+  <meta property="og:locale:alternate" content="{{ site.languages[other].ogLocale }}">
+  <meta property="og:url" content="{{ canonical }}">
+  <meta property="og:title" content="{{ C.meta.ogTitle | safe }}">
+  <meta property="og:description" content="{{ C.meta.ogDescription | safe }}">
+{#- La tarjeta social con imagen: la home y /beta. La beta se comparte por
+    mensaje privado, así que el preview del enlace importa tanto como en la
+    portada (`ogImage: true` en su front matter). -#}
+{%- if isHome or ogImage %}
+  <meta property="og:image" content="{{ site.url }}/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ C.meta.ogImageAlt | safe }}">
+{%- endif %}
+  <meta name="twitter:card" content="summary_large_image">
+{#- Las líneas en blanco que separan grupos de <link> solo existen en la
+    landing: el `{% endif %}` en su propia línea es lo que las produce, y en
+    las demás páginas no sale ninguna. -#}
+{%- if isHome %}
+  <meta name="twitter:title" content="{{ C.meta.ogTitle | safe }}">
+  <meta name="twitter:description" content="{{ C.meta.ogDescription | safe }}">
+  <meta name="twitter:image" content="{{ site.url }}/assets/og-image.png">
+{% endif %}
+  {#- El `.ico` PRIMERO y con `sizes`, el SVG después sin `sizes`: quien
+      entiende SVG se queda con el vectorial y el resto cae al `.ico`, que no
+      lo discute nadie. Safari descartaba el SVG y pintaba la inicial del
+      dominio en la pestaña; con el `.ico` delante eso no puede pasar.
+      Los tamaños pequeños van sin rim: a 16px el trazo de 0.8 unidades mide
+      menos de un píxel y solo ensucia el contorno. -#}
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+{%- if isHome %}
+{% endif %}
+  <link rel="preload" href="/assets/fonts/satoshi-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/theme.css">
+  <link rel="stylesheet" href="/assets/site.css">
+{%- if isHome %}
+
+  <!-- Datos estructurados. `offers` es legítimo aquí porque el precio se
+       muestra en la propia página; sin valoraciones ni fecha de lanzamiento,
+       que no existen. Por eso mismo desaparece con `site.pricesPublic:
+       false`: marcar un precio que no está en la página es exactamente el
+       marcado que Google penaliza. -->
+  {#- Las entidades (@id y url) son las MISMAS en los dos idiomas a
+      propósito: un sitio, una organización, una app. Lo único que cambia por
+      idioma es `inLanguage` y las descripciones, que salen del
+      diccionario. -#}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "{{ site.url }}/#website",
+        "url": "{{ site.url }}/",
+        "name": "PreFrame",
+        "description": "{{ C.jsonld.websiteDescription | safe }}",
+        "inLanguage": "{{ lang }}",
+        "publisher": { "@id": "{{ site.url }}/#org" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "{{ site.url }}/#org",
+        "name": "PreFrame",
+        "url": "{{ site.url }}/",
+        "logo": "{{ site.url }}/assets/icon-512.png"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "{{ site.url }}/#app",
+        "name": "PreFrame",
+        "url": "{{ site.url }}/",
+        "applicationCategory": "MultimediaApplication",
+        "applicationSubCategory": "Film pre-production",
+        "operatingSystem": "macOS 12+",
+        "inLanguage": "{{ lang }}",
+        "image": "{{ site.url }}/assets/og-image.png",
+        "description": "{{ C.jsonld.appDescription | safe }}",
+        "publisher": { "@id": "{{ site.url }}/#org" }{% if site.pricesPublic %},
+        "offers": {
+          "@type": "Offer",
+          "price": "9.99",
+          "priceCurrency": "EUR",
+          "description": "{{ C.jsonld.offerDescription | safe }}",
+          "url": "{{ site.url }}/pricing/"
+        }{% endif %}
+      }
+    ]
+  }
+  </script>
+{%- endif %}
+  <!-- Cloudflare Web Analytics -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7370d962d8c64e75826a3a96ad82feb5"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+</head>

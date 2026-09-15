@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "title": "Release notes — PreFrame",
+    "description": "Every PreFrame release, what changed in it and when. Nothing has shipped yet — the first entry lands with the first signed build.",
+    "ogTitle": "Release notes — PreFrame",
+    "ogDescription": "Every PreFrame release, what changed in it and when."
+  },
+
+  "head": {
+    "eyebrow": "Release notes",
+    "title": "Everything that changes, written down.",
+    "lede": "PreFrame updates itself, and an app that updates itself owes you a plain account of what it just changed. Every version lands here, newest first, in language a person can read."
+  },
+
+  "placeholderBefore": "No public release yet. The first entry appears here the day the first signed build ships —",
+  "placeholderLink": "status",
+  "placeholderAfter": "."
+}

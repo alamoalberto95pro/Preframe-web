@@ -1,0 +1,61 @@
+{#- ─────────────────────────────────────────────────────────────────────
+    Layout de los documentos legales (Términos, Privacidad, Aviso legal),
+    bilingües desde el 01-sep-2026. Réplica del shell que tenían los HTML
+    a mano: sin nav, `noindex`, main.doc-page y pie de documento.
+
+    El contenido NO sale de los diccionarios i18n: la prosa legal difiere
+    entera por idioma, así que cada stub (src/en/legal/*, src/es/legal/*)
+    lleva su texto completo. Cambiar una cláusula = tocar los dos stubs.
+
+    `docTitle` viene del front matter de cada stub.
+    ───────────────────────────────────────────────────────────────────── -#}
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ docTitle }}</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#080808">
+  <link rel="canonical" href="{{ canonical }}">
+  <link rel="alternate" hreflang="en" href="{{ urlEn }}">
+  <link rel="alternate" hreflang="es" href="{{ urlEs }}">
+  <link rel="alternate" hreflang="x-default" href="{{ urlEn }}">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/theme.css">
+  <link rel="stylesheet" href="/assets/site.css">
+  <!-- Cloudflare Web Analytics -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7370d962d8c64e75826a3a96ad82feb5"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+</head>
+<body class="canvas-dark">
+  <main class="doc-page">
+    <a class="logo" href="{{ langBase }}/">
+      <img class="logo-mark" src="/assets/mark.svg" alt="" aria-hidden="true" width="28" height="28">
+      <span data-brand="name">PreFrame</span>
+    </a>
+
+{{ content | safe }}
+
+    <div class="doc-foot">
+      <span>PreFrame · <a href="{{ langBase }}/">preframe-app.com</a></span>
+      {%- if key != 'terms' %}
+      <span><a href="{{ langBase }}/legal/terms/">{{ S.legalDocs.terms }}</a></span>
+      {%- endif %}
+      {%- if key != 'privacy' %}
+      <span><a href="{{ langBase }}/legal/privacy/">{{ S.legalDocs.privacy }}</a></span>
+      {%- endif %}
+      {%- if key != 'aviso' %}
+      <span><a href="{{ langBase }}/legal/aviso-legal/">{{ S.legalDocs.aviso }}</a></span>
+      {%- endif %}
+      <span><a class="lang-switch" href="{{ altUrl }}" hreflang="{{ other }}" lang="{{ other }}">{{ site.languages[other].label }}</a></span>
+    </div>
+  </main>
+
+  <script src="/assets/brand.js"></script>
+  <script src="/assets/site.js" defer></script>
+</body>
+</html>

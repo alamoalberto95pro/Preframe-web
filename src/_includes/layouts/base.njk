@@ -1,0 +1,49 @@
+{#- ─────────────────────────────────────────────────────────────────────
+    Layout de las cinco páginas con navegación, en los dos idiomas.
+
+    Lo que varía por página entra por `key` (front matter del stub) y lo que
+    varía por idioma por `lang` (directory data de src/en y src/es). Todo lo
+    derivado —canonical, hreflang, langBase, altUrl, S, C— lo calcula
+    src/_data/eleventyComputed.js, que sí llega a las plantillas de
+    contenido. El HTML del contenido NO se duplica: cada stub incluye la
+    plantilla compartida de su página.
+    ───────────────────────────────────────────────────────────────────── -#}
+<!doctype html>
+<html lang="{{ lang }}">
+{% include "partials/head.njk" -%}
+{#- `is-home` marca la portada para el JS (motion.js anima los <h2> solo
+    allí). El selector `.hero` ya no vale como detector: /beta/ también
+    tiene hero y no debe heredar el efecto. -#}
+<body{% if isHome %} class="is-home"{% endif %}>
+
+<a class="skip-link" href="#main">{{ S.skipLink | safe }}</a>
+
+{% include "partials/nav.njk" %}
+<main id="main">
+
+{{ content | safe }}
+</main>
+
+{% include "partials/footer.njk" %}
+<script src="/assets/brand.js"></script>
+{%- if isHome %}
+<script src="/assets/timeline-data.js"></script>
+<script src="/assets/curve.js"></script>
+{%- endif %}
+{%- if key == 'beta' %}
+{#- La curva canónica, para que el instrumento de /beta dibuje LA curva. -#}
+<script src="/assets/timeline-data.js"></script>
+{%- endif %}
+<script src="/assets/site.js" defer></script>
+<script src="/assets/motion.js" defer></script>
+{%- if isHome %}
+<script src="/assets/decor.js" defer></script>
+<script src="/assets/showcase.js" defer></script>
+<script src="/assets/curve-demo.js" defer></script>
+{%- endif %}
+{%- if key == 'beta' %}
+{#- El campo que respira, solo donde existe su [data-field]. -#}
+<script src="/assets/beta-field.js" defer></script>
+{%- endif %}
+</body>
+</html>

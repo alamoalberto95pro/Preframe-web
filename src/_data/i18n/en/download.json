@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "title": "Download — PreFrame",
+    "description": "PreFrame for macOS is in signing and notarization. Nothing to download yet — here's exactly where the build stands.",
+    "ogTitle": "Download — PreFrame",
+    "ogDescription": "PreFrame for macOS is in signing and notarization. Nothing to download yet."
+  },
+
+  "head": {
+    "eyebrow": "Download",
+    "title": "Not ready yet — and I'd rather say so.",
+    "lede": "The macOS build exists and works. What it doesn't have yet is Apple's signature and notarization, and shipping an unsigned app that macOS refuses to open is a worse first impression than waiting. This page is where it lands the day it's ready."
+  },
+
+  "mac": {
+    "tagline": "macOS",
+    "title": "In notarization",
+    "body": "Apple Developer enrollment, code signing and notarization. Until that's done there is no download link here — not a beta, not a workaround.",
+    "requirements": "macOS 12+ · Apple Silicon &amp; Intel"
+  },
+
+  "windows": {
+    "tagline": "Windows",
+    "title": "No date",
+    "body": "There's no Windows build and no timeline for one. No waitlist either: a form that collects emails for something with no date is just a form.",
+    "button": "Windows",
+    "req": "Check back, or watch the release notes."
+  },
+
+  "dayOne": {
+    "eyebrow": "What you'll get",
+    "title": "What ships on day one.",
+    "cards": [
+      {
+        "title": "The full app",
+        "body": "Not a trial build. Your first project is free and complete, with its substrate and its exports."
+      },
+      {
+        "title": "Signed and notarized",
+        "body": "It opens the way any Mac app opens: double-click, no right-click workaround, no scary dialog."
+      },
+      {
+        "title": "Auto-update",
+        "body": "New versions arrive in the app. Every one of them is written up in the release notes."
+      },
+      {
+        "title": "Offline by default",
+        "body": "Your audio and images stay on your machine. You can work with no connection at all."
+      }
+    ],
+    "noticeBefore": "Curious what's changing meanwhile?",
+    "noticeReleases": "Release notes",
+    "noticeMid": "·",
+    "noticeQuestions": "Questions?",
+    "noticeSupport": "Support"
+  }
+}

@@ -1,0 +1,87 @@
+{#- /support/ — una plantilla, dos idiomas.
+
+    Los enlaces a /legal/terms/ y /legal/privacy/ van dentro del diccionario
+    porque esas páginas no están traducidas: la URL es la misma desde los dos
+    idiomas y no depende de `langBase`. -#}
+<section class="canvas-dark page-head">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-d">{{ C.head.eyebrow | safe }}</span>
+    <h1>{{ C.head.title | safe }}</h1>
+    <p class="lede">
+      {{ C.head.lede | safe }}
+    </p>
+    <!-- [MANUAL · pendiente] Correo de soporte sobre el dominio propio.
+         Mientras `BRAND.supportEmail` sea null, aquí va este aviso en vez de
+         un mailto inventado. Al tenerlo: rellenar brand.js y sustituir este
+         bloque por el botón de correo. -->
+    <div class="placeholder">
+      {{ C.head.placeholder | safe }}
+    </div>
+  </div>
+</section>
+
+<section class="canvas-light band-tight">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-l">{{ C.installing.eyebrow | safe }}</span>
+    <h2>{{ C.installing.title | safe }}</h2>
+    <div class="faq">
+      <details>
+        <summary>{{ C.installing.q1 | safe }}</summary>
+        <div class="faq-body">
+          <p>{{ C.installing.a1p1 | safe }}</p>
+          <p>{{ C.installing.a1p2Before | safe }} <a href="{{ langBase }}/download/">{{ C.installing.a1p2Link | safe }}</a>{{ C.installing.a1p2After | safe }}</p>
+        </div>
+      </details>
+      <details>
+        <summary>{{ C.installing.q2 | safe }}</summary>
+        <div class="faq-body">
+          <p><span data-brand="download.mac.requirements">{{ C.installing.a2Requirements | safe }}</span>{{ C.installing.a2After | safe }}</p>
+        </div>
+      </details>
+      <details>
+        <summary>{{ C.installing.q3 | safe }}</summary>
+        <div class="faq-body">
+          <p>{{ C.installing.a3 | safe }}</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="canvas-soft band-tight">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-l">{{ C.audio.eyebrow | safe }}</span>
+    <h2>{{ C.audio.title | safe }}</h2>
+    <div class="faq">
+      {%- for item in C.audio.items %}
+      <details>
+        <summary>{{ item.q | safe }}</summary>
+        <div class="faq-body">
+          {%- for para in item.a %}
+          <p>{{ para | safe }}</p>
+          {%- endfor %}
+        </div>
+      </details>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="canvas-light band-tight">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-l">{{ C.data.eyebrow | safe }}</span>
+    <h2>{{ C.data.title | safe }}</h2>
+    <div class="faq">
+      {%- for item in C.data.items %}
+      <details>
+        <summary>{{ item.q | safe }}</summary>
+        <div class="faq-body">
+          {%- for para in item.a %}
+          <p>{{ para | safe }}</p>
+          {%- endfor %}
+        </div>
+      </details>
+      {%- endfor %}
+    </div>
+  </div>
+</section>

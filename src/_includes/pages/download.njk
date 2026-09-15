@@ -1,0 +1,67 @@
+{#- /download/ — una plantilla, dos idiomas. -#}
+<section class="canvas-dark page-head">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-d">{{ C.head.eyebrow | safe }}</span>
+    <h1>{{ C.head.title | safe }}</h1>
+    <p class="lede">
+      {{ C.head.lede | safe }}
+    </p>
+  </div>
+</section>
+
+<section class="canvas-dark band-tight">
+  <div class="wrap">
+    <div class="pillars">
+
+      <div class="pillar" style="background:var(--surface-1);border-color:var(--border-default)">
+        <span class="tagline" style="color:var(--brand-sunset)">{{ C.mac.tagline | safe }}</span>
+        <h3 style="color:var(--text-primary)">{{ C.mac.title | safe }}</h3>
+        <p style="color:var(--text-tertiary)">
+          {{ C.mac.body | safe }}
+        </p>
+        <div class="cta-row">
+          <button type="button" class="btn btn-soon" disabled data-track="download_intent" data-track-detail="download_page_mac">
+            {{ S.buttons.downloadMac | safe }} <span class="chip">{{ S.buttons.comingSoon | safe }}</span>
+          </button>
+        </div>
+        <p class="req meta" style="color:var(--text-tertiary)">
+          <span data-brand="download.mac.requirements">{{ C.mac.requirements | safe }}</span>
+        </p>
+      </div>
+
+      <div class="pillar" style="background:var(--surface-1);border-color:var(--border-default)">
+        <span class="tagline" style="color:var(--brand-sunset)">{{ C.windows.tagline | safe }}</span>
+        <h3 style="color:var(--text-primary)">{{ C.windows.title | safe }}</h3>
+        <p style="color:var(--text-tertiary)">
+          {{ C.windows.body | safe }}
+        </p>
+        <div class="cta-row">
+          <button type="button" class="btn btn-soon" disabled>
+            {{ C.windows.button | safe }} <span class="chip">{{ S.buttons.comingSoon | safe }}</span>
+          </button>
+        </div>
+        <p class="req meta" style="color:var(--text-tertiary)">{{ C.windows.req | safe }}</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="canvas-light band-tight">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-l">{{ C.dayOne.eyebrow | safe }}</span>
+    <h2>{{ C.dayOne.title | safe }}</h2>
+    <div class="grid" style="margin-top:var(--space-7)">
+      {%- for card in C.dayOne.cards %}
+      <div class="card">
+        <h3>{{ card.title | safe }}</h3>
+        <p>{{ card.body | safe }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+    <p class="notice">
+      {{ C.dayOne.noticeBefore | safe }} <a href="{{ langBase }}/releases/">{{ C.dayOne.noticeReleases | safe }}</a> {{ C.dayOne.noticeMid | safe }}
+      {{ C.dayOne.noticeQuestions | safe }} <a href="{{ langBase }}/support/">{{ C.dayOne.noticeSupport | safe }}</a>
+    </p>
+  </div>
+</section>

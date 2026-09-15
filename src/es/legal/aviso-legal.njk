@@ -1,0 +1,57 @@
+---
+key: aviso
+layout: layouts/doc.njk
+permalink: /es/legal/aviso-legal/index.html
+docTitle: Aviso legal — PreFrame
+---
+{#- Aviso legal (art. 10 LSSI), 01-sep-2026. Ver nota en el stub inglés. -#}
+    <h1>Aviso legal</h1>
+    <p class="doc-meta">Última actualización: 2 de septiembre de 2026</p>
+
+
+    <h2>Titular del sitio</h2>
+    <p>
+      En cumplimiento del artículo 10 de la Ley 34/2002, de Servicios de la
+      Sociedad de la Información y de Comercio Electrónico (LSSI), el titular
+      de este sitio web y de la aplicación PreFrame es:
+    </p>
+    <ul>
+      <li><strong>Nombre:</strong> Alberto del Álamo Herrero</li>
+      <li><strong>NIF:</strong> 49022742J</li>
+      <li><strong>Domicilio:</strong> Valdemoro, Madrid</li>
+      <li><strong>Email:</strong> legal@preframe-app.com</li>
+    </ul>
+
+    <h2>Actividad</h2>
+    <p>
+      PreFrame es una aplicación de escritorio para planificar rodajes de
+      vídeo, que se vende a través de este sitio mediante créditos.
+      {#- Mientras `site.pricesPublic` sea `false` no hay ningún importe publicado
+    en la web, así que este párrafo no puede decir que los precios "se
+    muestran". Al ponerlo en `true` vuelve solo a su redacción definitiva:
+    ese día hay que actualizar la fecha del documento. -#}
+      {%- if site.pricesPublic %}
+      Los precios se muestran en la <a href="/es/pricing/">página de precios</a>
+      con los impuestos aplicables incluidos.
+      {%- else %}
+      Los precios, con los impuestos aplicables incluidos, se publicarán en la
+      <a href="/es/pricing/">página de precios</a> en el lanzamiento de la
+      aplicación.
+      {%- endif %}
+      Los pagos los procesa Stripe, que actúa como merchant of record.
+    </p>
+
+    <h2>Condiciones aplicables</h2>
+    <p>
+      El uso de la aplicación se rige por los
+      <a href="/es/legal/terms/">Términos de servicio</a>, y el tratamiento
+      de datos personales por la
+      <a href="/es/legal/privacy/">Política de privacidad</a>.
+    </p>
+
+    <h2>Propiedad intelectual</h2>
+    <p>
+      El nombre PreFrame, el logotipo, la aplicación y los contenidos de este
+      sitio pertenecen a su titular. El contenido que creas en tus propios
+      proyectos es tuyo (ver los Términos de servicio).
+    </p>

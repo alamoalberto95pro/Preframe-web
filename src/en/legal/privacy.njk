@@ -1,0 +1,177 @@
+---
+key: privacy
+layout: layouts/doc.njk
+permalink: /legal/privacy/index.html
+docTitle: Privacy Policy — PreFrame
+---
+{#- Redactado 25-ago-2026, migrado a Eleventy bilingüe el 01-sep-2026.
+    Completo desde el 02-sep-2026 (identidad, emails, retención 90 días). -#}
+    <h1>Privacy Policy</h1>
+    <p class="doc-meta">Last updated: 2 September 2026</p>
+
+
+    <h2>1. Who is responsible</h2>
+    <p>
+      The controller of your data is Alberto del Álamo Herrero, with
+      Spanish tax ID (NIF) 49022742J, with address at
+      Valdemoro, Madrid, who operates PreFrame ("we") — see the
+      <a href="/legal/aviso-legal/">Legal Notice</a>. You can reach us at the
+      address in section 10.
+    </p>
+
+    <h2>2. What data is processed</h2>
+    <ul>
+      <li><strong>Account data.</strong> When you sign in with Google or Apple
+        we receive your email address, your name and, with Google, your avatar.
+        We never receive or store a password.</li>
+      <li><strong>Your projects.</strong> The shots, sections, notes and
+        equipment you create are stored in your account so you can open them on
+        your computer. The audio and image files you work with stay on your
+        machine and are never uploaded (section 5).</li>
+      <li><strong>Usage data.</strong> Product events such as "project created"
+        or "export completed", tied to your account id, used to understand how
+        the application is used. They never include the content of your
+        projects.</li>
+      <li><strong>Error reports.</strong> See section 4.</li>
+      <li><strong>Payment data.</strong> Payments are processed by Stripe as
+        merchant of record. PreFrame never sees your card number; we only
+        receive confirmation that a purchase was completed and which credits to
+        deliver, and keep a record of your purchases so you can see them in the
+        application.</li>
+    </ul>
+
+    <h2>3. Why, and on what legal basis</h2>
+    <ul>
+      <li><strong>Providing the service</strong> — account, projects, credits
+        and purchases: necessary to perform the contract with you
+        (Art. 6(1)(b) GDPR).</li>
+      <li><strong>Understanding how the application is used and fixing what
+        breaks</strong> — usage events and error reports: our legitimate
+        interest in improving PreFrame (Art. 6(1)(f) GDPR). You can object at
+        any time (section 9).</li>
+      <li><strong>Legal obligations</strong> — tax and accounting records of
+        purchases, kept by Stripe and by us as the law requires
+        (Art. 6(1)(c) GDPR).</li>
+    </ul>
+    <p>We do not sell your data and do not use it for advertising.</p>
+
+    <!-- Sistema de error reports aún no en producción: el compromiso se
+         publica desde el día uno. El interruptor en Ajustes sí existe. -->
+    <h2>4. Error reports</h2>
+    <p>
+      When something breaks inside the application, PreFrame can send us a
+      technical report so we can find out and fix it. The report contains
+      the error message, a sanitised stack trace, the PreFrame version, your
+      operating system and your account id. It <strong>never</strong> contains
+      the content of your projects, nor the names or paths of your files.
+    </p>
+    <p>
+      We process these reports on the basis of our legitimate interest in
+      keeping the application working (Art. 6(1)(f) GDPR). They are deleted
+      automatically after <strong>90 days</strong>. Sending them is on by
+      default and you can turn it off at any time in
+      <strong>Settings → Error reports</strong>; from that moment nothing is
+      sent.
+    </p>
+
+    <!-- "The files you work with", y no la lista de qué tipos de archivo son:
+         para el compromiso de privacidad basta con decir DÓNDE están, y el
+         detalle describía el funcionamiento de la app (misma decisión que en
+         el apartado 4 de los Términos). -->
+    <h2>5. Where your data lives</h2>
+    <ul>
+      <li><strong>Your computer.</strong> Your projects are cached locally, and
+        the files you work with (audio and reference images) exist only on your
+        machine. PreFrame never uploads them.</li>
+      <li><strong>Supabase</strong> (Supabase, Inc.), which hosts our database
+        and authentication in the European Union (AWS, <strong>eu-west-1</strong>,
+        Ireland). Account data, projects, usage events and error reports are
+        stored there.</li>
+      <li><strong>Stripe</strong> (Stripe Payments Europe, Ltd.), which
+        processes payments as merchant of record under its own
+        <a href="https://stripe.com/privacy" rel="noopener">privacy policy</a>.</li>
+      <li><strong>Google</strong> and <strong>Apple</strong>, only as sign-in
+        providers: when you sign in they tell us who you are; we do not share
+        anything with them.</li>
+    </ul>
+
+    <h2>6. This website</h2>
+    <p>
+      The PreFrame website (preframe-app.com) is hosted on
+      <strong>GitHub Pages</strong>, a service of GitHub, Inc. (United States).
+      Like any web server, GitHub keeps technical logs of the requests it
+      receives, including the visitor's IP address, in order to deliver and
+      secure the service. That processing is GitHub's own and is governed by
+      their privacy policy.
+    </p>
+    <p>
+      This site uses <strong>no cookies and no browser storage</strong>, which
+      is why you are never asked to accept anything. Every font is served from
+      this same domain: no requests are made to Google Fonts or to advertising
+      networks. The only request to a third party is the cookieless analytics
+      script described in section 7.
+    </p>
+
+    <!-- Conectado el 2026-08-07: Cloudflare Web Analytics. Si algún día se
+         añade un proveedor con eventos (Umami/Plausible) para medir el clic de
+         descarga, hay que ampliar esta sección: hoy dice expresamente que los
+         clics no se miden. -->
+    <h2>7. Website analytics</h2>
+    <p>
+      This site uses <strong>Cloudflare Web Analytics</strong>, a service of
+      Cloudflare, Inc., to measure its audience in aggregate. It records page
+      views together with the referring site, the country, the browser and
+      device type, and page performance metrics. It does not record clicks on
+      individual buttons or links.
+    </p>
+    <p>
+      The measurement is <strong>cookieless</strong>: it stores nothing in your
+      browser, uses no persistent identifier, does not fingerprint your device
+      and does not follow you across other websites. Visitors are never
+      identified individually and no profile is built about you. That is why
+      this site still asks you to accept nothing.
+    </p>
+    <p>
+      The legal basis is our legitimate interest in knowing whether the site
+      works and reaches the people it is meant for (Art. 6(1)(f) GDPR).
+    </p>
+
+    <!-- Retención de eventos: 90 días, confirmado por Alberto el 01-sep-2026
+         (jobs pg_cron purge_events + purge_client_errors, en producción). -->
+    <h2>8. Retention and deletion</h2>
+    <ul>
+      <li><strong>Account and projects</strong>: kept for as long as your
+        account exists. When you ask us to delete your account, the account,
+        your projects and your purchase records are deleted from our
+        systems, except the data Stripe must keep under its own legal
+        obligations as merchant of record.</li>
+      <li><strong>Error reports</strong>: deleted automatically after 90 days
+        (section 4).</li>
+      <li><strong>Usage events</strong>: deleted automatically after
+        90 days.</li>
+      <li><strong>Local data on your computer</strong>: the "Delete all local
+        data on this computer" button in Settings removes everything PreFrame
+        stores on that machine. It does not delete your account or the projects
+        stored in your account.</li>
+    </ul>
+
+    <h2>9. Your rights</h2>
+    <p>
+      Under the GDPR you can ask us to <strong>access</strong> the data we hold
+      about you, to <strong>correct</strong> it, to <strong>delete</strong> it,
+      to <strong>restrict</strong> or <strong>object</strong> to its processing,
+      and to receive a copy of it in a portable format. You can object to the
+      processing of error reports at any time simply by turning them off in
+      Settings; you can object to usage analytics by writing to us.
+    </p>
+    <p>
+      To exercise any of these rights, including deleting your account, write
+      to the address in section 10. We answer within one month. If you think
+      we have not handled your data correctly, you can also complain to the
+      Spanish Data Protection Agency (<a href="https://www.aepd.es" rel="noopener">aepd.es</a>).
+    </p>
+
+    <h2>10. Contact</h2>
+    <p>
+      Write to us at <strong>legal@preframe-app.com</strong>.
+    </p>

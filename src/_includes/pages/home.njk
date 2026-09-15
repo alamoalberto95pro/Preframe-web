@@ -1,0 +1,515 @@
+{#- ─────────────────────────────────────────────────────────────────────
+    Landing. UNA sola plantilla para los dos idiomas: el texto sale de
+    `t[lang].home` y las rutas internas de `langBase`.
+
+    Los rótulos en español del mockup del Mood Bar y del vocabulario de
+    planos NO son un descuido: replican la app real, igual que las capturas.
+    Viven en el diccionario inglés tal cual están escritos hoy.
+    ───────────────────────────────────────────────────────────────────── -#}
+{%- set D = C.duo -%}
+<!-- ═══ 1 · HERO ═══════════════════════════════════════════════════════ -->
+<section class="canvas-dark hero" data-rail="{{ C.rails.hero | safe }}">
+  <div class="wrap hero-in">
+    <!-- Marca grande, frase, y la app real dentro de su Mac. La barra de
+         navegación no aparece hasta que se deja atrás esta sección.
+
+         Sin icono aquí a propósito: el tile ya sale en el nav, en el footer y
+         en el Dock. En el hero competía con el wordmark en vez de sumar, así
+         que la marca la lleva el nombre solo, a tamaño de cartel. -->
+    <h1 class="hero-title" data-brand="name">PreFrame</h1>
+    <p class="hero-claim">{{ C.hero.claim | safe }}</p>
+    <p class="hero-who">{{ C.hero.who | safe }}</p>
+
+    <!-- Jerarquía del CTA: el botón principal NUNCA es el deshabilitado. El
+         único gesto real que existe hoy en escritorio es ver el producto, así
+         que ese es el primario; la descarga queda al lado, presente y honesta
+         con su "coming soon". En móvil el primario es llevarse el enlace. -->
+    <div class="cta-row">
+      <button type="button" class="btn btn-primary only-mobile" data-send-to-mac>
+        <span data-label>{{ S.buttons.sendToMac | safe }}</span>
+      </button>
+      <button type="button" class="btn btn-soon" disabled data-track="download_intent" data-track-detail="hero">
+        {{ S.buttons.downloadMac | safe }} <span class="chip">{{ S.buttons.comingSoon | safe }}</span>
+      </button>
+    </div>
+
+    <!-- El instrumento interactivo vive ahora en su propia sección más abajo
+         (data-rail "Touch it"): el hero, como en Apple, enseña la app real. -->
+
+    <!-- La app de verdad, capturada de la app de verdad: el editor con el
+         demo "Amanecer", la curva dibujada a mano sobre el waveform y el
+         Mood Bar con su paleta. Sin maquetas inventadas. -->
+    <figure class="mac" aria-label="{{ C.hero.figureAria | safe }}">
+      <div class="mac-screen">
+        <img src="/assets/shots/editor-full.webp" width="2000" height="1250"
+             alt="{{ C.hero.shotAlt | safe }}"
+             fetchpriority="high" decoding="async">
+      </div>
+      <div class="mac-base" aria-hidden="true"></div>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ═══ 2 · STATEMENT ══════════════════════════════════════════════════
+     El posicionamiento entero, con las palabras de Alberto. La primera frase
+     va a tamaño de sala; el resto, legible. -->
+<section class="canvas-light band statement" data-rail="{{ C.rails.statement | safe }}">
+  <div class="wrap">
+    <p class="statement-kicker">{{ C.statement.kicker | safe }}</p>
+    <h2 class="statement-big">
+      {{ C.statement.big | safe }}
+    </h2>
+    <div class="statement-rest">
+      <p>{{ C.statement.p1 | safe }}</p>
+      <p>{{ C.statement.p2 | safe }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 2 · MOOD BAR ═══════════════════════════════════════════════════
+     Segunda sección, en blanco: el canvas enseñando su potencial. Es un
+     MOCKUP fiel de los objetos reales del canvas (mismas tarjetas que en la
+     app), montado aquí para poder enseñar una paleta ajena al naranja de
+     marca, referencias generadas sin copyright y un vídeo de referencia.
+     Los rótulos van en español porque replican la app real, igual que las
+     capturas. -->
+<section class="canvas-soft band" data-rail="{{ C.rails.mood | safe }}">
+  <div class="wrap" style="text-align:center">
+    <span class="eyebrow eyebrow-l">{{ C.mood.eyebrow | safe }}</span>
+    <h2 class="title-grad" style="max-width:22ch;margin-inline:auto">{{ C.mood.title | safe }}</h2>
+    <p class="lede mute-l" style="margin:var(--space-6) auto 0">
+      {{ C.mood.lede | safe }}
+    </p>
+
+    <div class="canvasmock" role="img" aria-label="{{ C.mood.canvasAria | safe }}">
+      <div class="cm-chips" aria-hidden="true">
+        {%- for chip in C.mood.chips %}{% if loop.first %}<span class="is-active">{{ chip | safe }}</span>{% else %}<span>{{ chip | safe }}</span>{% endif %}{% endfor %}
+      </div>
+      <div class="cm-board" aria-hidden="true">
+
+        <figure class="cm-card cm-img" style="left:3%;top:6%;width:30%">
+          <img src="/assets/shots/photo-dusk.webp" width="880" height="550" loading="lazy" decoding="async" alt="">
+          <figcaption>{{ C.mood.refDusk | safe }}</figcaption>
+        </figure>
+
+        <div class="cm-card cm-yt" style="left:36.5%;top:2.5%;width:27%">
+          <div class="cm-yt-thumb">
+            <img src="/assets/shots/photo-yt.webp" width="880" height="495" loading="lazy" decoding="async" alt="">
+            <span class="cm-play"></span>
+            <span class="cm-dur">{{ C.mood.ytDuration | safe }}</span>
+          </div>
+          <p class="cm-yt-title">{{ C.mood.ytTitle | safe }}</p>
+          <span class="cm-cap">{{ C.mood.ytCaption | safe }}</span>
+        </div>
+
+        <div class="cm-card cm-note" style="right:3.5%;top:8%;width:26%">
+          {{ C.mood.note | safe }}
+        </div>
+
+        <figure class="cm-card cm-img" style="left:8%;bottom:14%;width:26%">
+          <img src="/assets/shots/photo-night.webp" width="880" height="550" loading="lazy" decoding="async" alt="">
+          <figcaption>{{ C.mood.refNight | safe }}</figcaption>
+        </figure>
+
+        <div class="cm-card cm-shot" style="left:37%;bottom:11%;width:24%">
+          <div class="cm-shot-thumb"><img src="/assets/shots/photo-crowd.webp" width="880" height="550" loading="lazy" decoding="async" alt=""><span class="cm-dur">{{ C.mood.shotDuration | safe }}</span></div>
+          <p class="cm-shot-name">{{ C.mood.shotName | safe }}</p>
+          <span class="cm-cap">{{ C.mood.shotType | safe }}</span>
+          <span class="cm-gear">{{ C.mood.shotGear | safe }}</span>
+        </div>
+
+        {#- Los hex son datos de color, no copy: se quedan en la plantilla
+            para que ninguna traducción pueda romper una paleta. -#}
+        <div class="cm-card cm-palette" style="right:4.5%;top:41%;width:27%">
+          <div class="cm-swatches">
+            <i style="background:#16323E"></i><i style="background:#2C6E49"></i><i style="background:#8C2F39"></i><i style="background:#D9C5A0"></i>
+          </div>
+          <div class="cm-hexes"><span>#16323E</span><span>#2C6E49</span><span>#8C2F39</span><span>#D9C5A0</span></div>
+        </div>
+
+        <div class="cm-card cm-curve" style="right:6%;bottom:9%;width:26%">
+          <span class="cm-curve-label">{{ C.mood.curveLabel | safe }}</span>
+          <svg viewBox="0 0 240 80" preserveAspectRatio="none" focusable="false">
+            <defs>
+              <linearGradient id="cmCurve" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#E0603A"/><stop offset="100%" stop-color="#5D7FA8"/>
+              </linearGradient>
+            </defs>
+            <path d="M 0.00 60.48 C 14.40 60.48, 14.40 52.80, 28.80 52.80 C 45.60 52.80, 45.60 42.56, 62.40 42.56 C 79.20 42.56, 79.20 47.68, 96.00 47.68 C 110.40 47.68, 110.40 25.92, 124.80 25.92 C 138.00 25.92, 138.00 15.68, 151.20 15.68 C 164.40 15.68, 164.40 36.80, 177.60 36.80 C 190.80 36.80, 190.80 20.80, 204.00 20.80 C 222.00 20.80, 222.00 57.92, 240.00 57.92" fill="none" stroke="url(#cmCurve)" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div class="cm-toolbar">
+          {%- for item in C.mood.toolbar %}<span>{{ item | safe }}</span>{% endfor %}
+          <b>{{ C.mood.toolbarAdd | safe }}</b>
+        </div>
+        <span class="cm-zoom">{{ C.mood.zoom | safe }}</span>
+      </div>
+    </div>
+
+    <ul class="canvas-caps canvas-caps-light" aria-label="{{ C.mood.capsAria | safe }}">
+      {%- for cap in C.mood.caps %}
+      <li>{{ cap | safe }}</li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<!-- ═══ 3 · FEATURES CON LA APP REAL ═══════════════════════════════════
+     Filas alternas al modo Apple: titular corto, una frase de beneficio y la
+     captura REAL de la app en un marco de ventana. Sustituyen a los pilares
+     dibujados — ahora los dos sustratos se enseñan de verdad. -->
+<section class="canvas-light band" data-rail="{{ C.rails.features | safe }}">
+  <div class="wrap">
+
+    <div class="feature">
+      <div class="feature-copy">
+        <span class="eyebrow eyebrow-l">{{ C.substrates.eyebrow | safe }}</span>
+        <h2>{{ C.substrates.title | safe }}</h2>
+        <p class="mute-l">{{ C.substrates.body | safe }}</p>
+      </div>
+      <figure class="shotframe">
+        <img src="/assets/shots/substrates.webp" width="942" height="374" loading="lazy" decoding="async"
+             alt="{{ C.substrates.shotAlt | safe }}">
+      </figure>
+    </div>
+
+    <div class="feature feature-flip">
+      <div class="feature-copy">
+        <span class="eyebrow eyebrow-l">{{ C.export.eyebrow | safe }}</span>
+        <h2>{{ C.export.title | safe }}</h2>
+        <p class="mute-l">{{ C.export.body | safe }}</p>
+      </div>
+      <figure class="shotframe shotframe-tall">
+        <img src="/assets/shots/export.webp" width="667" height="1044" loading="lazy" decoding="async"
+             alt="{{ C.export.shotAlt | safe }}">
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ 3c · FOCUS & FICHA — a lo grande ═══════════════════════════════
+     La captura manda: imagen a todo el ancho con el texto sobre un degradado
+     lateral, para que en un portátil se VEA la interfaz y no un sello. -->
+<!-- Zoom al scroll, al modo de las páginas de producto de Apple: la captura
+     nace con márgenes y esquinas redondeadas y, según bajas, crece con
+     suavidad hasta ocupar la pantalla entera; el texto aparece centrado
+     sobre un bloque negro translúcido. Conducido por scroll (motion.js),
+     nunca secuestrado: la rueda mueve la página a su ritmo. -->
+<section class="zoom-feature" data-rail="{{ C.rails.zoom | safe }}" data-zoom>
+  <div class="zf-sticky">
+    <figure class="zf-media">
+      <img src="/assets/shots/ficha.webp" width="2000" height="1250" loading="lazy" decoding="async"
+           alt="{{ C.zoom.shotAlt | safe }}">
+    </figure>
+    <div class="zf-copy">
+      <span class="eyebrow eyebrow-d">{{ C.zoom.eyebrow | safe }}</span>
+      <h2>{{ C.zoom.title | safe }}</h2>
+      <p>{{ C.zoom.body | safe }}</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ 3b · DOS CAMINOS ═══════════════════════════════════════════════
+     Esta sección ya no vende interactividad: vende que se puede planificar
+     CON la canción (el .mp3 cortado en secciones sobre su waveform) o SIN
+     ella (la curva emocional como sustrato y los cortes encima). Dos
+     ventanas gemelas al modo Apple: la misma tira de secciones
+     abajo, distinto sustrato arriba. Los cortes caen en los mismos puntos
+     en ambas — esa rima visual es el argumento. En la ventana de la curva,
+     un puntero coreografiado (curve-demo.js) enseña el gesto de agarrar un
+     keyframe y moverlo; no es interactivo, solo muestra. -->
+<section class="canvas-light band" data-rail="{{ C.rails.duo | safe }}">
+  <div class="wrap" style="text-align:center">
+    <span class="eyebrow eyebrow-l">{{ D.eyebrow | safe }}</span>
+    <h2 class="title-grad" style="max-width:18ch;margin-inline:auto">{{ D.title | safe }}</h2>
+    <p class="lede mute-l" style="margin:var(--space-5) auto 0">
+      {{ D.lede | safe }}
+    </p>
+
+    <div class="duo">
+      <article class="duo-card">
+        <div class="duo-window" role="img" aria-label="{{ D.withAria | safe }}">
+          <div class="stage-bar">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="stage-file">{{ D.fileTrack | safe }}</span>
+          </div>
+          <div class="duo-visual">
+            <svg viewBox="0 0 1000 150" preserveAspectRatio="none" focusable="false" aria-hidden="true">
+              <path class="duo-wave" d="M5 66.3V89.7M12 68.0V88.0M19 67.0V89.0M26 67.4V88.6M33 65.3V90.7M40 67.3V88.7M47 64.4V91.6M54 67.2V88.8M61 69.5V86.5M68 65.0V91.0M75 63.9V92.1M82 67.2V88.8M89 66.9V89.1M96 62.3V93.7M103 66.1V89.9M110 67.3V88.7M117 66.8V89.2M124 63.1V92.9M131 62.1V93.9M138 65.8V90.2M145 66.0V90.0M152 63.6V92.4M159 66.1V89.9M166 64.4V91.6M173 65.8V90.2M180 62.2V93.8M187 63.2V92.8M194 65.3V90.7M201 56.2V99.8M208 62.7V93.3M215 63.8V92.2M222 55.9V100.1M229 57.4V98.6M236 56.5V99.5M243 52.5V103.5M250 58.9V97.1M257 51.4V104.6M264 54.3V101.7M271 52.3V103.7M278 57.1V98.9M285 56.4V99.6M292 47.6V108.4M299 49.6V106.4M306 53.5V102.5M313 42.6V113.4M320 44.6V111.4M327 52.3V103.7M334 55.2V100.8M341 51.1V104.9M348 54.9V101.1M355 45.2V110.8M362 50.3V105.7M369 42.2V113.8M376 50.4V105.6M383 44.2V111.8M390 33.4V122.6M397 34.8V121.2M404 42.4V113.6M411 31.9V124.1M418 47.9V108.1M425 43.9V112.1M432 35.1V120.9M439 26.9V129.1M446 26.8V129.2M453 34.3V121.7M460 25.6V130.4M467 41.9V114.1M474 34.3V121.7M481 41.7V114.3M488 34.1V121.9M495 41.8V114.2M502 42.4V113.6M509 26.5V129.5M516 33.6V122.4M523 42.1V113.9M530 43.7V112.3M537 25.6V130.4M544 40.2V115.8M551 31.2V124.8M558 45.2V110.8M565 39.4V116.6M572 33.9V122.1M579 41.8V114.2M586 28.9V127.1M593 32.0V124.0M600 34.0V122.0M607 27.5V128.5M614 47.6V108.4M621 40.8V115.2M628 52.4V103.6M635 48.5V107.5M642 56.3V99.7M649 42.2V113.8M656 47.6V108.4M663 53.7V102.3M670 48.7V107.3M677 53.6V102.4M684 48.3V107.7M691 49.8V106.2M698 55.8V100.2M705 54.7V101.3M712 45.8V110.2M719 54.3V101.7M726 58.8V97.2M733 44.7V111.3M740 52.2V103.8M747 46.8V109.2M754 48.3V107.7M761 53.2V102.8M768 49.8V106.2M775 58.1V97.9M782 57.5V98.5M789 57.0V99.0M796 47.6V108.4M803 47.4V108.6M810 58.8V97.2M817 60.2V95.8M824 54.4V101.6M831 55.3V100.7M838 51.0V105.0M845 59.1V96.9M852 56.1V99.9M859 55.4V100.6M866 61.2V94.8M873 63.5V92.5M880 64.8V91.2M887 63.6V92.4M894 60.9V95.1M901 59.5V96.5M908 65.4V90.6M915 62.4V93.6M922 64.5V91.5M929 65.1V90.9M936 64.4V91.6M943 66.9V89.1M950 70.6V85.4M957 71.0V85.0M964 68.0V88.0M971 68.9V87.1M978 69.3V86.7M985 70.1V85.9M992 73.5V82.5"/>
+              <path class="duo-cut" d="M163.6 6V144M418.2 6V144M618.2 6V144M854.5 6V144"/>
+            </svg>
+          </div>
+          <div class="sections" aria-hidden="true">
+            <div class="sec" style="border-color:var(--section-1);flex:.9"><span>{{ D.sections[0] | safe }}</span></div>
+            <div class="sec" style="border-color:var(--section-2);flex:1.4"><span>{{ D.sections[1] | safe }}</span></div>
+            <div class="sec" style="border-color:var(--section-3);flex:1.1"><span>{{ D.sections[2] | safe }}</span></div>
+            <div class="sec" style="border-color:var(--section-4);flex:1.3"><span>{{ D.sections[3] | safe }}</span></div>
+            <div class="sec" style="border-color:var(--section-5);flex:.8"><span>{{ D.sections[4] | safe }}</span></div>
+          </div>
+        </div>
+        <h3>{{ D.withTitle | safe }}</h3>
+        <p class="mute-l">{{ D.withBody | safe }}</p>
+      </article>
+
+      <article class="duo-card">
+        <div class="duo-window" role="img" data-curve-demo aria-label="{{ D.withoutAria | safe }}">
+          <div class="stage-bar">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="stage-file">{{ D.fileNoTrack | safe }}</span>
+          </div>
+          <div class="duo-visual">
+            <svg viewBox="0 0 1000 150" preserveAspectRatio="none" focusable="false" aria-hidden="true">
+              <defs>
+                <!-- Temperatura de intensidad de la app: cálido arriba
+                     (clímax), frío abajo. Los hex son reserva; el CSS los
+                     reescribe con los tokens --curve-*. -->
+                <linearGradient id="curveStroke" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="#E0603A"/>
+                  <stop offset="35%"  stop-color="#E8964E"/>
+                  <stop offset="65%"  stop-color="#A8845C"/>
+                  <stop offset="100%" stop-color="#5D7FA8"/>
+                </linearGradient>
+                <linearGradient id="curveFade" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="#E8814A" stop-opacity=".26"/>
+                  <stop offset="100%" stop-color="#E8814A" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path class="curve-fill" d="M0.0 110.3C27.3 106.9 113.6 98.9 163.6 90.1C213.6 81.3 257.6 68.3 300.0 57.4C342.4 46.4 379.9 26.7 418.2 24.6C456.5 22.5 496.7 42.7 530.0 44.8C563.3 46.9 581.5 32.6 618.2 37.2C654.9 41.8 710.6 62.8 750.0 72.5C789.4 82.1 812.8 86.8 854.5 95.2C896.2 103.6 975.8 118.3 1000.0 122.9L1000 150L0 150Z"/>
+              <path class="duo-cut" d="M163.6 6V144M418.2 6V144M618.2 6V144M854.5 6V144"/>
+              <path class="curve-path" d="M0.0 110.3C27.3 106.9 113.6 98.9 163.6 90.1C213.6 81.3 257.6 68.3 300.0 57.4C342.4 46.4 379.9 26.7 418.2 24.6C456.5 22.5 496.7 42.7 530.0 44.8C563.3 46.9 581.5 32.6 618.2 37.2C654.9 41.8 710.6 62.8 750.0 72.5C789.4 82.1 812.8 86.8 854.5 95.2C896.2 103.6 975.8 118.3 1000.0 122.9"/>
+              <circle class="duo-kf" cx="0.0" cy="110.3" r="6"/><circle class="duo-kf" cx="163.6" cy="90.1" r="6"/><circle class="duo-kf" cx="300.0" cy="57.4" r="6"/><circle class="duo-kf" cx="418.2" cy="24.6" r="6"/><circle class="duo-kf" cx="530.0" cy="44.8" r="6"/><circle class="duo-kf" cx="618.2" cy="37.2" r="6"/><circle class="duo-kf" cx="750.0" cy="72.5" r="6"/><circle class="duo-kf" cx="854.5" cy="95.2" r="6"/><circle class="duo-kf" cx="1000.0" cy="122.9" r="6"/>
+            </svg>
+          </div>
+          <div class="sections" aria-hidden="true">
+            <div class="sec" style="border-color:var(--section-1);flex:.9"><span>{{ D.sections[0] | safe }}</span></div>
+            <div class="sec" style="border-color:var(--section-2);flex:1.4"><span>{{ D.sections[1] | safe }}</span></div>
+            <div class="sec" style="border-color:var(--section-3);flex:1.1"><span>{{ D.sections[2] | safe }}</span></div>
+            <div class="sec" style="border-color:var(--section-4);flex:1.3"><span>{{ D.sections[3] | safe }}</span></div>
+            <div class="sec" style="border-color:var(--section-5);flex:.8"><span>{{ D.sections[4] | safe }}</span></div>
+          </div>
+        </div>
+        <h3>{{ D.withoutTitle | safe }}</h3>
+        <p class="mute-l">{{ D.withoutBody | safe }}</p>
+      </article>
+    </div>
+
+    <p class="duo-close mute-l">{{ D.close | safe }}</p>
+  </div>
+</section>
+
+<!-- ═══ 5b · BIBLIOTECA DE PLANOS Y EQUIPO ═════════════════════════════ -->
+<section class="bg-feature" data-rail="{{ C.rails.library | safe }}">
+  <img class="bg-feature-img" src="/assets/shots/gallery.webp" width="1444" height="1161" loading="lazy" decoding="async"
+       alt="{{ C.library.shotAlt | safe }}">
+  <div class="fb-copy">
+    <span class="eyebrow eyebrow-d">{{ C.library.eyebrow | safe }}</span>
+    <h2>{{ C.library.title | safe }}</h2>
+    <p>{{ C.library.body | safe }}</p>
+  </div>
+</section>
+
+<!-- ═══ 6 · RESTO DE CAPACIDADES ═══════════════════════════════════════
+     Dos tarjetas: hora dorada (visualización de datos con la franja del día
+     recorriéndose) y el mapa de qué vive en tu disco. El moodboard y la
+     biblioteca ya tienen sección propia con captura real; la tarjeta del
+     latido se retiró — esa función no está activa en la app hoy. -->
+<section class="canvas-soft band" data-rail="{{ C.rails.everything | safe }}">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-l">{{ C.everything.eyebrow | safe }}</span>
+    <h2 class="title-grad">{{ C.everything.title | safe }}</h2>
+
+    <div class="bento bento-2">
+      <article class="bento-card">
+        <div class="bento-copy">
+          <h3>{{ C.everything.sun.title | safe }}</h3>
+          <p>{{ C.everything.sun.body | safe }}</p>
+        </div>
+        <div class="bento-visual mini-sun" aria-hidden="true">
+          <div class="sun-row"><span class="sun-key">{{ C.everything.sun.locationKey | safe }}</span><span class="sun-val">{{ C.everything.sun.locationVal | safe }}</span></div>
+          <!-- La ventana elegida lleva su etiqueta fija; el puntero recorre el
+               día y va nombrando cada luz con los literales reales de la app
+               (windowLightLabel en solar.ts). -->
+          {#- Estos son los rótulos de arranque; en cuanto la animación entra
+              en pantalla manda el diccionario de showcase.js. -#}
+          <div class="sunbar" data-sunbar>
+            <span class="sunwin" data-sun-win><b class="sunwin-tag" data-sun-winlabel>{{ C.everything.sun.windowLabel | safe }}</b></span>
+          </div>
+          <div class="sun-row"><span class="sun-key" data-sun-rowkey>{{ C.everything.sun.rowKey | safe }}</span><span class="sun-val is-brand" data-sun-rowval>{{ C.everything.sun.rowVal | safe }}</span></div>
+          <!-- El puntero fantasma que agarra la ventana y la pasea por el día. -->
+          <span class="sun-cursor" data-sun-cursor>
+            <svg viewBox="0 0 24 24"><path d="M5 3l14 8-6.5 1.5L9 19z"/></svg>
+          </span>
+        </div>
+      </article>
+
+      <article class="bento-card">
+        <div class="bento-copy">
+          <h3>{{ C.everything.offline.title | safe }}</h3>
+          <p>{{ C.everything.offline.body | safe }}</p>
+        </div>
+        <div class="bento-visual mini-offline" aria-hidden="true">
+          <div class="off-row"><span class="off-dot is-local"></span>{{ C.everything.offline.localTrack | safe }}<span class="off-where">{{ C.everything.offline.localWhere | safe }}</span></div>
+          <div class="off-row"><span class="off-dot is-local"></span>{{ C.everything.offline.localImage | safe }}<span class="off-where">{{ C.everything.offline.localWhere | safe }}</span></div>
+          <div class="off-rule"></div>
+          <div class="off-row is-sync"><span class="off-dot"></span>{{ C.everything.offline.syncedWhat | safe }}<span class="off-where">{{ C.everything.offline.syncedWhere | safe }}</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 7 · PDF DE RODAJE ══════════════════════════════════════════════
+     El documento REAL: la vista previa del plan de rodaje generada por la
+     app (proyecto demo), con sus planos, timecodes, casillas, notas y la
+     fila de TIEMPO SIN CUBRIR calculada. -->
+<section class="canvas-light band" data-rail="{{ C.rails.onset | safe }}">
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow eyebrow-l">{{ C.onset.eyebrow | safe }}</span>
+      <h2>{{ C.onset.title | safe }}</h2>
+      <p class="mute-l" style="margin-top:var(--space-5);max-width:46ch">
+        {{ C.onset.p1 | safe }}
+      </p>
+      <p class="mute-l" style="margin-top:var(--space-4);max-width:46ch">
+        {{ C.onset.p2 | safe }}
+      </p>
+    </div>
+    <div>
+      <!-- Dos hojas del PDF real, apiladas: detrás, una página de planos con
+           la fila UNCOVERED TIME; delante, la portada. Sin hover. -->
+      <figure class="paper-stack">
+        <img class="paper-sheet-back" src="/assets/shots/pdf-shots.webp" width="1194" height="1333" loading="lazy" decoding="async"
+             alt="{{ C.onset.shotAlt | safe }}">
+        <img class="paper-sheet-front" src="/assets/shots/pdf-cover.webp" width="1194" height="1333" loading="lazy" decoding="async"
+             alt="{{ C.onset.coverAlt | safe }}">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 8 · FOUNDER ════════════════════════════════════════════════════
+     Sin testimonios: no hay clientes todavía. El sub-bloque de citas NO se
+     renderiza y no se activa hasta que existan citas reales con permiso
+     escrito (FTC Endorsement Guides / publicidad engañosa).
+     ════════════════════════════════════════════════════════════════════ -->
+<section class="canvas-dark band" data-rail="{{ C.rails.founder | safe }}">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-d">{{ C.founder.eyebrow | safe }}</span>
+    <!-- Título + bio + firma. Sin cita inventada: la historia real (programador
+         de oficio, filmmaker de ocio) es la sección entera. La foto es un
+         recorte vertical con alfa que mira hacia arriba-derecha, así que va a
+         la IZQUIERDA del texto para que la mirada apunte al copy. En el título,
+         PreFrame va como wordmark de marca (data-brand), igual que en el hero. -->
+    <div class="founder-layout">
+      <figure class="founder-photo">
+        <img src="/assets/shots/founder.webp" width="640" height="865" loading="lazy" decoding="async"
+             alt="{{ C.founder.photoAlt | safe }}">
+      </figure>
+      <div class="founder-copy">
+        <h2>{{ C.founder.title | safe }}</h2>
+        <p class="founder-bio">{{ C.founder.bio | safe }}</p>
+        <p class="founder-sign">{{ C.founder.attribution | safe }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 9 · PRECIO ═════════════════════════════════════════════════════
+     Dos versiones enteras y un solo interruptor. Con `site.pricesPublic:
+     false` la sección completa (tarjetas, packs, letra pequeña) se guarda
+     y en su lugar sale su anuncio: el modelo en una frase y "los precios
+     llegan con el lanzamiento". Nada de tarjetas sin cifra — decisión de
+     Alberto, 15-sept-2026: mejor decirlo de frente que enseñar un hueco.
+     Al poner el flag en `true` vuelve la sección original tal cual. -->
+{%- if site.pricesPublic %}
+<section class="canvas-light band" id="pricing" data-rail="{{ C.rails.pricing | safe }}">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-l">{{ C.pricing.eyebrow | safe }}</span>
+    <h2>{{ C.pricing.title | safe }}</h2>
+    <p class="mute-l" style="margin-top:var(--space-5);max-width:54ch">
+      {{ C.pricing.lede | safe }}
+    </p>
+    <div class="prices">
+      <div class="price">
+        <span class="tag">{{ C.pricing.freeTag | safe }}</span>
+        <div class="amount">{{ C.pricing.freeAmount | safe }}</div>
+        <p class="mute-l small">{{ C.pricing.freeSmall | safe }}</p>
+        <ul>
+          {%- for item in C.pricing.freeItems %}
+          <li>{{ item | safe }}</li>
+          {%- endfor %}
+        </ul>
+      </div>
+      <div class="price is-featured">
+        <span class="tag">{{ C.pricing.founderTag | safe }}</span>
+        <!-- Anclaje honesto: el 19,99 € futuro se enseña al lado, como precio
+             al que subirá — no tachado, porque nunca se ha vendido a ese
+             precio y un tachado diría que sí (Directiva Ómnibus). -->
+        <div class="amount-row">
+          <span class="amount"><span data-brand="price.founder">{{ S.price.founder }}</span></span>
+          <span class="amount-next">{{ C.pricing.founderThen | safe }} <b data-brand="price.standard">{{ S.price.standard }}</b></span>
+        </div>
+        <p class="mute-l small">{{ C.pricing.founderSmall | safe }}</p>
+        <ul>
+          {%- for item in C.pricing.founderItems %}
+          <li>{{ item | safe }}</li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+    <!-- Packs, junto a las tarjetas de precio. Informativos: sin botones
+         hasta validar Stripe en test mode; ahorro como comparación contra
+         sueltos, nunca como descuento (Ómnibus). El fundador de 9,99 € no se
+         mezcla con esta rejilla a propósito. -->
+    <h3 style="margin-top:clamp(40px,5vw,64px)">{{ C.pricing.packsTitle | safe }}</h3>
+    {% include "partials/packs.njk" %}
+    <p class="notice">
+      {{ C.pricing.packsNotice | safe }}
+    </p>
+
+    <p class="notice">
+      {{ C.pricing.founderNoticeBefore | safe }} <span data-brand="price.standard">{{ S.price.standard }}</span>{{ C.pricing.founderNoticeAfter | safe }}
+      <a href="{{ langBase }}/pricing/">{{ C.pricing.founderNoticeLink | safe }}</a>
+    </p>
+  </div>
+</section>
+{%- else %}
+<section class="canvas-light band" id="pricing" data-rail="{{ C.rails.pricing | safe }}">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-l">{{ C.pricing.eyebrow | safe }}</span>
+    <h2>{{ C.pricing.launchTitle | safe }}</h2>
+    <p class="mute-l" style="margin-top:var(--space-5);max-width:56ch">
+      {{ C.pricing.launchLede | safe }}
+      <a href="{{ langBase }}/pricing/">{{ C.pricing.founderNoticeLink | safe }}</a>
+    </p>
+  </div>
+</section>
+{%- endif %}
+
+<!-- ═══ 10 · CIERRE ════════════════════════════════════════════════════
+     El eco de la marca: el eslogan de la página de espera reaparece aquí,
+     así el visitante que vio la holding page reconoce la casa. -->
+<section class="canvas-dark band closer" id="download" data-rail="{{ C.rails.closer | safe }}">
+  <div class="wrap">
+    <div class="rule" style="margin-bottom:var(--space-9)" data-rule aria-hidden="true"></div>
+    <h2>{{ C.closer.title | safe }}</h2>
+    <div class="cta-row cta-row-center">
+      <button type="button" class="btn btn-soon not-mobile" disabled data-track="download_intent" data-track-detail="closer">
+        {{ S.buttons.downloadMac | safe }} <span class="chip">{{ S.buttons.comingSoon | safe }}</span>
+      </button>
+      <button type="button" class="btn btn-primary only-mobile" data-send-to-mac>
+        <span data-label>{{ S.buttons.sendToMac | safe }}</span>
+      </button>
+      <a href="{{ langBase }}/download/" class="btn btn-ghost-d">{{ C.closer.status | safe }}</a>
+    </div>
+    <p class="req meta">{{ C.closer.req | safe }}</p>
+  </div>
+</section>

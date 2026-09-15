@@ -1,0 +1,73 @@
+{
+  "skipLink": "Skip to content",
+  "nav": {
+    "aria": "Main",
+    "pricing": "Pricing",
+    "support": "Support",
+    "cta": "Get PreFrame"
+  },
+  "langSwitch": {
+    "aria": "View this page in English"
+  },
+  "buttons": {
+    "downloadMac": "Download for macOS",
+    "comingSoon": "Coming soon",
+    "sendToMac": "Send this to your Mac"
+  },
+  "footer": {
+    "tagline": "Pre-production for people who shoot to a rhythm.",
+    "download": "Download",
+    "pricing": "Pricing",
+    "support": "Support",
+    "releases": "Release notes",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "aviso": "Legal notice"
+  },
+  "beta": {
+    "dmgUrl": "https://github.com/alamoalberto95pro/preframe-releases/releases/download/v0.3.0/PreFrame-0.3.0-arm64.dmg",
+    "version": "v0.3.0",
+    "size": "120 MB"
+  },
+
+  "packs": {
+    "popular": "Most popular",
+    "items": [
+      {
+        "tag": "Single",
+        "amount": "19.99 €",
+        "per": "one credit · one project",
+        "save": "The reference price",
+        "isBase": true
+      },
+      {
+        "tag": "Pack of 3",
+        "amount": "49.99 €",
+        "per": "16.66 € per credit",
+        "save": "Save 9.98 € vs buying them one by one"
+      },
+      {
+        "tag": "Pack of 5",
+        "amount": "74.99 €",
+        "per": "15.00 € per credit",
+        "save": "Save 24.96 € vs buying them one by one",
+        "isPopular": true
+      },
+      {
+        "tag": "Pack of 10",
+        "amount": "129.99 €",
+        "per": "13.00 € per credit",
+        "save": "Save 69.91 € vs buying them one by one"
+      }
+    ]
+  },
+  "price": {
+    "founder": "9.99 €",
+    "standard": "19.99 €"
+  },
+  "legalDocs": {
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "aviso": "Legal Notice"
+  }
+}

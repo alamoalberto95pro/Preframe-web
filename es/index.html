@@ -52,7 +52,9 @@
 
   <!-- Datos estructurados. `offers` es legítimo aquí porque el precio se
        muestra en la propia página; sin valoraciones ni fecha de lanzamiento,
-       que no existen. --><script type="application/ld+json">
+       que no existen. Por eso mismo desaparece con `site.pricesPublic:
+       false`: marcar un precio que no está en la página es exactamente el
+       marcado que Google penaliza. --><script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
@@ -83,14 +85,7 @@
         "inLanguage": "es",
         "image": "https://www.preframe-app.com/assets/og-image.png",
         "description": "Preproducción para filmmakers que sienten primero la música. Planifica cada plano sobre la forma de la pieza —la onda del tema o una curva emocional dibujada a mano— y exporta un PDF de rodaje y marcadores de corte para Premiere o DaVinci Resolve.",
-        "publisher": { "@id": "https://www.preframe-app.com/#org" },
-        "offers": {
-          "@type": "Offer",
-          "price": "9.99",
-          "priceCurrency": "EUR",
-          "description": "Un crédito de proyecto. El primer proyecto, gratis.",
-          "url": "https://www.preframe-app.com/pricing/"
-        }
+        "publisher": { "@id": "https://www.preframe-app.com/#org" }
       }
     ]
   }
@@ -530,83 +525,19 @@
   </div>
 </section>
 
-<!-- ═══ 9 · PRECIO ═════════════════════════════════════════════════════ -->
+<!-- ═══ 9 · PRECIO ═════════════════════════════════════════════════════
+     Dos versiones enteras y un solo interruptor. Con `site.pricesPublic:
+     false` la sección completa (tarjetas, packs, letra pequeña) se guarda
+     y en su lugar sale su anuncio: el modelo en una frase y "los precios
+     llegan con el lanzamiento". Nada de tarjetas sin cifra — decisión de
+     Alberto, 15-sept-2026: mejor decirlo de frente que enseñar un hueco.
+     Al poner el flag en `true` vuelve la sección original tal cual. -->
 <section class="canvas-light band" id="pricing" data-rail="Precios">
   <div class="wrap">
     <span class="eyebrow eyebrow-l">Precios</span>
-    <h2>Un crédito es un proyecto.</h2>
-    <p class="mute-l" style="margin-top:var(--space-5);max-width:54ch">
-      Sin suscripción. El crédito se gasta una vez, al crear el proyecto. Todo lo que hagas dentro — añadir el tema, redibujar la curva, volver a localizar el mismo archivo, exportar y reexportar — es gratis e ilimitado, para siempre.
-    </p>
-    <div class="prices">
-      <div class="price">
-        <span class="tag">Empieza aquí</span>
-        <div class="amount">Gratis</div>
-        <p class="mute-l small">Tu primer proyecto, completo.</p>
-        <ul>
-          <li>Onda o curva emocional</li>
-          <li>Mood board y tarjetas de plano</li>
-          <li>Exportación EDL y PDF de rodaje</li>
-          <li>Sin tarjeta</li>
-        </ul>
-      </div>
-      <div class="price is-featured">
-        <span class="tag">Precio fundador</span>
-        <!-- Anclaje honesto: el 19,99 € futuro se enseña al lado, como precio
-             al que subirá — no tachado, porque nunca se ha vendido a ese
-             precio y un tachado diría que sí (Directiva Ómnibus). -->
-        <div class="amount-row">
-          <span class="amount"><span data-brand="price.founder">9,99 €</span></span>
-          <span class="amount-next">luego <b data-brand="price.standard">19,99 €</b></span>
-        </div>
-        <p class="mute-l small">Por crédito de proyecto. Tuyo para siempre.</p>
-        <ul>
-          <li>Un proyecto completo, de la idea al rodaje</li>
-          <li>Ediciones y exportaciones ilimitadas</li>
-          <li>Tuyo para siempre, sin renovaciones</li>
-          <li>Máximo 2 por cuenta</li>
-        </ul>
-      </div>
-    </div>
-    <!-- Packs, junto a las tarjetas de precio. Informativos: sin botones
-         hasta validar Stripe en test mode; ahorro como comparación contra
-         sueltos, nunca como descuento (Ómnibus). El fundador de 9,99 € no se
-         mezcla con esta rejilla a propósito. -->
-    <h3 style="margin-top:clamp(40px,5vw,64px)">¿Vas a planificar más de un proyecto? Con los packs el crédito sale más barato.</h3>
-    <div class="packs">
-      <div class="pack">
-        <span class="tag">Individual</span>
-        <div class="amount">19,99 €</div>
-        <p class="pack-per">un crédito · un proyecto</p>
-        <p class="pack-save is-base">El precio de referencia</p>
-      </div>
-      <div class="pack">
-        <span class="tag">Pack de 3</span>
-        <div class="amount">49,99 €</div>
-        <p class="pack-per">16,66 € por crédito</p>
-        <p class="pack-save">Ahorras 9,98 € frente a comprarlos de uno en uno</p>
-      </div>
-      <div class="pack is-popular">
-        <span class="pack-badge">El más elegido</span>
-        <span class="tag">Pack de 5</span>
-        <div class="amount">74,99 €</div>
-        <p class="pack-per">15,00 € por crédito</p>
-        <p class="pack-save">Ahorras 24,96 € frente a comprarlos de uno en uno</p>
-      </div>
-      <div class="pack">
-        <span class="tag">Pack de 10</span>
-        <div class="amount">129,99 €</div>
-        <p class="pack-per">13,00 € por crédito</p>
-        <p class="pack-save">Ahorras 69,91 € frente a comprarlos de uno en uno</p>
-      </div>
-    </div>
-
-    <p class="notice">
-      Los créditos no caducan, y todo lo que pasa dentro de un proyecto sigue siendo ilimitado y gratis compres como compres. Las compras se abren con el lanzamiento. El ahorro se calcula frente a comprar créditos individuales a 19,99 €; los packs nunca se han vendido a otro precio.
-    </p>
-
-    <p class="notice">
-      Precio fundador para los 100 primeros compradores o durante seis meses, lo que ocurra antes. Después el precio pasa a <span data-brand="price.standard">19,99 €</span>. Los pagos los procesa Stripe, que es quien aparece como vendedor en tu extracto.
+    <h2>Los precios llegan con el lanzamiento.</h2>
+    <p class="mute-l" style="margin-top:var(--space-5);max-width:56ch">
+      El modelo ya está decidido: un crédito es un proyecto, sin suscripción, y tu primer proyecto es gratis y completo. Las cifras se publican el día del lanzamiento.
       <a href="/es/pricing/">Ver la página de precios completa →</a>
     </p>
   </div>

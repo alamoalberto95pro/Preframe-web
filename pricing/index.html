@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pricing — PreFrame</title>
-  <meta name="description" content="One credit is one project. No subscription. Your first project is free and complete; after that a credit is 9.99 € at founder price, and everything inside a project — edits and exports — is unlimited forever.">
+  <meta name="description" content="One credit is one project. No subscription. Your first project is free and complete, and everything inside a project — edits and exports — is unlimited forever. Prices are published at launch.">
   <meta name="theme-color" content="#080808">
   <link rel="canonical" href="https://www.preframe-app.com/pricing/">
 
@@ -93,91 +93,18 @@
   </div>
 </section>
 
-<!-- ═══ Precio ═════════════════════════════════════════════════════════ -->
-<section class="canvas-soft band-tight">
+<!-- ═══ Precio ═════════════════════════════════════════════════════════
+     Dos versiones enteras y un solo interruptor, como en la home. Con
+     `site.pricesPublic: false` las tarjetas (Gratis y Fundador) y la
+     sección de packs se guardan, y en su lugar sale un único anuncio:
+     "los precios llegan con el lanzamiento". Nada de tarjetas sin cifra
+     (decisión de Alberto, 15-sept-2026). Con `true` vuelve todo tal cual. -->
+<section class="canvas-soft band-tight" id="packs">
   <div class="wrap">
-    <div class="prices" style="margin-top:0">
-      <div class="price">
-        <span class="tag">Start here</span>
-        <div class="amount">Free</div>
-        <p class="mute-l small">Your first project, complete.</p>
-        <ul>
-          <li>The whole app, not a trial</li>
-          <li>Waveform or emotional curve</li>
-          <li>Mood board, shot cards, golden hour</li>
-          <li>EDL export and shooting PDF</li>
-          <li>No card required</li>
-        </ul>
-      </div>
-      <div class="price is-featured">
-        <span class="tag">Founder price</span>
-        <div class="amount"><span data-brand="price.founder">9.99 €</span></div>
-        <p class="mute-l small">Per project credit.</p>
-        <ul>
-          <li>One full project, start to shoot</li>
-          <li>Unlimited edits and exports</li>
-          <li>Yours forever, no renewal</li>
-          <li>Maximum 2 per account</li>
-        </ul>
-      </div>
-    </div>
-
-    <p class="notice">
-      <strong>Founder price ends.</strong> <span data-brand="price.founder">9.99 €</span> applies to the first 100 buyers or for six months from launch, whichever comes first. After that a credit costs <span data-brand="price.standard">19.99 €</span>. Prices include VAT where applicable. Payments are processed by Stripe, which is the seller of record and appears as such on your statement. Prices are charged in euros.
-    </p>
-  </div>
-</section>
-
-<!-- ═══ Lo que NO cuesta crédito ═══════════════════════════════════════ -->
-<!-- ═══ PACKS DE CRÉDITOS ══════════════════════════════════════════════
-     Sección INFORMATIVA: sin botones de compra hasta que el flujo de Stripe
-     con packs esté validado en test mode. El ahorro se presenta como
-     comparación contra comprar créditos sueltos — NUNCA como descuento sobre
-     un precio anterior del propio pack (Directiva Ómnibus).
-     Repaso Ómnibus hecho el 01-sep-2026: el 9,99 € se presenta como precio
-     de salida con topes (máx. 2 por cuenta, 100 compradores o 6 meses) y el
-     19,99 € como precio futuro — nunca como rebaja sobre un precio anterior,
-     porque no lo hubo. El ahorro de los packs se compara contra créditos
-     sueltos a 19,99 €, nunca contra un precio anterior del pack. -->
-<section class="canvas-light band-tight" id="packs">
-  <div class="wrap">
-    <span class="eyebrow eyebrow-l">Credit packs</span>
-    <h2>One credit, one project.<br>Buy them in packs and each costs less.</h2>
+    <span class="eyebrow eyebrow-l">Prices</span>
+    <h2>Pricing arrives with the launch.</h2>
     <p class="mute-l" style="margin-top:var(--space-5);max-width:56ch">
-      The rule never changes: a credit is spent once, when you create a project, and everything inside that project — edits and exports — is unlimited and free, forever. Packs just lower what each project costs you.
-    </p>
-
-    <div class="packs">
-      <div class="pack">
-        <span class="tag">Single</span>
-        <div class="amount">19.99 €</div>
-        <p class="pack-per">one credit · one project</p>
-        <p class="pack-save is-base">The reference price</p>
-      </div>
-      <div class="pack">
-        <span class="tag">Pack of 3</span>
-        <div class="amount">49.99 €</div>
-        <p class="pack-per">16.66 € per credit</p>
-        <p class="pack-save">Save 9.98 € vs buying them one by one</p>
-      </div>
-      <div class="pack is-popular">
-        <span class="pack-badge">Most popular</span>
-        <span class="tag">Pack of 5</span>
-        <div class="amount">74.99 €</div>
-        <p class="pack-per">15.00 € per credit</p>
-        <p class="pack-save">Save 24.96 € vs buying them one by one</p>
-      </div>
-      <div class="pack">
-        <span class="tag">Pack of 10</span>
-        <div class="amount">129.99 €</div>
-        <p class="pack-per">13.00 € per credit</p>
-        <p class="pack-save">Save 69.91 € vs buying them one by one</p>
-      </div>
-    </div>
-
-
-    <p class="notice">
-      Credits never expire and purchases open with launch — packs are shown here so you know what a project will cost you. Savings are compared against buying single credits at 19.99 €; packs have never been sold at a different price. Payments are processed by Stripe, which appears as the seller on your statement.
+      Your first project is free and complete, and after that each project is one credit. The figures — the single credit and the packs of 3, 5 and 10 — are published on launch day, and purchases open then too.
     </p>
   </div>
 </section>
@@ -228,7 +155,7 @@
       <details>
         <summary>Can I buy several credits at once?</summary>
         <div class="faq-body">
-          <p>Yes — credits will come in packs of 3, 5 and 10, and the bigger the pack the less each project costs. The packs are listed above; purchases open with launch.</p>
+          <p>Yes — credits will come in packs of 3, 5 and 10, and the bigger the pack the less each project costs. Purchases open with launch.</p>
         </div>
       </details>
       <details>

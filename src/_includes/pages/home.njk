@@ -422,7 +422,14 @@
   </div>
 </section>
 
-<!-- ═══ 9 · PRECIO ═════════════════════════════════════════════════════ -->
+<!-- ═══ 9 · PRECIO ═════════════════════════════════════════════════════
+     Dos versiones enteras y un solo interruptor. Con `site.pricesPublic:
+     false` la sección completa (tarjetas, packs, letra pequeña) se guarda
+     y en su lugar sale su anuncio: el modelo en una frase y "los precios
+     llegan con el lanzamiento". Nada de tarjetas sin cifra — decisión de
+     Alberto, 15-sept-2026: mejor decirlo de frente que enseñar un hueco.
+     Al poner el flag en `true` vuelve la sección original tal cual. -->
+{%- if site.pricesPublic %}
 <section class="canvas-light band" id="pricing" data-rail="{{ C.rails.pricing | safe }}">
   <div class="wrap">
     <span class="eyebrow eyebrow-l">{{ C.pricing.eyebrow | safe }}</span>
@@ -474,6 +481,18 @@
     </p>
   </div>
 </section>
+{%- else %}
+<section class="canvas-light band" id="pricing" data-rail="{{ C.rails.pricing | safe }}">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-l">{{ C.pricing.eyebrow | safe }}</span>
+    <h2>{{ C.pricing.launchTitle | safe }}</h2>
+    <p class="mute-l" style="margin-top:var(--space-5);max-width:56ch">
+      {{ C.pricing.launchLede | safe }}
+      <a href="{{ langBase }}/pricing/">{{ C.pricing.founderNoticeLink | safe }}</a>
+    </p>
+  </div>
+</section>
+{%- endif %}
 
 <!-- ═══ 10 · CIERRE ════════════════════════════════════════════════════
      El eco de la marca: el eslogan de la página de espera reaparece aquí,

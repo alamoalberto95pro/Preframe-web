@@ -185,6 +185,8 @@
       "Máximo 2 por cuenta"
     ],
     "packsTitle": "¿Vas a planificar más de un proyecto? Con los packs el crédito sale más barato.",
+    "launchTitle": "Los precios llegan con el lanzamiento.",
+    "launchLede": "El modelo ya está decidido: un crédito es un proyecto, sin suscripción, y tu primer proyecto es gratis y completo. Las cifras se publican el día del lanzamiento.",
     "packsNotice": "Los créditos no caducan, y todo lo que pasa dentro de un proyecto sigue siendo ilimitado y gratis compres como compres. Las compras se abren con el lanzamiento. El ahorro se calcula frente a comprar créditos individuales a 19,99 €; los packs nunca se han vendido a otro precio.",
     "founderNoticeBefore": "Precio fundador para los 100 primeros compradores o durante seis meses, lo que ocurra antes. Después el precio pasa a",
     "founderNoticeAfter": ". Los pagos los procesa Stripe, que es quien aparece como vendedor en tu extracto.",

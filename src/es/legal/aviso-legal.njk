@@ -25,10 +25,20 @@ docTitle: Aviso legal — PreFrame
     <h2>Actividad</h2>
     <p>
       PreFrame es una aplicación de escritorio para planificar rodajes de
-      vídeo, que se vende a través de este sitio mediante créditos. Los
-      precios se muestran en la <a href="/es/pricing/">página de precios</a>
-      con los impuestos aplicables incluidos. Los pagos los procesa Stripe,
-      que actúa como merchant of record.
+      vídeo, que se vende a través de este sitio mediante créditos.
+      {#- Mientras `site.pricesPublic` sea `false` no hay ningún importe publicado
+    en la web, así que este párrafo no puede decir que los precios "se
+    muestran". Al ponerlo en `true` vuelve solo a su redacción definitiva:
+    ese día hay que actualizar la fecha del documento. -#}
+      {%- if site.pricesPublic %}
+      Los precios se muestran en la <a href="/es/pricing/">página de precios</a>
+      con los impuestos aplicables incluidos.
+      {%- else %}
+      Los precios, con los impuestos aplicables incluidos, se publicarán en la
+      <a href="/es/pricing/">página de precios</a> en el lanzamiento de la
+      aplicación.
+      {%- endif %}
+      Los pagos los procesa Stripe, que actúa como merchant of record.
     </p>
 
     <h2>Condiciones aplicables</h2>

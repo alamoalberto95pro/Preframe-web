@@ -42,6 +42,21 @@ module.exports = {
     return data.site.languages[other].prefix + data.pages[data.key].path;
   },
 
+  /* La descripción del <head>. En modo pre-lanzamiento (`site.pricesPublic:
+     false`) la página que cita un precio en su descripción usa la variante
+     sin cifras; las demás no tienen `descriptionLaunch` y esto devuelve la
+     de siempre. */
+  metaDescription: (data) => {
+    if (!data.lang || !data.key) return null;
+    /* Las legales tienen `key` pero no entrada en el diccionario: su prosa
+       vive en el stub y su <head> lo escribe `layouts/doc.njk`, que no usa
+       esto. */
+    const copy = data.t[data.lang][data.key];
+    if (!copy || !copy.meta) return null;
+    if (!data.site.pricesPublic && copy.meta.descriptionLaunch) return copy.meta.descriptionLaunch;
+    return copy.meta.description;
+  },
+
   /* Atajos al diccionario: `S` lo compartido, `C` el copy de esta página. */
   S: (data) => (data.lang ? data.t[data.lang].shared : null),
   C: (data) => (data.lang && data.key ? data.t[data.lang][data.key] : null),

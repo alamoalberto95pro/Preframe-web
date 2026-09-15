@@ -39,11 +39,24 @@ docTitle: Términos de servicio — PreFrame
       tarjeta o banco aparecerá <strong>Stripe</strong> como quien te cobra.
     </p>
     <p>
+{#- Mientras `site.pricesPublic` sea `false` no hay ningún importe publicado
+    en la web, así que este párrafo no puede decir que los precios "se
+    muestran". Al ponerlo en `true` vuelve solo a su redacción definitiva:
+    ese día hay que actualizar la fecha del documento. -#}
+      {%- if site.pricesPublic %}
       Los precios vigentes son los que muestra la
       <a href="/es/pricing/">página de precios</a> y la propia aplicación en
       el momento de la compra. Todos los precios se muestran con los
       impuestos aplicables incluidos. El precio que ves al confirmar la
       compra es el que pagas.
+      {%- else %}
+      Las compras se abren con el lanzamiento de la aplicación: hasta
+      entonces no hay ningún precio publicado y no se puede comprar ningún
+      crédito. Cuando se abran, los precios vigentes serán los que muestren
+      la <a href="/es/pricing/">página de precios</a> y la propia aplicación
+      en el momento de la compra, con los impuestos aplicables incluidos, y
+      el precio que veas al confirmar la compra será el que pagues.
+      {%- endif %}
     </p>
     <p>
       Los créditos se entregan en tu cuenta en cuanto se confirma el pago. Si

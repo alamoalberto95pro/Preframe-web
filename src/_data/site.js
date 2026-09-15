@@ -10,6 +10,20 @@
 module.exports = {
   url: 'https://www.preframe-app.com',
 
+  /* ── INTERRUPTOR DE PRECIOS ──────────────────────────────────────────
+     `false` = modo pre-lanzamiento: la web se publica sin un solo importe
+     de venta. Las secciones de precio siguen enteras (tarjetas, packs,
+     letra pequeña); lo único que cambia es que en lugar de la cifra se
+     lee "Disponible en el lanzamiento" y la rejilla de packs se sustituye
+     por una línea. El JSON-LD suelta su bloque `offers`, porque marcar un
+     precio que no está en la página es justo lo que Google penaliza.
+
+     El día del lanzamiento: poner `true`, `npm run build`, y vuelven los
+     9,99 € / 19,99 € y los packs tal como estaban. No hay que reescribir
+     nada — los textos con cifras nunca se han borrado.
+     (Decisión 15-sept-2026: publicar la web antes que Stripe.) */
+  pricesPublic: false,
+
   /* `prefix` es lo que se antepone a las rutas EN para obtener las del
      idioma. El inglés vive en la raíz: no cambia ni una URL publicada. */
   languages: {

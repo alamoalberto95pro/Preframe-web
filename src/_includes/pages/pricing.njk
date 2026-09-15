@@ -27,7 +27,13 @@
   </div>
 </section>
 
-<!-- ═══ Precio ═════════════════════════════════════════════════════════ -->
+<!-- ═══ Precio ═════════════════════════════════════════════════════════
+     Dos versiones enteras y un solo interruptor, como en la home. Con
+     `site.pricesPublic: false` las tarjetas (Gratis y Fundador) y la
+     sección de packs se guardan, y en su lugar sale un único anuncio:
+     "los precios llegan con el lanzamiento". Nada de tarjetas sin cifra
+     (decisión de Alberto, 15-sept-2026). Con `true` vuelve todo tal cual. -->
+{%- if site.pricesPublic %}
 <section class="canvas-soft band-tight">
   <div class="wrap">
     <div class="prices" style="margin-top:0">
@@ -85,6 +91,17 @@
     </p>
   </div>
 </section>
+{%- else %}
+<section class="canvas-soft band-tight" id="packs">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-l">{{ C.launch.eyebrow | safe }}</span>
+    <h2>{{ C.launch.title | safe }}</h2>
+    <p class="mute-l" style="margin-top:var(--space-5);max-width:56ch">
+      {{ C.launch.lede | safe }}
+    </p>
+  </div>
+</section>
+{%- endif %}
 
 <section class="canvas-light band-tight">
   <div class="wrap">

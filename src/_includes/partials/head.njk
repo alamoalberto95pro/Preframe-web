@@ -17,7 +17,7 @@
        directors" como categoría. -->
 {%- endif %}
   <title>{{ C.meta.title | safe }}</title>
-  <meta name="description" content="{{ C.meta.description | safe }}">
+  <meta name="description" content="{{ metaDescription | safe }}">
 {%- if isHome %}
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 {%- endif %}
@@ -77,7 +77,9 @@
 
   <!-- Datos estructurados. `offers` es legítimo aquí porque el precio se
        muestra en la propia página; sin valoraciones ni fecha de lanzamiento,
-       que no existen. -->
+       que no existen. Por eso mismo desaparece con `site.pricesPublic:
+       false`: marcar un precio que no está en la página es exactamente el
+       marcado que Google penaliza. -->
   {#- Las entidades (@id y url) son las MISMAS en los dos idiomas a
       propósito: un sitio, una organización, una app. Lo único que cambia por
       idioma es `inLanguage` y las descripciones, que salen del
@@ -113,14 +115,14 @@
         "inLanguage": "{{ lang }}",
         "image": "{{ site.url }}/assets/og-image.png",
         "description": "{{ C.jsonld.appDescription | safe }}",
-        "publisher": { "@id": "{{ site.url }}/#org" },
+        "publisher": { "@id": "{{ site.url }}/#org" }{% if site.pricesPublic %},
         "offers": {
           "@type": "Offer",
           "price": "9.99",
           "priceCurrency": "EUR",
           "description": "{{ C.jsonld.offerDescription | safe }}",
           "url": "{{ site.url }}/pricing/"
-        }
+        }{% endif %}
       }
     ]
   }

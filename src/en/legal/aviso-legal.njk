@@ -28,8 +28,18 @@ docTitle: Legal Notice — PreFrame
     <h2>Activity</h2>
     <p>
       PreFrame is a desktop application for planning video shoots, sold
-      through this website by means of credits. Prices are shown on the
-      <a href="/pricing/">pricing page</a> with applicable taxes included.
+      through this website by means of credits.
+      {#- Mientras `site.pricesPublic` sea `false` no hay ningún importe publicado
+    en la web, así que este párrafo no puede decir que los precios "se
+    muestran". Al ponerlo en `true` vuelve solo a su redacción definitiva:
+    ese día hay que actualizar la fecha del documento. -#}
+      {%- if site.pricesPublic %}
+      Prices are shown on the <a href="/pricing/">pricing page</a> with
+      applicable taxes included.
+      {%- else %}
+      Prices, with applicable taxes included, will be published on the
+      <a href="/pricing/">pricing page</a> when the application launches.
+      {%- endif %}
       Payments are processed by Stripe, acting as merchant of record.
     </p>
 

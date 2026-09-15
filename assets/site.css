@@ -186,11 +186,12 @@ section[id] { scroll-margin-top: 84px; }
 .band-tight { padding-block: clamp(56px, 7vw, 100px); }
 
 /* ═══════════════════════════════════════════════════════════════════════
-   ENTRADA AL HACER SCROLL
+   ENTRADA AL HACER SCROLL — solo los títulos de sección de la home
 
-   El estado oculto vive bajo `.has-motion`, que pone `motion.js`. Sin
-   JavaScript, o con "reducir movimiento", la clase no se añade y todo se ve
-   desde el primer momento: la web nunca depende de esto para leerse.
+   El estado oculto vive bajo `.has-motion`, que pone `motion.js` (y solo
+   en la portada). Sin JavaScript, o con "reducir movimiento", la clase no
+   se añade y todo se ve desde el primer momento. Desde el 15-sept-2026
+   nada más entra así: el resto del contenido está siempre visible.
    ═══════════════════════════════════════════════════════════════════════ */
 
 /* Corto y rápido. El fade-up largo de 600 ms y 20 px es la firma del SaaS de
@@ -2200,9 +2201,6 @@ p + p { margin-top: var(--space-4); }
 @supports not (background-clip: text) {
   .hero-who em { background: none; color: var(--brand-sunset); }
 }
-
-/* ─── Entrada solo-fundido, para las piezas grandes de imagen ─────────── */
-.has-motion .reveal.reveal-fade { transform: none; }
 
 /* ═══════════════════════════════════════════════════════════════════════
    TITULAR CON DEGRADADO SUTIL DE MARCA — sobre blanco puro

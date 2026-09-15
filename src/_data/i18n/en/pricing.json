@@ -2,6 +2,7 @@
   "meta": {
     "title": "Pricing — PreFrame",
     "description": "One credit is one project. No subscription. Your first project is free and complete; after that a credit is 9.99 € at founder price, and everything inside a project — edits and exports — is unlimited forever.",
+    "descriptionLaunch": "One credit is one project. No subscription. Your first project is free and complete, and everything inside a project — edits and exports — is unlimited forever. Prices are published at launch.",
     "ogTitle": "Pricing — PreFrame",
     "ogDescription": "One credit is one project. No subscription. First project free."
   },
@@ -62,6 +63,12 @@
     "noticeEnd": ". Prices include VAT where applicable. Payments are processed by Stripe, which is the seller of record and appears as such on your statement. Prices are charged in euros."
   },
 
+  "launch": {
+    "eyebrow": "Prices",
+    "title": "Pricing arrives with the launch.",
+    "lede": "Your first project is free and complete, and after that each project is one credit. The figures — the single credit and the packs of 3, 5 and 10 — are published on launch day, and purchases open then too."
+  },
+
   "packs": {
     "eyebrow": "Credit packs",
     "title": "One credit, one project.<br>Buy them in packs and each costs less.",
@@ -106,7 +113,7 @@
       },
       {
         "q": "Can I buy several credits at once?",
-        "a": ["Yes — credits will come in packs of 3, 5 and 10, and the bigger the pack the less each project costs. The packs are listed above; purchases open with launch."]
+        "a": ["Yes — credits will come in packs of 3, 5 and 10, and the bigger the pack the less each project costs. Purchases open with launch."]
       },
       {
         "q": "Do I need an account?",

@@ -185,6 +185,8 @@
       "Max 2 per account"
     ],
     "packsTitle": "Planning more than one project? Packs bring the credit down.",
+    "launchTitle": "Pricing arrives with the launch.",
+    "launchLede": "The model is already set: one credit is one project, no subscription, and your first project is free and complete. The figures are published on launch day.",
     "packsNotice": "Credits never expire, and everything inside a project stays unlimited and free whichever way you buy. Purchases open with launch. Savings are compared against buying single credits at 19.99 €; packs have never been sold at a different price.",
     "founderNoticeBefore": "Founder price available to the first 100 buyers or for six months, whichever comes first. After that the price goes to",
     "founderNoticeAfter": ". Payments are processed by Stripe, which appears as the seller on your statement.",

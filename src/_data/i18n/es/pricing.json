@@ -2,6 +2,7 @@
   "meta": {
     "title": "Precios — PreFrame",
     "description": "Un crédito es un proyecto. Sin suscripción. Tu primer proyecto es gratis y completo; después el crédito cuesta 9,99 € a precio fundador, y todo lo que pasa dentro de un proyecto — ediciones y exportaciones — es ilimitado para siempre.",
+    "descriptionLaunch": "Un crédito es un proyecto. Sin suscripción. Tu primer proyecto es gratis y completo, y todo lo que pasa dentro de un proyecto — ediciones y exportaciones — es ilimitado para siempre. Los precios se publican en el lanzamiento.",
     "ogTitle": "Precios — PreFrame",
     "ogDescription": "Un crédito es un proyecto. Sin suscripción. El primer proyecto, gratis."
   },
@@ -62,6 +63,12 @@
     "noticeEnd": ". Los precios incluyen IVA cuando corresponde. Los pagos los procesa Stripe, que es el vendedor de registro y aparece como tal en tu extracto. Los cargos se hacen en euros."
   },
 
+  "launch": {
+    "eyebrow": "Precios",
+    "title": "Los precios llegan con el lanzamiento.",
+    "lede": "Tu primer proyecto es gratis y completo, y después cada proyecto es un crédito. Las cifras — el crédito suelto y los packs de 3, 5 y 10 — se publican el día del lanzamiento, que es cuando se abren las compras."
+  },
+
   "packs": {
     "eyebrow": "Packs de créditos",
     "title": "Un crédito, un proyecto.<br>Cómpralos en pack y cada uno sale más barato.",
@@ -106,7 +113,7 @@
       },
       {
         "q": "¿Puedo comprar varios créditos de golpe?",
-        "a": ["Sí: habrá packs de 3, 5 y 10, y cuanto más grande es el pack menos cuesta cada proyecto. Los packs están listados arriba; las compras se abren con el lanzamiento."]
+        "a": ["Sí: habrá packs de 3, 5 y 10, y cuanto más grande es el pack menos cuesta cada proyecto. Las compras se abren con el lanzamiento."]
       },
       {
         "q": "¿Necesito una cuenta?",

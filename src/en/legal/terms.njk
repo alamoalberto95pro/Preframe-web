@@ -40,11 +40,24 @@ docTitle: Terms of Service — PreFrame
       bank statement will show <strong>Stripe</strong> as the party charging you.
     </p>
     <p>
+{#- Mientras `site.pricesPublic` sea `false` no hay ningún importe publicado
+    en la web, así que este párrafo no puede decir que los precios "se
+    muestran". Al ponerlo en `true` vuelve solo a su redacción definitiva:
+    ese día hay que actualizar la fecha del documento. -#}
+      {%- if site.pricesPublic %}
       The current prices are those shown on the
       <a href="/pricing/">pricing page</a> and inside the application at the
       moment of purchase. All prices are shown with applicable taxes
       included. The price you see when you confirm the purchase is the one
       you pay.
+      {%- else %}
+      Purchases open when the application launches: until then no price is
+      published and no credit can be bought. Once they open, the current
+      prices will be those shown on the <a href="/pricing/">pricing page</a>
+      and inside the application at the moment of purchase, with applicable
+      taxes included, and the price you see when you confirm the purchase
+      will be the one you pay.
+      {%- endif %}
     </p>
     <p>
       Credits are delivered to your account as soon as the payment is

@@ -1,93 +1,39 @@
 /* ─────────────────────────────────────────────────────────────────────
    PreFrame Web — movimiento de página.
 
-   Dos cosas, las dos de scroll:
+   Todo de scroll: el raíl lateral que sigue la lectura, el zoom de las
+   secciones [data-zoom] y la barra superior, que se condensa al separarse
+   de arriba.
 
-   1. Las secciones ENTRAN al llegar a ellas (suben y aparecen), escalonadas
-      dentro de cada grupo. Es lo que hace que apple.com se sienta como se
-      siente: el contenido no está esperándote, llega.
-   2. La barra superior se condensa al separarse de arriba.
+   De la ENTRADA al hacer scroll queda solo una pieza (decisión de Alberto,
+   15-sept-2026): los títulos de sección de la HOME suben y aparecen al
+   llegar a ellos. Nada más entra: el resto del contenido, en todas las
+   páginas, está siempre visible.
 
    Regla de oro: si este archivo no llega a ejecutarse, la web se ve entera
-   igualmente. El estado oculto solo existe bajo `.has-motion`, que se pone
-   desde aquí — nunca en el HTML.
+   igualmente.
    ───────────────────────────────────────────────────────────────────── */
 
 (function () {
   'use strict';
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var supported = 'IntersectionObserver' in window;
 
-  /* ─── 1. Entrada de secciones ──────────────────────────────────────── */
+  /* ─── 1. Títulos de la home ─────────────────────────────────────────
+     Solo en la portada (la única página con hero) y solo los <h2>: el
+     título de cada sección sube y aparece al llegar a él. El hero queda
+     fuera — está sobre el pliegue y tiene su propia entrada. El estado
+     oculto vive bajo `.has-motion`, que se pone desde aquí — nunca en el
+     HTML: sin JavaScript, o con "reducir movimiento", todo se ve desde el
+     primer momento. */
 
-  /* Qué entra. Se elige por selector y no con atributos en el HTML para no
-     salpicar el marcado de una decisión puramente visual. El hero queda
-     fuera a propósito: está sobre el pliegue y ya tiene su animación. */
-  /* Dos sabores, como en las páginas de producto de Apple: el texto entra
-     con fundido y una subida corta; las piezas grandes de imagen, solo con
-     fundido, sin desplazarse. */
-  var TARGETS = [
-    '.band .eyebrow', '.band-tight .eyebrow',
-    '.band h2', '.band-tight h2',
-    '.band > .wrap > p', '.band-tight > .wrap > p',
-    '.step', '.card', '.bento-card', '.price', '.pack', '.cf-step',
-    '.duo-card',                    /* las ventanas gemelas entran una tras otra */
-    '.faq details', '.founder-layout', '.frame',
-    '.feature', '.mac',
-    '.cm-card',                     /* el canvas se puebla tarjeta a tarjeta */
-    '.canvas-caps li',
-    '.fb-copy > *',                 /* el texto sobre las capturas de fondo */
-    '.split > div', '.notice', '.placeholder', '.release',
-  ].join(',');
+  var isHome = !!document.querySelector('.hero');
 
-  /* Solo fundido. Ojo: estos elementos se añaden DESPUÉS del filtro de
-     anidados, así que pueden vivir dentro de un elemento de TARGETS (la
-     hoja del PDF dentro de su columna) sin quedar excluidos. */
-  var FADE_ONLY = [
-    '.bg-feature-img',
-    '.paper-real',
-    '.canvasmock .cm-chips',
-    '.canvasmock .cm-toolbar',
-  ].join(',');
-
-  if (supported && !reduced.matches) {
+  if (isHome && 'IntersectionObserver' in window && !reduced.matches) {
     document.documentElement.classList.add('has-motion');
 
-    var elements = Array.prototype.slice.call(document.querySelectorAll(TARGETS));
-    var fadeOnly = Array.prototype.slice.call(document.querySelectorAll(FADE_ONLY));
-
-    /* Nada anidado: si un elemento ya entra dentro de otro que entra (una
-       captura dentro de su paso, por ejemplo), se queda fuera de la lista.
-       Si no, se animaría dos veces y se notaría. */
-    var candidates = new Set(elements);
-    elements = elements.filter(function (el) {
-      var parent = el.parentNode;
-      while (parent && parent !== document.body) {
-        if (candidates.has(parent)) return false;
-        parent = parent.parentNode;
-      }
-      return true;
-    });
-
-    /* La clase la pone el JS, no el HTML: así la lista de qué entra existe
-       en un solo sitio (aquí) y el CSS no puede desincronizarse y dejar algo
-       oculto para siempre. */
-    elements.forEach(function (el) { el.classList.add('reveal'); });
-    fadeOnly.forEach(function (el) {
-      el.classList.add('reveal', 'reveal-fade');
-      elements.push(el);
-    });
-
-    /* Escalonado por grupo: los hermanos de una misma rejilla entran uno
-       detrás de otro, no todos de golpe. */
-    var counters = new Map();
-    elements.forEach(function (el) {
-      var parent = el.parentNode;
-      var index = counters.get(parent) || 0;
-      counters.set(parent, index + 1);
-      if (index > 0) el.style.transitionDelay = Math.min(index * 70, 350) + 'ms';
-    });
+    var titles = Array.prototype.slice.call(document.querySelectorAll('h2'));
+    titles.forEach(function (el) { el.classList.add('reveal'); });
 
     var observer = new IntersectionObserver(
       function (entries) {
@@ -97,12 +43,12 @@
           observer.unobserve(entry.target);   /* entra una vez, no en bucle */
         });
       },
-      /* Se dispara un poco antes de que el elemento llegue del todo: al
+      /* Se dispara un poco antes de que el título llegue del todo: al
          terminar de subir ya está en su sitio, sin el tirón de última hora. */
       { rootMargin: '0px 0px -12% 0px', threshold: 0.01 }
     );
 
-    elements.forEach(function (el) { observer.observe(el); });
+    titles.forEach(function (el) { observer.observe(el); });
 
     /* Si alguien pide menos movimiento con la web abierta, se enseña todo. */
     if (reduced.addEventListener) {

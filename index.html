@@ -52,7 +52,9 @@
 
   <!-- Datos estructurados. `offers` es legítimo aquí porque el precio se
        muestra en la propia página; sin valoraciones ni fecha de lanzamiento,
-       que no existen. --><script type="application/ld+json">
+       que no existen. Por eso mismo desaparece con `site.pricesPublic:
+       false`: marcar un precio que no está en la página es exactamente el
+       marcado que Google penaliza. --><script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
@@ -83,14 +85,7 @@
         "inLanguage": "en",
         "image": "https://www.preframe-app.com/assets/og-image.png",
         "description": "Pre-production for filmmakers who feel the music first. Plan every shot against the shape of the piece — the waveform of the track, or an emotional curve drawn by hand — then export a shooting PDF and cut markers for Premiere or DaVinci Resolve.",
-        "publisher": { "@id": "https://www.preframe-app.com/#org" },
-        "offers": {
-          "@type": "Offer",
-          "price": "9.99",
-          "priceCurrency": "EUR",
-          "description": "One project credit. First project free.",
-          "url": "https://www.preframe-app.com/pricing/"
-        }
+        "publisher": { "@id": "https://www.preframe-app.com/#org" }
       }
     ]
   }
@@ -530,83 +525,19 @@
   </div>
 </section>
 
-<!-- ═══ 9 · PRECIO ═════════════════════════════════════════════════════ -->
+<!-- ═══ 9 · PRECIO ═════════════════════════════════════════════════════
+     Dos versiones enteras y un solo interruptor. Con `site.pricesPublic:
+     false` la sección completa (tarjetas, packs, letra pequeña) se guarda
+     y en su lugar sale su anuncio: el modelo en una frase y "los precios
+     llegan con el lanzamiento". Nada de tarjetas sin cifra — decisión de
+     Alberto, 15-sept-2026: mejor decirlo de frente que enseñar un hueco.
+     Al poner el flag en `true` vuelve la sección original tal cual. -->
 <section class="canvas-light band" id="pricing" data-rail="Pricing">
   <div class="wrap">
     <span class="eyebrow eyebrow-l">Pricing</span>
-    <h2>One credit is one project.</h2>
-    <p class="mute-l" style="margin-top:var(--space-5);max-width:54ch">
-      No subscription. A credit is spent once, when you create a project. Everything you do inside it — add the track, redraw the curve, relocate the same file, export and re-export — is free and unlimited, forever.
-    </p>
-    <div class="prices">
-      <div class="price">
-        <span class="tag">Start here</span>
-        <div class="amount">Free</div>
-        <p class="mute-l small">Your first project, complete.</p>
-        <ul>
-          <li>Waveform or emotional curve</li>
-          <li>Mood board and shot cards</li>
-          <li>EDL export and shooting PDF</li>
-          <li>No card required</li>
-        </ul>
-      </div>
-      <div class="price is-featured">
-        <span class="tag">Founder price</span>
-        <!-- Anclaje honesto: el 19,99 € futuro se enseña al lado, como precio
-             al que subirá — no tachado, porque nunca se ha vendido a ese
-             precio y un tachado diría que sí (Directiva Ómnibus). -->
-        <div class="amount-row">
-          <span class="amount"><span data-brand="price.founder">9.99 €</span></span>
-          <span class="amount-next">then <b data-brand="price.standard">19.99 €</b></span>
-        </div>
-        <p class="mute-l small">Per project credit. Yours forever.</p>
-        <ul>
-          <li>One full project, start to shoot</li>
-          <li>Unlimited edits and exports</li>
-          <li>Yours forever, no renewal</li>
-          <li>Max 2 per account</li>
-        </ul>
-      </div>
-    </div>
-    <!-- Packs, junto a las tarjetas de precio. Informativos: sin botones
-         hasta validar Stripe en test mode; ahorro como comparación contra
-         sueltos, nunca como descuento (Ómnibus). El fundador de 9,99 € no se
-         mezcla con esta rejilla a propósito. -->
-    <h3 style="margin-top:clamp(40px,5vw,64px)">Planning more than one project? Packs bring the credit down.</h3>
-    <div class="packs">
-      <div class="pack">
-        <span class="tag">Single</span>
-        <div class="amount">19.99 €</div>
-        <p class="pack-per">one credit · one project</p>
-        <p class="pack-save is-base">The reference price</p>
-      </div>
-      <div class="pack">
-        <span class="tag">Pack of 3</span>
-        <div class="amount">49.99 €</div>
-        <p class="pack-per">16.66 € per credit</p>
-        <p class="pack-save">Save 9.98 € vs buying them one by one</p>
-      </div>
-      <div class="pack is-popular">
-        <span class="pack-badge">Most popular</span>
-        <span class="tag">Pack of 5</span>
-        <div class="amount">74.99 €</div>
-        <p class="pack-per">15.00 € per credit</p>
-        <p class="pack-save">Save 24.96 € vs buying them one by one</p>
-      </div>
-      <div class="pack">
-        <span class="tag">Pack of 10</span>
-        <div class="amount">129.99 €</div>
-        <p class="pack-per">13.00 € per credit</p>
-        <p class="pack-save">Save 69.91 € vs buying them one by one</p>
-      </div>
-    </div>
-
-    <p class="notice">
-      Credits never expire, and everything inside a project stays unlimited and free whichever way you buy. Purchases open with launch. Savings are compared against buying single credits at 19.99 €; packs have never been sold at a different price.
-    </p>
-
-    <p class="notice">
-      Founder price available to the first 100 buyers or for six months, whichever comes first. After that the price goes to <span data-brand="price.standard">19.99 €</span>. Payments are processed by Stripe, which appears as the seller on your statement.
+    <h2>Pricing arrives with the launch.</h2>
+    <p class="mute-l" style="margin-top:var(--space-5);max-width:56ch">
+      The model is already set: one credit is one project, no subscription, and your first project is free and complete. The figures are published on launch day.
       <a href="/pricing/">See the full pricing page →</a>
     </p>
   </div>

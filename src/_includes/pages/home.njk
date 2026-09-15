@@ -20,14 +20,10 @@
     <p class="hero-claim">{{ C.hero.claim | safe }}</p>
     <p class="hero-who">{{ C.hero.who | safe }}</p>
 
-    <!-- Jerarquía del CTA: el botón principal NUNCA es el deshabilitado. El
-         único gesto real que existe hoy en escritorio es ver el producto, así
-         que ese es el primario; la descarga queda al lado, presente y honesta
-         con su "coming soon". En móvil el primario es llevarse el enlace. -->
+    <!-- El CTA es la descarga, presente y honesta con su "coming soon".
+         El botón de móvil "Envíatelo a tu Mac" se quitó el 15-sept-2026
+         (decisión de Alberto): sobraba. -->
     <div class="cta-row">
-      <button type="button" class="btn btn-primary only-mobile" data-send-to-mac>
-        <span data-label>{{ S.buttons.sendToMac | safe }}</span>
-      </button>
       <button type="button" class="btn btn-soon" disabled data-track="download_intent" data-track-detail="hero">
         {{ S.buttons.downloadMac | safe }} <span class="chip">{{ S.buttons.comingSoon | safe }}</span>
       </button>
@@ -502,11 +498,8 @@
     <div class="rule" style="margin-bottom:var(--space-9)" data-rule aria-hidden="true"></div>
     <h2>{{ C.closer.title | safe }}</h2>
     <div class="cta-row cta-row-center">
-      <button type="button" class="btn btn-soon not-mobile" disabled data-track="download_intent" data-track-detail="closer">
+      <button type="button" class="btn btn-soon" disabled data-track="download_intent" data-track-detail="closer">
         {{ S.buttons.downloadMac | safe }} <span class="chip">{{ S.buttons.comingSoon | safe }}</span>
-      </button>
-      <button type="button" class="btn btn-primary only-mobile" data-send-to-mac>
-        <span data-label>{{ S.buttons.sendToMac | safe }}</span>
       </button>
       <a href="{{ langBase }}/download/" class="btn btn-ghost-d">{{ C.closer.status | safe }}</a>
     </div>

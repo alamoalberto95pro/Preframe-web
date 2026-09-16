@@ -3,7 +3,8 @@
 
    Sin dependencias, sin build. Lo que hay aquí:
      · Rellena los `data-brand` con los valores de `brand.js`.
-     · Gancho de analítica en la intención de descarga.
+     · Analítica propia sin cookies: beacon a hit.preframe-app.com
+       (pageview + intención de descarga) — roadmap 16.
      · Año del footer.
    (El CTA de móvil "Send this to your Mac" se quitó el 15-sept-2026.)
 
@@ -56,18 +57,48 @@
     el.textContent = String(year);
   });
 
-  /* ─── 2. Analítica: intención de descarga ───────────────────────────
-     La única métrica que importa. Las páginas vistas ya las mide el
-     beacon de Cloudflare Web Analytics (en el head, sin cookies), pero
-     no acepta eventos custom, así que estos se acumulan en una cola
-     local y no se envían a ningún sitio. Si algún día hace falta
-     medirlos de verdad, tocará otro proveedor — sin cookies. */
+  /* ─── 2. Analítica: la propia (roadmap 16) ──────────────────────────
+     Desde el 16-sept-2026 los eventos SÍ se envían: un beacon mínimo al
+     Worker `preframe-hit` (hit.preframe-app.com), que filtra bots, añade
+     el país y guarda la fila anónima en `web_events` — el dashboard de
+     metrics-preframe la pinta. Sin cookies y sin almacenamiento, como
+     promete la privacidad: aquí no se persiste ni se lee nada.
+
+     El beacon viaja como text/plain a propósito: evita el preflight CORS.
+     Si el Worker no existe o falla, sendBeacon muere en silencio y la
+     página ni se entera — la analítica jamás rompe la web.
+
+     El beacon de Cloudflare Web Analytics (head) sigue como termómetro
+     de contraste. La cola local `preframeEvents` se mantiene para poder
+     inspeccionar en consola. */
+
+  var HIT_ENDPOINT = 'https://hit.preframe-app.com';
+
+  function beacon(type) {
+    try {
+      var payload = JSON.stringify({
+        type: type,
+        path: window.location.pathname,
+        lang: document.documentElement.lang === 'es' ? 'es' : 'en',
+        referrer: document.referrer || null,
+      });
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(HIT_ENDPOINT, new Blob([payload], { type: 'text/plain' }));
+      }
+    } catch (e) {
+      /* nunca romper la página por medir */
+    }
+  }
 
   window.preframeEvents = window.preframeEvents || [];
 
   function track(name, detail) {
     window.preframeEvents.push({ name: name, detail: detail || null, at: Date.now() });
+    if (name === 'download_intent') beacon('download_click');
   }
+
+  /* Cada página vista, una vez, al cargar. */
+  beacon('pageview');
 
   document.querySelectorAll('[data-track]').forEach(function (el) {
     el.addEventListener('click', function () {

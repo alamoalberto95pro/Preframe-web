@@ -30,6 +30,8 @@
     <p class="lead">
       Head back to PreFrame — your credits will show up in a few seconds.
       You can close this tab.
+      If they take a little longer, no need to buy again: they'll be added
+      to your account automatically.
     </p>
 
     <p class="foot">
@@ -37,5 +39,23 @@
       <a href="/legal/privacy/" style="color: var(--text-disabled);">Privacy</a>
     </p>
   </main>
+  <script>
+    // Swap ligero a español por idioma del navegador (páginas estáticas
+    // fuera del build de Eleventy; misma URL para ambos idiomas).
+    if ((navigator.language || '').toLowerCase().startsWith('es')) {
+      document.documentElement.lang = 'es';
+      document.title = 'Compra completada — PreFrame';
+      document.querySelector('h1').textContent = 'Compra completada';
+      document.querySelector('.lead').innerHTML =
+        'Vuelve a PreFrame — tus créditos aparecerán en unos segundos. ' +
+        'Puedes cerrar esta pestaña. Si tardan un poco más, no vuelvas a ' +
+        'comprar: se añadirán a tu cuenta automáticamente.';
+      const links = document.querySelectorAll('.foot a');
+      links[0].textContent = 'Términos';
+      links[0].href = '/es/legal/terms/';
+      links[1].textContent = 'Privacidad';
+      links[1].href = '/es/legal/privacy/';
+    }
+  </script>
 </body>
 </html>

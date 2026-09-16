@@ -36,5 +36,22 @@
       <a href="/legal/privacy/" style="color: var(--text-disabled);">Privacy</a>
     </p>
   </main>
+  <script>
+    // Swap ligero a español por idioma del navegador (páginas estáticas
+    // fuera del build de Eleventy; misma URL para ambos idiomas).
+    if ((navigator.language || '').toLowerCase().startsWith('es')) {
+      document.documentElement.lang = 'es';
+      document.title = 'Compra cancelada — PreFrame';
+      document.querySelector('h1').textContent = 'Compra cancelada';
+      document.querySelector('.lead').textContent =
+        'No se ha realizado ningún cargo. Puedes volver a PreFrame y ' +
+        'comprar cuando quieras.';
+      const links = document.querySelectorAll('.foot a');
+      links[0].textContent = 'Términos';
+      links[0].href = '/es/legal/terms/';
+      links[1].textContent = 'Privacidad';
+      links[1].href = '/es/legal/privacy/';
+    }
+  </script>
 </body>
 </html>

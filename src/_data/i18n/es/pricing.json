@@ -60,7 +60,7 @@
     ],
     "noticeStrong": "El precio fundador se acaba.",
     "noticeMid": "se aplica a los 100 primeros compradores o durante seis meses desde el lanzamiento, lo que ocurra antes. Después, un crédito cuesta",
-    "noticeEnd": ". Los precios incluyen IVA cuando corresponde. Los pagos los procesa Stripe, que es el vendedor de registro y aparece como tal en tu extracto. Los cargos se hacen en euros."
+    "noticeEnd": ". Los precios incluyen IVA cuando corresponde. Los pagos los procesa Stripe a través de Link, el vendedor de registro: en tu extracto el cargo aparece como «LINK.COM* PREFRAME-APP». Los cargos se hacen en euros."
   },
 
   "launch": {
@@ -121,7 +121,7 @@
       },
       {
         "q": "¿A quién le estoy pagando en realidad?",
-        "a": ["A Stripe. Son el vendedor de registro de PreFrame, así que en tu extracto aparece Stripe y son ellos los que se ocupan de la parte fiscal. Las devoluciones y los recibos también van por ahí."]
+        "a": ["A Stripe, a través de Link, su plataforma de pagos. Son el vendedor de registro de PreFrame: en tu extracto el cargo aparece como «LINK.COM* PREFRAME-APP» y son ellos los que se ocupan de la parte fiscal. Las devoluciones y los recibos también van por ahí — el recibo de tu compra te llegará de Link."]
       }
     ],
     "noticeBefore": "¿Falta algo por contestar?",

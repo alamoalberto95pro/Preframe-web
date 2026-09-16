@@ -60,7 +60,7 @@
     ],
     "noticeStrong": "Founder price ends.",
     "noticeMid": "applies to the first 100 buyers or for six months from launch, whichever comes first. After that a credit costs",
-    "noticeEnd": ". Prices include VAT where applicable. Payments are processed by Stripe, which is the seller of record and appears as such on your statement. Prices are charged in euros."
+    "noticeEnd": ". Prices include VAT where applicable. Payments are processed by Stripe through Link, the seller of record: the charge on your statement appears as “LINK.COM* PREFRAME-APP”. Prices are charged in euros."
   },
 
   "launch": {
@@ -121,7 +121,7 @@
       },
       {
         "q": "Who am I actually paying?",
-        "a": ["Stripe. They're the seller of record for PreFrame, so your statement shows Stripe and they handle the tax side. Refunds and receipts go through them too."]
+        "a": ["Stripe, through Link, their payments platform. They're the seller of record for PreFrame: the charge on your statement appears as “LINK.COM* PREFRAME-APP” and they handle the tax side. Refunds and receipts go through them too — your purchase receipt will come from Link."]
       }
     ],
     "noticeBefore": "Something not covered here?",

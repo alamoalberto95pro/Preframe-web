@@ -7,7 +7,7 @@ docTitle: Política de privacidad — PreFrame
 {#- Traducción del stub inglés (src/en/legal/privacy.njk), 01-sep-2026.
     Cambiar una cláusula = tocar los DOS stubs. -#}
     <h1>Política de privacidad</h1>
-    <p class="doc-meta">Última actualización: 2 de septiembre de 2026</p>
+    <p class="doc-meta">Última actualización: 16 de septiembre de 2026</p>
 
 
     <h2>1. Quién es el responsable</h2>
@@ -106,27 +106,38 @@ docTitle: Política de privacidad — PreFrame
       Este sitio no usa <strong>ni cookies ni almacenamiento del
       navegador</strong>, y por eso nunca se te pide aceptar nada. Todas las
       fuentes se sirven desde este mismo dominio: no se hacen peticiones a
-      Google Fonts ni a redes publicitarias. La única petición a un tercero
-      es el script de analítica sin cookies descrito en el apartado 7.
+      Google Fonts ni a redes publicitarias. Las únicas peticiones que
+      salen de la página son las de la analítica sin cookies descrita en el
+      apartado 7.
     </p>
 
-    <!-- Cloudflare Web Analytics desde 07-08-2026. Si algún día se mide el
-         clic de descarga (Umami/Plausible), ampliar esta sección. -->
+    <!-- Medición propia (roadmap 16) desde el 16-09-2026: Worker
+         `preframe-hit` → tabla `web_events`. Cloudflare Web Analytics
+         (07-08-2026) se queda de contraste. Si lo que se mide cambia,
+         cambia esta sección ANTES de desplegarlo. -->
     <h2>7. Analítica del sitio</h2>
     <p>
-      Este sitio usa <strong>Cloudflare Web Analytics</strong>, un servicio de
-      Cloudflare, Inc., para medir su audiencia de forma agregada. Registra
-      las páginas vistas junto con el sitio de procedencia, el país, el tipo
-      de navegador y dispositivo, y métricas de rendimiento de la página. No
-      registra clics en botones o enlaces individuales.
+      Este sitio usa una <strong>medición propia</strong>, alojada en nuestra
+      infraestructura (Cloudflare y Supabase), para saber de forma agregada
+      cuánta gente lo visita y si funciona: páginas vistas, sitio de
+      procedencia, país, idioma, tipo de dispositivo y los clics en los
+      botones de descarga.
     </p>
     <p>
       La medición es <strong>sin cookies</strong>: no guarda nada en tu
-      navegador, no usa ningún identificador persistente, no hace
-      fingerprinting de tu dispositivo y no te sigue por otros sitios web.
-      Los visitantes nunca se identifican individualmente y no se construye
-      ningún perfil sobre ti. Por eso este sitio sigue sin pedirte aceptar
-      nada.
+      navegador ni usa ningún identificador persistente. Para contar
+      visitantes se genera un código técnico a partir de una clave que cambia
+      cada 24 horas; tu dirección IP se usa únicamente un instante para
+      generar ese código y <strong>no se almacena nunca</strong>, y el código
+      de un mismo visitante es distinto cada día, así que no es posible
+      seguirte entre días ni entre sitios web. Los datos, siempre agregados y
+      anónimos, se eliminan a los 90 días.
+    </p>
+    <p>
+      De forma complementaria, el sitio usa <strong>Cloudflare Web
+      Analytics</strong> (Cloudflare, Inc.) con las mismas garantías: sin
+      cookies, sin identificadores persistentes, sin fingerprinting y sin
+      perfiles. Por eso este sitio sigue sin pedirte aceptar nada.
     </p>
     <p>
       La base legal es nuestro interés legítimo en saber si el sitio funciona

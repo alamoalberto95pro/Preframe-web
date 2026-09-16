@@ -52,6 +52,25 @@
       }
     ]
   },
+  "billing": {
+    "eyebrow": "Purchases & billing",
+    "title": "Who charges you and what your statement shows.",
+    "items": [
+      {
+        "q": "I see a “LINK.COM* PREFRAME-APP” charge on my card — what is it?",
+        "a": [
+          "That's your PreFrame credit purchase. Payments are processed by <strong>Stripe</strong>, PreFrame's seller of record, through Link, their payments platform: that's why the charge shows as “LINK.COM* PREFRAME-APP” and your receipt comes from Link.",
+          "PreFrame never sees your card number: the payment happens entirely on Stripe, which also handles the tax side."
+        ]
+      },
+      {
+        "q": "How do I get a receipt or a refund?",
+        "a": [
+          "Receipts and refunds are handled by Stripe as the seller. The conditions live in the <a href=\"/legal/terms/\">Terms</a>; if something doesn't add up, write to support@preframe-app.com and we'll push it through."
+        ]
+      }
+    ]
+  },
   "data": {
     "eyebrow": "Your data",
     "title": "Where your files are, and how to remove them.",

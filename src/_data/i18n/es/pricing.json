@@ -6,13 +6,11 @@
     "ogTitle": "Precios — PreFrame",
     "ogDescription": "Un crédito es un proyecto. Sin suscripción. El primer proyecto, gratis."
   },
-
   "head": {
     "eyebrow": "Precios",
     "title": "Un crédito es un proyecto.",
     "lede": "Sin suscripción, sin licencias por usuario, sin nada que cancelar. El crédito se gasta una sola vez —al crear el proyecto— y ese proyecto es tuyo para trabajarlo siempre."
   },
-
   "flow": {
     "eyebrow": "En qué se va el crédito",
     "title": "Se gasta una vez. Después, todo gratis.",
@@ -38,7 +36,6 @@
       }
     ]
   },
-
   "plans": {
     "freeTag": "Empieza aquí",
     "freeAmount": "Gratis",
@@ -60,22 +57,19 @@
     ],
     "noticeStrong": "El precio fundador se acaba.",
     "noticeMid": "se aplica a los 100 primeros compradores o durante seis meses desde el lanzamiento, lo que ocurra antes. Después, un crédito cuesta",
-    "noticeEnd": ". Los precios incluyen IVA cuando corresponde. Los pagos los procesa Stripe a través de Link, el vendedor de registro: en tu extracto el cargo aparece como «LINK.COM* PREFRAME-APP». Los cargos se hacen en euros."
+    "noticeEnd": ". Los precios incluyen IVA cuando corresponde. Los pagos los procesa Stripe a través de Link (vendedor de registro). Los cargos se hacen en euros."
   },
-
   "launch": {
     "eyebrow": "Precios",
     "title": "Los precios llegan con el lanzamiento.",
     "lede": "Tu primer proyecto es gratis y completo, y después cada proyecto es un crédito. Las cifras — el crédito suelto y los packs de 3, 5 y 10 — se publican el día del lanzamiento, que es cuando se abren las compras."
   },
-
   "packs": {
     "eyebrow": "Packs de créditos",
     "title": "Un crédito, un proyecto.<br>Cómpralos en pack y cada uno sale más barato.",
     "lede": "La regla no cambia nunca: el crédito se gasta una vez, al crear el proyecto, y todo lo que pasa dentro de ese proyecto —ediciones y exportaciones— es ilimitado y gratis, para siempre. Los packs solo bajan lo que te cuesta cada proyecto.",
-    "notice": "Los créditos no caducan y las compras se abren con el lanzamiento — los packs están aquí para que sepas lo que te va a costar un proyecto. El ahorro se calcula frente a comprar créditos individuales a 19,99 €; los packs nunca se han vendido a otro precio. Los pagos los procesa Stripe, que es quien aparece como vendedor en tu extracto."
+    "notice": "Los créditos no caducan y las compras se abren con el lanzamiento — los packs están aquí para que sepas lo que te va a costar un proyecto. El ahorro se calcula frente a comprar créditos individuales a 19,99 €; los packs nunca se han vendido a otro precio."
   },
-
   "freeForever": {
     "eyebrow": "Gratis para siempre",
     "title": "Lo que nunca cuesta un crédito.",
@@ -98,30 +92,39 @@
       }
     ]
   },
-
   "faq": {
     "eyebrow": "Preguntas",
     "title": "Las incómodas.",
     "items": [
       {
         "q": "¿Y si el proyecto se cae a mitad de camino?",
-        "a": ["El proyecto se queda en tu cuenta, y todo lo que hay dentro también. Los créditos se gastan al crear un proyecto, no al terminarlo: si el vídeo se muere, el plan sigue siendo tuyo para reutilizarlo o sacarle piezas."]
+        "a": [
+          "El proyecto se queda en tu cuenta, y todo lo que hay dentro también. Los créditos se gastan al crear un proyecto, no al terminarlo: si el vídeo se muere, el plan sigue siendo tuyo para reutilizarlo o sacarle piezas."
+        ]
       },
       {
         "q": "¿Por qué no una suscripción?",
-        "a": ["Porque no planificas un vídeo cada mes. Pagar un alquiler por una herramienta que abres a rachas es la razón por la que la mayoría acaba dejando estas apps. Aquí pagas por la pieza que estás haciendo."]
+        "a": [
+          "Porque no planificas un vídeo cada mes. Pagar un alquiler por una herramienta que abres a rachas es la razón por la que la mayoría acaba dejando estas apps. Aquí pagas por la pieza que estás haciendo."
+        ]
       },
       {
         "q": "¿Puedo comprar varios créditos de golpe?",
-        "a": ["Sí: habrá packs de 3, 5 y 10, y cuanto más grande es el pack menos cuesta cada proyecto. Las compras se abren con el lanzamiento."]
+        "a": [
+          "Sí: habrá packs de 3, 5 y 10, y cuanto más grande es el pack menos cuesta cada proyecto. Las compras se abren con el lanzamiento."
+        ]
       },
       {
         "q": "¿Necesito una cuenta?",
-        "a": ["Sí, una sola cuenta guarda tus créditos, tus proyectos y tu biblioteca de planos. Tu audio y tus imágenes de referencia se quedan en tu ordenador en cualquier caso."]
+        "a": [
+          "Sí, una sola cuenta guarda tus créditos, tus proyectos y tu biblioteca de planos. Tu audio y tus imágenes de referencia se quedan en tu ordenador en cualquier caso."
+        ]
       },
       {
         "q": "¿A quién le estoy pagando en realidad?",
-        "a": ["A Stripe, a través de Link, su plataforma de pagos. Son el vendedor de registro de PreFrame: en tu extracto el cargo aparece como «LINK.COM* PREFRAME-APP» y son ellos los que se ocupan de la parte fiscal. Las devoluciones y los recibos también van por ahí — el recibo de tu compra te llegará de Link."]
+        "a": [
+          "A Stripe, el vendedor de registro de PreFrame, a través de Link, su plataforma de pagos. Qué verás exactamente en el extracto y cómo llegan recibos y devoluciones está contado en la <a href=\"/es/support/\">página de soporte</a>."
+        ]
       }
     ],
     "noticeBefore": "¿Falta algo por contestar?",

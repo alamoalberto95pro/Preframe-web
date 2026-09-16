@@ -67,6 +67,25 @@
   </div>
 </section>
 
+<section class="canvas-soft band-tight">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-l">{{ C.billing.eyebrow | safe }}</span>
+    <h2>{{ C.billing.title | safe }}</h2>
+    <div class="faq">
+      {%- for item in C.billing.items %}
+      <details>
+        <summary>{{ item.q | safe }}</summary>
+        <div class="faq-body">
+          {%- for para in item.a %}
+          <p>{{ para | safe }}</p>
+          {%- endfor %}
+        </div>
+      </details>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
 <section class="canvas-light band-tight">
   <div class="wrap">
     <span class="eyebrow eyebrow-l">{{ C.data.eyebrow | safe }}</span>

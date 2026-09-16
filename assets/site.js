@@ -74,16 +74,29 @@
 
   var HIT_ENDPOINT = 'https://hit.preframe-app.com';
 
-  function beacon(type) {
+  /* (f4) La campaña de origen viaja en el enlace (?utm_source=tiktok…):
+     se captura aquí y acompaña a todos los eventos de esta página. Es un
+     dato del enlace, no de la persona. */
+  var utm = { source: null, campaign: null };
+  try {
+    var qs = new URLSearchParams(window.location.search);
+    utm.source = qs.get('utm_source') || null;
+    utm.campaign = qs.get('utm_campaign') || null;
+  } catch (e) { /* URLSearchParams siempre está; por si acaso */ }
+
+  function beacon(type, extra) {
     try {
-      var payload = JSON.stringify({
+      var payload = {
         type: type,
         path: window.location.pathname,
         lang: document.documentElement.lang === 'es' ? 'es' : 'en',
         referrer: document.referrer || null,
-      });
+        utm_source: utm.source,
+        utm_campaign: utm.campaign,
+      };
+      if (extra) for (var k in extra) payload[k] = extra[k];
       if (navigator.sendBeacon) {
-        navigator.sendBeacon(HIT_ENDPOINT, new Blob([payload], { type: 'text/plain' }));
+        navigator.sendBeacon(HIT_ENDPOINT, new Blob([JSON.stringify(payload)], { type: 'text/plain' }));
       }
     } catch (e) {
       /* nunca romper la página por medir */
@@ -99,6 +112,33 @@
 
   /* Cada página vista, una vez, al cargar. */
   beacon('pageview');
+
+  /* (f4) Tiempo de atención REAL: se cuentan solo los segundos con la
+     pestaña visible (Page Visibility API). Al ocultarse la página se envía
+     el parcial acumulado y se resetea — pueden salir varios parciales por
+     página y el panel los suma; así no se pierde nada aunque iOS mate la
+     pestaña sin avisar. `pagehide` es la red por si el navegador salta el
+     visibilitychange final. */
+  var visibleSince = document.visibilityState === 'visible' ? Date.now() : null;
+  var pendingSeconds = 0;
+
+  function flushTime() {
+    if (visibleSince != null) {
+      pendingSeconds += (Date.now() - visibleSince) / 1000;
+      visibleSince = null;
+    }
+    var s = Math.round(pendingSeconds);
+    if (s >= 1) {
+      beacon('pageview_end', { seconds: s });
+      pendingSeconds = 0;
+    }
+  }
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'hidden') flushTime();
+    else if (visibleSince == null) visibleSince = Date.now();
+  });
+  window.addEventListener('pagehide', flushTime);
 
   document.querySelectorAll('[data-track]').forEach(function (el) {
     el.addEventListener('click', function () {

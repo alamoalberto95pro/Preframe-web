@@ -7,7 +7,7 @@ docTitle: Privacy Policy — PreFrame
 {#- Redactado 25-ago-2026, migrado a Eleventy bilingüe el 01-sep-2026.
     Completo desde el 02-sep-2026 (identidad, emails, retención 90 días). -#}
     <h1>Privacy Policy</h1>
-    <p class="doc-meta">Last updated: 2 September 2026</p>
+    <p class="doc-meta">Last updated: 16 September 2026</p>
 
 
     <h2>1. Who is responsible</h2>
@@ -108,28 +108,38 @@ docTitle: Privacy Policy — PreFrame
       This site uses <strong>no cookies and no browser storage</strong>, which
       is why you are never asked to accept anything. Every font is served from
       this same domain: no requests are made to Google Fonts or to advertising
-      networks. The only request to a third party is the cookieless analytics
-      script described in section 7.
+      networks. The only requests leaving the page are those of the
+      cookieless analytics described in section 7.
     </p>
 
-    <!-- Conectado el 2026-08-07: Cloudflare Web Analytics. Si algún día se
-         añade un proveedor con eventos (Umami/Plausible) para medir el clic de
-         descarga, hay que ampliar esta sección: hoy dice expresamente que los
-         clics no se miden. -->
+    <!-- Medición propia (roadmap 16) desde el 16-09-2026: Worker
+         `preframe-hit` → tabla `web_events`. Cloudflare Web Analytics
+         (07-08-2026) se queda de contraste. Si lo que se mide cambia,
+         cambia esta sección ANTES de desplegarlo. -->
     <h2>7. Website analytics</h2>
     <p>
-      This site uses <strong>Cloudflare Web Analytics</strong>, a service of
-      Cloudflare, Inc., to measure its audience in aggregate. It records page
-      views together with the referring site, the country, the browser and
-      device type, and page performance metrics. It does not record clicks on
-      individual buttons or links.
+      This site uses <strong>first-party analytics</strong>, hosted on our own
+      infrastructure (Cloudflare and Supabase), to learn in aggregate how many
+      people visit and whether the site works: page views together with the
+      referring site or campaign, the country, the language, the device type
+      and operating system, the reading time of each page, and clicks on the
+      download buttons.
     </p>
     <p>
-      The measurement is <strong>cookieless</strong>: it stores nothing in your
-      browser, uses no persistent identifier, does not fingerprint your device
-      and does not follow you across other websites. Visitors are never
-      identified individually and no profile is built about you. That is why
-      this site still asks you to accept nothing.
+      The measurement is <strong>cookieless</strong>: it stores nothing in
+      your browser and uses no persistent identifier. Visitors are counted
+      through a technical code derived from a key that rotates every 24 hours;
+      your IP address is used only for an instant to derive that code and is
+      <strong>never stored</strong>, and the code for the same visitor is
+      different every day, so you cannot be followed across days or across
+      websites. The data, always aggregated and anonymous, is deleted after
+      90 days.
+    </p>
+    <p>
+      As a complement, the site uses <strong>Cloudflare Web Analytics</strong>
+      (Cloudflare, Inc.) under the same guarantees: no cookies, no persistent
+      identifiers, no fingerprinting and no profiling. That is why this site
+      still asks you to accept nothing.
     </p>
     <p>
       The legal basis is our legitimate interest in knowing whether the site

@@ -52,6 +52,25 @@
       }
     ]
   },
+  "billing": {
+    "eyebrow": "Compras y cobros",
+    "title": "Quién te cobra y qué verás en el extracto.",
+    "items": [
+      {
+        "q": "Veo un cargo «LINK.COM* PREFRAME-APP» en mi tarjeta — ¿qué es?",
+        "a": [
+          "Es tu compra de créditos de PreFrame. Los pagos los procesa <strong>Stripe</strong>, el vendedor de registro de PreFrame, a través de Link, su plataforma de pagos: por eso el cargo aparece como «LINK.COM* PREFRAME-APP» y el recibo de la compra te llega de Link.",
+          "PreFrame nunca ve tu número de tarjeta: el pago ocurre íntegro en Stripe, que se ocupa también de la parte fiscal."
+        ]
+      },
+      {
+        "q": "¿Cómo pido un recibo o una devolución?",
+        "a": [
+          "Los recibos y las devoluciones los gestiona Stripe como vendedor. Las condiciones están en los <a href=\"/es/legal/terms/\">Términos</a>; si algo no cuadra, escríbenos a support@preframe-app.com y lo movemos nosotros."
+        ]
+      }
+    ]
+  },
   "data": {
     "eyebrow": "Tus datos",
     "title": "Dónde están tus archivos y cómo borrarlos.",

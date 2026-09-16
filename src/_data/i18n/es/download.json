@@ -1,57 +1,22 @@
 {
   "meta": {
     "title": "Descargar — PreFrame",
-    "description": "PreFrame para macOS está en proceso de firma y notarización. Todavía no hay nada que descargar: aquí tienes exactamente en qué punto está la build.",
-    "ogTitle": "Descargar — PreFrame",
-    "ogDescription": "PreFrame para macOS está en proceso de firma y notarización. Todavía no hay nada que descargar."
+    "description": "La descarga pública de PreFrame para macOS se abre con el lanzamiento. Firmada y notarizada por Apple.",
+    "ogTitle": "Descargar PreFrame",
+    "ogDescription": "La descarga pública se abre con el lanzamiento."
   },
-
   "head": {
     "eyebrow": "Descargar",
-    "title": "Todavía no está lista — y prefiero decirlo.",
-    "lede": "La build de macOS existe y funciona. Lo que no tiene todavía es la firma y la notarización de Apple, y publicar una app sin firmar que macOS se niega a abrir es una primera impresión peor que esperar. Esta página es donde aparecerá el día que esté lista."
+    "title": "La descarga se abre con el lanzamiento.",
+    "lede": "La app existe, está firmada y notarizada por Apple, y una beta privada ya rueda. El botón aparecerá aquí el día del lanzamiento."
   },
-
-  "mac": {
-    "tagline": "macOS",
-    "title": "En notarización",
-    "body": "Alta en Apple Developer, firma de código y notarización. Hasta que eso esté hecho aquí no hay enlace de descarga: ni una beta, ni un truco para saltárselo.",
-    "requirements": "macOS 12+ · Apple Silicon e Intel"
-  },
-
-  "windows": {
-    "tagline": "Windows",
-    "title": "Sin fecha",
-    "body": "No hay build de Windows ni plazo para tenerla. Tampoco hay lista de espera: un formulario que recoge correos para algo que no tiene fecha es solo un formulario.",
-    "button": "Windows",
-    "req": "Vuelve a pasarte, o sigue las notas de versión."
-  },
-
-  "dayOne": {
-    "eyebrow": "Qué te llevas",
-    "title": "Qué hay el primer día.",
-    "cards": [
-      {
-        "title": "La app completa",
-        "body": "No es una versión de prueba. Tu primer proyecto es gratis y completo, con su sustrato y sus exportaciones."
-      },
-      {
-        "title": "Firmada y notarizada",
-        "body": "Se abre como se abre cualquier app de Mac: doble clic, sin el truco del clic derecho y sin diálogos que asustan."
-      },
-      {
-        "title": "Actualización automática",
-        "body": "Las versiones nuevas llegan dentro de la app. Todas quedan contadas en las notas de versión."
-      },
-      {
-        "title": "Sin conexión por defecto",
-        "body": "Tu audio y tus imágenes se quedan en tu ordenador. Puedes trabajar sin conexión de ningún tipo."
-      }
-    ],
-    "noticeBefore": "¿Curiosidad por lo que va cambiando mientras?",
-    "noticeReleases": "Notas de versión",
-    "noticeMid": "·",
-    "noticeQuestions": "¿Dudas?",
-    "noticeSupport": "Soporte"
+  "main": {
+    "req": "macOS 12+ · Apple Silicon (a partir del M1)",
+    "windows": "¿Windows? No hay build ni fecha, y tampoco lista de espera: un formulario que recoge correos para algo sin fecha es solo un formulario.",
+    "noticeBefore": "Cada versión queda contada en las",
+    "noticeReleases": "notas de versión",
+    "noticeMid": "; para cualquier duda,",
+    "noticeSupport": "soporte",
+    "noticeEnd": "."
   }
 }

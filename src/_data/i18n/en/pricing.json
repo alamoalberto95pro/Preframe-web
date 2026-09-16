@@ -6,13 +6,11 @@
     "ogTitle": "Pricing — PreFrame",
     "ogDescription": "One credit is one project. No subscription. First project free."
   },
-
   "head": {
     "eyebrow": "Pricing",
     "title": "One credit is one project.",
     "lede": "No subscription, no seats, nothing to cancel. A credit is spent once — the moment you create a project — and that project is yours to work on forever."
   },
-
   "flow": {
     "eyebrow": "Where the credit goes",
     "title": "Spent once. Then everything is free.",
@@ -38,7 +36,6 @@
       }
     ]
   },
-
   "plans": {
     "freeTag": "Start here",
     "freeAmount": "Free",
@@ -60,22 +57,19 @@
     ],
     "noticeStrong": "Founder price ends.",
     "noticeMid": "applies to the first 100 buyers or for six months from launch, whichever comes first. After that a credit costs",
-    "noticeEnd": ". Prices include VAT where applicable. Payments are processed by Stripe through Link, the seller of record: the charge on your statement appears as “LINK.COM* PREFRAME-APP”. Prices are charged in euros."
+    "noticeEnd": ". Prices include VAT where applicable. Payments are processed by Stripe through Link (the seller of record). Prices are charged in euros."
   },
-
   "launch": {
     "eyebrow": "Prices",
     "title": "Pricing arrives with the launch.",
     "lede": "Your first project is free and complete, and after that each project is one credit. The figures — the single credit and the packs of 3, 5 and 10 — are published on launch day, and purchases open then too."
   },
-
   "packs": {
     "eyebrow": "Credit packs",
     "title": "One credit, one project.<br>Buy them in packs and each costs less.",
     "lede": "The rule never changes: a credit is spent once, when you create a project, and everything inside that project — edits and exports — is unlimited and free, forever. Packs just lower what each project costs you.",
-    "notice": "Credits never expire and purchases open with launch — packs are shown here so you know what a project will cost you. Savings are compared against buying single credits at 19.99 €; packs have never been sold at a different price. Payments are processed by Stripe, which appears as the seller on your statement."
+    "notice": "Credits never expire and purchases open with launch — packs are shown here so you know what a project will cost you. Savings are compared against buying single credits at 19.99 €; packs have never been sold at a different price."
   },
-
   "freeForever": {
     "eyebrow": "Free forever",
     "title": "What never costs a credit.",
@@ -98,30 +92,39 @@
       }
     ]
   },
-
   "faq": {
     "eyebrow": "Questions",
     "title": "The awkward ones.",
     "items": [
       {
         "q": "What if the project gets cancelled halfway?",
-        "a": ["The project stays in your account and so does everything in it. Credits are spent on creating a project, not on finishing one — if the video dies, the plan is still yours to reuse or strip for parts."]
+        "a": [
+          "The project stays in your account and so does everything in it. Credits are spent on creating a project, not on finishing one — if the video dies, the plan is still yours to reuse or strip for parts."
+        ]
       },
       {
         "q": "Why not a subscription?",
-        "a": ["Because you don't plan a video every month. Paying rent on a tool you open in bursts is the reason most people quit these apps. You pay for the piece you're making."]
+        "a": [
+          "Because you don't plan a video every month. Paying rent on a tool you open in bursts is the reason most people quit these apps. You pay for the piece you're making."
+        ]
       },
       {
         "q": "Can I buy several credits at once?",
-        "a": ["Yes — credits will come in packs of 3, 5 and 10, and the bigger the pack the less each project costs. Purchases open with launch."]
+        "a": [
+          "Yes — credits will come in packs of 3, 5 and 10, and the bigger the pack the less each project costs. Purchases open with launch."
+        ]
       },
       {
         "q": "Do I need an account?",
-        "a": ["Yes, one account holds your credits, your projects and your shot library. Your audio and reference images stay on your machine either way."]
+        "a": [
+          "Yes, one account holds your credits, your projects and your shot library. Your audio and reference images stay on your machine either way."
+        ]
       },
       {
         "q": "Who am I actually paying?",
-        "a": ["Stripe, through Link, their payments platform. They're the seller of record for PreFrame: the charge on your statement appears as “LINK.COM* PREFRAME-APP” and they handle the tax side. Refunds and receipts go through them too — your purchase receipt will come from Link."]
+        "a": [
+          "Stripe, PreFrame's seller of record, through Link, their payments platform. What exactly your statement shows and how receipts and refunds arrive is covered on the <a href=\"/support/\">support page</a>."
+        ]
       }
     ],
     "noticeBefore": "Something not covered here?",

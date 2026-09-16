@@ -52,9 +52,11 @@ window.BRAND = {
          reescribía en inglés al hidratar. El idioma sale del `<html lang>`
          que escribe el generador; nada de almacenamiento. */
       requirements: (function () {
+        /* Solo Apple Silicon: el build es arm64 (el universal está apuntado
+           en deuda técnica del tablero). */
         var byLang = {
-          en: 'macOS 12+ · Apple Silicon & Intel',
-          es: 'macOS 12+ · Apple Silicon e Intel',
+          en: 'macOS 12+ · Apple Silicon (M1 onwards)',
+          es: 'macOS 12+ · Apple Silicon (a partir del M1)',
         };
         return byLang[document.documentElement.lang === 'es' ? 'es' : 'en'];
       })(),

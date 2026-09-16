@@ -1,4 +1,11 @@
-{#- /download/ — una plantilla, dos idiomas. -#}
+{#- /download/ — una plantilla, dos idiomas.
+
+    Simplificada a fondo el 16-sept-2026 (decisión de Alberto): explicaba
+    demasiado. Ahora dice UNA cosa — la descarga pública se abre con el
+    lanzamiento — con el botón a la espera y los requisitos. Fuera los
+    pilares por sistema y las tarjetas de «qué trae», que repetían la home
+    (regla: nada de textos repetidos; lo explicativo vive en /support/).
+    La beta privada NO se menciona: es no listada a propósito. -#}
 <section class="canvas-dark page-head">
   <div class="wrap">
     <span class="eyebrow eyebrow-d">{{ C.head.eyebrow | safe }}</span>
@@ -11,57 +18,19 @@
 
 <section class="canvas-dark band-tight">
   <div class="wrap">
-    <div class="pillars">
-
-      <div class="pillar" style="background:var(--surface-1);border-color:var(--border-default)">
-        <span class="tagline" style="color:var(--brand-sunset)">{{ C.mac.tagline | safe }}</span>
-        <h3 style="color:var(--text-primary)">{{ C.mac.title | safe }}</h3>
-        <p style="color:var(--text-tertiary)">
-          {{ C.mac.body | safe }}
-        </p>
-        <div class="cta-row">
-          <button type="button" class="btn btn-soon" disabled data-track="download_intent" data-track-detail="download_page_mac">
-            {{ S.buttons.downloadMac | safe }} <span class="chip">{{ S.buttons.comingSoon | safe }}</span>
-          </button>
-        </div>
-        <p class="req meta" style="color:var(--text-tertiary)">
-          <span data-brand="download.mac.requirements">{{ C.mac.requirements | safe }}</span>
-        </p>
-      </div>
-
-      <div class="pillar" style="background:var(--surface-1);border-color:var(--border-default)">
-        <span class="tagline" style="color:var(--brand-sunset)">{{ C.windows.tagline | safe }}</span>
-        <h3 style="color:var(--text-primary)">{{ C.windows.title | safe }}</h3>
-        <p style="color:var(--text-tertiary)">
-          {{ C.windows.body | safe }}
-        </p>
-        <div class="cta-row">
-          <button type="button" class="btn btn-soon" disabled>
-            {{ C.windows.button | safe }} <span class="chip">{{ S.buttons.comingSoon | safe }}</span>
-          </button>
-        </div>
-        <p class="req meta" style="color:var(--text-tertiary)">{{ C.windows.req | safe }}</p>
-      </div>
-
+    <div class="cta-row">
+      <button type="button" class="btn btn-soon" disabled data-track="download_intent" data-track-detail="download_page_mac">
+        {{ S.buttons.downloadMac | safe }} <span class="chip">{{ S.buttons.comingSoon | safe }}</span>
+      </button>
     </div>
-  </div>
-</section>
-
-<section class="canvas-light band-tight">
-  <div class="wrap">
-    <span class="eyebrow eyebrow-l">{{ C.dayOne.eyebrow | safe }}</span>
-    <h2>{{ C.dayOne.title | safe }}</h2>
-    <div class="grid" style="margin-top:var(--space-7)">
-      {%- for card in C.dayOne.cards %}
-      <div class="card">
-        <h3>{{ card.title | safe }}</h3>
-        <p>{{ card.body | safe }}</p>
-      </div>
-      {%- endfor %}
-    </div>
+    <p class="req meta" style="color:var(--text-tertiary)">
+      <span data-brand="download.mac.requirements">{{ C.main.req | safe }}</span>
+    </p>
+    <p class="mute-d" style="margin-top:var(--space-5);max-width:56ch">
+      {{ C.main.windows | safe }}
+    </p>
     <p class="notice">
-      {{ C.dayOne.noticeBefore | safe }} <a href="{{ langBase }}/releases/">{{ C.dayOne.noticeReleases | safe }}</a> {{ C.dayOne.noticeMid | safe }}
-      {{ C.dayOne.noticeQuestions | safe }} <a href="{{ langBase }}/support/">{{ C.dayOne.noticeSupport | safe }}</a>
+      {{ C.main.noticeBefore | safe }} <a href="{{ langBase }}/releases/">{{ C.main.noticeReleases | safe }}</a>{{ C.main.noticeMid | safe }} <a href="{{ langBase }}/support/">{{ C.main.noticeSupport | safe }}</a>{{ C.main.noticeEnd | safe }}
     </p>
   </div>
 </section>

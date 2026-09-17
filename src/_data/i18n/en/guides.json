@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "title": "Guides — PreFrame",
+    "description": "Practical guides for filmmakers who plan to the music: cutting a song into sections, timing every shot, drawing the emotional curve, and taking it all into Premiere or DaVinci Resolve.",
+    "ogTitle": "PreFrame guides — plan to the music",
+    "ogDescription": "Practical pre-production guides for filmmakers who feel the music first."
+  },
+  "head": {
+    "eyebrow": "Guides",
+    "title": "Plan to the music.",
+    "lede": "Short, practical guides on planning a film against its track — or against the feeling, when the track isn't here yet. Each one works on paper; each one also shows how it's done in PreFrame."
+  },
+  "list": {
+    "empty": "The first guides are being written. Back soon.",
+    "read": "Read the guide",
+    "minutes": "min read"
+  },
+  "article": {
+    "eyebrow": "Guides",
+    "by": "By Alberto, who builds PreFrame",
+    "updated": "Updated",
+    "ctaEyebrow": "Try it",
+    "ctaTitle": "Do this in PreFrame.",
+    "ctaBody": "Drop in the track, cut it into sections and place every shot on real seconds — or draw the curve when there's no track yet. Your first project is free and complete.",
+    "ctaPricing": "How pricing works",
+    "moreTitle": "More guides",
+    "all": "All guides"
+  }
+}

@@ -1,0 +1,79 @@
+---
+layout: layouts/base.njk
+---
+{#- ─────────────────────────────────────────────────────────────────────
+    Layout de una guía (roadmap 17). Envuelve el Markdown del artículo y se
+    encadena a base.njk: mismo <head>, mismo nav y mismo footer que el resto
+    del sitio.
+
+    Front matter de cada guía (src/{en,es}/guides/<slug>.md):
+      guide        slug — EL MISMO en los dos idiomas; de él sale la URL
+      title        el <h1> y el <title>
+      description  la entradilla y la meta description
+      date         publicación · updated (opcional) última revisión
+      minutes      minutos de lectura
+      image        /assets/guides/<slug>/og.png — tarjeta social y del índice
+      order        posición en el índice (opcional)
+
+    Regla de contenido: la guía enseña OFICIO. Cómo funciona la app se
+    explica en /support/ y aquí se enlaza. Capturas siempre en inglés.
+
+    `G` es el copy común a todas las guías (byline, cierre, «más guías»).
+    ───────────────────────────────────────────────────────────────────── -#}
+{%- set G = t[lang].guides -%}
+<article>
+<section class="canvas-dark page-head guide-head">
+  <div class="wrap wrap-narrow">
+    <a class="eyebrow eyebrow-d" href="{{ langBase }}/guides/">{{ G.article.eyebrow | safe }}</a>
+    <h1>{{ title | safe }}</h1>
+    <p class="lede">{{ description | safe }}</p>
+    <p class="meta guide-meta">
+      {{ G.article.by | safe }} · <time datetime="{{ page.date | isoDate }}">{{ page.date | guideDate(lang) }}</time>
+      {%- if updated %} · {{ G.article.updated | safe }} <time datetime="{{ updated | isoDate }}">{{ updated | guideDate(lang) }}</time>{% endif %}
+      {%- if minutes %} · {{ minutes }} {{ G.list.minutes | safe }}{% endif %}
+    </p>
+  </div>
+</section>
+
+<section class="canvas-light band-tight">
+  {#- `.prose` va DENTRO del wrap y no sobre él: su medida es más corta y, en
+      el mismo elemento, se centraría y dejaría de alinear con el <h1>. -#}
+  <div class="wrap wrap-narrow">
+    <div class="prose">
+{{ content | safe }}
+    </div>
+  </div>
+</section>
+</article>
+
+{#- El cierre. Mientras la descarga pública no esté abierta, el botón es el
+    mismo «a la espera» que el de la home, con la fecha en el chip. -#}
+<section class="canvas-dark band-tight guide-cta">
+  <div class="wrap wrap-narrow">
+    <span class="eyebrow eyebrow-d">{{ G.article.ctaEyebrow | safe }}</span>
+    <h2>{{ G.article.ctaTitle | safe }}</h2>
+    <p class="lede">{{ G.article.ctaBody | safe }}</p>
+    <div class="cta-row">
+      <button type="button" class="btn btn-soon" disabled data-track="download_intent" data-track-detail="guide">
+        {{ S.buttons.downloadMac | safe }} <span class="chip">{{ S.buttons.comingSoon | safe }}</span>
+      </button>
+      <a href="{{ langBase }}/pricing/" class="btn btn-ghost-d">{{ G.article.ctaPricing | safe }}</a>
+    </div>
+  </div>
+</section>
+
+{%- set others = [] %}
+{%- for g in collections.guides %}{% if g.data.lang == lang and g.data.guide != guide %}{% set others = (others.push(g), others) %}{% endif %}{% endfor %}
+{%- if others | length %}
+<section class="canvas-soft band-tight">
+  <div class="wrap wrap-narrow">
+    <span class="eyebrow eyebrow-l">{{ G.article.moreTitle | safe }}</span>
+    <ul class="guide-more">
+      {%- for g in others | batch(3) | first %}
+      <li><a href="{{ g.url }}">{{ g.data.title | safe }}</a></li>
+      {%- endfor %}
+      <li><a href="{{ langBase }}/guides/">{{ G.article.all | safe }} →</a></li>
+    </ul>
+  </div>
+</section>
+{%- endif %}

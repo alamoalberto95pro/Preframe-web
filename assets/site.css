@@ -1380,6 +1380,136 @@ p + p { margin-top: var(--space-4); }
 .doc-foot a { color: var(--text-tertiary); }
 
 /* ═══════════════════════════════════════════════════════════════════════
+   GUÍAS — índice y artículo (roadmap 17)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* La cabecera de una guía: el eyebrow es un enlace de vuelta al índice. */
+.guide-head h1 { max-width: 22ch; }
+.guide-head a.eyebrow { text-decoration: none; }
+.guide-head a.eyebrow:hover { color: var(--text-primary); }
+.guide-meta { margin-top: var(--space-6); color: var(--text-tertiary); }
+
+/* ─── La prosa ─────────────────────────────────────────────────────────
+   Sale de Markdown, así que se estila por etiqueta y no por clase. Medida
+   corta (≈ 68 caracteres) y aire entre bloques: esto se LEE, no se escanea. */
+.prose { max-width: 720px; }
+.prose > * + * { margin-top: var(--space-5); }
+.prose p,
+.prose li { font-size: var(--text-md); line-height: 1.7; color: var(--text-on-light-secondary); }
+.prose strong { color: var(--text-on-light-primary); }
+.prose h2 { font-size: clamp(26px, 3.2vw, 34px); margin-top: var(--space-10); }
+.prose h3 { font-size: var(--text-lg); margin-top: var(--space-8); }
+.prose h2 + *,
+.prose h3 + * { margin-top: var(--space-4); }
+.prose ul,
+.prose ol { padding-left: var(--space-6); }
+.prose li + li { margin-top: var(--space-2); }
+.prose ol > li::marker { font-family: var(--font-mono); font-size: var(--text-sm); color: var(--sunset-ink); }
+.prose hr { border: 0; border-top: 1px solid var(--paper-line); margin-block: var(--space-9); }
+
+.prose blockquote {
+  margin-inline: 0;
+  padding: var(--space-2) 0 var(--space-2) var(--space-6);
+  border-left: 3px solid var(--sunset-ink);
+}
+.prose blockquote p { font-size: var(--text-lg); line-height: 1.5; color: var(--text-on-light-primary); }
+
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+  background: var(--paper-soft);
+  border: 1px solid var(--paper-line);
+  color: var(--text-on-light-primary);
+}
+.prose pre {
+  padding: var(--space-5);
+  border-radius: var(--radius-md);
+  background: var(--surface-0);
+  overflow-x: auto;
+}
+.prose pre code { padding: 0; border: 0; background: none; color: var(--text-primary); font-size: var(--text-sm); line-height: 1.6; }
+
+/* Las capturas son la app de verdad: marco fino y sombra, para que una
+   captura oscura no se funda con el párrafo ni una clara con el papel. */
+.prose figure { margin: var(--space-8) 0; }
+.prose figure img,
+.prose > p > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--paper-line);
+  box-shadow: 0 18px 40px -24px rgba(26, 26, 26, 0.35);
+}
+.prose figcaption {
+  margin-top: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  color: var(--text-on-light-tertiary);
+}
+
+.prose table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
+.prose th,
+.prose td { padding: var(--space-3) var(--space-4); text-align: left; border-bottom: 1px solid var(--paper-line); color: var(--text-on-light-secondary); }
+.prose th { font-family: var(--font-mono); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-on-light-tertiary); }
+.prose .table-scroll { overflow-x: auto; }
+
+/* El recuadro de «lo esencial» o de aviso dentro de una guía. */
+.prose .callout {
+  padding: var(--space-5) var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--paper-soft);
+  border: 1px solid var(--paper-line);
+}
+.prose .callout > * + * { margin-top: var(--space-3); }
+.prose .callout p,
+.prose .callout li { font-size: var(--text-sm); }
+
+/* ─── El cierre y «más guías» ───────────────────────────────────────── */
+.guide-cta h2 { max-width: 18ch; }
+.guide-cta .lede { margin-top: var(--space-4); color: var(--text-tertiary); }
+.guide-cta .cta-row { margin-top: var(--space-7); }
+
+.guide-more { list-style: none; padding: 0; margin-top: var(--space-5); display: grid; gap: var(--space-3); }
+.guide-more a { font-size: var(--text-md); }
+
+/* ─── El índice ─────────────────────────────────────────────────────── */
+.guide-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-6);
+}
+.guide-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--paper);
+  color: inherit;
+  text-decoration: none;
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+.guide-card:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -24px rgba(26, 26, 26, 0.35); }
+.guide-card img { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; border-bottom: 1px solid var(--paper-line); }
+.guide-card-body { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-6); flex: 1; }
+.guide-card-meta { color: var(--text-on-light-tertiary); }
+.guide-card-title { font-family: var(--font-display, inherit); font-size: var(--text-lg); line-height: 1.25; color: var(--text-on-light-primary); }
+.guide-card-desc { font-size: var(--text-sm); line-height: 1.6; color: var(--text-on-light-secondary); }
+.guide-card-go { margin-top: auto; padding-top: var(--space-2); font-size: var(--text-sm); color: var(--sunset-ink); }
+
+@media (prefers-reduced-motion: reduce) {
+  .guide-card { transition: none; }
+  .guide-card:hover { transform: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
    RESPONSIVE — escritorio · tablet · móvil
    ═══════════════════════════════════════════════════════════════════════ */
 

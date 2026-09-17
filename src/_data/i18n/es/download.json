@@ -1,14 +1,14 @@
 {
   "meta": {
     "title": "Descargar — PreFrame",
-    "description": "La descarga pública de PreFrame para macOS se abre con el lanzamiento. Firmada y notarizada por Apple.",
+    "description": "La descarga pública de PreFrame para macOS se abre el martes 22 de septiembre. Firmada y notarizada por Apple.",
     "ogTitle": "Descargar PreFrame",
-    "ogDescription": "La descarga pública se abre con el lanzamiento."
+    "ogDescription": "La descarga pública se abre el martes 22 de septiembre."
   },
   "head": {
     "eyebrow": "Descargar",
-    "title": "La descarga se abre con el lanzamiento.",
-    "lede": "La app existe, está firmada y notarizada por Apple, y una beta privada ya rueda. El botón aparecerá aquí el día del lanzamiento."
+    "title": "La descarga se abre el martes 22 de septiembre.",
+    "lede": "La app existe, está firmada y notarizada por Apple, y una beta privada ya rueda. El botón se activa aquí el martes 22 de septiembre."
   },
   "main": {
     "req": "macOS 12+ · Apple Silicon (a partir del M1)",

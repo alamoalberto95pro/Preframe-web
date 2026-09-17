@@ -195,6 +195,6 @@
   "closer": {
     "title": "Piensa en ritmo.<br>Piensa en <em class=\"closer-em\">emoción</em>.<br>Y luego rueda.",
     "status": "Estado del lanzamiento",
-    "req": "La build firmada de macOS está en notarización. Windows todavía no tiene fecha."
+    "req": "Firmada y notarizada por Apple. La descarga se abre el martes 22 de septiembre. Windows todavía no tiene fecha."
   }
 }

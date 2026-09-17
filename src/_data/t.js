@@ -26,7 +26,7 @@
    ───────────────────────────────────────────────────────────────────── */
 
 const LANGS = ['en', 'es'];
-const NAMESPACES = ['shared', 'home', 'pricing', 'support', 'download', 'releases', 'beta'];
+const NAMESPACES = ['shared', 'home', 'pricing', 'support', 'download', 'releases', 'beta', 'guides'];
 
 module.exports = function () {
   const dict = {};

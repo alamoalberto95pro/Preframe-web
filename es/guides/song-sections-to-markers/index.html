@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cómo llevar las secciones de una canción a Premiere, DaVinci Resolve o Final Cut como marcadores — PreFrame</title>
+  <meta name="description" content="Ya sabes dónde acaba la intro y dónde entra el estribillo. Así se llevan esos puntos a la línea de tiempo del editor como marcadores: a mano, o con un archivo que tu editor importa.">
+  <meta name="theme-color" content="#080808">
+  <link rel="canonical" href="https://www.preframe-app.com/es/guides/song-sections-to-markers/">
+
+  <!-- Rutas por idioma: el inglés se queda en la raíz y el español vive bajo
+       /es/. x-default apunta al inglés. -->
+  <link rel="alternate" hreflang="en" href="https://www.preframe-app.com/guides/song-sections-to-markers/">
+  <link rel="alternate" hreflang="es" href="https://www.preframe-app.com/es/guides/song-sections-to-markers/">
+  <link rel="alternate" hreflang="x-default" href="https://www.preframe-app.com/guides/song-sections-to-markers/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="PreFrame">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:url" content="https://www.preframe-app.com/es/guides/song-sections-to-markers/">
+  <meta property="og:title" content="Cómo llevar las secciones de una canción a Premiere, DaVinci Resolve o Final Cut como marcadores">
+  <meta property="og:description" content="Ya sabes dónde acaba la intro y dónde entra el estribillo. Así se llevan esos puntos a la línea de tiempo del editor como marcadores: a mano, o con un archivo que tu editor importa.">
+  <meta property="og:image" content="https://www.preframe-app.com/assets/guides/song-sections-to-markers/og.png">
+  <meta property="og:image:alt" content="La forma de onda de una canción cortada en seis secciones con nombre en el timeline de PreFrame.">
+  <meta name="twitter:image" content="https://www.preframe-app.com/assets/guides/song-sections-to-markers/og.png">
+  <meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="/assets/fonts/satoshi-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/theme.css">
+  <link rel="stylesheet" href="/assets/site.css">
+
+  <!-- Datos estructurados de la guía. El editor es la MISMA organización que
+       declara la portada (`#org`); el autor, una persona: es lo que Google
+       pide para tratarlo como artículo y no como página suelta. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Cómo llevar las secciones de una canción a Premiere, DaVinci Resolve o Final Cut como marcadores",
+    "description": "Ya sabes dónde acaba la intro y dónde entra el estribillo. Así se llevan esos puntos a la línea de tiempo del editor como marcadores: a mano, o con un archivo que tu editor importa.",
+    "inLanguage": "es",
+    "datePublished": "2026-09-17",
+    "dateModified": "2026-09-17",
+    "mainEntityOfPage": "https://www.preframe-app.com/es/guides/song-sections-to-markers/",
+    "image": "https://www.preframe-app.com/assets/guides/song-sections-to-markers/og.png",
+    "author": { "@type": "Person", "name": "Alberto del Álamo" },
+    "publisher": {
+      "@type": "Organization",
+      "@id": "https://www.preframe-app.com/#org",
+      "name": "PreFrame",
+      "logo": { "@type": "ImageObject", "url": "https://www.preframe-app.com/assets/icon-512.png" }
+    }
+  }
+  </script>
+  <!-- Cloudflare Web Analytics -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7370d962d8c64e75826a3a96ad82feb5"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<nav class="site-nav" aria-label="Principal">
+  <div class="wrap nav-in">
+    <a class="logo" href="/es/">
+      <img class="logo-mark" src="/assets/mark.svg" alt="" aria-hidden="true" width="28" height="28">
+      <span data-brand="name">PreFrame</span>
+    </a>
+    <div class="nav-links">
+      <a href="/es/guides/">Guías</a>
+      <a href="/es/pricing/">Precios</a>
+      <a href="/es/support/">Soporte</a>
+      <a class="lang-switch" href="/guides/song-sections-to-markers/" hreflang="en" lang="en" aria-label="View this page in English">EN</a>
+      <a href="/es/download/" class="btn btn-primary">Consigue PreFrame</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<article>
+<section class="canvas-dark page-head guide-head">
+  <div class="wrap wrap-narrow">
+    <a class="eyebrow eyebrow-d" href="/es/guides/">Guías</a>
+    <h1>Cómo llevar las secciones de una canción a Premiere, DaVinci Resolve o Final Cut como marcadores</h1>
+    <p class="lede">Ya sabes dónde acaba la intro y dónde entra el estribillo. Así se llevan esos puntos a la línea de tiempo del editor como marcadores: a mano, o con un archivo que tu editor importa.</p>
+    <p class="meta guide-meta">
+      Por Alberto, que construye PreFrame · <time datetime="2026-09-17">17 de septiembre de 2026</time> · 7 min de lectura
+    </p>
+  </div>
+</section>
+
+<section class="canvas-light band-tight"><div class="wrap wrap-narrow">
+    <div class="prose">
+<p>Cuando montas con música, el montaje está decidido antes de abrir el editor. La canción ya tiene una forma: una intro que se contiene, una subida, el momento en que todo se abre, una salida. Si planificaste tus planos contra esa forma, lo primero que quieres en una línea de tiempo vacía es esa forma: un marcador donde empieza cada sección, con su nombre.</p>
+<p>Casi todo el mundo la reconstruye de oído: reproduces el tema, pulsas <code>M</code> cuando toca, ajustas, renombras. Funciona. También es la tercera vez que encuentras esos mismos puntos: una al planificar, otra al rodar y otra ahora.</p>
+<p>Esta guía cubre las dos formas: hacerlo a mano bien hecho, e importar las secciones con un archivo. Cada uno de los tres grandes editores quiere una cosa distinta, y ahí es donde la gente se atasca.</p>
+<h2>Lo primero: las secciones, en segundos</h2>
+<p>Vayas por donde vayas, partes de una lista corta: el nombre de cada sección y el segundo en que empieza.</p>
+<div class="callout">
+<table>
+<thead>
+<tr>
+<th>Sección</th>
+<th>Empieza</th>
+<th>Acaba</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Silencio</td>
+<td>0:00</td>
+<td>0:19</td>
+</tr>
+<tr>
+<td>Despertar</td>
+<td>0:19</td>
+<td>0:39</td>
+</tr>
+<tr>
+<td>La carrera</td>
+<td>0:39</td>
+<td>1:00</td>
+</tr>
+<tr>
+<td>El puente</td>
+<td>1:00</td>
+<td>1:29</td>
+</tr>
+<tr>
+<td>Amanecer</td>
+<td>1:29</td>
+<td>1:58</td>
+</tr>
+<tr>
+<td>Título</td>
+<td>1:58</td>
+<td>2:04</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Es un plan real para un vídeo de dos minutos. Si todavía no tienes el tuyo, <a href="/es/guides/cut-a-song-into-sections/">cómo partir una canción en secciones narrativas</a> te lo deja hecho en una escucha y media.</p>
+<figure>
+<img src="/assets/guides/song-sections-to-markers/timeline-sections.png" alt="La forma de onda de una canción cortada en seis secciones con nombre: Silence, Waking up, The run, The bridge, Dawn y Title." width="1600" height="412" loading="lazy">
+<figcaption>Las mismas seis secciones, cortadas sobre la forma de onda. Las líneas de corte son los marcadores que quieres en tu editor.</figcaption>
+</figure>
+<h2>A mano (sirve en cualquier editor)</h2>
+<ol>
+<li><strong>Decide los fotogramas por segundo antes que nada.</strong> Los marcadores viven en fotogramas, no en segundos. Una secuencia a 25 fps y una lista hecha para 24 se van separando, y lo notarás al final de la canción, que es donde más duele.</li>
+<li><strong>Pasa cada inicio a código de tiempo.</strong> Los segundos siguen siendo segundos; solo cambia el último par. <code>0:19</code> es <code>00:00:19:00</code>. Un corte en 19,5 s es <code>00:00:19:12</code> a 25 fps (medio segundo son 12,5 fotogramas: redondea, y hazlo siempre igual).</li>
+<li><strong>Pon la canción en la línea de tiempo primero</strong>, empezando justo al principio de la secuencia. Todos los marcadores se miden desde ahí; si luego el tema se desplaza, todos quedan mal por la misma cantidad.</li>
+<li><strong>Ve a cada código de tiempo y pulsa <code>M</code>.</strong> En los tres editores puedes teclear un código de tiempo para saltar con el cabezal. Un <code>M</code> pone el marcador; otro <code>M</code> (Premiere, Final Cut) o doble clic (Resolve) te deja ponerle nombre.</li>
+<li><strong>Nómbralo como el plan</strong>, no como la canción. «Estribillo 2» no te dice nada a la una de la madrugada. «El puente — por fin se encuentran» te dice qué material va ahí.</li>
+</ol>
+<p>Seis marcadores son cinco minutos. Cuarenta —uno por plano planificado— son una tarde, y ese es el punto en que un archivo empieza a tener sentido.</p>
+<h2>Importando: cada editor quiere un archivo distinto</h2>
+<p>No existe un único «archivo de marcadores» que lean los tres. Esto es lo que acepta cada uno de verdad:</p>
+<table>
+<thead>
+<tr>
+<th>Editor</th>
+<th>Archivo que importa como marcadores</th>
+<th>Dónde aparecen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DaVinci Resolve</td>
+<td>EDL (<code>.edl</code>)</td>
+<td>En la línea de tiempo que elijas</td>
+</tr>
+<tr>
+<td>Premiere Pro</td>
+<td>XML de Final Cut 7 (<code>.xml</code>)</td>
+<td>En una secuencia nueva</td>
+</tr>
+<tr>
+<td>Final Cut Pro</td>
+<td>FCPXML (<code>.fcpxml</code>)</td>
+<td>En un proyecto nuevo, dentro de un evento</td>
+</tr>
+</tbody>
+</table>
+<p>Dos trampas que conviene conocer antes de perder una hora:</p>
+<ul>
+<li><strong>Premiere no convierte un EDL en marcadores.</strong> Lo importa como lista de cortes y te deja clips sin conexión. Los marcadores solo entran por XML.</li>
+<li><strong>Ninguno de estos archivos lleva tu material ni tu canción.</strong> Son solo marcadores. El tema y los clips los pones tú después.</li>
+</ul>
+<h3>DaVinci Resolve — EDL</h3>
+<p>Resolve sabe importar marcadores desde un EDL, y es el más sencillo de los tres porque el formato es texto plano. Así se ven dos de las secciones de arriba:</p>
+<pre><code>TITLE: Dawn
+FCM: NON-DROP FRAME
+
+001  001      V     C        01:00:00:00 01:00:00:01 01:00:00:00 01:00:00:01  
+ |C:ResolveColorRed |M:Silence |D:475
+
+002  001      V     C        01:00:19:00 01:00:19:01 01:00:19:00 01:00:19:01  
+ |C:ResolveColorRose |M:Waking up |D:500
+</code></pre>
+<p><code>|M:</code> es el nombre del marcador, <code>|C:</code> su color y <code>|D:</code> su duración en fotogramas (19 segundos a 25 fps son 475).</p>
+<p>Para importarlo: en el <strong>Media Pool</strong>, clic derecho sobre tu línea de tiempo → <strong>Timelines → Import → Timeline Markers from EDL</strong>, y eliges el archivo.</p>
+<p>Tres cosas deciden si los marcadores llegan a verse:</p>
+<ul>
+<li><strong>El código de tiempo de inicio tiene que coincidir con el de tu línea de tiempo.</strong> Las de Resolve empiezan por defecto en <code>01:00:00:00</code>, y por eso el ejemplo también. Si la tuya empieza en <code>00:00:00:00</code>, el archivo tiene que empezar igual; si no, la importación «funciona» y no ves nada.</li>
+<li><strong>Los fotogramas por segundo del proyecto tienen que coincidir</strong> con los del archivo.</li>
+<li><strong>Solo ASCII.</strong> Las tildes y los símbolos se pierden al importar. «Canción» llega roto; «Cancion» llega bien.</li>
+</ul>
+<h3>Premiere Pro — XML</h3>
+<p>Premiere lee marcadores desde el XML de Final Cut 7, el mismo formato que escribe con <em>Archivo → Exportar → XML de Final Cut Pro</em>. No es algo que vayas a escribir a mano.</p>
+<p>Para importarlo: <strong>Archivo → Importar</strong> y eliges el <code>.xml</code>. Aparece una secuencia nueva en el panel Proyecto, con un clip de relleno que lleva los marcadores.</p>
+<p>A partir de ahí tienes dos opciones:</p>
+<ul>
+<li><strong>Montar en esa secuencia.</strong> Sueltas la canción y el material; los marcadores ya están.</li>
+<li><strong>Pasar los marcadores a tu secuencia.</strong> Activa <strong>Marcadores → Copiar y pegar incluye marcadores de secuencia</strong>, copia el clip de relleno, pégalo en tu secuencia y borra el clip. Los marcadores se quedan.</li>
+</ul>
+<h3>Final Cut Pro — FCPXML</h3>
+<p>Para importarlo: <strong>Archivo → Importar → XML</strong> y eliges el <code>.fcpxml</code>. Aparece un evento nuevo con un proyecto dentro: un hueco en silencio con la duración de la canción, que sostiene los marcadores. Las secciones llegan como marcadores de capítulo, los planos como marcadores estándar, y las notas se ven en el <strong>Índice de la línea de tiempo</strong>.</p>
+<p>Monta ahí, o copia el hueco a tu proyecto y construye encima.</p>
+<h2>Lo mismo en PreFrame</h2>
+<p>PreFrame es de donde sale esa lista de secciones: sueltas el tema, lo cortas en secciones sobre la forma de onda y pones cada plano en segundos reales. Exportar los marcadores es el último paso de planificar, no un trabajo aparte.</p>
+<p>En el editor, <strong>Export</strong> abre un único diálogo. En <em>Markers for your editor</em> eliges el editor y los fotogramas por segundo —24, 25 o 30— y escribe el archivo que ese editor entiende: <code>.edl</code> para Resolve, <code>.xml</code> para Premiere, <code>.fcpxml</code> para Final Cut.</p>
+<figure>
+<img src="/assets/guides/song-sections-to-markers/export-premiere.png" alt="El diálogo de exportación de PreFrame con Premiere seleccionado, 25 fps y los pasos de importación para Premiere escritos debajo." width="856" height="673" loading="lazy">
+<figcaption>Eliges editor y fotogramas por segundo. Los pasos de importación de ese editor están escritos ahí mismo.</figcaption>
+</figure>
+<p>Para Resolve hay una decisión más, y es la que pilla a todo el mundo: el código de tiempo de inicio de <em>tu</em> línea de tiempo.</p>
+<figure>
+<img src="/assets/guides/song-sections-to-markers/export-davinci.png" alt="El diálogo de exportación de PreFrame con DaVinci seleccionado, con las opciones de framerate y el inicio de timeline entre 01:00:00:00 y 00:00:00:00." width="856" height="776" loading="lazy">
+<figcaption>Resolve empieza por defecto en 01:00:00:00. Si tu línea de tiempo empieza en cero, se dice aquí.</figcaption>
+</figure>
+<p>Lo que va dentro del archivo:</p>
+<ul>
+<li><strong>Un marcador por sección</strong>, con su nombre y con el color de la sección allí donde el editor conserva colores.</li>
+<li><strong>Un marcador por plano</strong>, con el tipo de plano y tus notas en el comentario del marcador: en el montaje lees «Gran plano general, dron estático a 80 m» en el fotograma exacto para el que se pensó.</li>
+<li><strong>Un marcador por fotograma, siempre.</strong> Los editores solo admiten uno; si una sección y su primer plano empiezan en el mismo fotograma, se funden en un único marcador en lugar de que uno desaparezca sin avisar.</li>
+<li><strong>Texto limpio para Resolve</strong>: las tildes se quitan solas, porque Resolve las perdería igualmente.</li>
+</ul>
+<p>El mismo diálogo genera también el plan de rodaje: un PDF imprimible con cada plano, su código de tiempo y el tiempo que todavía no has cubierto. Planificar, rodar y montar leen los mismos segundos. Cómo funcionan la exportación y el bloqueo del audio está explicado en <a href="/es/support/">soporte</a>.</p>
+<h2>Antes de cerrar el editor</h2>
+<ul>
+<li>Comprueba el <strong>primer</strong> y el <strong>último</strong> marcador contra la música. Si el primero está bien y el último llega tarde, los fotogramas por segundo no coinciden. Si los dos fallan por lo mismo, la canción no está al principio de la línea de tiempo —o, en Resolve, el código de tiempo de inicio no coincide.</li>
+<li>Bloquea la pista de música cuando los marcadores cuadren. Todo lo que cortes a partir de aquí cuelga de esos puntos.</li>
+</ul>
+
+    </div>
+  </div>
+</section>
+</article><section class="canvas-dark band-tight guide-cta">
+  <div class="wrap wrap-narrow">
+    <span class="eyebrow eyebrow-d">Pruébalo</span>
+    <h2>Hazlo en PreFrame.</h2>
+    <p class="lede">Suelta el tema, córtalo en secciones y pon cada plano en segundos reales — o dibuja la curva si el tema todavía no existe. Tu primer proyecto es gratis y completo.</p>
+    <div class="cta-row">
+      <button type="button" class="btn btn-soon" disabled data-track="download_intent" data-track-detail="guide">
+        Descargar para macOS <span class="chip">Disponible el martes 22 de sept.</span>
+      </button>
+      <a href="/es/pricing/" class="btn btn-ghost-d">Cómo funcionan los precios</a>
+    </div>
+  </div>
+</section>
+<section class="canvas-soft band-tight">
+  <div class="wrap wrap-narrow">
+    <span class="eyebrow eyebrow-l">Más guías</span>
+    <ul class="guide-more">
+      <li><a href="/es/guides/plan-a-travel-film-to-music/">Cómo planificar un vídeo de viaje con música antes de rodar</a></li>
+      <li><a href="/es/guides/cut-a-song-into-sections/">Cómo partir una canción en secciones narrativas</a></li>
+      <li><a href="/es/guides/plan-pacing-with-an-emotional-curve/">La curva emocional: cómo planificar el ritmo de un vídeo o de tu corto antes de tener la música</a></li>
+      <li><a href="/es/guides/">Todas las guías →</a></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="canvas-dark site-footer">
+  <div class="wrap foot">
+    <div>
+      <a class="logo" href="/es/" style="margin-bottom:var(--space-3)">
+        <img class="logo-mark" src="/assets/mark.svg" alt="" aria-hidden="true" width="28" height="28">
+        <span data-brand="name">PreFrame</span>
+      </a>
+      <p class="meta mute-d">Preproducción para quien rueda siguiendo un ritmo.</p>
+      <p class="meta mute-d">© <span data-year>2026</span> <span data-brand="name">PreFrame</span></p>
+    </div>
+    <div class="foot-links">
+      <a href="/es/download/">Descargar</a>
+      <a href="/es/pricing/">Precios</a>
+      <a href="/es/support/">Soporte</a>
+      <a href="/es/guides/">Guías</a>
+      <a href="/es/releases/">Notas de versión</a>
+      <a href="/es/legal/terms/">Términos</a>
+      <a href="/es/legal/privacy/">Privacidad</a>
+      <a href="/es/legal/aviso-legal/">Aviso legal</a>
+      <a class="lang-switch" href="/guides/song-sections-to-markers/" hreflang="en" lang="en" aria-label="View this page in English">EN</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/brand.js"></script>
+<script src="/assets/site.js" defer></script>
+<script src="/assets/motion.js" defer></script>
+</body>
+</html>

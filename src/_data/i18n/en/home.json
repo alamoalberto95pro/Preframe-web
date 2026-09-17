@@ -195,6 +195,6 @@
   "closer": {
     "title": "Think in rhythm.<br>Think in <em class=\"closer-em\">emotion</em>.<br>Then shoot it.",
     "status": "Release status",
-    "req": "The signed macOS build is in notarization. Windows has no date yet."
+    "req": "Signed and notarized by Apple. The download opens on Tuesday, September 22. Windows has no date yet."
   }
 }

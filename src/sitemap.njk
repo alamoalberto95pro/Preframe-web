@@ -24,4 +24,22 @@ eleventyExcludeFromCollections: true
 {%- endfor %}
 {%- endif %}
 {%- endfor %}
+{#- Las guías (roadmap 17). Se recorre solo la versión EN de cada una: el slug
+    es el mismo en los dos idiomas, así que de ella salen las dos URLs y sus
+    hreflang, igual que arriba. -#}
+{%- for g in collections.guides %}
+{%- if g.data.lang == 'en' %}
+{%- for code, l in site.languages %}
+  <url>
+    <loc>{{ site.url }}{{ l.prefix }}/guides/{{ g.data.guide }}/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="{{ site.url }}{{ site.languages.en.prefix }}/guides/{{ g.data.guide }}/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="{{ site.url }}{{ site.languages.es.prefix }}/guides/{{ g.data.guide }}/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ site.languages.en.prefix }}/guides/{{ g.data.guide }}/"/>
+    <lastmod>{{ (g.data.updated or g.date) | isoDate }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+{%- endfor %}
+{%- endif %}
+{%- endfor %}
 </urlset>

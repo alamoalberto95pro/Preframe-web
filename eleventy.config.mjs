@@ -53,6 +53,8 @@ export default function (eleventyConfig) {
     }).format(date),
   );
   eleventyConfig.addFilter('isoDate', (date) => date.toISOString().slice(0, 10));
+  /* Con hora y zona: es lo que Google pide en `datePublished` del JSON-LD. */
+  eleventyConfig.addFilter('isoDateTime', (date) => date.toISOString().replace('.000Z', '+00:00'));
 
   /* En `--serve`, mirar solo lo que el build consume. */
   eleventyConfig.watchIgnores.add('node_modules/**');

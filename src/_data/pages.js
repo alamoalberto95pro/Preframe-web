@@ -18,6 +18,10 @@ module.exports = {
   pricing: { path: '/pricing/', changefreq: 'monthly', priority: '0.8', lastmod: '2026-08-07' },
   support: { path: '/support/', changefreq: 'monthly', priority: '0.6', lastmod: '2026-08-07' },
   releases: { path: '/releases/', changefreq: 'weekly', priority: '0.5', lastmod: '2026-08-07' },
+  /* /guides/ es el ÍNDICE de las guías (roadmap 17). Los artículos NO viven
+     aquí: son Markdown en src/{en,es}/guides/ y entran al sitemap por la
+     colección `guides`, cada uno con su fecha. */
+  guides: { path: '/guides/', changefreq: 'weekly', priority: '0.7', lastmod: '2026-09-17' },
   /* /beta/ es la página PRIVADA de descarga para los filmmakers de la
      beta: `noindex`, fuera del sitemap y sin un solo enlace entrante desde
      el sitio. Se llega solo por el enlace que pasa Alberto en privado.

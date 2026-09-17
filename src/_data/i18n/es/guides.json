@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "title": "Guías — PreFrame",
+    "description": "Guías prácticas para filmmakers que planifican con la música: partir una canción en secciones, poner cada plano en su segundo, dibujar la curva emocional y llevarlo todo a Premiere o DaVinci Resolve.",
+    "ogTitle": "Guías de PreFrame — planifica con la música",
+    "ogDescription": "Guías prácticas de preproducción para filmmakers que sienten la música primero."
+  },
+  "head": {
+    "eyebrow": "Guías",
+    "title": "Planifica con la música.",
+    "lede": "Guías cortas y prácticas para planificar un vídeo contra su tema — o contra la sensación, cuando el tema todavía no existe. Todas sirven con papel y boli; todas enseñan también cómo se hace en PreFrame."
+  },
+  "list": {
+    "empty": "Las primeras guías se están escribiendo. Vuelve pronto.",
+    "read": "Leer la guía",
+    "minutes": "min de lectura"
+  },
+  "article": {
+    "eyebrow": "Guías",
+    "by": "Por Alberto, que construye PreFrame",
+    "updated": "Actualizado",
+    "ctaEyebrow": "Pruébalo",
+    "ctaTitle": "Hazlo en PreFrame.",
+    "ctaBody": "Suelta el tema, córtalo en secciones y pon cada plano en segundos reales — o dibuja la curva si el tema todavía no existe. Tu primer proyecto es gratis y completo.",
+    "ctaPricing": "Cómo funcionan los precios",
+    "moreTitle": "Más guías",
+    "all": "Todas las guías"
+  }
+}

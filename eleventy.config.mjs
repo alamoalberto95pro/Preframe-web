@@ -30,6 +30,30 @@ export default function (eleventyConfig) {
   eleventyConfig.ignores.add('404.html');
   eleventyConfig.ignores.add('node_modules/**');
 
+  /* Las guías (roadmap 17): un Markdown por artículo e idioma en
+     src/{en,es}/guides/. La colección las junta en los dos idiomas; quien la
+     usa filtra por `lang`. Orden: `order` del front matter y, a igualdad, la
+     más reciente primero. */
+  eleventyConfig.addCollection('guides', (api) =>
+    api
+      .getFilteredByGlob('src/*/guides/*.md')
+      .sort(
+        (a, b) =>
+          (a.data.order ?? 99) - (b.data.order ?? 99) || b.date.getTime() - a.date.getTime(),
+      ),
+  );
+
+  /* Fecha legible de una guía, en su idioma. */
+  eleventyConfig.addFilter('guideDate', (date, lang) =>
+    new Intl.DateTimeFormat(lang === 'es' ? 'es-ES' : 'en-GB', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      timeZone: 'UTC',
+    }).format(date),
+  );
+  eleventyConfig.addFilter('isoDate', (date) => date.toISOString().slice(0, 10));
+
   /* En `--serve`, mirar solo lo que el build consume. */
   eleventyConfig.watchIgnores.add('node_modules/**');
 

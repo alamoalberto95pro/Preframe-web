@@ -2,6 +2,7 @@
   "skipLink": "Skip to content",
   "nav": {
     "aria": "Main",
+    "guides": "Guides",
     "pricing": "Pricing",
     "support": "Support",
     "cta": "Get PreFrame"
@@ -11,13 +12,14 @@
   },
   "buttons": {
     "downloadMac": "Download for macOS",
-    "comingSoon": "Coming soon"
+    "comingSoon": "Available Tuesday, Sept 22"
   },
   "footer": {
     "tagline": "Pre-production for people who shoot to a rhythm.",
     "download": "Download",
     "pricing": "Pricing",
     "support": "Support",
+    "guides": "Guides",
     "releases": "Release notes",
     "terms": "Terms",
     "privacy": "Privacy",

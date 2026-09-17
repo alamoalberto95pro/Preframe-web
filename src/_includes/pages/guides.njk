@@ -1,0 +1,43 @@
+{#- /guides/ — el índice de las guías. Una plantilla, dos idiomas.
+
+    La lista sale de la colección `guides` (eleventy.config.mjs), filtrada por
+    el idioma de la página. El copy del índice vive en el diccionario
+    `guides`; el título y la descripción de cada tarjeta, en el front matter
+    de su Markdown — que es donde vive toda la prosa de una guía. -#}
+<section class="canvas-dark page-head">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-d">{{ C.head.eyebrow | safe }}</span>
+    <h1>{{ C.head.title | safe }}</h1>
+    <p class="lede">
+      {{ C.head.lede | safe }}
+    </p>
+  </div>
+</section>
+
+<section class="canvas-light band-tight">
+  <div class="wrap">
+    {%- set mine = [] %}
+    {%- for g in collections.guides %}{% if g.data.lang == lang %}{% set mine = (mine.push(g), mine) %}{% endif %}{% endfor %}
+    {%- if mine | length %}
+    <ul class="guide-list">
+      {%- for g in mine %}
+      <li>
+        <a class="guide-card" href="{{ g.url }}">
+          {%- if g.data.image %}
+          <img src="{{ g.data.image }}" alt="" loading="lazy" width="1200" height="630">
+          {%- endif %}
+          <span class="guide-card-body">
+            <span class="meta guide-card-meta">{{ g.date | guideDate(lang) }}{% if g.data.minutes %} · {{ g.data.minutes }} {{ C.list.minutes | safe }}{% endif %}</span>
+            <strong class="guide-card-title">{{ g.data.title | safe }}</strong>
+            <span class="guide-card-desc">{{ g.data.description | safe }}</span>
+            <span class="guide-card-go">{{ C.list.read | safe }} →</span>
+          </span>
+        </a>
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- else %}
+    <p class="lede" style="color:var(--text-on-light-secondary)">{{ C.list.empty | safe }}</p>
+    {%- endif %}
+  </div>
+</section>

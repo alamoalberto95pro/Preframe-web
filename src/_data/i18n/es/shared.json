@@ -2,6 +2,7 @@
   "skipLink": "Saltar al contenido",
   "nav": {
     "aria": "Principal",
+    "guides": "Guías",
     "pricing": "Precios",
     "support": "Soporte",
     "cta": "Consigue PreFrame"
@@ -11,13 +12,14 @@
   },
   "buttons": {
     "downloadMac": "Descargar para macOS",
-    "comingSoon": "Próximamente"
+    "comingSoon": "Disponible el martes 22 de sept."
   },
   "footer": {
     "tagline": "Preproducción para quien rueda siguiendo un ritmo.",
     "download": "Descargar",
     "pricing": "Precios",
     "support": "Soporte",
+    "guides": "Guías",
     "releases": "Notas de versión",
     "terms": "Términos",
     "privacy": "Privacidad",

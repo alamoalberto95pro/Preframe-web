@@ -1,0 +1,12 @@
+Section,Section starts,Section ends,Shot #,Shot,Type,Camera / lens,On screen (s),Starts at,Ends at,Location,Best light,Shot?,Notes
+Silence,0:00,0:19,1,Window in the dark,Detail,Main camera · 85mm,10,0:00,0:10,Old town,Blue hour,,Very slow fade in. No movement.
+Silence,0:00,0:19,2,Sleeping skyline,Extreme wide,Drone,9,0:10,0:19,Viewpoint,Blue hour,,Static. The sky just starting to lighten.
+Waking up,0:19,0:39,3,,,,,0:19,,,,,
+Waking up,0:19,0:39,4,,,,,,,,,,
+The run,0:39,1:00,5,,,,,0:39,,,,,
+,,,,,,,,,,,,,
+HOW TO USE,,,,,,,,,,,,,
+1. One row per shot. Fill Section / Section starts / Section ends from your song first.,,,,,,,,,,,,,
+2. Starts at = where the previous shot ends. Ends at = Starts at + On screen.,,,,,,,,,,,,,
+3. The last Ends at of a section must reach Section ends. If it doesn't you have uncovered time: add a shot or stretch one.,,,,,,,,,,,,,
+4. On location tick Shot? as you go. Anything unticked at the end of the day is a hole in your edit.,,,,,,,,,,,,,

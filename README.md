@@ -41,6 +41,7 @@ src/_includes/pages/            UNA plantilla de contenido por página,
                                 compartida entre los dos idiomas
 src/en/*.njk, src/es/*.njk      stubs finos: clave de página + permalink
 src/sitemap.njk                 el sitemap, con los hreflang cruzados
+src/{en,es}/guides/*.md         las guías — ver «Guías» más abajo
 ```
 
 Regenerar:
@@ -120,6 +121,48 @@ alguna captura, actualizar `width`/`height` del `<img>` en
 `src/_data/i18n/{en,es}/home.json`.
 
 Los `photo-*.webp` son fotos de stock, sin interfaz: no hay que tocarlas.
+
+## Guías (`/guides/`)
+
+Artículos de oficio para buscadores (roadmap 17): enseñan a planificar contra
+la música y muestran cómo se hace en PreFrame. Son lo único del sitio cuya
+prosa NO sale de los diccionarios: como las legales, el texto difiere entero
+por idioma, así que cada guía es **un Markdown por idioma**.
+
+```
+src/en/guides/<slug>.md      →  /guides/<slug>/
+src/es/guides/<slug>.md      →  /es/guides/<slug>/
+assets/guides/<slug>/        capturas y `og.png` de esa guía
+src/_includes/layouts/article.njk   el layout (se encadena a base.njk)
+src/_includes/pages/guides.njk      el índice
+src/_data/i18n/{en,es}/guides.json  copy común: índice, byline, cierre
+```
+
+Front matter de una guía:
+
+```yaml
+guide: song-sections-to-markers   # slug, EL MISMO en los dos idiomas
+title: "…"                        # <h1> y <title>
+description: "…"                  # entradilla y meta description
+date: 2026-09-17
+updated: 2026-10-02               # opcional
+minutes: 6
+image: /assets/guides/song-sections-to-markers/og.png   # 1200×630
+order: 1                          # opcional: posición en el índice
+```
+
+- **El slug es el mismo en EN y ES.** De él salen la URL, el `hreflang` y el
+  conmutador de idioma, anteponiendo `/es` como en el resto del sitio.
+- `title` y `description` son fragmentos de HTML, como los valores de los
+  diccionarios: un `&` se escribe `&amp;`.
+- Las guías entran solas en el índice, en «más guías» y en `sitemap.xml`. No
+  hay borradores: lo que está en `develop` se ve en local; lo que se sube,
+  se publica.
+- **Estilo:** problema → método que sirve sin la app → el mismo método en
+  PreFrame, con capturas reales → algo descargable → cierre. La guía enseña
+  oficio; cómo funciona la app se explica en `/support/` y aquí se enlaza.
+- **Capturas siempre en inglés**, en los dos idiomas, recortadas por elemento
+  (`<figure><img …><figcaption>…</figcaption></figure>`).
 
 ## Estructura
 

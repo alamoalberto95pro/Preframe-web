@@ -74,6 +74,17 @@
 
   var HIT_ENDPOINT = 'https://hit.preframe-app.com';
 
+  /* Opt-out del dueño (18-sept-2026): si este navegador tiene la marca
+     `preframe_ignore` — puesta A MANO por Alberto en la consola, jamás
+     escrita por el sitio — aquí no se mide nada. Solo se LEE: no se
+     almacena nada en ningún visitante, así que la promesa del §6 («ni
+     cookies ni almacenamiento») sigue entera. Es el patrón estándar de
+     autoexclusión de Plausible/Umami. */
+  var ignoreAnalytics = false;
+  try {
+    ignoreAnalytics = localStorage.getItem('preframe_ignore') === '1';
+  } catch (e) { /* storage bloqueado: se mide con normalidad */ }
+
   /* (f4) La campaña de origen viaja en el enlace (?utm_source=tiktok…):
      se captura aquí y acompaña a todos los eventos de esta página. Es un
      dato del enlace, no de la persona. */
@@ -85,6 +96,7 @@
   } catch (e) { /* URLSearchParams siempre está; por si acaso */ }
 
   function beacon(type, extra) {
+    if (ignoreAnalytics) return;
     try {
       var payload = {
         type: type,
